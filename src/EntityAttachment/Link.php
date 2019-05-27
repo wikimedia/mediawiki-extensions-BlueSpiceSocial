@@ -1,0 +1,73 @@
+<?php
+/**
+ *
+ * Part of BlueSpice MediaWiki
+ *
+ * @author     Patric Wirth <wirth@hallowelt.com>
+ * @package    BlueSpiceSocial
+ * @subpackage BlueSpiceSocial
+ * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+ */
+namespace BlueSpice\Social\EntityAttachment;
+
+use Html;
+use BlueSpice\Services;
+use BlueSpice\Social\EntityAttachment;
+use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
+use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
+
+/**
+ * This view renders the a single item.
+ * @package BlueSpiceSocial
+ * @subpackage BlueSpiceSocial
+ */
+class Link extends EntityAttachment {
+	protected $sType = 'link';
+
+	public function getTemplateName() {
+		return 'BlueSpiceSocial.Entity.attachment.Default';
+	}
+
+	/**
+	 * Default given attachment data is an array with params
+	 * Overwrite this in your Attachment class
+	 * @return array
+	 */
+	public function getArgs() {
+		if( !$this->mAttachment instanceof \Title ) {
+			return [];
+		}
+
+		$this->aArgs['class'] = 'bs-social-entityattachment-link breakheight';
+		$this->aArgs['link'] = $this->mAttachment->getFullUrl();
+		$this->aArgs['title'] = $this->mAttachment->getFullText();
+
+		$this->aArgs['content'] = Html::rawElement( 'img', [
+			'src' => $this->getThumb(),
+			'title' => $this->mAttachment->getText(),
+			'alt' => $this->mAttachment->getText(),
+			],
+			$this->aArgs['content']
+		);
+		$this->aArgs['content'] .= Html::element(
+			'p',
+			[ 'class' => 'attachment-name' ],
+			$this->mAttachment->getText()
+		);
+		return $this->aArgs;
+	}
+
+	protected function getThumb() {
+		$params = [
+			DFDParams::MODULE => 'articlepreviewimage',
+			ArticlePreviewImage::WIDTH => 100,
+			ArticlePreviewImage::TITLETEXT => $this->mAttachment->getFullText(),
+		];
+		$dfdUrlBuilder = Services::getInstance()
+			->getBSDynamicFileDispatcherUrlBuilder();
+		return $dfdUrlBuilder->build(
+			new DFDParams( $params )
+		);
+	}
+}

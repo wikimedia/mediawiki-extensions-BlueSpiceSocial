@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * Action class for BlueSpiceSocial
+ *
+ * add desc
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ * This file is part of BlueSpice MediaWiki
+ * For further information visit http://bluespice.com
+ *
+ * @author     Patric Wirth <wirth@hallowelt.com>
+ * @package    BlueSpiceSocial
+ * @subpackage BlueSpiceSocial
+ * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @filesource
+ */
+namespace BlueSpice\Social\Entity;
+use BlueSpice\Social\Entity;
+use BlueSpice\Services;
+
+/**
+ * Action class for BlueSpiceSocial extension
+ * @package BlueSpiceSocial
+ * @subpackage BlueSpiceSocial
+ */
+abstract class Action extends Entity {
+	const ATTR_ACTION = 'action';
+	const ATTR_SUMMARY = 'summary';
+
+	/**
+	 * Returns the action attribute
+	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
+	 * @return string
+	 */
+	public function getAction() {
+		wfDeprecated( __METHOD__, '3.0.0' );
+		return $this->get( static::ATTR_ACTION, 'create' );
+	}
+
+	/**
+	 * Returns the summary attribute
+	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
+	 * @return string
+	 */
+	public function getSummary() {
+		wfDeprecated( __METHOD__, '3.0.0' );
+		return $this->get( static::ATTR_SUMMARY, '' );
+	}
+
+	/**
+	 * Sets the action attribute
+	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
+	 * @param string $sAction
+	 * @return Action
+	 */
+	public function setAction( $sAction ) {
+		wfDeprecated( __METHOD__, '3.0.0' );
+		return $this->set( static::ATTR_ACTION, $sAction );
+	}
+
+	/**
+	 * Sets the summary attribute
+	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
+	 * @param string $sSummary
+	 * @return Action
+	 */
+	public function setSummary( $sSummary ) {
+		wfDeprecated( __METHOD__, '3.0.0' );
+		return $this->set( static::ATTR_SUMMARY, $sSummary );
+	}
+
+	public function getParsedText( $bForceInvalidateFirst = false ) {
+		//Make sure, the action text content does not get parsed
+		//(possible tag injection)!
+		$sText = strip_tags( $this->get( static::ATTR_SUMMARY, '' ) );
+		return "<nowiki>$sText</nowiki>";
+	}
+
+	public function getFullData( $a = array() ) {
+		return parent::getFullData( array_merge(
+			$a,
+			array(
+				static::ATTR_ACTION => $this->get( static::ATTR_ACTION, 'create' ),
+				static::ATTR_SUMMARY => $this->get( static::ATTR_SUMMARY, '' ),
+			)
+		));
+	}
+
+	public function setValuesByObject( \stdClass $o ) {
+		if( isset( $o->{static::ATTR_ACTION} ) ) {
+			$this->set( static::ATTR_ACTION, $o->{static::ATTR_ACTION} );
+		}
+		if( isset( $o->{static::ATTR_SUMMARY} ) ) {
+			$this->set( static::ATTR_SUMMARY, $o->{static::ATTR_SUMMARY} );
+		}
+		parent::setValuesByObject( $o );
+	}
+
+	public function save( \User $user = null, $options = [] ) {
+		//always use the maintenance user for auto-created entities to prevent
+		//unrealistic edit statistics for users
+		$user = Services::getInstance()->getBSUtilityFactory()
+			->getMaintenanceUser()->getUser();
+		if( empty( $this->get( static::ATTR_ACTION ) ) ) {
+			return \Status::newFatal( wfMessage(
+				'bs-social-entity-fatalstatus-save-emptyfield',
+				$this->getVarMessage( static::ATTR_ACTION )->plain()
+			));
+		}
+		return parent::save( $user, $options );
+	}
+}
