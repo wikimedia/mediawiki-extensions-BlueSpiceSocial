@@ -85,6 +85,10 @@
 			},
 			"TaskRegistry": {
 				"social-entitylist-reload": "\\BlueSpice\\Social\\Task\\EntityList\\Reload::factory"
+			},
+			"PermissionLockdownRegistry": {
+				"social-sourcetitle": "\\BlueSpice\\Social\\Permission\\Lockdown\\Module\\SourceTitle::getInstance",
+				"social-readpermissioncheckhandover": "\\BlueSpice\\Social\\Permission\\Lockdown\\Module\\ReadPermissionCheckHandOver::getInstance"
 			}
 		},
 		"BlueSpiceExtendedSearch": {
@@ -322,7 +326,6 @@
 		"remoteExtPath": "BlueSpiceSocial/resources"
 	},
 	"Hooks": {
-		"userCan": "\\BlueSpice\\Social\\Hook\\UserCan\\SourceTitlePermissionCheckHandOver::callback",
 		"BeforePageDisplay": [
 			"\\BlueSpice\\Social\\Hook\\BeforePageDisplay\\AddResources::callback",
 			"\\BlueSpice\\Social\\Hook\\BeforePageDisplay\\EntitySpawnerUserPermissions::callback",
