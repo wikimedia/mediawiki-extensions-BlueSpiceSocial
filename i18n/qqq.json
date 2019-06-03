@@ -71,5 +71,6 @@
 	"bs-social-renderer-timestampprefix-touched": "Prefix for when an entry was last touched date display.\n{{Identical|Edited}}",
 	"bs-social-filter-button-tooltip": "Label for a button that opens a menu for setting filters",
 	"bs-social-sort-button-tooltip": "Label for a button that opens a menu to set sorting",
-	"bs-social-entityspawner-button-tooltip": "Label for a button that opens a menu to create new social entities"
+	"bs-social-entityspawner-button-tooltip": "Label for a button that opens a menu to create new social entities",
+	"bs-social-sourcetitle-lockdown-reason-reason": "Used to describe that the requested permission for this page is only available for administrators, because social entities should not be edited directly.\n* $1 - Name of the requested action\n"
 }

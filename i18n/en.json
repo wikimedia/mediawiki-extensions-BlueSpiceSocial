@@ -71,5 +71,6 @@
 	"bs-social-renderer-timestampprefix-touched": "Edited",
 	"bs-social-filter-button-tooltip": "Show filter options",
 	"bs-social-sort-button-tooltip": "Show sort options",
-	"bs-social-entityspawner-button-tooltip": "Create new"
+	"bs-social-entityspawner-button-tooltip": "Create new",
+	"bs-social-sourcetitle-lockdown-reason-reason": "The action $1 can only be performed by administrators, because this entries should not be edited directly."
 }
