@@ -2,12 +2,14 @@
 
 namespace BlueSpice\Social;
 
+use IContextSource;
+use Config;
+use User;
 use BlueSpice\Services;
+use BlueSpice\Data\FieldType;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Date;
 use BlueSpice\Data\Sort;
-use BlueSpice\Social\EntityConfig;
-use BlueSpice\Social\Entity;
 use BlueSpice\Social\Data\Entity\Schema;
 
 class EntityListContext extends \BlueSpice\Context implements IEntityListContext {
@@ -24,7 +26,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @var \User
+	 * @var User
 	 */
 	protected $user = null;
 
@@ -39,16 +41,17 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 * @return EntityConfig[]
 	 */
 	protected function getEntityConfigs() {
-		if( $this->entityConfigs ) {
+		if ( $this->entityConfigs ) {
 			return $this->entityConfigs;
 		}
 		$this->entityConfigs = [];
 		$factory = $this->getEntityConfigFactory();
-		foreach( $this->getEntityRegistry()->getTypes() as $type ) {
-			if( !$config = $factory->newFromType( $type ) ) {
+		foreach ( $this->getEntityRegistry()->getTypes() as $type ) {
+			$config = $factory->newFromType( $type );
+			if ( !$config ) {
 				continue;
 			}
-			if( !$config instanceof EntityConfig ) {
+			if ( !$config instanceof EntityConfig ) {
 				continue;
 			}
 			$this->entityConfigs[$type] = $config;
@@ -58,10 +61,13 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @param \Config $config
+	 * @param IContextSource $context
+	 * @param Config $config
+	 * @param User|null $user
+	 * @param Entity|null $entity
 	 */
-	public function __construct( \IContextSource $context, \Config $config, \User $user = null, Entity $entity = null ) {
+	public function __construct( IContextSource $context, Config $config,
+		User $user = null, Entity $entity = null ) {
 		$this->context = $context;
 		$this->config = $config;
 		$this->user = $user;
@@ -69,7 +75,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	}
 
 	/**
-	 * 
+	 *
 	 * @return Schema
 	 */
 	public function getSchema() {
@@ -113,10 +119,10 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 * @return array
 	 */
 	public function getSort() {
-		return [ (object) [
+		return [ (object)[
 			'property' => $this->getSortProperty(),
 			'direction' => $this->getSortDirection()
-		]];
+		] ];
 	}
 
 	/**
@@ -141,8 +147,8 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	public function getAllowedTypes() {
 		$entityTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( static::CONFIG_NAME_TYPE_ALLOWED ) ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( static::CONFIG_NAME_TYPE_ALLOWED ) ) {
 				$entityTypes[] = $type;
 			}
 		}
@@ -157,7 +163,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 		$allowedTypes = $this->getAllowedTypes();
 		$allTypes = array_keys( $this->getEntityConfigs() );
 		$selectedTypes = $this->getSelectedTypes();
-		if( empty( $selectedTypes ) ) {
+		if ( empty( $selectedTypes ) ) {
 			$selectedTypes = $allowedTypes;
 		}
 
@@ -166,7 +172,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 			ListValue::KEY_PROPERTY => Entity::ATTR_TYPE,
 			ListValue::KEY_VALUE => array_values( $types ),
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
-			ListValue::KEY_TYPE => \BlueSpice\Data\FieldType::LISTVALUE
+			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];
 	}
 
@@ -179,18 +185,18 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 			ListValue::KEY_PROPERTY => Entity::ATTR_TIMESTAMP_CREATED,
 			ListValue::KEY_VALUE => wfTimestampNow(),
 			ListValue::KEY_COMPARISON => Date::COMPARISON_LOWER_THAN,
-			ListValue::KEY_TYPE => \BlueSpice\Data\FieldType::DATE
+			ListValue::KEY_TYPE => FieldType::DATE
 		];
 	}
 
 	/**
-	 * 
+	 *
 	 * @return array
 	 */
 	protected function getSelectedTypes() {
 		$entityTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( static::CONFIG_NAME_TYPE_SELECTED ) ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( static::CONFIG_NAME_TYPE_SELECTED ) ) {
 				$entityTypes[] = $type;
 			}
 		}
@@ -204,11 +210,11 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	public function getFilters() {
 		$filters = [];
 		$typeFilter = $this->getTypeFilter();
-		if( $typeFilter ) {
+		if ( $typeFilter ) {
 			$filters[] = $typeFilter;
 		}
 		$timestampCreatedFilter = $this->getTimestampCreatedFilter();
-		if( $timestampCreatedFilter ) {
+		if ( $timestampCreatedFilter ) {
 			$filters[] = $timestampCreatedFilter;
 		}
 
@@ -221,14 +227,14 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	public function getEntityTypes() {
 		$entityTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( static::CONFIG_NAME_TYPE_ALLOWED ) ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( static::CONFIG_NAME_TYPE_ALLOWED ) ) {
 				$entityTypes[$type] = $config->get(
 					static::CONFIG_NAME_TYPE_ALLOWED
 				);
 				continue;
 			}
-			if( $config->get( self::CONFIG_NAME_TYPE_ALLOWED ) ) {
+			if ( $config->get( self::CONFIG_NAME_TYPE_ALLOWED ) ) {
 				$entityTypes[$type] = $config->get(
 					self::CONFIG_NAME_TYPE_ALLOWED
 				);
@@ -275,14 +281,14 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	public function getOutputTypes() {
 		$outputTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( static::CONFIG_NAME_OUTPUT_TYPE ) ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( static::CONFIG_NAME_OUTPUT_TYPE ) ) {
 				$outputTypes[$type] = $config->get(
 					static::CONFIG_NAME_OUTPUT_TYPE
 				);
 				continue;
 			}
-			if( $config->get( self::CONFIG_NAME_OUTPUT_TYPE ) ) {
+			if ( $config->get( self::CONFIG_NAME_OUTPUT_TYPE ) ) {
 				$outputTypes[$type] = $config->get(
 					self::CONFIG_NAME_OUTPUT_TYPE
 				);
@@ -299,14 +305,14 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	public function getPreloadTitles() {
 		$preloadTitleTypes = [];
-		foreach( $this->getEntityConfigs() as $type => $config ) {
-			if( $config->get( static::CONFIG_NAME_PRELOAD_TITLE ) ) {
+		foreach ( $this->getEntityConfigs() as $type => $config ) {
+			if ( $config->get( static::CONFIG_NAME_PRELOAD_TITLE ) ) {
 				$outputTypes[$type] = $config->get(
 					static::CONFIG_NAME_PRELOAD_TITLE
 				);
 				continue;
 			}
-			if( $config->get( self::CONFIG_NAME_PRELOAD_TITLE ) ) {
+			if ( $config->get( self::CONFIG_NAME_PRELOAD_TITLE ) ) {
 				$outputTypes[$type] = $config->get(
 					self::CONFIG_NAME_PRELOAD_TITLE
 				);
@@ -319,7 +325,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showEntityListMenu() {
 		return true;
@@ -327,7 +333,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showEntitySpawner() {
 		return true;
@@ -335,7 +341,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showEntityListMore() {
 		return !$this->useEndlessScroll();
@@ -343,7 +349,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showHeadline() {
 		return false;
@@ -351,7 +357,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function useEndlessScroll() {
 		return true;
@@ -359,7 +365,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function useMoreScroll() {
 		return true;
@@ -386,10 +392,10 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 *
-	 * @return \User
+	 * @return User
 	 */
 	public function getUser() {
-		if( $this->user ) {
+		if ( $this->user ) {
 			return $this->user;
 		}
 		return parent::getUser();
@@ -423,7 +429,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 
 	/**
 	 * Should settings state be persisted
-	 * @return boolean
+	 * @return bool
 	 */
 	public function getPersistSettings() {
 		return false;

@@ -26,11 +26,19 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use RequestContext;
+use Status;
+use User;
+use Title;
+use ParserOptions;
+use ParserOutput;
 use BlueSpice\Social\Entity;
+use BsPageContentProvider;
 
 /**
  * Text class for BlueSpiceSocial extension
@@ -48,9 +56,10 @@ class Text extends Entity {
 
 	/**
 	 * Gets the BSSociaEntityText attributes formated for the api
+	 * @param array $a
 	 * @return object
 	 */
-	public function getFullData( $a = array() ) {
+	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
 			[
@@ -67,53 +76,59 @@ class Text extends Entity {
 					[]
 				),
 			]
-		));
+		) );
 	}
 
+	/**
+	 *
+	 * @param string $attrName
+	 * @param mixed|null $default
+	 * @return mixed
+	 */
 	public function get( $attrName, $default = null ) {
-		if( $attrName === static::ATTR_TEXT && empty( parent::get( $attrName, '' ) ) ) {
-			if( empty( $this->get( static::ATTR_PRELOAD, '' ) ) ) {
+		if ( $attrName === static::ATTR_TEXT && empty( parent::get( $attrName, '' ) ) ) {
+			if ( empty( $this->get( static::ATTR_PRELOAD, '' ) ) ) {
 				return parent::get( $attrName, '' );
 			}
-			$title = \Title::newFromText(
+			$title = Title::newFromText(
 				$this->get( static::ATTR_PRELOAD, '' )
 			);
-			if( !$title || !$title->exists() || !$title->userCan( 'read' ) ) {
+			if ( !$title || !$title->exists() || !$title->userCan( 'read' ) ) {
 				return parent::get( $attrName, '' );
 			}
-			return \BsPageContentProvider::getInstance()->getWikiTextContentFor(
+			return BsPageContentProvider::getInstance()->getWikiTextContentFor(
 				$title
 			);
 		}
 
-		if( $attrName === static::ATTR_PARSED_TEXT ) {
-			if( empty( $this->get( static::ATTR_TEXT, '' ) ) ) {
+		if ( $attrName === static::ATTR_PARSED_TEXT ) {
+			if ( empty( $this->get( static::ATTR_TEXT, '' ) ) ) {
 				return '';
 			}
-			if( empty( $this->attributes[static::ATTR_PARSED_TEXT] ) ) {
+			if ( empty( $this->attributes[static::ATTR_PARSED_TEXT] ) ) {
 				$this->attributes[static::ATTR_PARSED_TEXT]
 					= $this->getParserOutput()->getText( [
 						'enableSectionEditLinks' => false,
 						'allowTOC' => false,
-					]);
+					] );
 			}
 		}
 
-		if( $attrName === static::ATTR_ATTACHMENTS ) {
+		if ( $attrName === static::ATTR_ATTACHMENTS ) {
 			$availableAttachments = $this->getConfig()->get(
 				'AvailableAttachments'
 			);
-			if( empty( $availableAttachments ) ) {
+			if ( empty( $availableAttachments ) ) {
 				return $default;
 			}
-			if( empty( $this->attributes[static::ATTR_ATTACHMENTS] ) ) {
+			if ( empty( $this->attributes[static::ATTR_ATTACHMENTS] ) ) {
 				$this->attributes[static::ATTR_ATTACHMENTS] = [];
-				//TODO: Attachment handler class
-				if( in_array( 'images', $availableAttachments ) ) {
+				// TODO: Attachment handler class
+				if ( in_array( 'images', $availableAttachments ) ) {
 					$this->attributes[static::ATTR_ATTACHMENTS]['images']
 						= $this->getAttachmentImages();
 				}
-				if( in_array( 'links', $availableAttachments ) ) {
+				if ( in_array( 'links', $availableAttachments ) ) {
 					$this->attributes[static::ATTR_ATTACHMENTS]['links']
 						= $this->getAttachmentLinks();
 				}
@@ -170,12 +185,12 @@ class Text extends Entity {
 	 */
 	protected function getAttachmentLinks() {
 		$links = [];
-		if( empty( $this->getParserOutput()->getLinks()[0] ) ) {
+		if ( empty( $this->getParserOutput()->getLinks()[0] ) ) {
 			return $links;
 		}
-		foreach( $this->getParserOutput()->getLinks() as $maybeSection ) {
-			//make own loop, because there is some weired reference stuff going on!
-			foreach( $maybeSection as $name => $id ) {
+		foreach ( $this->getParserOutput()->getLinks() as $maybeSection ) {
+			// make own loop, because there is some weired reference stuff going on!
+			foreach ( $maybeSection as $name => $id ) {
 				$links[] = $name;
 			}
 		}
@@ -183,10 +198,10 @@ class Text extends Entity {
 	}
 
 	/**
-	 * @return \ParserOutput
+	 * @return ParserOutput
 	 */
 	public function getParserOutput() {
-		if( isset($this->oParserOutput) && !is_null($this->oParserOutput) ) {
+		if ( isset( $this->oParserOutput ) && !is_null( $this->oParserOutput ) ) {
 			return $this->oParserOutput;
 		}
 
@@ -204,8 +219,8 @@ class Text extends Entity {
 	 * @return ParserOptions
 	 */
 	public function getParserOptions() {
-		$oUser = \RequestContext::getMain()->getUser();
-		return \ParserOptions::newFromUser( $oUser );
+		$oUser = RequestContext::getMain()->getUser();
+		return ParserOptions::newFromUser( $oUser );
 	}
 
 	/**
@@ -219,29 +234,39 @@ class Text extends Entity {
 		$this->set( static::ATTR_TEXT, $sText );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_TEXT} ) ) {
+		if ( isset( $o->{static::ATTR_TEXT} ) ) {
 			$this->set( static::ATTR_TEXT, $o->{static::ATTR_TEXT} );
 		}
 		parent::setValuesByObject( $o );
 	}
 
-	public function save( \User $oUser = null, $aOptions = array() ) {
-		if( empty( $this->get( static::ATTR_TEXT, '' ) ) ) {
-			return \Status::newFatal( wfMessage(
+	/**
+	 *
+	 * @param User|null $oUser
+	 * @param array $aOptions
+	 * @return Status
+	 */
+	public function save( User $oUser = null, $aOptions = [] ) {
+		if ( empty( $this->get( static::ATTR_TEXT, '' ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_TEXT )->plain()
-			));
+			) );
 		}
 		return parent::save( $oUser, $aOptions );
 	}
 
 	public function invalidateCache() {
 		$this->oParserOutput = null;
-		if( isset( $this->attributes[static::ATTR_ATTACHMENTS] ) ) {
+		if ( isset( $this->attributes[static::ATTR_ATTACHMENTS] ) ) {
 			unset( $this->attributes[static::ATTR_ATTACHMENTS] );
 		}
-		if( isset( $this->attributes[static::ATTR_PARSED_TEXT] ) ) {
+		if ( isset( $this->attributes[static::ATTR_PARSED_TEXT] ) ) {
 			unset( $this->attributes[static::ATTR_PARSED_TEXT] );
 		}
 		return parent::invalidateCache();

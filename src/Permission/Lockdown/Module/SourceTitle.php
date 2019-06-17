@@ -26,10 +26,10 @@ class SourceTitle extends \BlueSpice\Permission\Lockdown\Module {
 	 * @return bool
 	 */
 	public function mustLockdown( Title $title, User $user, $action ) {
-		if( $action === 'read' ) {
+		if ( $action === 'read' ) {
 			return false;
 		}
-		//No one should be able to modify this articles besides a sysop
+		// No one should be able to modify this articles besides a sysop
 		return $action !== 'wikiadmin' && !$user->isAllowed( 'wikiadmin' );
 	}
 

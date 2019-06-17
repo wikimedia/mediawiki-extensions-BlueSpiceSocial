@@ -15,6 +15,11 @@ class SocialNotification extends BaseNotification {
 	 * @var string
 	 */
 	protected $key;
+
+	/**
+	 *
+	 * @var string
+	 */
 	protected $action;
 
 	/**
@@ -22,6 +27,11 @@ class SocialNotification extends BaseNotification {
 	 * @var \User
 	 */
 	protected $user;
+
+	/**
+	 *
+	 * @var string
+	 */
 	protected $realname;
 
 	/**
@@ -30,9 +40,21 @@ class SocialNotification extends BaseNotification {
 	 */
 	protected $entity;
 
+	/**
+	 *
+	 * @var bool
+	 */
 	protected $notifyAll = false;
-	
-	public function __construct( $key, SocialEntity $entity, \User $agent, $action = self::ACTION_EDIT ) {
+
+	/**
+	 *
+	 * @param string $key
+	 * @param SocialEntity $entity
+	 * @param \User $agent
+	 * @param string $action
+	 */
+	public function __construct( $key, SocialEntity $entity, \User $agent,
+		$action = self::ACTION_EDIT ) {
 		$this->key = $key;
 		$this->entity = $entity;
 		$this->user = $agent;
@@ -44,28 +66,52 @@ class SocialNotification extends BaseNotification {
 		$this->realname = $realname;
 	}
 
+	/**
+	 *
+	 * @param bool $value
+	 */
 	public function setNotifyAll( $value = true ) {
 		$this->notifyAll = $value;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getAudience() {
 		return $this->getUsersWatching();
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getKey() {
 		return $this->key . '-' . $this->action;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getParams() {
 		return [
-			'entitytype' => wfMessage( $this->entity->getConfig()->get( 'TypeMessageKey' ) )->plain(),
+			'entitytype' => wfMessage(
+				$this->entity->getConfig()->get( 'TypeMessageKey' )
+			)->plain(),
 			'realname' => $this->realname,
-			'primary-link-label' => wfMessage( 'bs-social-notification-primary-link-label' )->plain(),
-			//Todo: Find better way to diferentiate between social notifs and other
+			'primary-link-label' => wfMessage(
+				'bs-social-notification-primary-link-label'
+			)->plain(),
+			// Todo: Find better way to diferentiate between social notifs and other
 			'social-notification' => true
 		];
 	}
 
+	/**
+	 *
+	 * @return \User
+	 */
 	public function getUser() {
 		return $this->user;
 	}
@@ -79,9 +125,13 @@ class SocialNotification extends BaseNotification {
 		return $this->entity;
 	}
 
+	/**
+	 *
+	 * @return \Title|null
+	 */
 	public function getTitle() {
 		$title = $this->entity->getTitle();
-		if( $title instanceof \Title && $title->exists() ) {
+		if ( $title instanceof \Title && $title->exists() ) {
 			return $title;
 		}
 		return null;
@@ -96,7 +146,7 @@ class SocialNotification extends BaseNotification {
 		$users = [];
 
 		$title = $this->getWatchedTitle();
-		if( !$title instanceof \Title || !$title->exists() ) {
+		if ( !$title instanceof \Title || !$title->exists() ) {
 			return $users;
 		}
 
@@ -104,14 +154,14 @@ class SocialNotification extends BaseNotification {
 
 		$res = $this->runQuery( $title );
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$user = \User::newFromId( $row->$userIdProperty );
-			if( $user instanceof \User ) {
-				if( in_array( $user->getId(), $this->getUserIdsToSkip() ) ) {
+			if ( $user instanceof \User ) {
+				if ( in_array( $user->getId(), $this->getUserIdsToSkip() ) ) {
 					continue;
 				}
 
-				if( $title->userCan( 'read', $user ) == false ) {
+				if ( $title->userCan( 'read', $user ) == false ) {
 					continue;
 				}
 				$users[] = $user->getId();
@@ -121,18 +171,27 @@ class SocialNotification extends BaseNotification {
 		return $users;
 	}
 
+	/**
+	 *
+	 * @return \Title
+	 */
 	protected function getWatchedTitle() {
 		return $this->entity->getTitle();
 	}
 
+	/**
+	 *
+	 * @param \Title $title
+	 * @return bool|\Wikimedia\Rdbms\IResultWrapper
+	 */
 	protected function runQuery( $title ) {
-		if( $this->notifyAll ){
-			return wfGetDB( DB_SLAVE )->select(
+		if ( $this->notifyAll ) {
+			return wfGetDB( DB_REPLICA )->select(
 				'user',
 				'user_id'
 			);
 		} else {
-			return wfGetDB( DB_SLAVE )->select(
+			return wfGetDB( DB_REPLICA )->select(
 				'watchlist',
 				'wl_user',
 				[
@@ -143,14 +202,22 @@ class SocialNotification extends BaseNotification {
 		}
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getUserIdProperty() {
-		if( $this->notifyAll ){
+		if ( $this->notifyAll ) {
 			return 'user_id';
 		}
 		return 'wl_user';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getUserIdsToSkip() {
-		return [$this->user->getId()];
+		return [ $this->user->getId() ];
 	}
 }

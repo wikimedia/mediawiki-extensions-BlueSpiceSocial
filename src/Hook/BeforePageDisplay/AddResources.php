@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Hook\BeforePageDisplay;
+
 use BlueSpice\Social\ResourceCollector;
 use BlueSpice\Hook\BeforePageDisplay;
 
@@ -9,7 +10,7 @@ class AddResources extends BeforePageDisplay {
 	protected function doProcess() {
 		$this->out->addModuleStyles( 'ext.bluespice.social.icon' );
 
-		if( $this->out->getRequest()->getVal('action', 'view') !== 'view' ) {
+		if ( $this->out->getRequest()->getVal( 'action', 'view' ) !== 'view' ) {
 			return true;
 		}
 
@@ -19,10 +20,10 @@ class AddResources extends BeforePageDisplay {
 			return true;
 		}
 
-		if( !empty( $oCollector->getModuleScripts() ) ) {
+		if ( !empty( $oCollector->getModuleScripts() ) ) {
 			$this->out->addModules( $oCollector->getModuleScripts() );
 		}
-		if( !empty( $oCollector->getModuleStyles() ) ) {
+		if ( !empty( $oCollector->getModuleStyles() ) ) {
 			$this->out->addModuleStyles( $oCollector->getModuleStyles() );
 		}
 

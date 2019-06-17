@@ -22,10 +22,11 @@
  * @author     Patric Wirth <wirth@hallowelt.com>
  * @package    BluespiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Api\Task;
+
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Services;
@@ -43,29 +44,43 @@ class Entities extends \BSApiTasksBase {
 	 * Methods that can be called by task param
 	 * @var array
 	 */
-	protected $aTasks = array(
+	protected $aTasks = [
 		'getEntities',
 		'getEntity',
 		'editEntity',
 		'deleteEntity',
 		'getConfigs',
-	);
+	];
 
-	protected $aReadTasks = array(
+	/**
+	 *
+	 * @var array
+	 */
+	protected $aReadTasks = [
 		'getEntities',
 		'getConfigs',
-	);
+	];
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getRequiredTaskPermissions() {
-		return array(
-			'getEntities' => array( 'read' ),
-			'getEntity' => array( 'read' ),
-			'editEntity' => array( 'read', 'edit' ),
-			'deleteEntity' => array( 'read', 'edit' ),
-			'getConfigs' => array( 'read' ),
-		);
+		return [
+			'getEntities' => [ 'read' ],
+			'getEntity' => [ 'read' ],
+			'editEntity' => [ 'read', 'edit' ],
+			'deleteEntity' => [ 'read', 'edit' ],
+			'getConfigs' => [ 'read' ],
+		];
 	}
 
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return BlueSpice\Api\Response\Standard
+	 */
 	public function task_getEntity( $taskData, $params ) {
 		$result = $this->makeStandardReturn();
 		$this->checkPermissions();
@@ -73,12 +88,12 @@ class Entities extends \BSApiTasksBase {
 		$entity = $this->getEntityFactory()->newFromObject(
 			$taskData
 		);
-		if( !$entity instanceof Entity || !$entity->exists() ) {
+		if ( !$entity instanceof Entity || !$entity->exists() ) {
 			return $result;
 		}
 
 		$status = $entity->userCan( 'read', $this->getUser() );
-		if( !$status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$result->message = $status->getWikiText();
 			return $result;
 		}
@@ -90,7 +105,7 @@ class Entities extends \BSApiTasksBase {
 		);
 
 		$renderer = $entity->getRenderer( $this->getContext() );
-		if( empty( $taskData->outputtype ) ) {
+		if ( empty( $taskData->outputtype ) ) {
 			$result->payload['view'] = $renderer->render();
 		} else {
 			$result->payload['view'] = $renderer->render(
@@ -100,6 +115,12 @@ class Entities extends \BSApiTasksBase {
 		return $result;
 	}
 
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return BlueSpice\Api\Response\Standard
+	 */
 	public function task_getConfigs( $taskData, $params ) {
 		$result = $this->makeStandardReturn();
 		$this->checkPermissions();
@@ -112,21 +133,27 @@ class Entities extends \BSApiTasksBase {
 		return $result;
 	}
 
-	public function task_getEntities( $vTaskData, $aParams ) {
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return BlueSpice\Api\Response\Standard
+	 */
+	public function task_getEntities( $taskData, $params ) {
 		$oResult = $this->makeStandardReturn();
 		$this->checkPermissions();
 
 		$context = $this->getContext();
 
-		if( !$context instanceof EntityListContext ) {
+		if ( !$context instanceof EntityListContext ) {
 			$class = "\\BlueSpice\\Social\\EntityListContext";
-			if( isset( $vTaskData->EntityListContext ) ) {
-				$class = $vTaskData->EntityListContext;
+			if ( isset( $taskData->EntityListContext ) ) {
+				$class = $taskData->EntityListContext;
 			}
 			$entity = null;
-			if( isset( $vTaskData->parentid ) ) {
+			if ( isset( $taskData->parentid ) ) {
 				$entity = $this->getEntityFactory()->newFromID(
-					$vTaskData->parentid,
+					$taskData->parentid,
 					Entity::NS
 				);
 			}
@@ -139,7 +166,7 @@ class Entities extends \BSApiTasksBase {
 		}
 
 		$params = array_merge(
-			(array) $vTaskData,
+			(array)$taskData,
 			[ 'context' => $context ]
 		);
 		$renderer = $this->getServices()->getBSRendererFactory()->get(
@@ -151,17 +178,17 @@ class Entities extends \BSApiTasksBase {
 		$oResult->payload['entities'] = [];
 		$args = $renderer->getArgs();
 		$renderTypes = $args[EntityList::PARAM_OUTPUT_TYPES];
-		if( $args[EntityList::PARAM_OFFSET] < 1  ) {
+		if ( $args[EntityList::PARAM_OFFSET] < 1 ) {
 
-			foreach( $args[EntityList::PARAM_PRELOADED_ENTITIES] as $raw ) {
+			foreach ( $args[EntityList::PARAM_PRELOADED_ENTITIES] as $raw ) {
 				$entity = $this->getEntityFactory()->newFromObject(
 					(object)$raw
 				);
-				if( !$entity instanceof Entity ) {
+				if ( !$entity instanceof Entity ) {
 					continue;
 				}
 				$renderType = 'Default';
-				if( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
+				if ( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
 					$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 				}
 				$oResult->payload['entities'][] = [
@@ -173,12 +200,12 @@ class Entities extends \BSApiTasksBase {
 			}
 		}
 
-		foreach( $renderer->getEntities() as $entity ) {
-			if( !$entity ) {
+		foreach ( $renderer->getEntities() as $entity ) {
+			if ( !$entity ) {
 				continue;
 			}
 			$renderType = 'Default';
-			if( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
+			if ( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
 				$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 			}
 			$oResult->payload['entities'][] = [
@@ -192,89 +219,100 @@ class Entities extends \BSApiTasksBase {
 		return $oResult;
 	}
 
-	public function task_editEntity( $vTaskData, $aParams ) {
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return BlueSpice\Api\Response\Standard
+	 */
+	public function task_editEntity( $taskData, $params ) {
 		$oResult = $this->makeStandardReturn();
 		$this->checkPermissions();
 
 		$oEntity = $this->getEntityFactory()->newFromObject(
-			$vTaskData
+			$taskData
 		);
-		if( !$oEntity instanceof Entity ) {
+		if ( !$oEntity instanceof Entity ) {
 			return $oResult;
 		}
 
 		$sAction = $oEntity->exists()
 			? 'edit'
-			: 'create'
-		;
-		if( $sAction == 'edit' && !$oEntity->userIsOwner( $this->getUser() ) ) {
+			: 'create';
+		if ( $sAction == 'edit' && !$oEntity->userIsOwner( $this->getUser() ) ) {
 			$sAction = 'editothers';
 		}
 
 		$oStatus = $oEntity->userCan( $sAction, $this->getUser() );
-		if( !$oStatus->isOK() ) {
+		if ( !$oStatus->isOK() ) {
 			$oResult->message = $oStatus->getWikiText();
 			return $oResult;
 		}
-		$oEntity->setValuesByObject( $vTaskData );
+		$oEntity->setValuesByObject( $taskData );
 		$oStatus = $oEntity->save( $this->getUser() );
-		if( $oStatus->isOk() ) {
+		if ( $oStatus->isOk() ) {
 			$oResult->success = true;
 		} else {
 			$oResult->message = $oStatus->getWikiText();
 		}
 		$oResult->payload['entity'] = \FormatJson::encode( $oEntity );
 		$oResult->payload['actions'] = $oEntity->getActions(
-			[], 
+			[],
 			$this->getUser()
 		);
 		$oResult->payload['entityconfig'][$oEntity->get( Entity::ATTR_TYPE )]
 			= \FormatJson::encode( $oEntity->getConfig() );
 
 		$renderer = $oEntity->getRenderer( $this->getContext() );
-		if( empty( $vTaskData->outputtype ) ) {
+		if ( empty( $taskData->outputtype ) ) {
 			$oResult->payload['view'] = $renderer->render();
 		} else {
 			$oResult->payload['view'] = $renderer->render(
-				$vTaskData->outputtype
+				$taskData->outputtype
 			);
 		}
 		return $oResult;
 	}
 
-	public function task_deleteEntity( $vTaskData, $aParams ) {
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return BlueSpice\Api\Response\Standard
+	 */
+	public function task_deleteEntity( $taskData, $params ) {
 		$oResult = $this->makeStandardReturn();
 		$this->checkPermissions();
 
-		$undelete = isset( $vTaskData->undelete ) && $vTaskData->undelete
+		$undelete = isset( $taskData->undelete ) && $taskData->undelete
 			? true
 			: false;
 
 		$oEntity = $this->getEntityFactory()->newFromID(
-			$vTaskData->id,
+			$taskData->id,
 			Entity::NS
 		);
-		if( !$oEntity instanceof Entity ) {
-			$oResult->message = "entity $vTaskData->id not found";
+		if ( !$oEntity instanceof Entity ) {
+			$oResult->message = "entity $taskData->id not found";
 			return $oResult;
 		}
 
 		$sAction = 'delete';
-		if( !$oEntity->userIsOwner( $this->getUser() ) ) {
+		if ( !$oEntity->userIsOwner( $this->getUser() ) ) {
 			$sAction = 'deleteothers';
 		}
 
 		$oStatus = $oEntity->userCan( $sAction, $this->getUser() );
-		if( !$oStatus->isOK() ) {
+		if ( !$oStatus->isOK() ) {
 			$oResult->message = $oStatus->getWikiText();
 			return $oResult;
 		}
-		if( $undelete ) {
+		if ( $undelete ) {
 			$oStatus = $oEntity->undelete( $this->getUser() );
 		} else {
 			$oStatus = $oEntity->delete( $this->getUser() );
 		}
-		if( $oStatus->isOK() ) {
+		if ( $oStatus->isOK() ) {
 			$oResult->success = true;
 		} else {
 			$oResult->message = $oStatus->getHTML();
@@ -295,9 +333,9 @@ class Entities extends \BSApiTasksBase {
 	 * @return array
 	 */
 	protected function getAllowedParams() {
-		return parent::getAllowedParams() + array(
+		return parent::getAllowedParams() + [
 
-		);
+		];
 	}
 
 	/**
@@ -305,29 +343,9 @@ class Entities extends \BSApiTasksBase {
 	 * @return array
 	 */
 	public function getParamDescription() {
-		return parent::getParamDescription() + array(
+		return parent::getParamDescription() + [
 
-		);
-	}
-
-	/**
-	 * Returns the bsic description for this module
-	 * @return type
-	 */
-	public function getDescription() {
-		return array(
-			'BSApiTasksBase: This should be implemented by subclass'
-		);
-	}
-
-	/**
-	 * Returns the basic example
-	 * @return type
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action='.$this->getModuleName().'&task='.$this->aTasks[0].'&taskData={someKey:"someValue",isFalse:true}',
-		);
+		];
 	}
 
 	/**

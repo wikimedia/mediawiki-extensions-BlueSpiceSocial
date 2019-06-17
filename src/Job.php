@@ -1,5 +1,6 @@
 <?php
 namespace BlueSpice\Social;
+
 abstract class Job extends \Job {
 	protected $oEntity = null;
 
@@ -11,7 +12,7 @@ abstract class Job extends \Job {
 	 * @param array $params
 	 */
 	public function __construct( $oTitle, $params = [] ) {
-		if( !$oTitle || $oTitle->getNamespace() !== Entity::NS ) {
+		if ( !$oTitle || $oTitle->getNamespace() !== Entity::NS ) {
 			throw new BsException( 'Invalid Entity Title' );
 		}
 		parent::__construct(
@@ -25,10 +26,10 @@ abstract class Job extends \Job {
 	 * @return Entity
 	 */
 	public function getEntity() {
-		if( !$this->oEntity ) {
+		if ( !$this->oEntity ) {
 			$this->oEntity = Entity::newFromTitle( $this->getTitle() );
 		}
-		if( !$this->oEntity ) {
+		if ( !$this->oEntity ) {
 			throw new \BsException( 'Invalid Entity' );
 		}
 		return $this->oEntity;

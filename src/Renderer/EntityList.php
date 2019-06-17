@@ -99,7 +99,7 @@ class EntityList extends Renderer implements IParamProvider {
 		$name = '' ) {
 		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 
-		if( !$this->context instanceof EntityListContext ) {
+		if ( !$this->context instanceof EntityListContext ) {
 			$this->context = new EntityListContext(
 				RequestContext::getMain(),
 				$config,
@@ -111,14 +111,14 @@ class EntityList extends Renderer implements IParamProvider {
 			static::PARAM_STORE,
 			false
 		);
-		if( !$this->store instanceof Store ) {
+		if ( !$this->store instanceof Store ) {
 			$this->store = new Store( $this->context );
 		}
 		$this->user = $params->get(
 			static::PARAM_USER,
 			false
 		);
-		if( !$this->user instanceof User ) {
+		if ( !$this->user instanceof User ) {
 			$this->user = $this->context->getUser();
 		}
 		$this->params = $params;
@@ -127,16 +127,16 @@ class EntityList extends Renderer implements IParamProvider {
 
 	protected function initializeArgs() {
 		$this->args[static::PARAM_TAG] = 'ul';
-		if( empty( $this->args[static::PARAM_CLASS] ) ) {
+		if ( empty( $this->args[static::PARAM_CLASS] ) ) {
 			$this->args[static::PARAM_CLASS] = '';
 		}
 		$this->args[static::PARAM_CLASS] .= ' bs-social-entitylist';
 
-		$this->args[static::PARAM_HIDDEN] =  $this->params->get(
+		$this->args[static::PARAM_HIDDEN] = $this->params->get(
 			static::PARAM_HIDDEN,
 			false
 		);
-		if( $this->args[static::PARAM_HIDDEN] ) {
+		if ( $this->args[static::PARAM_HIDDEN] ) {
 			$this->args[static::PARAM_CLASS] .= ' initiallyhidden';
 		}
 
@@ -150,7 +150,7 @@ class EntityList extends Renderer implements IParamProvider {
 		);
 		$this->args[ static::PARAM_OUTPUT_TYPES ] = array_merge(
 			$this->context->getOutputTypes(),
-			(array) $this->args[ static::PARAM_OUTPUT_TYPES ]
+			(array)$this->args[ static::PARAM_OUTPUT_TYPES ]
 		);
 		$this->args[static::PARAM_PRELOAD_TITLES] = $this->params->get(
 			static::PARAM_PRELOAD_TITLES,
@@ -158,7 +158,7 @@ class EntityList extends Renderer implements IParamProvider {
 		);
 		$this->args[ static::PARAM_PRELOAD_TITLES ] = array_merge(
 			$this->context->getPreloadTitles(),
-			(array) $this->args[ static::PARAM_PRELOAD_TITLES ]
+			(array)$this->args[ static::PARAM_PRELOAD_TITLES ]
 		);
 
 		$this->args[ static::PARAM_SHOW_ENTITY_LIST_MENU ] = $this->params->get(
@@ -190,7 +190,8 @@ class EntityList extends Renderer implements IParamProvider {
 			static::PARAM_MORE_LINK,
 			''
 		);
-		if( $linkTarget = Title::newFromText( $moreLink ) ) {
+		$linkTarget = Title::newFromText( $moreLink );
+		if ( $linkTarget ) {
 			$msg = $this->msg( 'bs-social-entitylistmore-linklabel' );
 			$this->args[ static::PARAM_MORE_LINK ] = Services::getInstance()
 				->getLinkRenderer()->makeLink(
@@ -222,12 +223,12 @@ class EntityList extends Renderer implements IParamProvider {
 
 		$this->args[ static::PARAM_SORT ] = $this->context->getSort();
 		$paramSort = $this->params->get( static::PARAM_SORT, [] );
-		if( !empty( $paramSort ) ) {
-			if( isset( $paramSort[0]->property ) ) {
+		if ( !empty( $paramSort ) ) {
+			if ( isset( $paramSort[0]->property ) ) {
 				$this->args[ static::PARAM_SORT ][0]->property
 					= $paramSort[0]->property;
 			}
-			if( isset( $paramSort[0]->direction ) ) {
+			if ( isset( $paramSort[0]->direction ) ) {
 				$this->args[ static::PARAM_SORT ][0]->direction
 					= $paramSort[0]->direction;
 			}
@@ -258,30 +259,30 @@ class EntityList extends Renderer implements IParamProvider {
 			$this->context->getLockedFilterNames()
 		);
 
-		$this->args[ static::PARAM_FILTER ] = (array) $this->params->get(
+		$this->args[ static::PARAM_FILTER ] = (array)$this->params->get(
 			static::PARAM_FILTER,
-			(array) $this->context->getFilters()
+			(array)$this->context->getFilters()
 		);
 		$this->args[static::PARAM_PERSIST_SETTINGS] = $this->params->get(
 			static::PARAM_PERSIST_SETTINGS,
 			$this->getContext()->getPersistSettings()
 		);
 		$schema = $this->store->getReader()->getSchema();
-		foreach( $this->args[ static::PARAM_FILTER ] as &$filter ) {
-			$filter = (object) $filter;
-			
-			if( !isset( $filter->field ) ) {
+		foreach ( $this->args[ static::PARAM_FILTER ] as &$filter ) {
+			$filter = (object)$filter;
+
+			if ( !isset( $filter->field ) ) {
 				unset( $filter->field );
 				continue;
 			}
-			if( !in_array( $filter->field, $schema->getFilterableFields() ) ) {
+			if ( !in_array( $filter->field, $schema->getFilterableFields() ) ) {
 				unset( $filter->field );
 				continue;
 			}
 			$mapping = MappingProvider::getValueTypeMapping();
 
 			$type = $this->schema[$filter->field][$schema::TYPE];
-			if( isset( $mapping[$type] ) ) {
+			if ( isset( $mapping[$type] ) ) {
 				$type = $mapping[$type];
 			}
 			$filter->type = $type;
@@ -301,9 +302,9 @@ class EntityList extends Renderer implements IParamProvider {
 			$this,
 			&$this->args,
 			$this->params
-		]);
-		foreach( $this->args as $name => $arg ) {
-			if( $name === static::PARAM_ENTITY_LIST_DATA_ATTR ) {
+		] );
+		foreach ( $this->args as $name => $arg ) {
+			if ( $name === static::PARAM_ENTITY_LIST_DATA_ATTR ) {
 				continue;
 			}
 			$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ][$name] = $arg;
@@ -312,7 +313,7 @@ class EntityList extends Renderer implements IParamProvider {
 			= $this->context->getSchema();
 		$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ][ 'EntityListContext' ]
 			= get_class( $this->getContext() );
-		if( $this->getContext()->getParent() instanceof Entity ) {
+		if ( $this->getContext()->getParent() instanceof Entity ) {
 			$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ]
 				[ Entity::ATTR_PARENT_ID ]
 				= $this->getContext()->getParent()->get( Entity::ATTR_ID );
@@ -326,7 +327,7 @@ class EntityList extends Renderer implements IParamProvider {
 	 * @return Entity[]
 	 */
 	public function getEntities() {
-		if( $this->entities ) {
+		if ( $this->entities ) {
 			return $this->entities;
 		}
 		$readerParams = $this->makeStoreReaderParams();
@@ -334,9 +335,9 @@ class EntityList extends Renderer implements IParamProvider {
 		$factory = Services::getInstance()->getBSEntityFactory();
 
 		$this->entities = [];
-		foreach( $res->getRecords() as $record ) {
+		foreach ( $res->getRecords() as $record ) {
 			$this->entities[] = $factory->newFromObject(
-				(object) $record->getData()
+				(object)$record->getData()
 			);
 		}
 		return $this->entities;
@@ -348,16 +349,16 @@ class EntityList extends Renderer implements IParamProvider {
 	 */
 	public function render() {
 		$content = '';
-		if( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MENU ] ) {
+		if ( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MENU ] ) {
 			$content .= $this->renderEntityListMenu();
 		}
-		if( $this->args[ static::PARAM_SHOW_HEADLINE ] ) {
+		if ( $this->args[ static::PARAM_SHOW_HEADLINE ] ) {
 			$content .= $this->renderEntityListHeadline();
 		}
 		$content .= $this->getOpenTag();
 		$content .= $this->makeTagContent();
 		$content .= $this->getCloseTag();
-		if( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MORE ] ) {
+		if ( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MORE ] ) {
 			$content .= $this->renderEntityListMore();
 		}
 
@@ -367,10 +368,10 @@ class EntityList extends Renderer implements IParamProvider {
 	protected function makeTagContent() {
 		$content = '';
 
-		foreach( $this->args[ static::PARAM_PRELOADED_ENTITIES ] as $raw ) {
+		foreach ( $this->args[ static::PARAM_PRELOADED_ENTITIES ] as $raw ) {
 			$content .= $this->renderPreloadedEntities( $raw );
 		}
-		foreach( $this->getEntities() as $entity ) {
+		foreach ( $this->getEntities() as $entity ) {
 			$content .= $this->renderEntitiy( $entity );
 		}
 
@@ -396,7 +397,7 @@ class EntityList extends Renderer implements IParamProvider {
 	protected function renderEntityListMore() {
 		$limitReached = count( $this->getEntities() )
 			< $this->args[ static::PARAM_LIMIT];
-		if( $limitReached && $this->args[static::PARAM_USE_MORE_SCROLL] ) {
+		if ( $limitReached && $this->args[static::PARAM_USE_MORE_SCROLL] ) {
 			return '';
 		}
 		$renderer = Services::getInstance()->getBSRendererFactory()->get(
@@ -409,17 +410,18 @@ class EntityList extends Renderer implements IParamProvider {
 	/**
 	 *
 	 * @param Entity $entity
+	 * @param string $out
 	 * @return string
 	 */
 	protected function renderEntitiy( Entity $entity, $out = '' ) {
 		$renderType = 'Default';
 
-		if( isset( $this->args[ static::PARAM_OUTPUT_TYPES ][$entity::TYPE] ) ) {
+		if ( isset( $this->args[ static::PARAM_OUTPUT_TYPES ][$entity::TYPE] ) ) {
 			$renderType
 				= $this->args[ static::PARAM_OUTPUT_TYPES ][$entity::TYPE];
 		}
 
-		if( !empty( $this->args[static::PARAM_PRELOAD_TITLES][$entity::TYPE] ) ) {
+		if ( !empty( $this->args[static::PARAM_PRELOAD_TITLES][$entity::TYPE] ) ) {
 			$entity->set(
 				$entity::ATTR_PRELOAD,
 				$this->args[static::PARAM_PRELOAD_TITLES][$entity::TYPE]
@@ -433,7 +435,7 @@ class EntityList extends Renderer implements IParamProvider {
 			$entity,
 			&$renderer,
 			&$renderType
-		]);
+		] );
 		$out .= $renderer->render( $renderType );
 		$out .= Html::closeElement( 'li' );
 		return $out;
@@ -441,26 +443,26 @@ class EntityList extends Renderer implements IParamProvider {
 
 	/**
 	 *
-	 * @param \stdClass $rawEntity
+	 * @param \stdClass|null $rawEntity
 	 * @param string $out
 	 * @return string
 	 */
 	protected function renderPreloadedEntities( \stdClass $rawEntity = null, $out = '' ) {
-		if( !$rawEntity ) {
+		if ( !$rawEntity ) {
 			return $out;
 		}
 
 		$entity = Services::getInstance()->getBSEntityFactory()->newFromObject(
 			(object)$rawEntity
 		);
-		if( !$entity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return $out;
 		}
 
-		//if this is an existing entity we need to render one less from the
-		//store, so the given limit fits ;)
-		//this may be cool for pined items in the future.
-		if( $entity->exists() && $this->args[static::PARAM_LIMIT] > 1 ) {
+		// if this is an existing entity we need to render one less from the
+		// store, so the given limit fits ;)
+		// this may be cool for pined items in the future.
+		if ( $entity->exists() && $this->args[static::PARAM_LIMIT] > 1 ) {
 			$this->args[static::PARAM_LIMIT] --;
 		}
 
@@ -496,7 +498,7 @@ class EntityList extends Renderer implements IParamProvider {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getArgs() {
@@ -507,10 +509,8 @@ class EntityList extends Renderer implements IParamProvider {
 	 * @return ParamDefinition[]
 	 */
 	public function getArgsDefinitions() {
-
 		$validator = new \BSTitleValidator();
 		$validator->setOptions( [ 'hastoexist' => false ] );
-		$categories->setValueValidator( $validator );
 		return [
 			new ParamDefinition(
 				ParamType::BOOLEAN,
@@ -548,12 +548,12 @@ class EntityList extends Renderer implements IParamProvider {
 				$this->getContext()->getHeadlineMessageKey()
 			),
 			new ParamDefinition(
-				'array', //ParamType::DIMENSION,
+				'array',
 				static::PARAM_OUTPUT_TYPES,
 				[]
 			),
 			new ParamDefinition(
-				'array', //ParamType::DIMENSION,
+				'array',
 				static::PARAM_PRELOAD_TITLES,
 				[]
 			),
@@ -573,7 +573,7 @@ class EntityList extends Renderer implements IParamProvider {
 				$this->context->getLimit()
 			),
 			new ParamDefinition(
-				'array',//ParamType::ARRAY,
+				'array',
 				static::PARAM_SORT,
 				$this->context->getSort()
 			),
@@ -597,9 +597,9 @@ class EntityList extends Renderer implements IParamProvider {
 				true
 			),
 			new ParamDefinition(
-				'array',//ParamType::ARRAY,
+				'array',
 				static::PARAM_FILTER,
-				(array) $this->context->getFilters()
+				(array)$this->context->getFilters()
 			),
 			new ParamDefinition(
 				ParamType::STRING,
@@ -623,7 +623,7 @@ class EntityList extends Renderer implements IParamProvider {
 				true
 			),
 			new ParamDefinition(
-				'array',//ParamType::ARRAY,
+				'array',
 				static::PARAM_PRELOADED_ENTITIES,
 				$this->context->getPreloadedEntities()
 			),

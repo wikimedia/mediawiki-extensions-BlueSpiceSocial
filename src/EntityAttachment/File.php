@@ -7,7 +7,7 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\EntityAttachment;
 
@@ -22,6 +22,10 @@ use BlueSpice\Social\EntityAttachment;
 class File extends EntityAttachment {
 	protected $sType = 'file';
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getTemplateName() {
 		return 'BlueSpiceSocial.Entity.attachment.Default';
 	}
@@ -32,7 +36,7 @@ class File extends EntityAttachment {
 	 * @return array
 	 */
 	public function getArgs() {
-		if( !$this->mAttachment instanceof \File ) {
+		if ( !$this->mAttachment instanceof \File ) {
 			return [];
 		}
 		$this->mAttachment instanceof \File;
@@ -51,7 +55,7 @@ class File extends EntityAttachment {
 			PREG_SET_ORDER
 		);
 		$this->aArgs['attribs'] = '';
-		foreach( $match as $parts ) {
+		foreach ( $match as $parts ) {
 			$this->aArgs['attribs'] .= ' ' . trim( $parts[0] );
 		}
 
@@ -67,21 +71,21 @@ class File extends EntityAttachment {
 
 	protected function makeExtensionArgs() {
 		$sExt = $this->mAttachment->getExtension();
-		if( isset( self::$aExtensionMapping[$sExt] ) ) {
+		if ( isset( self::$aExtensionMapping[$sExt] ) ) {
 			$this->aArgs['class'] .=
-				" bs-social-entityattachment-".self::$aExtensionMapping[$sExt];
+				" bs-social-entityattachment-" . self::$aExtensionMapping[$sExt];
 		}
 	}
 
 	protected static $aExtensionMapping = [
-		//docs
+		// docs
 		"doc" => 'word',
 		"dot" => 'word',
 		"docx" => 'word',
 		"dotx" => 'word',
 		"docm" => 'word',
 		"dotm" => 'word',
-		//excel
+		// excel
 		"xls" => 'excel',
 		"xlt" => 'excel',
 		"xla" => 'excel',
@@ -91,7 +95,7 @@ class File extends EntityAttachment {
 		"xltm" => 'excel',
 		"xlam" => 'excel',
 		"xlsb" => 'excel',
-		//pdf
+		// pdf
 		"pdf" => "pdf",
 	];
 }

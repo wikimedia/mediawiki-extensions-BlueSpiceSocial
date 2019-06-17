@@ -1,42 +1,26 @@
 <?php
 
-/**
- * WikiText class for BlueSpiceSocial
- *
- * add desc
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- *
- * This file is part of BlueSpice MediaWiki
- * For further information visit http://bluespice.com
- *
- * @author     Patric Wirth <wirth@hallowelt.com>
- * @package    BlueSpiceSocial
- * @subpackage BlueSpiceSocial
- * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
- */
 namespace BlueSpice\Social\Parser;
+
 /**
  * WikiText class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  */
-class WikiText extends \Parser{
-	public function parse($text, \Title $title, \ParserOptions $options, $linestart = true, $clearState = true, $revid = null) {
-		global $wgUseTidy, $wgAlwaysUseTidy, $wgShowHostnames;
+class WikiText extends \Parser {
+	/**
+	 *
+	 * @param string $text
+	 * @param \Title $title
+	 * @param \ParserOptions $options
+	 * @param int $linestart
+	 * @param bool $clearState
+	 * @param int|null $revid
+	 * @return string
+	 */
+	public function parse( $text, \Title $title, \ParserOptions $options, $linestart = true,
+		$clearState = true, $revid = null ) {
+		global $wgUseTidy, $wgAlwaysUseTidy;
 
 		/*if ( $clearState ) {
 			$magicScopeVariable = $this->lock();
@@ -49,7 +33,7 @@ class WikiText extends \Parser{
 			$this->clearState();
 		}
 
-		//$this->startParse( $title, $options, self::OT_HTML, $clearState );
+		// $this->startParse( $title, $options, self::OT_HTML, $clearState );
 
 		$this->mInputSize = strlen( $text );
 		if ( $this->mOptions->getEnableLimitReport() ) {
@@ -74,23 +58,24 @@ class WikiText extends \Parser{
 			$this->mRevisionSize = null;
 		}
 
-		//Hooks::run( 'ParserBeforeStrip', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserBeforeStrip', array( &$this, &$text, &$this->mStripState ) );
 		# No more strip!
-		//Hooks::run( 'ParserAfterStrip', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserAfterStrip', array( &$this, &$text, &$this->mStripState ) );
 		$text = $this->internalParse( $text );
-		//Hooks::run( 'ParserAfterParse', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserAfterParse', array( &$this, &$text, &$this->mStripState ) );
 
 		$text = $this->mStripState->unstripGeneral( $text );
 
 		# Clean up special characters, only run once, next-to-last before doBlockLevels
-		$fixtags = array(
+		$fixtags = [
 			# french spaces, last one Guillemet-left
 			# only if there is something before the space
 			'/(.) (?=\\?|:|;|!|%|\\302\\273)/' => '\\1&#160;',
 			# french spaces, Guillemet-right
 			'/(\\302\\253) /' => '\\1&#160;',
-			'/&#160;(!\s*important)/' => ' \\1', # Beware of CSS magic word !important, bug #11874.
-		);
+			# Beware of CSS magic word !important, bug #11874.
+			'/&#160;(!\s*important)/' => ' \\1',
+		];
 		$text = preg_replace( array_keys( $fixtags ), array_values( $fixtags ), $text );
 
 		$text = $this->doBlockLevels( $text, $linestart );
@@ -150,7 +135,7 @@ class WikiText extends \Parser{
 		} else {
 			# attempt to sanitize at least some nesting problems
 			# (bug #2702 and quite a few others)
-			$tidyregs = array(
+			$tidyregs = [
 				# ''Something [http://www.cool.com cool''] -->
 				# <i>Something</i><a href="http://www.cool.com"..><i>cool></i></a>
 				'/(<([bi])>)(<([bi])>)?([^<]*)(<\/?a[^<]*>)([^<]*)(<\/\\4>)?(<\/\\2>)/' =>
@@ -167,7 +152,7 @@ class WikiText extends \Parser{
 				# remove empty italic or bold tag pairs, some
 				# introduced by rules above
 				'/<([bi])><\/\\1>/' => '',
-			);
+			];
 
 			$text = preg_replace(
 				array_keys( $tidyregs ),
@@ -276,7 +261,7 @@ class WikiText extends \Parser{
 	 * @return string HTML
 	 */
 	public function makeImage( $title, $options, $holders = false ) {
-		parent::makeImage($title, $options, $holders);
+		parent::makeImage( $title, $options, $holders );
 		return '';
 	}
 }

@@ -26,10 +26,13 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use Status;
+use User;
 use BlueSpice\Social\Entity;
 use BlueSpice\Services;
 
@@ -38,11 +41,12 @@ use BlueSpice\Services;
  * @package BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  */
-abstract class Page extends Entity{
+abstract class Page extends Entity {
 	const ATTR_DESCRIPTION = 'description';
 
 	/**
 	 * Gets the Page attributes formated for the api
+	 * @param array $a
 	 * @return object
 	 */
 	public function getFullData( $a = [] ) {
@@ -54,11 +58,15 @@ abstract class Page extends Entity{
 					''
 				),
 			]
-		));
+		) );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset($o->{static::ATTR_DESCRIPTION}) ) {
+		if ( isset( $o->{static::ATTR_DESCRIPTION} ) ) {
 			$this->set(
 				static::ATTR_DESCRIPTION,
 				$o->{static::ATTR_DESCRIPTION}
@@ -88,9 +96,15 @@ abstract class Page extends Entity{
 		$this->set( static::ATTR_DESCRIPTION, $sDescription );
 	}
 
-	public function save( \User $user = null, $options = [] ) {
-		//always use the maintenance user for page entities to prevent
-		//unrealistic edit statistics for users
+	/**
+	 *
+	 * @param User|null $user
+	 * @param array $options
+	 * @return Status
+	 */
+	public function save( User $user = null, $options = [] ) {
+		// always use the maintenance user for page entities to prevent
+		// unrealistic edit statistics for users
 		$user = Services::getInstance()->getBSUtilityFactory()
 			->getMaintenanceUser()->getUser();
 		return parent::save( $user, $options );

@@ -1,13 +1,13 @@
 <?php
 
-$IP = dirname(dirname(dirname(dirname(__DIR__))));
+$IP = dirname( dirname( dirname( dirname( __DIR__ ) ) ) );
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
-class importEntities extends Maintenance {
+class ImportEntities extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		//$this->requireExtension( 'BlueSpiceSocial' ); //Enable for REL1_28+
+		// $this->requireExtension( 'BlueSpiceSocial' ); //Enable for REL1_28+
 
 		$this->addOption( 'src', 'Path to a JSON file with entitiy data', true );
 	}
@@ -24,20 +24,20 @@ class importEntities extends Maintenance {
 	 */
 	protected function importJSONFile( $oFile ) {
 		$oData = FormatJson::decode( file_get_contents( $oFile->getPathname() ) );
-		if( isset( $oData->entities ) ) {
-			foreach( $oData->entities as $oEntiy ) {
+		if ( isset( $oData->entities ) ) {
+			foreach ( $oData->entities as $oEntiy ) {
 				$oEntity = BSSocialEntity::newFromObject( $oEntiy );
-				if( $oEntity instanceof BSSocialEntity === false ) {
-					$this->output('E');
+				if ( $oEntity instanceof BSSocialEntity === false ) {
+					$this->output( 'E' );
 					continue;
 				}
 				$oStatus = $oEntity->save();
-				if( $oStatus->isOK() ) {
-					$this->output('.');
+				if ( $oStatus->isOK() ) {
+					$this->output( '.' );
 				}
-				else {
-					$this->output('F');
-				}
+ else {
+					$this->output( 'F' );
+	}
 			}
 		}
 	}
@@ -45,4 +45,4 @@ class importEntities extends Maintenance {
 }
 
 $maintClass = 'importEntities';
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

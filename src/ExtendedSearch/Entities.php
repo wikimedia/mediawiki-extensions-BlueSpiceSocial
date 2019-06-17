@@ -2,8 +2,6 @@
 
 namespace BlueSpice\Social\ExtendedSearch;
 
-use BlueSpice\Social\ExtendedSearch\Formatter;
-use BlueSpice\Social\ExtendedSearch\LookupModifier;
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 
 class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
@@ -65,6 +63,10 @@ class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 		return new \BlueSpice\Social\ExtendedSearch\Updater\Entity( $this->oDecoratedSource );
 	}
 
+	/**
+	 *
+	 * @return Formatter\EntityFormatter
+	 */
 	public function getFormatter() {
 		return new Formatter\EntityFormatter( $this );
 	}

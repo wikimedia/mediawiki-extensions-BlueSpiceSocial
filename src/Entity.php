@@ -26,13 +26,24 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social;
 
+use Exception;
+use Status;
+use Hooks;
+use RequestContext;
+use Message;
+use User;
+use Title;
+use JobQueueGroup;
 use BlueSpice\Services;
+use BlueSpice\Context;
 use BlueSpice\Data\ReaderParams;
+use BsNamespaceHelper;
+use BlueSpice\Social\Job\Archive;
 
 /**
  * BlueSpiceSocialEntity class for BlueSpiceSocial extension
@@ -58,43 +69,43 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 *
-	 * @var \Title
+	 * @var Title
 	 */
 	protected $relatedTitle = null;
 
 	/**
 	 *
-	 * @var \User[]
+	 * @var User[]
 	 */
 	protected static $ownerLookup = [];
 
 	/**
 	 * Returns an entity's attributes or the given default, if not set
 	 * @param string $attrName
-	 * @param mixed $default
+	 * @param mixed|null $default
 	 * @return mixed
 	 */
 	public function get( $attrName, $default = null ) {
-		//This is for a prerendered form of entities, that require the current
-		//user
-		if( $attrName == static::ATTR_OWNER_ID ) {
-			if( !$this->exists() && empty( $this->attributes[$attrName] ) ) {
-				return \RequestContext::getMain()->getUser()->getId();
+		// This is for a prerendered form of entities, that require the current
+		// user
+		if ( $attrName == static::ATTR_OWNER_ID ) {
+			if ( !$this->exists() && empty( $this->attributes[$attrName] ) ) {
+				return RequestContext::getMain()->getUser()->getId();
 			}
 		}
-		if( $attrName == static::ATTR_OWNER_NAME ) {
+		if ( $attrName == static::ATTR_OWNER_NAME ) {
 			return $this->getOwner()->getName();
 		}
-		if( $attrName == static::ATTR_OWNER_REAL_NAME ) {
+		if ( $attrName == static::ATTR_OWNER_REAL_NAME ) {
 			return $this->getOwner()->getRealName();
 		}
-		if( $attrName == static::ATTR_RELATED_TITLE ) {
+		if ( $attrName == static::ATTR_RELATED_TITLE ) {
 			return $this->getRelatedTitle()->getFullText();
 		}
-		if( $attrName == static::ATTR_HEADER ) {
+		if ( $attrName == static::ATTR_HEADER ) {
 			return $this->getHeader()->parse();
 		}
-		if( $attrName == static::ATTR_PRELOAD && empty( parent::get( $attrName, '' ) ) ) {
+		if ( $attrName == static::ATTR_PRELOAD && empty( parent::get( $attrName, '' ) ) ) {
 			return $this->getConfig()->get( 'EntityListPreloadTitle' );
 		}
 
@@ -103,18 +114,18 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Returns the User object of the entity's owner
-	 * @return \User
+	 * @return User
 	 */
 	public function getOwner() {
 		$id = $this->get( static::ATTR_OWNER_ID, 0 );
-		if( $id < 1 ) {
-			return new \User();
+		if ( $id < 1 ) {
+			return new User();
 		}
-		if( isset( static::$ownerLookup[$id] ) ) {
+		if ( isset( static::$ownerLookup[$id] ) ) {
 			return static::$ownerLookup[$id];
 		}
-		$user = \User::newFromId( $id );
-		if( $user && !$user->isAnon() ) {
+		$user = User::newFromId( $id );
+		if ( $user && !$user->isAnon() ) {
 			static::$ownerLookup[$id] = $user;
 		}
 		return $user;
@@ -134,7 +145,7 @@ abstract class Entity extends \BlueSpice\Entity {
 	 */
 	public function getOwnerRealName() {
 		$sName = $this->getOwner()->getRealName();
-		if( empty( $sName ) ) {
+		if ( empty( $sName ) ) {
 			$sName = $this->getOwnerName();
 		}
 		return $sName;
@@ -145,7 +156,7 @@ abstract class Entity extends \BlueSpice\Entity {
 	 * @return string
 	 */
 	public function getHeaderMessageKey() {
-		if( $this->exists() ) {
+		if ( $this->exists() ) {
 			return $this->getConfig()->get( 'HeaderMessageKey' );
 		}
 		return $this->getConfig()->get( 'HeaderMessageKeyCreateNew' );
@@ -153,12 +164,12 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Returns the Message object for the entity header
-	 * @param \Message $oMsg
-	 * @return \Message
+	 * @param Message|null $oMsg
+	 * @return Message
 	 */
 	public function getHeader( $oMsg = null ) {
-		if( !$oMsg instanceof Message ) {
-			$oMsg = \Message::newFromKey( $this->getHeaderMessageKey() );
+		if ( !$oMsg instanceof Message ) {
+			$oMsg = Message::newFromKey( $this->getHeaderMessageKey() );
 		}
 
 		return $oMsg->title( $this->getTitle() )->params( [
@@ -166,39 +177,41 @@ abstract class Entity extends \BlueSpice\Entity {
 			$this->getOwnerRealName(),
 			$this->getTitle()->getText(),
 			$this->getTitle()->getNamespace(),
-			\BsNamespaceHelper::getNamespaceName(
+			BsNamespaceHelper::getNamespaceName(
 				$this->getTitle()->getNamespace()
 			),
-		]);
+		] );
 	}
 
 	/**
 	 * Saves the current Entity
-	 * @return \Status
+	 * @param User|null $user
+	 * @param array $options
+	 * @return Status
 	 */
-	public function save( \User $user = null, $options = [] ) {
-		//force the recreation of the related title before the entity is saved
+	public function save( User $user = null, $options = [] ) {
+		// force the recreation of the related title before the entity is saved
 		$this->relatedTitle = null;
-		if( !$user instanceof \User ) {
-			return \Status::newFatal( wfMessage(
+		if ( !$user instanceof User ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-nouser'
-			));
+			) );
 		}
 		return parent::save( $user, $options );
 	}
 
 	/**
 	 * Deletes the current BlueSpiceSocialEntity
-	 * @param \User $oUser
+	 * @param User|null $oUser
 	 * @return Status
 	 */
-	public function delete( \User $oUser = null ) {
-		if( !$oUser instanceof \User ) {
+	public function delete( User $oUser = null ) {
+		if ( !$oUser instanceof User ) {
 			$oUser = Services::getInstance()->getBSUtilityFactory()
 				->getMaintenanceUser()->getUser();
 		}
 		$status = parent::delete( $oUser );
-		if( !$status->isOK() ) {
+		if ( !$status->isOK() ) {
 			return $status;
 		}
 
@@ -208,11 +221,11 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Restores the current Entity from archived state
-	 * @param \User $user
-	 * @return \Status
+	 * @param User|null $user
+	 * @return Status
 	 */
-	public function undelete( \User $user = null ) {
-		if( !$user instanceof \User ) {
+	public function undelete( User $user = null ) {
+		if ( !$user instanceof User ) {
 			$user = Services::getInstance()->getBSUtilityFactory()
 				->getMaintenanceUser()->getUser();
 		}
@@ -221,19 +234,20 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Deletes all children of the current BlueSpiceSocialEntity
+	 * @param User|null $user
 	 * @return Status
 	 */
-	public function deleteChildren( \User $user = null ) {
-		$status = \Status::newGood( $this );
-		foreach( $this->getChildren() as $entity ) {
+	public function deleteChildren( User $user = null ) {
+		$status = Status::newGood( $this );
+		foreach ( $this->getChildren() as $entity ) {
 			try {
-				$job = new \BlueSpice\Social\Job\Archive(
+				$job = new Archive(
 					$entity->getTitle()
 				);
-				\JobQueueGroup::singleton()->push(
+				JobQueueGroup::singleton()->push(
 					$job
 				);
-			} catch( \Exception $e ) {
+			} catch ( Exception $e ) {
 				$status->error( $e->getMessage() );
 			}
 		}
@@ -243,12 +257,13 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Gets the BlueSpiceSocialEntity attributes formated for the api
+	 * @param array $a
 	 * @return object
 	 */
-	public function getFullData( $a = array() ) {
+	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
-			array(
+			[
 				static::ATTR_PARENT_ID => $this->get( static::ATTR_PARENT_ID, 0 ),
 				static::ATTR_PRELOAD => $this->get( static::ATTR_PRELOAD, '' ),
 				static::ATTR_ACTIONS => $this->getActions(),
@@ -256,8 +271,8 @@ abstract class Entity extends \BlueSpice\Entity {
 				static::ATTR_RELATED_TITLE => $this->getRelatedTitle()->getFullText(),
 				static::ATTR_OWNER_NAME => $this->getOwnerName(),
 				static::ATTR_OWNER_REAL_NAME => $this->getOwnerRealName()
-			)
-		));
+			]
+		) );
 	}
 
 	/**
@@ -266,16 +281,16 @@ abstract class Entity extends \BlueSpice\Entity {
 	 * @return array
 	 */
 	public function getChildren() {
-		if( $this->children !== null ) {
+		if ( $this->children !== null ) {
 			return $this->children;
 		}
 
 		$this->children = [];
-		if( !$this->getConfig()->get( 'CanHaveChildren' ) || !$this->exists() ) {
+		if ( !$this->getConfig()->get( 'CanHaveChildren' ) || !$this->exists() ) {
 			return $this->children;
 		}
-		$context = new \BlueSpice\Context(
-			\RequestContext::getMain(),
+		$context = new Context(
+			RequestContext::getMain(),
 			$this->getConfig()
 		);
 		$user = Services::getInstance()->getBSUtilityFactory()
@@ -287,16 +302,16 @@ abstract class Entity extends \BlueSpice\Entity {
 			$user,
 			$this
 		);
-		$params = new ReaderParams([
+		$params = new ReaderParams( [
 			'filter' => $listContext->getFilters(),
 			'sort' => $listContext->getSort(),
 			'limit' => ReaderParams::LIMIT_INFINITE,
 			'start' => 0,
-		]);
+		] );
 		$res = $this->getStore( $listContext )->getReader()->read( $params );
-		foreach( $res->getRecords() as $row ) {
+		foreach ( $res->getRecords() as $row ) {
 			$entity = $this->entityFactory->newFromObject( $row->getData() );
-			if( !$entity instanceof Entity ) {
+			if ( !$entity instanceof Entity ) {
 				continue;
 			}
 			$this->children[] = $entity;
@@ -307,7 +322,7 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 * Checks if the entity has a parent entity
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasParent() {
 		return !empty( $this->get( static::ATTR_PARENT_ID, 0 ) );
@@ -318,7 +333,7 @@ abstract class Entity extends \BlueSpice\Entity {
 	 * @return Entity | null
 	 */
 	public function getParent() {
-		if( !$this->hasParent() ) {
+		if ( !$this->hasParent() ) {
 			return null;
 		}
 		return $this->entityFactory->newFromID(
@@ -348,21 +363,31 @@ abstract class Entity extends \BlueSpice\Entity {
 		return $this->set( static::ATTR_PARENT_ID, $iID );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_PARENT_ID} ) ) {
+		if ( isset( $o->{static::ATTR_PARENT_ID} ) ) {
 			$this->set( static::ATTR_PARENT_ID, $o->{static::ATTR_PARENT_ID} );
 		}
 		parent::setValuesByObject( $o );
 	}
 
+	/**
+	 *
+	 * @return Title
+	 */
 	public function getRelatedTitle() {
-		if( $this->relatedTitle ) {
+		if ( $this->relatedTitle ) {
 			return $this->relatedTitle;
 		}
-		if( $this->hasParent() ) {
-			if( !$oParent = $this->getParent() ) {
-				//very bad!!!
-				//parent was removed menually... just do not fatal here
+		if ( $this->hasParent() ) {
+			$oParent = $this->getParent();
+			if ( !$oParent ) {
+				// very bad!!!
+				// parent was removed menually... just do not fatal and hope for
+				// the best ;)
 				return \BlueSpice\Social\Extension::getDefaultRelatedTitle();
 			}
 			$this->relatedTitle = $oParent->getRelatedTitle();
@@ -381,92 +406,99 @@ abstract class Entity extends \BlueSpice\Entity {
 		$aVarMsg = $this->getConfig()->get( 'VarMessageKeys' );
 		return isset( $aVarMsg[$sVarName] )
 			? wfMessage( $aVarMsg[$sVarName] )
-			: wfMessage( $sVarName )
-		;
+			: wfMessage( $sVarName );
 	}
 
-	protected function checkPermission( $sAction, \User $oUser, \Title $oTitle = null ) {
-		//check the delete or deleteothers permission instead of the
-		//read-permission when an entity is marked as archived, as not everyone
-		//should be able to see archived entities
-		if( $sAction === 'read' && $this->isArchived() ) {
+	/**
+	 *
+	 * @param string $sAction
+	 * @param User $oUser
+	 * @param Title|null $oTitle
+	 * @return Status
+	 */
+	protected function checkPermission( $sAction, User $oUser, Title $oTitle = null ) {
+		// check the delete or deleteothers permission instead of the
+		// read-permission when an entity is marked as archived, as not everyone
+		// should be able to see archived entities
+		if ( $sAction === 'read' && $this->isArchived() ) {
 			$sAction = $this->userIsOwner( $oUser ) ? 'delete' : 'deleteothers';
 		}
 
 		$sPermission = $this->getConfig()->get(
-			ucfirst( $sAction )."Permission"
+			ucfirst( $sAction ) . "Permission"
 		);
 
-		if( !$sPermission ) {
-			return \Status::newFatal( wfMessage(
+		if ( !$sPermission ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-permission-unknownaction',
 				$sAction
-			));
+			) );
 		}
-		$oStatus = \Status::newGood( $this );
-		$b = \Hooks::run( 'BSSocialEntityUserCan' , [
+		$oStatus = Status::newGood( $this );
+		$b = Hooks::run( 'BSSocialEntityUserCan', [
 			$this,
 			$oUser,
 			$sPermission,
 			$oTitle,
 			&$oStatus,
 			$sAction
-		]);
-		if( !$b || !$oStatus->isOK()) {
+		] );
+		if ( !$b || !$oStatus->isOK() ) {
 			return $oStatus;
 		}
-		if( $oTitle instanceof \Title ) {
-			if( $oTitle->getNamespace() == NS_SOCIALENTITY ) {
-				return \Status::newFatal( wfMessage(
+		if ( $oTitle instanceof Title ) {
+			if ( $oTitle->getNamespace() == NS_SOCIALENTITY ) {
+				return Status::newFatal( wfMessage(
 					'bs-social-entity-fatalstatus-permission-recursion'
-				));
+				) );
 			}
-			if( !$oTitle->userCan( $sPermission, $oUser ) ) {
-				return \Status::newFatal( wfMessage(
+			if ( !$oTitle->userCan( $sPermission, $oUser ) ) {
+				return Status::newFatal( wfMessage(
 					'bs-social-entity-fatalstatus-permission-permissiondeniedusercan',
 					$sAction,
 					$oTitle->getFullText()
-				));
+				) );
 			}
 			return $oStatus;
 		}
 
-		if( !$oUser->isAllowed( $sPermission ) ) {
-			return \Status::newFatal( wfMessage(
+		if ( !$oUser->isAllowed( $sPermission ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed',
 				$sAction
-			));
+			) );
 		}
 		return $oStatus;
 	}
 
 	/**
-	 * @param \User $oUser
-	 * @return \Status
+	 * @param string $sAction
+	 * @param User|null $oUser
+	 * @return Status
 	 */
-	public function userCan( $sAction = 'read', \User $oUser = null ) {
-		if( $this->hasParent() ) {
+	public function userCan( $sAction = 'read', User $oUser = null ) {
+		if ( $this->hasParent() ) {
 			$status = $this->getParent()->userCan( $sAction, $oUser );
-			if( !$status->isOK() ) {
+			if ( !$status->isOK() ) {
 				return $status;
 			}
 		}
 		$oTitle = null;
-		if( !$oUser instanceof \User ) {
-			$oUser = \RequestContext::getMain()->getUser();
+		if ( !$oUser instanceof User ) {
+			$oUser = RequestContext::getMain()->getUser();
 		}
-		if( $this->getConfig()->get( 'PermissionTitleRequired' ) ) {
+		if ( $this->getConfig()->get( 'PermissionTitleRequired' ) ) {
 			$oTitle = $this->getRelatedTitle();
-			if( !$oTitle instanceof \Title ) {
-				return \Status::newFatal( wfMessage(
+			if ( !$oTitle instanceof Title ) {
+				return Status::newFatal( wfMessage(
 					'bs-social-entity-fatalstatus-permission-notitle'
-				));
+				) );
 			}
-			//The default title is the mainpage. However, when this page is
-			//protected, no one can add entities anymore :(
-			//We dont really need a title to check the permissions in the main
-			//namespace
-			if( $oTitle->getNamespace() === NS_MAIN ) {
+			// The default title is the mainpage. However, when this page is
+			// protected, no one can add entities anymore :(
+			// We dont really need a title to check the permissions in the main
+			// namespace
+			if ( $oTitle->getNamespace() === NS_MAIN ) {
 				$oTitle = null;
 			}
 		}
@@ -476,55 +508,55 @@ abstract class Entity extends \BlueSpice\Entity {
 	/**
 	 * Returns an array of actions, the given user can do on the Entity
 	 * @param array $aActions
-	 * @param \User $oUser
+	 * @param User|null $oUser
 	 * @return array
 	 */
-	public function getActions( array $aActions = [], \User $oUser = null ) {
-		if( !$oUser ) {
-			$oUser = \RequestContext::getMain()->getUser();
+	public function getActions( array $aActions = [], User $oUser = null ) {
+		if ( !$oUser ) {
+			$oUser = RequestContext::getMain()->getUser();
 		}
 		$bAnon = $oUser->isAnon();
 
-		if( $this->userCan( 'read', $oUser ) ) {
+		if ( $this->userCan( 'read', $oUser ) ) {
 			$aActions[] = 'read';
 		} else {
 			return $aActions;
 		}
 
-		if( $this->getConfig()->get( 'IsEditable' ) && !$bAnon ) {
-			if( $this->userIsOwner( $oUser ) ) {
+		if ( $this->getConfig()->get( 'IsEditable' ) && !$bAnon ) {
+			if ( $this->userIsOwner( $oUser ) ) {
 				$oStatus = $this->userCan( 'edit', $oUser );
 			} else {
 				$oStatus = $this->userCan( 'editothers', $oUser );
 			}
-			if( $oStatus->isOK() ) {
+			if ( $oStatus->isOK() ) {
 				$aActions[] = 'edit';
 			}
 		}
-		if( $this->getConfig()->get( 'IsDeleteable' ) && !$bAnon ) {
-			if( $this->userIsOwner( $oUser ) ) {
+		if ( $this->getConfig()->get( 'IsDeleteable' ) && !$bAnon ) {
+			if ( $this->userIsOwner( $oUser ) ) {
 				$oStatus = $this->userCan( 'delete', $oUser );
 			} else {
 				$oStatus = $this->userCan( 'deleteothers', $oUser );
 			}
-			if( $oStatus->isOK() ) {
+			if ( $oStatus->isOK() ) {
 				$aActions[] = 'delete';
 			}
 		}
-		if( $this->getConfig()->get( 'IsCreatable' ) && !$this->exists() && !$bAnon ) {
+		if ( $this->getConfig()->get( 'IsCreatable' ) && !$this->exists() && !$bAnon ) {
 			$oStatus = $this->userCan( 'create', $oUser );
-			if( $oStatus->isOK() ) {
+			if ( $oStatus->isOK() ) {
 				$aActions[] = 'create';
 			}
 		}
-		if( $this->exists() && !$bAnon ) {
+		if ( $this->exists() && !$bAnon ) {
 			$oStatus = $this->userCan( 'source', $oUser );
-			if( $oStatus->isOK() ) {
+			if ( $oStatus->isOK() ) {
 				$aActions[] = 'source';
 			}
 		}
 
-		\Hooks::run( 'BSSocialEntityGetActions', [ $this, &$aActions ] );
+		Hooks::run( 'BSSocialEntityGetActions', [ $this, &$aActions ] );
 		return $aActions;
 	}
 
@@ -535,10 +567,10 @@ abstract class Entity extends \BlueSpice\Entity {
 	public function invalidateCache() {
 		parent::invalidateCache();
 		$this->getRenderer()->invalidate();
-		if( $this->getRelatedTitle() instanceof \Title ) {
+		if ( $this->getRelatedTitle() instanceof Title ) {
 			$this->getRelatedTitle()->invalidateCache();
 		}
-		if( $this->hasParent() ) {
+		if ( $this->hasParent() ) {
 			$this->getParent()->invalidateCache();
 		}
 		return $this;
@@ -546,7 +578,7 @@ abstract class Entity extends \BlueSpice\Entity {
 
 	/**
 	 *
-	 * @return \Title
+	 * @return Title
 	 */
 	public function getBackLinkTitle() {
 		return $this->getRelatedTitle();

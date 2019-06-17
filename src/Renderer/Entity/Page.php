@@ -17,7 +17,7 @@ class Page extends \BlueSpice\Social\Renderer\Entity {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
-	 * @param CacheHelper $cacheHelper
+	 * @param CacheHelper|null $cacheHelper
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,
@@ -34,6 +34,11 @@ class Page extends \BlueSpice\Social\Renderer\Entity {
 		$this->args['content'] = '';
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_content( $val ) {
 		return '';
 	}

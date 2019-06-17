@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\ExtendedSearch\MappingProvider;
+
 use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
@@ -16,16 +17,20 @@ class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 	const DATE = 'date';
 	const FLOAT = 'float';
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getPropertyConfig() {
 		$aPC = parent::getPropertyConfig();
 
 		$store = new Store( \RequestContext::getMain() );
 		$schema = $store->getReader()->getSchema();
-		foreach( $schema->getIndexableFields() as $sKey ) {
-			if( !$sKey ) {
+		foreach ( $schema->getIndexableFields() as $sKey ) {
+			if ( !$sKey ) {
 				continue;
 			}
-			$fieldname = static::PREFIX.".$sKey";
+			$fieldname = static::PREFIX . ".$sKey";
 			$aPC[$fieldname] = $this->mapDataFieldTypeToSearchFieldType(
 				$sKey,
 				$schema[$sKey]
@@ -35,10 +40,16 @@ class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 		return $aPC;
 	}
 
+	/**
+	 *
+	 * @param string $key
+	 * @param array $definiton
+	 * @return array
+	 */
 	protected function mapDataFieldTypeToSearchFieldType( $key, $definiton ) {
 		$mapping = static::getValueTypeMapping();
 		$type = static::TEXT;
-		if( isset( $mapping[$definiton[Schema::TYPE]] ) ) {
+		if ( isset( $mapping[$definiton[Schema::TYPE]] ) ) {
 			$type = $mapping[$definiton[Schema::TYPE]];
 		}
 
@@ -46,18 +57,22 @@ class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 			static::TYPE => $type,
 		];
 
-		//Copy all text values to our "_all" field to speed up the search
-		if( $type == static::TEXT ) {
-			$return['copy_to'] = ['congregated'];
+		// Copy all text values to our "_all" field to speed up the search
+		if ( $type == static::TEXT ) {
+			$return['copy_to'] = [ 'congregated' ];
 		}
-		//We need header to be available for autocomplete
-		if( $key == 'header' ) {
-			$return['copy_to'] = ['congregated', 'ac_ngram'];
+		// We need header to be available for autocomplete
+		if ( $key == 'header' ) {
+			$return['copy_to'] = [ 'congregated', 'ac_ngram' ];
 		}
 
 		return $return;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public static function getValueTypeMapping() {
 		return [
 			FieldType::STRING => static::KEYWORD,

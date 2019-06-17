@@ -20,7 +20,7 @@ class Text extends \BlueSpice\Social\Renderer\Entity {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
-	 * @param CacheHelper $cacheHelper
+	 * @param CacheHelper|null $cacheHelper
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,
@@ -40,57 +40,72 @@ class Text extends \BlueSpice\Social\Renderer\Entity {
 		);
 	}
 
-	protected function render_attachments( $mVal, $sType = 'Default' ) {
-		$sOut = '';
-		if( empty( $mVal ) || !is_array( $mVal ) ) {
-			return $sOut;
+	/**
+	 *
+	 * @param mixed $val
+	 * @param string $type
+	 * @return string
+	 */
+	protected function render_attachments( $val, $type = 'Default' ) {
+		$out = '';
+		if ( empty( $val ) || !is_array( $val ) ) {
+			return $out;
 		}
 		$availableAttachments = $this->getEntity()->getConfig()->get(
 			'AvailableAttachments'
 		);
-		foreach( $mVal as $sType => $aAttachments ) {
-			if( !in_array( $sType, $availableAttachments ) ) {
+		foreach ( $val as $type => $attachments ) {
+			if ( !in_array( $type, $availableAttachments ) ) {
 				continue;
 			}
-			if( $sType === 'images' ) {
-				foreach( $aAttachments as $sImage ) {
-					if( !$oTitle = Title::makeTitle( NS_FILE, $sImage ) ) {
+			if ( $type === 'images' ) {
+				foreach ( $attachments as $image ) {
+					$title = Title::makeTitle( NS_FILE, $image );
+					if ( !$title ) {
 						continue;
 					}
 
-					if( !$oFile = wfFindFile( $oTitle ) ) {
+					$file = wfFindFile( $title );
+					if ( !$file ) {
 						continue;
 					}
 
-					$sType = 'image';
-					if( strpos( $oFile->getMimeType(), 'image' ) === false ) {
-						$sType = 'file';
+					$type = 'image';
+					if ( strpos( $file->getMimeType(), 'image' ) === false ) {
+						$type = 'file';
 					}
 					$entityAttachment = EntityAttachment::factory(
 						$this->getEntity(),
-						$oFile,
-						$sType
+						$file,
+						$type
 					);
-					$sOut .= $entityAttachment->render();
+					$out .= $entityAttachment->render();
 				}
 			}
-			if( $sType === 'links' ) {
-				foreach( $aAttachments as $link ) {
-					if( !$title = Title::newFromText( $link ) ) {
+			if ( $type === 'links' ) {
+				foreach ( $attachments as $link ) {
+					$title = Title::newFromText( $link );
+					if ( !$title ) {
 						continue;
 					}
 
 					$entityAttachment = EntityAttachment::factory(
 						$this->getEntity(),
 						$title,
-						'link'					);
-					$sOut .= $entityAttachment->render();
+						'link'
+					);
+					$out .= $entityAttachment->render();
 				}
 			}
 		}
-		return $sOut;
+		return $out;
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_content( $val ) {
 		return $this->getEntity()->get(
 			EntityText::ATTR_PARSED_TEXT,

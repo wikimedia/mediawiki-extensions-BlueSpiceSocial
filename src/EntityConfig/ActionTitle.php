@@ -26,10 +26,11 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\EntityConfig;
+
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Entity\ActionTitle as Entity;
@@ -40,6 +41,11 @@ use BlueSpice\Social\Entity\ActionTitle as Entity;
  * @subpackage BlueSpiceSocial
  */
 abstract class ActionTitle extends Action {
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),

@@ -37,13 +37,13 @@ class EntityActions extends \BlueSpice\Renderer {
 			static::PARAM_ENTITY,
 			false
 		);
-		if( !$this->entity instanceof Entity ) {
+		if ( !$this->entity instanceof Entity ) {
 			throw new Exception(
 				"param '" . static::PARAM_ENTITY . "' needs to be an instance of \\BlueSpice\\Social\\Entity"
 			);
 		}
 
-		if( empty( $this->args[static::PARAM_CLASS] ) ) {
+		if ( empty( $this->args[static::PARAM_CLASS] ) ) {
 			$this->args[static::PARAM_CLASS] = '';
 		}
 		$this->args[static::PARAM_CLASS] .= ' bs-social-entity-actions';
@@ -62,10 +62,10 @@ class EntityActions extends \BlueSpice\Renderer {
 			'class' => 'bs-social-entity-actions-btn',
 			'title' => $this->msg( 'bs-social-entityactions-label' )->plain(),
 			'href' => '#',
-		]);
+		] );
 		$content .= Html::element( 'div', [
 			'class' => 'bs-social-entity-actions-content',
-		]);
+		] );
 		return $content;
 	}
 }

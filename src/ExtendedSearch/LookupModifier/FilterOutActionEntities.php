@@ -12,9 +12,9 @@ class FilterOutActionEntities extends LookupModifierBase {
 		$entityConfigFactory = MWServices::getInstance()->getService( 'BSEntityConfigFactory' );
 
 		$types = $entityRegistry->getTypes();
-		foreach( $types as $type ) {
+		foreach ( $types as $type ) {
 			$typeConfig = $entityConfigFactory->newFromType( $type );
-			if( $typeConfig->get( 'ExtendedSearchListable' ) == false ) {
+			if ( $typeConfig->get( 'ExtendedSearchListable' ) == false ) {
 				$this->oLookup->addBoolMustNotTerms( 'entitydata.type', $type );
 			}
 		}
@@ -25,4 +25,3 @@ class FilterOutActionEntities extends LookupModifierBase {
 	}
 
 }
-

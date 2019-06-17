@@ -2,8 +2,6 @@
 
 namespace BlueSpice\Social\Notifications;
 
-use BlueSpice\EchoConnector\Notifier\NotificationsEchoNotifier;
-
 class Registrator {
 
 	/**
@@ -11,10 +9,11 @@ class Registrator {
 	 *
 	 * @param \BlueSpice\NotificationManager $notificationsManager
 	 */
-	public static function registerNotifications( \BlueSpice\NotificationManager $notificationsManager ) {
+	public static function registerNotifications(
+		\BlueSpice\NotificationManager $notificationsManager ) {
 		$echoNotifier = $notificationsManager->getNotifier();
 
-		$echoNotifier->registerNotificationCategory( 'bs-social-entity-cat', ['priority' => 3] );
+		$echoNotifier->registerNotificationCategory( 'bs-social-entity-cat', [ 'priority' => 3 ] );
 
 		$config = [
 			'category' => 'bs-social-entity-cat',

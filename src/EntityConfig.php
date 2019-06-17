@@ -25,11 +25,11 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social;
-use BlueSpice\Social\Entity;
+
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
 use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter;
@@ -40,35 +40,78 @@ use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter;
  * @subpackage BlueSpiceSocial
  */
 abstract class EntityConfig extends \BlueSpice\EntityConfig {
+
+	/**
+	 *
+	 * @return array
+	 */
 	public function addGetterDefaults() {
-		return array(
-			'ModuleStyles' => array(),
-			'ModuleScripts' => array(),
-		);
+		return [
+			'ModuleStyles' => [],
+			'ModuleScripts' => [],
+		];
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_OutputClass() {
 		return '';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_Renderer() {
 		return "socialentity";
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_StoreClass() {
 		return "\\BlueSpice\\Social\\Data\\Entity\\Store";
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ChildListContextClass() {
 		return "\\BlueSpice\\Social\\EntityListContext\\Children";
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_TypeMessageKey() {
 		return '';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKey() {
 		return '';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKeyCreateNew() {
 		return '';
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_VarMessageKeys() {
 		return [
 			Entity::ATTR_ID => 'bs-social-var-id',
@@ -80,17 +123,34 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig {
 		];
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_DeleteConfirmMessageKey() {
 		return 'bs-social-entityaction-delete-confirmtext';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_UnDeleteConfirmMessageKey() {
 		return 'bs-social-entityaction-undelete-confirmtext';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ContentClass() {
 		return '\\BlueSpice\\Social\\Content\\Entity';
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),
@@ -147,141 +207,312 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig {
 			]
 		);
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplateDefault() {
 		return 'BlueSpiceSocial.Entity.Default';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplatePage() {
 		return 'BlueSpiceSocial.Entity.Page';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplateShort() {
 		return 'BlueSpiceSocial.Entity.Short';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplateList() {
 		return 'BlueSpiceSocial.Entity.List';
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsEditable() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsCreatable() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsDeleteable() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsSpawnable() {
 		return $this->get_IsCreatable();
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_CanHaveChildren() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return string[]
+	 */
 	protected function get_ModuleScripts() {
 		return [
 			'ext.bluespice.social',
 			'ext.bluespice.social.entity',
 		];
 	}
+
+	/**
+	 *
+	 * @return string[]
+	 */
 	protected function get_ModuleStyles() {
 		return [
 			'ext.bluespice.social.styles',
 		];
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_PermissionTitleRequired() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ReadPermission() {
 		return 'read';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_CreatePermission() {
 		return 'edit';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EditPermission() {
 		return 'edit';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_DeletePermission() {
 		return 'edit';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_DeleteothersPermission() {
 		return 'social-deleteothers';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EditothersPermission() {
 		return 'social-editothers';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_SourcePermission() {
 		return 'social-source';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AvailableAttachments() {
 		return [];
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_CanHaveAttachments() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ExtendedSearchResultFormatter() {
 		return EntityFormatter::class;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_ExtendedSearchListable() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_NotificationObjectClass() {
 		return \BlueSpice\Social\Notifications\SocialNotification::class;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_HasNotifications() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_NotificationTypePrefix() {
 		return 'bs-social-entity';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityListOutputType() {
 		return 'Default';
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListTypeAllowed() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListTypeSelected() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityListChildrenOutputType() {
 		return 'Default';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityListPreloadTitle() {
 		return '';
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListInitiallyHiddenChildrenDefault() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListInitiallyHiddenChildrenShort() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListInitiallyHiddenChildrenList() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListInitiallyHiddenChildrenPage() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListTypeChildrenAllowed() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListSpecialTimelineTypeSelected() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_EntityListPrivacyHandlerTypeAllowed() {
 		return true;
 	}

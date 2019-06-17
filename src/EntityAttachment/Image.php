@@ -7,7 +7,7 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\EntityAttachment;
 
@@ -22,6 +22,10 @@ use BlueSpice\Social\EntityAttachment;
 class Image extends EntityAttachment {
 	protected $sType = 'image';
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getTemplateName() {
 		return 'BlueSpiceSocial.Entity.attachment.Default';
 	}
@@ -32,7 +36,7 @@ class Image extends EntityAttachment {
 	 * @return array
 	 */
 	public function getArgs() {
-		if( !$this->mAttachment instanceof \File ) {
+		if ( !$this->mAttachment instanceof \File ) {
 			return [];
 		}
 
@@ -52,7 +56,7 @@ class Image extends EntityAttachment {
 			PREG_SET_ORDER
 		);
 		$this->aArgs['attribs'] = '';
-		foreach( $match as $parts ) {
+		foreach ( $match as $parts ) {
 			$this->aArgs['attribs'] .= ' ' . trim( $parts[0] );
 		}
 
@@ -71,6 +75,10 @@ class Image extends EntityAttachment {
 		return $this->aArgs;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getThumb() {
 		return $this->mAttachment->createThumb( 128 );
 	}

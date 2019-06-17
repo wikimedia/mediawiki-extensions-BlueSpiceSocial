@@ -5,17 +5,22 @@ namespace BlueSpice\Social\Hook\BSRSSFeederBeforeGetRecentChanges;
 use \BlueSpice\RSSFeeder\Hook\BSRSSFeederBeforeGetRecentChanges;
 
 class RCRemoveSocial extends BSRSSFeederBeforeGetRecentChanges {
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function skipProcessing() {
-		if( $this->feedType === 'namespace' ) {
+		if ( $this->feedType === 'namespace' ) {
 			return true;
 		}
 		return false;
 	}
 	/**
 	 * Do not show social entities in recent changes
+	 * @return bool
 	 */
 	protected function doProcess() {
-		switch( $this->feedType ) {
+		switch ( $this->feedType ) {
 			case 'recentchanges':
 			case 'followOwn':
 			case 'followPage':

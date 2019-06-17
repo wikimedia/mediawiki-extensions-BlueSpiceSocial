@@ -2,29 +2,32 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use \BlueSpice\Data\ISecondaryDataProvider;
+use MediaWiki\Linker\LinkRenderer;
+use BlueSpice\Data\ISecondaryDataProvider;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
 
 	/**
 	 *
-	 * @var \MediaWiki\Linker\LinkRenderer
+	 * @var LinkRenderer
 	 */
 	protected $linkrenderer = null;
 
 	/**
 	 *
-	 * @param \MediaWiki\Linker\LinkRenderer $linkrenderer
+	 * @param LinkRenderer $linkrenderer
 	 */
 	public function __construct( $linkrenderer ) {
 		$this->linkrenderer = $linkrenderer;
 	}
 
-	public function extend( $dataSets ){
-		foreach( $dataSets as &$dataSet ) {
-
-		}
-
+	/**
+	 *
+	 * @param Record[] $dataSets
+	 * @return Record[]
+	 */
+	public function extend( $dataSets ) {
+		// i guess it does nothing at the moment ¯\_(ツ)_/¯
 		return $dataSets;
 	}
 }

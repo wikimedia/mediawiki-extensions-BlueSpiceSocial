@@ -26,10 +26,13 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use Status;
+use User;
 use BlueSpice\Social\Entity;
 use BlueSpice\Services;
 
@@ -84,43 +87,63 @@ abstract class Action extends Entity {
 		return $this->set( static::ATTR_SUMMARY, $sSummary );
 	}
 
+	/**
+	 *
+	 * @param bool $bForceInvalidateFirst
+	 * @return string
+	 */
 	public function getParsedText( $bForceInvalidateFirst = false ) {
-		//Make sure, the action text content does not get parsed
-		//(possible tag injection)!
+		// Make sure, the action text content does not get parsed
+		// (possible tag injection)!
 		$sText = strip_tags( $this->get( static::ATTR_SUMMARY, '' ) );
 		return "<nowiki>$sText</nowiki>";
 	}
 
-	public function getFullData( $a = array() ) {
+	/**
+	 *
+	 * @param array $a
+	 * @return array
+	 */
+	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
-			array(
+			[
 				static::ATTR_ACTION => $this->get( static::ATTR_ACTION, 'create' ),
 				static::ATTR_SUMMARY => $this->get( static::ATTR_SUMMARY, '' ),
-			)
-		));
+			]
+		) );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_ACTION} ) ) {
+		if ( isset( $o->{static::ATTR_ACTION} ) ) {
 			$this->set( static::ATTR_ACTION, $o->{static::ATTR_ACTION} );
 		}
-		if( isset( $o->{static::ATTR_SUMMARY} ) ) {
+		if ( isset( $o->{static::ATTR_SUMMARY} ) ) {
 			$this->set( static::ATTR_SUMMARY, $o->{static::ATTR_SUMMARY} );
 		}
 		parent::setValuesByObject( $o );
 	}
 
-	public function save( \User $user = null, $options = [] ) {
-		//always use the maintenance user for auto-created entities to prevent
-		//unrealistic edit statistics for users
+	/**
+	 *
+	 * @param User|null $user
+	 * @param array $options
+	 * @return Status
+	 */
+	public function save( User $user = null, $options = [] ) {
+		// always use the maintenance user for auto-created entities to prevent
+		// unrealistic edit statistics for users
 		$user = Services::getInstance()->getBSUtilityFactory()
 			->getMaintenanceUser()->getUser();
-		if( empty( $this->get( static::ATTR_ACTION ) ) ) {
-			return \Status::newFatal( wfMessage(
+		if ( empty( $this->get( static::ATTR_ACTION ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_ACTION )->plain()
-			));
+			) );
 		}
 		return parent::save( $user, $options );
 	}

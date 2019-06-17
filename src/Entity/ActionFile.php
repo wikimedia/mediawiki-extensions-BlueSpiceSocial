@@ -26,10 +26,16 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use Status;
+use User;
+use Html;
+use File;
+
 /**
  * File class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
@@ -72,43 +78,65 @@ abstract class ActionFile extends ActionTitle {
 		return $this->set( static::ATTR_FILE_NAME, $sFileName );
 	}
 
+	/**
+	 *
+	 * @param string $attrName
+	 * @param mixed|null $default
+	 * @return mixed
+	 */
 	public function get( $attrName, $default = null ) {
-		//files must be in file namespace
-		if( $attrName == static::ATTR_NAMESPACE ) {
+		// files must be in file namespace
+		if ( $attrName == static::ATTR_NAMESPACE ) {
 			return NS_FILE;
 		}
 		return parent::get( $attrName, $default );
 	}
 
+	/**
+	 *
+	 * @param string $attrName
+	 * @param mixed $value
+	 * @return ActionEntity
+	 */
 	public function set( $attrName, $value ) {
-		//files must be in file namespace
-		if( $attrName == static::ATTR_NAMESPACE ) {
+		// files must be in file namespace
+		if ( $attrName == static::ATTR_NAMESPACE ) {
 			return parent::set( $attrName, NS_FILE );
 		}
 		return parent::set( $attrName, $value );
 	}
 
+	/**
+	 *
+	 * @param bool $bForceInvalidateFirst
+	 * @return string
+	 */
 	public function getParsedText( $bForceInvalidateFirst = false ) {
-		//Deprecated!!!!
-		if( !empty( $this->getActionRef() ) ) {
-			//Make sure, the action text content does not get parsed
-			//(possible tag injection)!
+		// Deprecated!!!!
+		if ( !empty( $this->getActionRef() ) ) {
+			// Make sure, the action text content does not get parsed
+			// (possible tag injection)!
 			$sText = strip_tags( $this->sText );
 			$sText = "<nowiki>$sText</nowiki>";
 		} else {
 			$sText = parent::getParsedText( $bForceInvalidateFirst );
 		}
 		$oFile = $this->getRelatedFile();
-		if( !$oFile ) {
+		if ( !$oFile ) {
 			return $sText;
 		}
-		$sText .= \Html::element( 'img', [
+		$sText .= Html::element( 'img', [
 			'src' => $oFile->createThumb( 200 ),
 			'title' => $oFile->getName(),
-		]);
+		] );
 		return $sText;
 	}
 
+	/**
+	 *
+	 * @param int $iNamespace
+	 * @return ActionFile
+	 */
 	public function setNamespace( $iNamespace ) {
 		$this->iNamespace = NS_FILE;
 		return $this->setUnsavedChanges();
@@ -125,7 +153,12 @@ abstract class ActionFile extends ActionTitle {
 		return $this->set( static::ATTR_FILE_TIMESTAMP, $sFileTimestamp );
 	}
 
-	public function getFullData( $a = array() ) {
+	/**
+	 *
+	 * @param array $a
+	 * @return array
+	 */
+	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
 			[
@@ -138,17 +171,21 @@ abstract class ActionFile extends ActionTitle {
 					''
 				),
 			]
-		));
+		) );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_FILE_NAME} ) ) {
+		if ( isset( $o->{static::ATTR_FILE_NAME} ) ) {
 			$this->set(
 				static::ATTR_FILE_NAME,
 				$o->{static::ATTR_FILE_NAME}
 			);
 		}
-		if( isset( $o->{static::ATTR_FILE_TIMESTAMP} ) ) {
+		if ( isset( $o->{static::ATTR_FILE_TIMESTAMP} ) ) {
 			$this->set(
 				static::ATTR_FILE_TIMESTAMP,
 				$o->{static::ATTR_FILE_TIMESTAMP}
@@ -157,24 +194,34 @@ abstract class ActionFile extends ActionTitle {
 		parent::setValuesByObject( $o );
 	}
 
+	/**
+	 *
+	 * @return File|null
+	 */
 	public function getRelatedFile() {
 		return wfFindFile( $this->getRelatedTitle(), [
 			'time' => $this->get( static::ATTR_FILE_TIMESTAMP, '' )
-		]);
+		] );
 	}
 
-	public function save( \User $oUser = null, $aOptions = array() ) {
-		if( empty( $this->get( static::ATTR_FILE_NAME, '' ) ) ) {
-			return \Status::newFatal( wfMessage(
+	/**
+	 *
+	 * @param User|null $oUser
+	 * @param array $aOptions
+	 * @return Status
+	 */
+	public function save( User $oUser = null, $aOptions = [] ) {
+		if ( empty( $this->get( static::ATTR_FILE_NAME, '' ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_FILE_NAME )->plain()
-			));
+			) );
 		}
-		if( empty( $this->get( static::ATTR_FILE_TIMESTAMP, '' ) ) ) {
-			return \Status::newFatal( wfMessage(
+		if ( empty( $this->get( static::ATTR_FILE_TIMESTAMP, '' ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_FILE_TIMESTAMP )->plain()
-			));
+			) );
 		}
 		return parent::save( $oUser, $aOptions );
 	}

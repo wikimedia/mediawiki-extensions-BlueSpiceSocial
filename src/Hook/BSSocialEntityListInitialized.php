@@ -21,7 +21,7 @@
  * @author     Patric Wirth <wirth@hallowelt.com>
  * @package    BlueSpiceSocial
  * @copyright  Copyright (C) 2018 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\Hook;
 
@@ -52,7 +52,7 @@ abstract class BSSocialEntityListInitialized extends \BlueSpice\Hook {
 	 * Located in \BlueSpice\Social\Renderer\EntityList::initializeArgs. After
 	 * the entity list processed the given params and finished initializing.
 	 * @param EntityList $entityList
-	 * @param array $args
+	 * @param array &$args
 	 * @param Params $params
 	 * @return bool
 	 */
@@ -72,7 +72,7 @@ abstract class BSSocialEntityListInitialized extends \BlueSpice\Hook {
 	 * @param \IContextSource $context
 	 * @param \Config $config
 	 * @param EntityList $entityList
-	 * @param array $args
+	 * @param array &$args
 	 * @param Params $params
 	 */
 	public function __construct( $context, $config, $entityList, &$args, $params ) {

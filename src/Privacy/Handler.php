@@ -22,6 +22,10 @@ class Handler implements IPrivacyHandler {
 	 */
 	protected $user;
 
+	/**
+	 *
+	 * @param \Database $db
+	 */
 	public function __construct( \Database $db ) {
 		$this->language = \RequestContext::getMain()->getLanguage();
 	}
@@ -35,7 +39,7 @@ class Handler implements IPrivacyHandler {
 		$this->user = \User::newFromName( $oldUsername );
 		$entityRecords = $this->getAllEntities();
 
-		foreach( $entityRecords as $record ) {
+		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
 			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
@@ -64,7 +68,7 @@ class Handler implements IPrivacyHandler {
 		$this->user = $userToDelete;
 		$entityRecords = $this->getAllEntities();
 
-		foreach( $entityRecords as $record ) {
+		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
 			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
@@ -100,7 +104,7 @@ class Handler implements IPrivacyHandler {
 		$entityRecords = $this->getAllEntities();
 
 		$exportData = [];
-		foreach( $entityRecords as $record ) {
+		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
 			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
@@ -120,6 +124,10 @@ class Handler implements IPrivacyHandler {
 		] );
 	}
 
+	/**
+	 *
+	 * @return \BlueSpice\Data\Record[]
+	 */
 	protected function getAllEntities() {
 		$context = new \BlueSpice\Context(
 			\RequestContext::getMain(),

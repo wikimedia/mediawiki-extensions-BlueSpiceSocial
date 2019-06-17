@@ -26,10 +26,17 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use Message;
+use Status;
+use User;
+use Title;
+use BsNamespaceHelper;
+
 /**
  * Title class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
@@ -50,12 +57,17 @@ abstract class ActionTitle extends Action {
 	 */
 	protected $sText = '';
 
-	public function getHeader($oMsg = null) {
+	/**
+	 *
+	 * @param Message|null $oMsg
+	 * @return Message
+	 */
+	public function getHeader( $oMsg = null ) {
 		return parent::getHeader( $oMsg )->params(
 			$this->getRelatedTitle()->getPrefixedText(),
 			$this->get( static::ATTR_TITLE_TEXT, '' ),
 			$this->get( static::ATTR_NAMESPACE, 0 ),
-			\BsNamespaceHelper::getNamespaceName(
+			BsNamespaceHelper::getNamespaceName(
 				$this->get( static::ATTR_NAMESPACE, 0 )
 			)
 		);
@@ -89,11 +101,16 @@ abstract class ActionTitle extends Action {
 		return $this->vActionRef;
 	}
 
-	public function getParsedText($bForceInvalidateFirst = false) {
-		//Deprecated!!!!
-		if( !empty( $this->getActionRef() ) ) {
-			//Make sure, the action text content does not get parsed
-			//(possible tag injection)!
+	/**
+	 *
+	 * @param bool $bForceInvalidateFirst
+	 * @return string
+	 */
+	public function getParsedText( $bForceInvalidateFirst = false ) {
+		// Deprecated!!!!
+		if ( !empty( $this->getActionRef() ) ) {
+			// Make sure, the action text content does not get parsed
+			// (possible tag injection)!
 			$sText = strip_tags( $this->sText );
 			return "<nowiki>$sText</nowiki>";
 		}
@@ -128,6 +145,11 @@ abstract class ActionTitle extends Action {
 		return $this->set( static::ATTR_NAMESPACE, $iNamespace );
 	}
 
+	/**
+	 *
+	 * @param array $a
+	 * @return array
+	 */
 	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
@@ -141,59 +163,73 @@ abstract class ActionTitle extends Action {
 					''
 				),
 			]
-		));
+		) );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_NAMESPACE} ) ) {
+		if ( isset( $o->{static::ATTR_NAMESPACE} ) ) {
 			$this->set(
 				static::ATTR_NAMESPACE,
 				$o->{static::ATTR_NAMESPACE}
 			);
 		}
-		if( isset( $o->{static::ATTR_TITLE_TEXT} ) ) {
+		if ( isset( $o->{static::ATTR_TITLE_TEXT} ) ) {
 			$this->set(
 				static::ATTR_TITLE_TEXT,
 				$o->{static::ATTR_TITLE_TEXT}
 			);
 		}
 
-		//Deprecated!
-		if( isset( $o->actionref ) ) {
+		// Deprecated!
+		if ( isset( $o->actionref ) ) {
 			$this->setActionRef( $o->actionref );
 		}
-		//Deprecated
-		if( isset( $o->text ) ) {
+		// Deprecated
+		if ( isset( $o->text ) ) {
 			$this->sText = $o->text;
 		}
 		parent::setValuesByObject( $o );
 	}
 
+	/**
+	 *
+	 * @return Title
+	 */
 	public function getRelatedTitle() {
-		if( $this->relatedTitle ) {
+		if ( $this->relatedTitle ) {
 			return $this->relatedTitle;
 		}
-		if( !empty( $this->getActionRef() ) ) {
-			$this->relatedTitle = \Title::newFromText( $this->getActionRef() );
+		if ( !empty( $this->getActionRef() ) ) {
+			$this->relatedTitle = Title::newFromText( $this->getActionRef() );
 			return $this->relatedTitle;
 		}
 
-		$this->relatedTitle = \Title::makeTitle(
+		$this->relatedTitle = Title::makeTitle(
 			$this->get( static::ATTR_NAMESPACE, 0 ),
 			$this->get( static::ATTR_TITLE_TEXT, '' )
 		);
-		if( !$this->relatedTitle ) {
+		if ( !$this->relatedTitle ) {
 			return parent::getRelatedTitle();
 		}
 		return $this->relatedTitle;
 	}
 
-	public function save( \User $oUser = null, $aOptions = array() ) {
-		if( empty( $this->get( static::ATTR_TITLE_TEXT, '' ) ) ) {
-			return \Status::newFatal( wfMessage(
+	/**
+	 *
+	 * @param User|null $oUser
+	 * @param array $aOptions
+	 * @return Status
+	 */
+	public function save( User $oUser = null, $aOptions = [] ) {
+		if ( empty( $this->get( static::ATTR_TITLE_TEXT, '' ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_TITLE_TEXT )->plain()
-			));
+			) );
 		}
 		return parent::save( $oUser, $aOptions );
 	}

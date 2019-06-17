@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Teaser class for BlueSpiceSocial
  *
@@ -25,9 +24,10 @@
  * @author     Patric Wirth <wirth@hallowelt.com>
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
- * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @copyright  Copyright (C) 2016 Hallo Welt! GmbH, All rights reserved.
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
+
 namespace BlueSpice\Social\Parser;
 
 /**
@@ -51,72 +51,103 @@ class Teaser extends Input {
 	 */
 	public function parse( $sText ) {
 		$sText = parent::parse( $sText );
-		if( empty( $sText ) ) {
+		if ( empty( $sText ) ) {
 			return $sText;
 		}
 		$sText = $this->shortenByWordCount( $sText );
 		return $sText;
 	}
 
+	/**
+	 *
+	 * @param string $sText
+	 * @return string
+	 */
 	protected function shortenByWordCount( $sText ) {
 		$aText = explode( ' ', $sText );
-		if( count( $aText ) <= $this->getMinWordCount() ) {
+		if ( count( $aText ) <= $this->getMinWordCount() ) {
 			return $sText;
 		}
-		//$aNewText = array_splice( $aText, 0, $this->getMinWordCount() );
+		// $aNewText = array_splice( $aText, 0, $this->getMinWordCount() );
 		$iCut = isset( $aText[$this->getMaxWordCount()] )
 			? $this->getMaxWordCount()
-			: count($aText)-1
-		;
+			: count( $aText ) - 1;
 
 		$iNewCut = false;
-		foreach( $this->getShortenOnChars() as $sChar ) {
-			foreach( $aText as $iKey => $sTextFragment ) {
-				if( $iKey < $this->getMinWordCount() ) {
+		foreach ( $this->getShortenOnChars() as $sChar ) {
+			foreach ( $aText as $iKey => $sTextFragment ) {
+				if ( $iKey < $this->getMinWordCount() ) {
 					continue;
 				}
-				if( $iKey > $iCut ) {
+				if ( $iKey > $iCut ) {
 					break;
 				}
 				$iPos = strpos( $sTextFragment, $sChar );
-				if( $iPos === false ) {
+				if ( $iPos === false ) {
 					continue;
 				}
 				$iNewCut = $iKey;
-				$aText[$iKey] = substr( $sTextFragment, 0, $iPos+1 );
+				$aText[$iKey] = substr( $sTextFragment, 0, $iPos + 1 );
 				break;
 			}
-			if( $iNewCut ) {
+			if ( $iNewCut ) {
 				$iCut = $iNewCut;
 				break;
 			}
 		}
 
-		return implode( ' ', array_splice( $aText, 0, $iCut+1 ) );
+		return implode( ' ', array_splice( $aText, 0, $iCut + 1 ) );
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	public function getMinWordCount() {
 		return $this->iMinWordCount;
 	}
 
+	/**
+	 *
+	 * @param int $iMinWordCount
+	 * @return Teaser
+	 */
 	public function setMinWordCount( $iMinWordCount ) {
 		$this->iMinWordCount = $iMinWordCount;
 		return $this;
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	public function getMaxWordCount() {
 		return $this->iMaxWordCount;
 	}
 
+	/**
+	 *
+	 * @param int $iMaxWordCount
+	 * @return Teaser
+	 */
 	public function setMaxWordCount( $iMaxWordCount ) {
 		$this->iMaxWordCount = $iMaxWordCount;
 		return $this;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getShortenOnChars() {
 		return $this->aShortenOnChars;
 	}
 
+	/**
+	 *
+	 * @param array $aShortenOnChars
+	 * @return Teaser
+	 */
 	public function setShortenOnChars( $aShortenOnChars ) {
 		$this->aShortenOnChars = $aShortenOnChars;
 		return $this;

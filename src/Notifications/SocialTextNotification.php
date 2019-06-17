@@ -2,7 +2,6 @@
 
 namespace BlueSpice\Social\Notifications;
 
-use BlueSpice\Social\Notifications\SocialNotification;
 use BlueSpice\Social\Entity\Text as TextEntity;
 
 /**
