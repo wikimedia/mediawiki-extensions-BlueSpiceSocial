@@ -18,8 +18,6 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\Renderer\UserImage;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Social\EntityListContext\Children;
-use BlueSpice\Social\Renderer\EntityList;
-use BlueSpice\Social\Renderer\EntityActions;
 
 class Entity extends \BlueSpice\Renderer\Entity {
 	const NO_TEMPLATE_CACHE = 'notemplatecache';
@@ -51,7 +49,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
-	 * @param CacheHelper $cacheHelper
+	 * @param CacheHelper|null $cacheHelper
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,
@@ -79,21 +77,25 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		$userHelper = $this->getServices()->getBSUtilityFactory()
 			->getUserHelper( $owner );
 		$this->args[static::AUTHOR] = $userHelper->getDisplayName();
-		//TODO: Use linker - needs change in all mustache templates!
+		// TODO: Use linker - needs change in all mustache templates!
 		$this->args[static::AUTHOR_PAGE] = $owner->getUserPage()->getLocalURL();
 		$this->args[static::PARAM_CLASS] .= " bs-social-entity"
-			." bs-social-entity-{$this->getEntity()->getType()}";
-		if( $this->getEntity()->isArchived() ) {
+			. " bs-social-entity-{$this->getEntity()->getType()}";
+		if ( $this->getEntity()->isArchived() ) {
 			$this->args[static::PARAM_CLASS] .= ' archived';
 		}
-		if( $this->isUserOwner() ) {
+		if ( $this->isUserOwner() ) {
 			$this->args[static::PARAM_CLASS] .= ' owned';
 		}
 		$this->args[static::HEADER] = $this->getEntity()->getHeader()->parse();
 	}
 
+	/**
+	 *
+	 * @return string|false
+	 */
 	protected function getCacheKey() {
-		if( $this->noCache ) {
+		if ( $this->noCache ) {
 			return false;
 		}
 		return $this->getCacheHelper()->getCacheKey(
@@ -106,13 +108,18 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		);
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function invalidate() {
-		if( !$this->getEntity()->exists() ) {
+		if ( !$this->getEntity()->exists() ) {
 			return true;
 		}
-		foreach( $this->getAvailableRenderTypes() as $renderType ) {
+		foreach ( $this->getAvailableRenderTypes() as $renderType ) {
 			$this->renderType = $renderType;
-			if( !$res = parent::invalidate() ) {
+			$res = parent::invalidate();
+			if ( !$res ) {
 				wfDebugLog(
 					'BlueSpiceSocial',
 					__CLASS__ . ':' . __METHOD__ . " - '$renderType' failed"
@@ -140,7 +147,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			false
 		);
 
-		if( !$this->isAllowedRenderType( $renderType ) ) {
+		if ( !$this->isAllowedRenderType( $renderType ) ) {
 			throw new MWException(
 				"'$renderType' is not an allowed render type"
 			);
@@ -163,7 +170,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 
 	/**
 	 * Checks if the current user is owner of the current entity
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isUserOwner() {
 		$owner = $this->getEntity()->getOwner();
@@ -172,7 +179,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			&& $owner
 			&& !$user->isAnon()
 			&& !$owner->isAnon()
-			&& (int) $owner->getId() === (int) $user->getId();
+			&& (int)$owner->getId() === (int)$user->getId();
 	}
 
 	/**
@@ -209,23 +216,33 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		return $attribs;
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_userimage( $val ) {
 		$factory = $this->getServices()->getBSRendererFactory();
 		$user = User::newFromId( $this->getEntity()->get(
 			SocialEntity::ATTR_OWNER_ID,
 			0
-		));
+		) );
 		$image = $factory->get( 'userimage', new Params( [
 			UserImage::PARAM_USER => $user,
 			UserImage::PARAM_WIDTH => 50,
 			UserImage::PARAM_HEIGHT => 50,
-		]));
+		] ) );
 
 		return $image->render();
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_beforecontent( $val ) {
-		if( !$this->getEntity()->exists() ) {
+		if ( !$this->getEntity()->exists() ) {
 			return '';
 		}
 		$renderer = [];
@@ -236,15 +253,20 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			&$out,
 			$val,
 			$this->renderType,
-		]);
-		if( !$b ) {
+		] );
+		if ( !$b ) {
 			return $out;
 		}
 		return $this->subRender( $out, $renderer );
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_aftercontent( $val ) {
-		if( !$this->getEntity()->exists() ) {
+		if ( !$this->getEntity()->exists() ) {
 			return '';
 		}
 		$renderer = [];
@@ -255,15 +277,20 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			&$out,
 			$val,
 			$this->renderType,
-		]);
-		if( !$b ) {
+		] );
+		if ( !$b ) {
 			return $out;
 		}
 		return $this->subRender( $out, $renderer );
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_timestampcreated( $val ) {
-		if( !$val ) {
+		if ( !$val ) {
 			return '';
 		}
 		try {
@@ -278,7 +305,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			'bs-social-datedisplaymode'
 		);
 		$prefix = $this->msg( 'bs-social-renderer-timestampprefix-created' )->plain();
-		if( $dateMode === 'age' ) {
+		if ( $dateMode === 'age' ) {
 			return "$prefix " . Html::element(
 				'span', [ 'class' => 'timestampcreated' ],
 				$mwTS->getAgeString()
@@ -294,8 +321,13 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		);
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_timestamptouched( $val ) {
-		if( !$val ) {
+		if ( !$val ) {
 			return '';
 		}
 		try {
@@ -311,7 +343,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		);
 
 		$prefix = $this->msg( 'bs-social-renderer-timestampprefix-touched' )->plain();
-		if( $dateMode === 'age' ) {
+		if ( $dateMode === 'age' ) {
 			return "$prefix " . Html::element(
 				'span', [ 'class' => 'timestamptouched' ],
 				$mwTS->getAgeString()
@@ -327,11 +359,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		);
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_children( $val ) {
-		if( !$this->getEntity()->exists() ) {
+		if ( !$this->getEntity()->exists() ) {
 			return '';
 		}
-		if( !$this->getEntity()->getConfig()->get( 'CanHaveChildren' ) ) {
+		if ( !$this->getEntity()->getConfig()->get( 'CanHaveChildren' ) ) {
 			return '';
 		}
 
@@ -349,16 +386,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			new Params( [
 				EntityList::PARAM_CONTEXT => $this->getChildListContext(),
 				EntityList::PARAM_HIDDEN => $this->isChildListInitiallyHidden()
-			])
+			] )
 		);
 	}
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function isChildListInitiallyHidden() {
-		//masterpiece!
+		// masterpiece!
 		return $this->getEntity()->getConfig()->get(
 			"EntityListInitiallyHiddenChildren$this->renderType"
 		);
@@ -392,6 +429,11 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		return Services::getInstance();
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_beforechildren( $val ) {
 		$renderer = [];
 		$out = '';
@@ -401,31 +443,41 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			&$out,
 			$val,
 			$this->renderType,
-		]);
-		if( !$b ) {
+		] );
+		if ( !$b ) {
 			return $out;
 		}
 		return $this->subRender( $out, $renderer );
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_afterchildren( $val ) {
 		$renderer = [];
 		$out = '';
-		$b = Hooks::run('BSSocialEntityOutputRenderAfterChildren', array(
+		$b = Hooks::run( 'BSSocialEntityOutputRenderAfterChildren', [
 			$this,
 			&$renderer,
 			&$out,
 			$val,
 			$this->renderType,
-		));
-		if( !$b ) {
+		] );
+		if ( !$b ) {
 			return $out;
 		}
 		return $this->subRender( $out, $renderer );
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_entityactions( $val ) {
-		if( !$this->getEntity()->exists() ) {
+		if ( !$this->getEntity()->exists() ) {
 			return '';
 		}
 		$renderer = $this->getActionsRenderer();
@@ -441,7 +493,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			'entityactions',
 			new Params( [
 				EntityActions::PARAM_ENTITY => $this->getEntity(),
-			])
+			] )
 		);
 	}
 
@@ -453,25 +505,25 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return string
 	 */
 	protected function subRender( $out, $renderer ) {
-		if( empty( $renderer ) ) {
+		if ( empty( $renderer ) ) {
 			return $out;
 		}
-		
-		foreach( $renderer as $item ) {
-			if( is_string( $item ) ) {
+
+		foreach ( $renderer as $item ) {
+			if ( is_string( $item ) ) {
 				$out .= $item;
 				continue;
 			}
-			if( $item instanceof \BlueSpice\Renderer ) {
+			if ( $item instanceof \BlueSpice\Renderer ) {
 				$out .= $item->render();
 				continue;
 			}
-			//backwards compatibility
-			if( $item instanceof \ViewBaseElement ) {
+			// backwards compatibility
+			if ( $item instanceof \ViewBaseElement ) {
 				$out .= $item->execute();
 				continue;
 			}
-			$out .= (string) $item;
+			$out .= (string)$item;
 		}
 		return $out;
 	}

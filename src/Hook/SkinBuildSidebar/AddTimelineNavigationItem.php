@@ -7,10 +7,10 @@ use \BlueSpice\Hook\SkinBuildSidebar;
 class AddTimelineNavigationItem extends SkinBuildSidebar {
 
 	protected function skipProcessing() {
-		if( !\SpecialPage::getTitleFor( 'Timeline' ) ) {
+		if ( !\SpecialPage::getTitleFor( 'Timeline' ) ) {
 			return true;
 		}
-		if( \Title::makeTitle( NS_MEDIAWIKI, 'Sidebar' )->exists() ) {
+		if ( \Title::makeTitle( NS_MEDIAWIKI, 'Sidebar' )->exists() ) {
 			return true;
 		}
 		return false;

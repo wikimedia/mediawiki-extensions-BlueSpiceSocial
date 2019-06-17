@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Hook;
+
 use BlueSpice\Hook;
 use BlueSpice\Social\Renderer\Entity;
 
@@ -39,11 +40,11 @@ abstract class BSSocialEntityOutputRenderAfterChildren extends Hook {
 	/**
 	 *
 	 * @param Entity $oEntityOutput
-	 * @param array $aViews
-	 * @param string $sOut
+	 * @param array &$aViews
+	 * @param string &$sOut
 	 * @param mixed $mVal
 	 * @param string $sType
-	 * @return boolean
+	 * @return bool
 	 */
 	public static function callback( $oEntityOutput, &$aViews, &$sOut, $mVal, $sType ) {
 		$className = static::class;
@@ -64,13 +65,14 @@ abstract class BSSocialEntityOutputRenderAfterChildren extends Hook {
 	 * @param \IContextSource $context
 	 * @param \Config $config
 	 * @param Entity $oEntityOutput
-	 * @param array $aViews
-	 * @param string $sOut
+	 * @param array &$aViews
+	 * @param string &$sOut
 	 * @param mixed $mVal
 	 * @param string $sType
 	 * @return boolean
 	 */
-	public function __construct( $context, $config, $oEntityOutput, &$aViews, &$sOut, $mVal, $sType ) {
+	public function __construct( $context, $config, $oEntityOutput, &$aViews, &$sOut,
+		$mVal, $sType ) {
 		parent::__construct( $context, $config );
 
 		$this->oEntityOutput = $oEntityOutput;

@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Hook;
+
 use BlueSpice\Hook;
 
 abstract class BSSocialModuleDepths extends Hook {
@@ -45,13 +46,14 @@ abstract class BSSocialModuleDepths extends Hook {
 	 *
 	 * @param \OutputPage $oOutput
 	 * @param \Skin $oSkin
-	 * @param array $aConfig
-	 * @param array $aScripts
-	 * @param array $aStyles
-	 * @param array $aVarMsgKeys
-	 * @return boolean
+	 * @param array &$aConfig
+	 * @param array &$aScripts
+	 * @param array &$aStyles
+	 * @param array &$aVarMsgKeys
+	 * @return bool
 	 */
-	public static function callback( $oOutput, $oSkin, &$aConfig, &$aScripts, &$aStyles, &$aVarMsgKeys ) {
+	public static function callback( $oOutput, $oSkin, &$aConfig, &$aScripts, &$aStyles,
+		&$aVarMsgKeys ) {
 		$className = static::class;
 		$hookHandler = new $className(
 			null,
@@ -67,17 +69,18 @@ abstract class BSSocialModuleDepths extends Hook {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param \IContextSource $context
 	 * @param \Config $config
 	 * @param \OutputPage $oOutput
 	 * @param \Skin $oSkin
-	 * @param array $aConfig
-	 * @param array $aScripts
-	 * @param array $aStyles
-	 * @param array $aVarMsgKeys
+	 * @param array &$aConfig
+	 * @param array &$aScripts
+	 * @param array &$aStyles
+	 * @param array &$aVarMsgKeys
 	 */
-	public function __construct( $context, $config, $oOutput, $oSkin, &$aConfig, &$aScripts, &$aStyles, &$aVarMsgKeys ) {
+	public function __construct( $context, $config, $oOutput, $oSkin, &$aConfig,
+		&$aScripts, &$aStyles, &$aVarMsgKeys ) {
 		parent::__construct( $context, $config );
 
 		$this->oOutput = $oOutput;

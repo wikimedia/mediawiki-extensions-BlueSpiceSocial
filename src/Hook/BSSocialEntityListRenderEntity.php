@@ -21,14 +21,13 @@
  * @author     Patric Wirth <wirth@hallowelt.com>
  * @package    BlueSpiceSocial
  * @copyright  Copyright (C) 2018 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\Hook;
 
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Renderer\Entity as Renderer;
-use BlueSpice\Renderer\Params;
 
 abstract class BSSocialEntityListRenderEntity extends \BlueSpice\Hook {
 
@@ -61,8 +60,8 @@ abstract class BSSocialEntityListRenderEntity extends \BlueSpice\Hook {
 	 * a single entity get rendered.
 	 * @param EntityList $entityList
 	 * @param Entity $entity
-	 * @param Renderer $renderer
-	 * @param string $renderType
+	 * @param Renderer &$renderer
+	 * @param string &$renderType
 	 * @return bool
 	 */
 	public static function callback( $entityList, $entity, &$renderer, &$renderType ) {
@@ -83,11 +82,11 @@ abstract class BSSocialEntityListRenderEntity extends \BlueSpice\Hook {
 	 * @param \Config $config
 	 * @param EntityList $entityList
 	 * @param Entity $entity
-	 * @param Renderer $renderer
-	 * @param string $renderType
-	 * @param Params $params
+	 * @param Renderer &$renderer
+	 * @param string &$renderType
 	 */
-	public function __construct( $context, $config, $entityList, $entity, &$renderer, &$renderType ) {
+	public function __construct( $context, $config, $entityList, $entity, &$renderer,
+		&$renderType ) {
 		parent::__construct( $context, $config );
 
 		$this->entityList = $entityList;

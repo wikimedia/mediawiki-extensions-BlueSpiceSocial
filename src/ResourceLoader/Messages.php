@@ -22,12 +22,12 @@
  * @author     Patric Wirth <wirth@hallowelt.com>
  * @package    BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
- * @filesource
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\ResourceLoader;
+
+use BlueSpice\Services;
 use BlueSpice\Social\EntityConfig;
-use BlueSpice\EntityRegistry;
 
 class Messages extends \ResourceLoaderModule {
 	/**
@@ -38,38 +38,42 @@ class Messages extends \ResourceLoaderModule {
 	 * @return array List of message keys. Keys may occur more than once
 	 */
 	public function getMessages() {
-		$aMessages = $aVarMsgKeys = [];
-		foreach( EntityRegistry::getRegisterdTypeKeys() as $sType ) {
-			if( !$oConfig = EntityConfig::factory( $sType ) ) {
+		$messages = $msgKeys = [];
+		$registry = Services::getInstance()->getBSEntityRegistry();
+		$configFactory = Services::getInstance()->getBSEntityConfigFactory();
+
+		foreach ( $registry->getTypes() as $type ) {
+			$config = $configFactory->newFromType( $type );
+			if ( !$config ) {
 				continue;
 			}
-			if( !$oConfig instanceof EntityConfig ) {
+			if ( !$config instanceof EntityConfig ) {
 				continue;
 			}
-			if( !empty( $oConfig->get( 'HeaderMessageKey' ) ) ) {
-				$aMessages[] = $oConfig->get( 'HeaderMessageKey' );
+			if ( !empty( $config->get( 'HeaderMessageKey' ) ) ) {
+				$messages[] = $config->get( 'HeaderMessageKey' );
 			}
-			if( !empty( $oConfig->get( 'HeaderMessageKeyCreateNew' ) ) ) {
-				$aMessages[] = $oConfig->get( 'HeaderMessageKeyCreateNew' );
+			if ( !empty( $config->get( 'HeaderMessageKeyCreateNew' ) ) ) {
+				$messages[] = $config->get( 'HeaderMessageKeyCreateNew' );
 			}
-			if( !empty( $oConfig->get( 'TypeMessageKey' ) ) ) {
-				$aMessages[] = $oConfig->get( 'TypeMessageKey' );
+			if ( !empty( $config->get( 'TypeMessageKey' ) ) ) {
+				$messages[] = $config->get( 'TypeMessageKey' );
 			}
-			if( empty( $oConfig->get( 'VarMessageKeys' ) ) ) {
+			if ( empty( $config->get( 'VarMessageKeys' ) ) ) {
 				continue;
 			}
-			$aVarMsgKeys = array_merge(
-				$aVarMsgKeys,
-				$oConfig->get( 'VarMessageKeys' )
+			$msgKeys = array_merge(
+				$msgKeys,
+				$config->get( 'VarMessageKeys' )
 			);
 		}
-		foreach( $aVarMsgKeys as $sVarName => $sMsgKey ) {
-			if( empty( $sMsgKey ) ) {
+		foreach ( $msgKeys as $varName => $msgKey ) {
+			if ( empty( $msgKey ) ) {
 				continue;
 			}
-			$aMessages[] = $sMsgKey;
+			$messages[] = $msgKey;
 		}
-		return $aMessages;
+		return $messages;
 	}
 
 	/**

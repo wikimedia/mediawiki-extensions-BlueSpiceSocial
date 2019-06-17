@@ -1,9 +1,15 @@
 <?php
 namespace BlueSpice\Social\Content;
+
 use BlueSpice\Social\Entity as SocialEntity;
 
 class Entity extends \BlueSpice\Content\Entity {
 
+	/**
+	 *
+	 * @param string $text
+	 * @param string $modelId
+	 */
 	public function __construct( $text, $modelId = CONTENT_MODEL_BSSOCIAL ) {
 		parent::__construct( $text, $modelId );
 	}
@@ -34,7 +40,6 @@ class Entity extends \BlueSpice\Content\Entity {
 			return null;
 		}
 		return \FormatJson::encode( $decoded, true );
-
 	}
 
 	/**
@@ -56,16 +61,17 @@ class Entity extends \BlueSpice\Content\Entity {
 	 * @param int $revId
 	 * @param ParserOptions $options
 	 * @param bool $generateHtml
-	 * @param ParserOutput $output
+	 * @param ParserOutput &$output
 	 */
-	protected function fillParserOutput( \Title $title, $revId, \ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
+	protected function fillParserOutput( \Title $title, $revId,
+		\ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
 		$oEntity = SocialEntity::newFromTitle( $title );
-		if( is_null($oEntity) ) {
+		if ( is_null( $oEntity ) ) {
 			return;
 		}
 		$output->setDisplayTitle( strip_tags(
 			$oEntity->getHeader()->parse()
-		));
+		) );
 		if ( $generateHtml ) {
 			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
 			$output->addModuleStyles( 'mediawiki.content.json' );
@@ -79,13 +85,13 @@ class Entity extends \BlueSpice\Content\Entity {
 	 * @return string HTML
 	 */
 	protected function objectTable( $mapping ) {
-		$rows = array();
+		$rows = [];
 
 		foreach ( $mapping as $key => $val ) {
 			$rows[] = $this->objectRow( $key, $val );
 		}
-		return \Xml::tags( 'table', array( 'class' => 'mw-json' ),
-			\Xml::tags( 'tbody', array(), join( "\n", $rows ) )
+		return \Xml::tags( 'table', [ 'class' => 'mw-json' ],
+			\Xml::tags( 'tbody', [], implode( "\n", $rows ) )
 		);
 	}
 
@@ -96,9 +102,9 @@ class Entity extends \BlueSpice\Content\Entity {
 	 * @return string HTML.
 	 */
 	protected function objectRow( $key, $val ) {
-		$th = \Xml::elementClean( 'th', array(), $key );
+		$th = \Xml::elementClean( 'th', [], $key );
 		if ( is_array( $val ) ) {
-			$td = \Xml::tags( 'td', array(), self::objectTable( $val ) );
+			$td = \Xml::tags( 'td', [], self::objectTable( $val ) );
 		} else {
 			if ( is_string( $val ) ) {
 				$val = '"' . $val . '"';
@@ -106,9 +112,9 @@ class Entity extends \BlueSpice\Content\Entity {
 				$val = \FormatJson::encode( $val );
 			}
 
-			$td = \Xml::elementClean( 'td', array( 'class' => 'value' ), $val );
+			$td = \Xml::elementClean( 'td', [ 'class' => 'value' ], $val );
 		}
 
-		return \Xml::tags( 'tr', array(), $th . $td );
+		return \Xml::tags( 'tr', [], $th . $td );
 	}
 }

@@ -2,6 +2,9 @@
 
 namespace BlueSpice\Social\Tag;
 
+use Parser;
+use PPFrame;
+use BlueSpice\Tag\MarkerType;
 use BlueSpice\Tag\MarkerType\NoWiki;
 use BlueSpice\ParamProcessor\ParamDefinition;
 use BlueSpice\ParamProcessor\ParamType;
@@ -10,30 +13,58 @@ use BlueSpice\Social\Renderer\Entity as EntityRenderer;
 
 class SocialEntity extends \BlueSpice\Tag\Tag {
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function needsDisabledParserCache() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getContainerElementName() {
 		return 'div';
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function needsParsedInput() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function needsParseArgs() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return MarkerType
+	 */
 	public function getMarkerType() {
 		return new NoWiki();
 	}
 
+	/**
+	 *
+	 * @return null
+	 */
 	public function getInputDefinition() {
 		return null;
 	}
 
+	/**
+	 *
+	 * @return ParamDefinition[]
+	 */
 	public function getArgsDefinitions() {
 		return [
 			new ParamDefinition(
@@ -49,7 +80,16 @@ class SocialEntity extends \BlueSpice\Tag\Tag {
 		];
 	}
 
-	public function getHandler( $processedInput, array $processedArgs, \Parser $parser, \PPFrame $frame ) {
+	/**
+	 *
+	 * @param string $processedInput
+	 * @param array $processedArgs
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @return SocialEntityHandler
+	 */
+	public function getHandler( $processedInput, array $processedArgs, Parser $parser,
+		PPFrame $frame ) {
 		return new SocialEntityHandler(
 			$processedInput,
 			$processedArgs,
@@ -58,6 +98,10 @@ class SocialEntity extends \BlueSpice\Tag\Tag {
 		);
 	}
 
+	/**
+	 *
+	 * @return string[]
+	 */
 	public function getTagNames() {
 		return [
 			'bs:socialentity',

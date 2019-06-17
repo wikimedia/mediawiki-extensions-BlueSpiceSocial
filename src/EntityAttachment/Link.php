@@ -7,7 +7,7 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v3
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\EntityAttachment;
 
@@ -25,6 +25,10 @@ use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
 class Link extends EntityAttachment {
 	protected $sType = 'link';
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getTemplateName() {
 		return 'BlueSpiceSocial.Entity.attachment.Default';
 	}
@@ -35,7 +39,7 @@ class Link extends EntityAttachment {
 	 * @return array
 	 */
 	public function getArgs() {
-		if( !$this->mAttachment instanceof \Title ) {
+		if ( !$this->mAttachment instanceof \Title ) {
 			return [];
 		}
 
@@ -58,6 +62,10 @@ class Link extends EntityAttachment {
 		return $this->aArgs;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getThumb() {
 		$params = [
 			DFDParams::MODULE => 'articlepreviewimage',

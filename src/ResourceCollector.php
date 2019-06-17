@@ -25,11 +25,10 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
- * @filesource
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social;
-use BlueSpice\Social\EntityConfig;
+
 use BlueSpice\EntityRegistry;
 
 /**
@@ -49,18 +48,19 @@ class ResourceCollector {
 	protected $aVarMsgKeys = [];
 
 	/**
+	 * @param \RequestContext|null $oContext
 	 * @return ResourceCollector or null, when there is no
 	 * valid request context given / main request (in cmd f.e)
 	 */
 	public static function getMain( \RequestContext $oContext = null ) {
-		if( static::$oInstance ) {
+		if ( static::$oInstance ) {
 			return static::$oInstance;
 		}
 		static::$oContext = $oContext;
-		if( !static::$oContext ) {
+		if ( !static::$oContext ) {
 			static::$oContext = \RequestContext::getMain();
 		}
-		if( !static::$oContext ) {
+		if ( !static::$oContext ) {
 			return null;
 		}
 		static::$oInstance = new static;
@@ -68,21 +68,24 @@ class ResourceCollector {
 	}
 
 	protected function __construct() {
-		foreach( EntityRegistry::getRegisterdTypeKeys() as $sType ) {
-			if( !$oConfig = EntityConfig::factory( $sType ) ) {
+		foreach ( EntityRegistry::getRegisterdTypeKeys() as $sType ) {
+			$oConfig = EntityConfig::factory( $sType );
+			if ( !$oConfig ) {
 				continue;
 			}
-			if( !$oConfig instanceof EntityConfig ) {
+			if ( !$oConfig instanceof EntityConfig ) {
 				continue;
 			}
 			$this->aConfig[$sType] = $oConfig->jsonSerialize();
-			if( $a = $oConfig->get( 'ModuleStyles' ) ) {
-				$this->aStyles = array_merge( $this->aStyles, $a );
+			$moduleStyles = $oConfig->get( 'ModuleStyles' );
+			if ( $moduleStyles ) {
+				$this->aStyles = array_merge( $this->aStyles, $moduleStyles );
 			}
-			if( $a = $oConfig->get( 'ModuleScripts' ) ) {
-				$this->aScripts = array_merge( $this->aScripts, $a );
+			$moduleScripts = $oConfig->get( 'ModuleScripts' );
+			if ( $moduleScripts ) {
+				$this->aScripts = array_merge( $this->aScripts, $moduleScripts );
 			}
-			if( empty( $oConfig->get( 'VarMessageKeys' ) ) ) {
+			if ( empty( $oConfig->get( 'VarMessageKeys' ) ) ) {
 				continue;
 			}
 			$this->aVarMsgKeys = array_merge(
@@ -92,14 +95,16 @@ class ResourceCollector {
 		}
 
 		\Hooks::run( 'BSSocialModuleDepths', [
-			$this->getContext()->getOutput(), //deprecated
-			$this->getContext()->getSkin(), //deprecated
+			// deprecated
+			$this->getContext()->getOutput(),
+			// deprecated
+			$this->getContext()->getSkin(),
 			&$this->aConfig,
 			&$this->aScripts,
 			&$this->aStyles,
 			&$this->aVarMsgKeys,
-		]);
-		//Make sure to have arrays in JS!
+		] );
+		// Make sure to have arrays in JS!
 		$this->aScripts = array_values( array_unique( $this->aScripts ) );
 		$this->aStyles = array_values( array_unique( $this->aStyles ) );
 	}
@@ -145,21 +150,20 @@ class ResourceCollector {
 	 */
 	public function getCombinedStylesFile( $sCss = '' ) {
 		$oRLContext = $this->getResourceLoaderContext();
-		foreach( $this->getModuleStyles() as $sStyleMod ) {
+		foreach ( $this->getModuleStyles() as $sStyleMod ) {
 			$oModule = \RequestContext::getMain()
 				->getOutput()
 				->getResourceLoader()
-				->getModule( $sStyleMod )
-			;
-			if( !$oModule ) {
+				->getModule( $sStyleMod );
+			if ( !$oModule ) {
 				wfDebugLog(
 					'BSSocial',
-					__CLASS__. ":" . __METHOD__ . "invalid module: $sStyleMod"
+					__CLASS__ . ":" . __METHOD__ . "invalid module: $sStyleMod"
 				);
 				continue;
 			}
 			$aStyle = $oModule->getStyles( $oRLContext );
-			if( empty( $aStyle['all'] ) ) {
+			if ( empty( $aStyle['all'] ) ) {
 				continue;
 			}
 			$sCss .= $aStyle['all'];
@@ -174,25 +178,28 @@ class ResourceCollector {
 	 */
 	public function getCombinedScriptsFile( $sScript = '' ) {
 		$oRLContext = $this->getResourceLoaderContext();
-		foreach( $this->getModuleScripts() as $sScriptMod ) {
+		foreach ( $this->getModuleScripts() as $sScriptMod ) {
 			$oModule = \RequestContext::getMain()
 				->getOutput()
 				->getResourceLoader()
-				->getModule( $sScriptMod )
-			;
+				->getModule( $sScriptMod );
 			$sScript .= $oModule->getScript( $oRLContext );
 		}
 
 		return $sScript;
 	}
 
+	/**
+	 *
+	 * @return \ResourceLoaderContext
+	 */
 	protected function getResourceLoaderContext() {
-		if( $this->oResourceLoaderContext ) {
+		if ( $this->oResourceLoaderContext ) {
 			return $this->oResourceLoaderContext;
 		}
 
 		$aQuery = \ResourceLoader::makeLoaderQuery(
-			[], // modules; not determined yet
+			[],
 			$this->getContext()->getOutput()->getLanguage()->getCode(),
 			$this->getContext()->getOutput()->getSkin()->getSkinName()
 		);

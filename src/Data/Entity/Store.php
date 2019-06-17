@@ -1,6 +1,8 @@
 <?php
 
 namespace BlueSpice\Social\Data\Entity;
+
+use IContextSource;
 use BlueSpice\Data\IStore;
 use BS\ExtendedSearch\Backend;
 use BlueSpice\EntityFactory;
@@ -10,13 +12,13 @@ class Store implements IStore {
 
 	/**
 	 *
-	 * @var \IContextSource
+	 * @var IContextSource
 	 */
 	protected $context = null;
 
 	/**
 	 *
-	 * @var \BS\ExtendedSearch\Backend
+	 * @var Backend
 	 */
 	protected $searchBackend = null;
 
@@ -34,39 +36,65 @@ class Store implements IStore {
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @return IStore
+	 * @param IContextSource $context
+	 * @param EntityFactory|null $factory
+	 * @param Backend|null $searchBackend
 	 */
-	public function __construct( $context, EntityFactory $factory = null, Backend $searchBackend = null ) {
+	public function __construct( $context, EntityFactory $factory = null,
+		Backend $searchBackend = null ) {
 		$this->context = $context;
 		$this->searchBackend = $searchBackend;
 		$this->factory = $factory;
 	}
 
+	/**
+	 *
+	 * @return Reader
+	 */
 	public function getReader() {
-		return new Reader( $this->getSearchBackend(), $this->getFactory(), $this->context );
+		return new Reader(
+			$this->getSearchBackend(),
+			$this->getFactory(),
+			$this->context
+		);
 	}
 
+	/**
+	 *
+	 * @return Writer
+	 */
 	public function getWriter() {
 		return new Writer( $this->context );
 	}
 
+	/**
+	 *
+	 * @return Backend
+	 */
 	protected function getSearchBackend() {
-		if( $this->searchBackend ) {
+		if ( $this->searchBackend ) {
 			return $this->searchBackend;
 		}
-		$this->searchBackend = \BS\ExtendedSearch\Backend::instance(
+		$this->searchBackend = Backend::instance(
 			$this->getSearchBackendKey()
 		);
 		return $this->searchBackend;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function getSearchBackendKey() {
 		return $this->searchBackendKey;
 	}
 
+	/**
+	 *
+	 * @return EntityFactory
+	 */
 	protected function getFactory() {
-		if( $this->factory ) {
+		if ( $this->factory ) {
 			return $this->factory;
 		}
 		$this->factory = Services::getInstance()->getBSEntityFactory();

@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\Special;
 
+use FormatJson;
 use BlueSpice\Context;
 use BlueSpice\Services;
 use BlueSpice\Renderer\Params;
@@ -15,11 +16,15 @@ use BlueSpice\Social\Renderer\EntityList;
  */
 class Timeline extends \BlueSpice\SpecialPage {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'Timeline', 'read', true );
 	}
 
-	function execute( $param ) {
+	/**
+	 *
+	 * @param string $param
+	 */
+	public function execute( $param ) {
 		$this->checkPermissions();
 
 		$this->getOutput()->setPageTitle(
@@ -45,15 +50,15 @@ class Timeline extends \BlueSpice\SpecialPage {
 
 		$filter = $this->getRequest()->getText( EntityList::PARAM_FILTER );
 		if ( $filter ) {
-			$decodedFilter = \FormatJson::decode( $filter );
-			if ( $decodedFilter !== null )  {
+			$decodedFilter = FormatJson::decode( $filter );
+			if ( $decodedFilter !== null ) {
 				$rendererParams[EntityList::PARAM_FILTER] = $decodedFilter;
 			}
 		}
 		$sort = $this->getRequest()->getText( EntityList::PARAM_SORT );
 		if ( $sort ) {
-			$decodedSort = \FormatJson::decode( $sort );
-			if ( $decodedSort !== null )  {
+			$decodedSort = FormatJson::decode( $sort );
+			if ( $decodedSort !== null ) {
 				$rendererParams[EntityList::PARAM_SORT] = $decodedSort;
 			}
 		}

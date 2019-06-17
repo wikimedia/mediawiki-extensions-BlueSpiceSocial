@@ -6,7 +6,7 @@ class Update extends \BlueSpice\Social\Job {
 
 	public function run() {
 		$oEntity = $this->getEntity();
-		$oEntity->setValuesByObject( (object) $this->getParams() );
+		$oEntity->setValuesByObject( (object)$this->getParams() );
 		$oStatus = $oEntity->save();
 	}
 }

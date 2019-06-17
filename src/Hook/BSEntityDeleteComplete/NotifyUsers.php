@@ -7,23 +7,23 @@ use BlueSpice\Social\Notifications\SocialNotification;
 
 class NotifyUsers extends BSEntityDeleteComplete {
 	protected function skipProcessing() {
-		if( !$this->entity instanceof \BlueSpice\Social\Entity ) {
+		if ( !$this->entity instanceof \BlueSpice\Social\Entity ) {
 			return true;
 		}
 
-		if( !$this->entity->getConfig()->get( 'HasNotifications' ) ) {
+		if ( !$this->entity->getConfig()->get( 'HasNotifications' ) ) {
 			return true;
 		}
 
 		return false;
 	}
-	
+
 	protected function doProcess() {
 		$isWatchEnabled = \BlueSpice\Services::getInstance()
 			->getBSExtensionRegistry()->hasName( "BlueSpiceSocialWatch" );
 
 		$notifyAll = false;
-		if( !$isWatchEnabled ) {
+		if ( !$isWatchEnabled ) {
 			$notifyAll = true;
 		}
 
@@ -32,12 +32,12 @@ class NotifyUsers extends BSEntityDeleteComplete {
 		$notifier = $notificationsManager->getNotifier();
 
 		$notificationClasses = $this->entity->getConfig()->get( 'NotificationObjectClass' );
-		if( !is_array( $notificationClasses ) ) {
-			$notificationClasses = [$notificationClasses];
+		if ( !is_array( $notificationClasses ) ) {
+			$notificationClasses = [ $notificationClasses ];
 		}
 		$notificationTypePrefix = $this->entity->getConfig()->get( 'NotificationTypePrefix' );
 
-		foreach( $notificationClasses as $notificationClass ) {
+		foreach ( $notificationClasses as $notificationClass ) {
 			$notification = new $notificationClass(
 				$notificationTypePrefix,
 				$this->entity,

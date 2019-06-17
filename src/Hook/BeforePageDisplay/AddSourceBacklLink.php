@@ -9,18 +9,18 @@ use BlueSpice\Social\Entity;
 class AddSourceBacklLink extends BeforePageDisplay {
 
 	protected function skipProcessing() {
-		if( $this->out->getRequest()->getVal( 'action', 'view' ) !== 'view' ) {
+		if ( $this->out->getRequest()->getVal( 'action', 'view' ) !== 'view' ) {
 			return true;
 		}
-		if( $this->out->getTitle()->getNamespace() != NS_SOCIALENTITY ) {
+		if ( $this->out->getTitle()->getNamespace() != NS_SOCIALENTITY ) {
 			return true;
 		}
-		if( !$this->out->getTitle()->exists() ) {
+		if ( !$this->out->getTitle()->exists() ) {
 			return true;
 		}
 		$entity = Services::getInstance()->getBSEntityFactory()
 			->newFromSourceTitle( $this->out->getTitle() );
-		if( !$entity instanceof Entity || !$entity->exists() ) {
+		if ( !$entity instanceof Entity || !$entity->exists() ) {
 			return true;
 		}
 		return false;

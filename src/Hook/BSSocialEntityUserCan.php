@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Hook;
+
 use BlueSpice\Hook;
 use BlueSpice\Social\Entity;
 
@@ -43,16 +44,17 @@ abstract class BSSocialEntityUserCan extends Hook {
 	protected $sAction = null;
 
 	/**
-	 * 
+	 *
 	 * @param Entity $oEntity
 	 * @param \User $oUser
 	 * @param string $sPermission
 	 * @param \Title $oTitle
-	 * @param \Status $oStatus
+	 * @param \Status &$oStatus
 	 * @param string $sAction
-	 * @return boolean
+	 * @return bool
 	 */
-	public static function callback( $oEntity, $oUser, $sPermission, $oTitle, &$oStatus, $sAction ) {
+	public static function callback( $oEntity, $oUser, $sPermission, $oTitle, &$oStatus,
+		$sAction ) {
 		$className = static::class;
 		$hookHandler = new $className(
 			null,
@@ -75,11 +77,12 @@ abstract class BSSocialEntityUserCan extends Hook {
 	 * @param \User $oUser
 	 * @param string $sPermission
 	 * @param \Title $oTitle
-	 * @param \Status $oStatus
+	 * @param \Status &$oStatus
 	 * @param string $sAction
 	 * @return boolean
 	 */
-	public function __construct( $context, $config, $oEntity, $oUser, $sPermission, $oTitle, &$oStatus, $sAction ) {
+	public function __construct( $context, $config, $oEntity, $oUser, $sPermission,
+		$oTitle, &$oStatus, $sAction ) {
 		parent::__construct( $context, $config );
 
 		$this->oEntity = $oEntity;

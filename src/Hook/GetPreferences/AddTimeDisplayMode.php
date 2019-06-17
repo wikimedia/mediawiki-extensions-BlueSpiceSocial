@@ -1,6 +1,7 @@
 <?php
 
 namespace BlueSpice\Social\Hook\GetPreferences;
+
 use BlueSpice\Hook\GetPreferences;
 
 /**

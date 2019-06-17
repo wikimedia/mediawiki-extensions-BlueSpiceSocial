@@ -2,6 +2,9 @@
 
 namespace BlueSpice\Social\EntityListContext;
 
+use IContextSource;
+use Config;
+use User;
 use BlueSpice\Social\Entity;
 use BlueSpice\Data\Filter\Numeric;
 
@@ -11,12 +14,15 @@ class Children extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @param \Config $config
+	 * @param IContextSource $context
+	 * @param Config $config
+	 * @param User|null $user
+	 * @param Entity|null $entity
 	 */
-	public function __construct( \IContextSource $context, \Config $config, \User $user = null, Entity $entity = null ) {
+	public function __construct( \IContextSource $context, Config $config,
+		User $user = null, Entity $entity = null ) {
 		parent::__construct( $context, $config, $user, $entity );
-		if( !$this->entity || !$this->entity->exists() ) {
+		if ( !$this->entity || !$this->entity->exists() ) {
 			throw new \MWException( 'Parent entity missing' );
 		}
 	}
@@ -47,8 +53,13 @@ class Children extends \BlueSpice\Social\EntityListContext {
 		return $filters;
 	}
 
+	/**
+	 *
+	 * @return \stdClass
+	 * @throws \MWException
+	 */
 	protected function getParentIDFilter() {
-		if( $this->entity->get( Entity::ATTR_ID, 0 ) < 1 ) {
+		if ( $this->entity->get( Entity::ATTR_ID, 0 ) < 1 ) {
 			throw new \MWException(
 				'Non existing parent would result in endless loop'
 			);
@@ -63,7 +74,7 @@ class Children extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showEntityListMenu() {
 		return false;
@@ -71,7 +82,7 @@ class Children extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function showEntityListMore() {
 		return true;
@@ -79,7 +90,7 @@ class Children extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function useEndlessScroll() {
 		return false;
@@ -87,7 +98,7 @@ class Children extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function useMoreScroll() {
 		return true;

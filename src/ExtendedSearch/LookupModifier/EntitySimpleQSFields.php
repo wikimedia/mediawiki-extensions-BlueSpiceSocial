@@ -8,8 +8,8 @@ class EntitySimpleQSFields extends LookupModifierBase {
 	public function apply() {
 		$queryString = $this->oLookup->getQueryString();
 
-		$fields = ['entitydata.header^2'];
-		if( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
+		$fields = [ 'entitydata.header^2' ];
+		if ( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
 			$queryString['fields'] = array_merge( $queryString['fields'], $fields );
 		} else {
 			$queryString['fields'] = $fields;
@@ -21,13 +21,12 @@ class EntitySimpleQSFields extends LookupModifierBase {
 	public function undo() {
 		$queryString = $this->oLookup->getQueryString();
 
-		if( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
+		if ( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
 			$queryString['fields'] = array_diff( $queryString['fields'],
-					['entitydata.header^2'] );
+					[ 'entitydata.header^2' ] );
 		}
 
 		$this->oLookup->setQueryString( $queryString );
 	}
 
 }
-

@@ -14,11 +14,15 @@ use BlueSpice\Social\EntityListContext\SpecialActivities;
  */
 class Activities extends \BlueSpice\SpecialPage {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'Activities', 'read', true );
 	}
 
-	function execute( $param ) {
+	/**
+	 *
+	 * @param string $param
+	 */
+	public function execute( $param ) {
 		$this->checkPermissions();
 
 		$this->getOutput()->setPageTitle(
@@ -35,7 +39,7 @@ class Activities extends \BlueSpice\SpecialPage {
 		);
 		$renderer = Services::getInstance()->getBSRendererFactory()->get(
 			'entitylist',
-			new Params( [ 'context' => $context ])
+			new Params( [ 'context' => $context ] )
 		);
 
 		$this->getOutput()->addHTML( $renderer->render() );

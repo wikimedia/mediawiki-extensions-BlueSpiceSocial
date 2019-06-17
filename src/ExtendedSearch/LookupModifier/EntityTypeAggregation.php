@@ -18,4 +18,3 @@ class EntityTypeAggregation extends LookupModifierBase {
 	}
 
 }
-

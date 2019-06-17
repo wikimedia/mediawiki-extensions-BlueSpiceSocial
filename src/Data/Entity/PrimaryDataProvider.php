@@ -2,10 +2,17 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
+use Exception;
+use IContextSource;
+use FormatJson;
+use User;
+use Elastica\Client;
+use Elastica\Index;
+use Elastica\Search;
+use BS\ExtendedSearch\Backend;
 use BlueSpice\Data\IPrimaryDataProvider;
 use BlueSpice\Data\FilterFinder;
 use BlueSpice\Data\ReaderParams;
-use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Boolean;
 use BlueSpice\Data\Filter\Numeric;
@@ -13,18 +20,19 @@ use BlueSpice\Data\Filter\Date;
 use BlueSpice\EntityFactory;
 use BlueSpice\Social\Entity;
 use BlueSpice\Services;
+use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as Mapping;
 
 class PrimaryDataProvider implements IPrimaryDataProvider {
 
 	/**
 	 *
-	 * @var \BlueSpice\Data\Record[]
+	 * @var Record[]
 	 */
 	protected $data = [];
 
 	/**
 	 *
-	 * @var \BS\ExtendedSearch\Backend
+	 * @var Backend
 	 */
 	protected $searchBackend = null;
 
@@ -42,16 +50,19 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 
 	/**
 	 *
-	 * @var \IContextSource
+	 * @var IContextSource
 	 */
 	protected $context = null;
 
 	/**
 	 *
-	 * @param \BS\ExtendedSearch\Backend $searchBackend
-	 * @param Schema
+	 * @param Backend $searchBackend
+	 * @param EntityFactory $factory
+	 * @param IContextSource $context
+	 * @param Schema $schema
 	 */
-	public function __construct( \BS\ExtendedSearch\Backend $searchBackend, $factory, \IContextSource $context, Schema $schema ) {
+	public function __construct( Backend $searchBackend, $factory,
+		IContextSource $context, Schema $schema ) {
 		$this->searchBackend = $searchBackend;
 		$this->schema = $schema;
 		$this->factory = $factory;
@@ -60,7 +71,7 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 
 	/**
 	 *
-	 * @var \BS\ExtendedSearch\Backend
+	 * @return Backend
 	 */
 	public function getSearchBackend() {
 		return $this->searchBackend;
@@ -68,7 +79,7 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 
 	/**
 	 *
-	 * @return \Elastica\Client
+	 * @return Client
 	 */
 	public function getSearchClient() {
 		return $this->getSearchBackend()->getClient();
@@ -76,14 +87,18 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 
 	/**
 	 *
-	 * @return \Elastica\Index
+	 * @return Index
 	 */
 	public function getSearchIndex() {
 		return $this->getSearchBackend()->getIndexByType( 'socialentity' );
 	}
 
+	/**
+	 *
+	 * @return Search
+	 */
 	protected function getSearch() {
-		$search = new \Elastica\Search( $this->getSearchClient() );
+		$search = new Search( $this->getSearchClient() );
 		$search->addIndex( $this->getSearchIndex() );
 		$search->addType(
 			new \Elastica\Type( $this->getSearchIndex(), 'socialentity' )
@@ -94,46 +109,47 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 	/**
 	 *
 	 * @param ReaderParams $params
+	 * @return Record[]
 	 */
 	public function makeData( $params ) {
 		$query = [];
 		$query = $this->makePreFilterConds( $params, $query );
 		$query = $this->makePreOptionConds( $params, $query );
-		$queryJSON = \FormatJson::encode( $query, true );
+		$queryJSON = FormatJson::encode( $query, true );
 
-		wfDebugLog( 'BSSocialEntities', __METHOD__.":\n".$queryJSON );
+		wfDebugLog( 'BSSocialEntities', __METHOD__ . ":\n" . $queryJSON );
 		do {
 			try {
 				$result = $this->getSearch()->search( $query );
-			} catch ( \Exception $ex ) {
-				//When there is no document in the index yet, a query may
-				//crash with "Fielddata access on the _id field is disallowed"
+			} catch ( Exception $ex ) {
+				// When there is no document in the index yet, a query may
+				// crash with "Fielddata access on the _id field is disallowed"
 				wfDebugLog(
 					'BSSocialEntities',
-					__METHOD__.":\nException during search - "
+					__METHOD__ . ":\nException during search - "
 						. $ex->getMessage()
 				);
 				return $this->data;
 			}
 
-			if( $result->count() < 1 ) {
+			if ( $result->count() < 1 ) {
 				return $this->data;
 			}
-			foreach( $result as $row ) {
+			foreach ( $result as $row ) {
 				$this->appendRowToData( $row );
-				if( $params->getLimit() === $params::LIMIT_INFINITE ) {
+				if ( $params->getLimit() === $params::LIMIT_INFINITE ) {
 					continue;
 				}
-				if( count( $this->data ) >= $params->getLimit() ) {
+				if ( count( $this->data ) >= $params->getLimit() ) {
 					return $this->data;
 				}
 			}
-			//because elastic search cant handle from + size larger than
-			//10000 -.-
-			//see: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-search-after.html
+			// because elastic search cant handle from + size larger than
+			// 10000 -.-
+			// see: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-search-after.html
 			$query['from'] = -1;
 			$query['search_after'] = $row->getHit()['sort'];
-		} while( true );
+		} while ( true );
 
 		return $this->data;
 	}
@@ -146,29 +162,30 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 	 */
 	protected function makePreFilterConds( $params, $query ) {
 		$filterFinder = new FilterFinder( $params->getFilter() );
-		foreach( $this->schema->getFilterableFields() as $fieldname ) {
-			if( !$filter = $filterFinder->findByField( $fieldname ) ) {
+		foreach ( $this->schema->getFilterableFields() as $fieldname ) {
+			$filter = $filterFinder->findByField( $fieldname );
+			if ( !$filter ) {
 				continue;
 			}
 
 			$value = $filter->getValue();
 
-			if( $filter instanceof Numeric ) {
-				$value = empty( $value ) ? 0 : (int) $value;
+			if ( $filter instanceof Numeric ) {
+				$value = empty( $value ) ? 0 : (int)$value;
 			}
 
-			if( $filter instanceof Boolean ) {
+			if ( $filter instanceof Boolean ) {
 				$value = empty( $value ) ? false : true;
 			}
 
-			if( $filter instanceof ListValue ) {
-				if( is_object( $value ) ) {
-					$value = (array) $value;
+			if ( $filter instanceof ListValue ) {
+				if ( is_object( $value ) ) {
+					$value = (array)$value;
 				}
-				if( is_string( $value ) ) {
+				if ( is_string( $value ) ) {
 					$value = explode( '', $value );
 				}
-				if( !is_array( $value ) ) {
+				if ( !is_array( $value ) ) {
 					$value = (array)$value;
 				}
 				$query['query']['bool']["filter"][] = [
@@ -180,7 +197,8 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				continue;
 			}
 
-			if( $filter instanceof Date && $filter->getComparison() === Date::COMPARISON_LOWER_THAN ) {
+			if ( $filter instanceof Date
+				&& $filter->getComparison() === Date::COMPARISON_LOWER_THAN ) {
 				$query['query']['bool']['filter'][] = [
 					"range" => [
 						"entitydata.$fieldname" => [
@@ -191,7 +209,8 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				];
 				continue;
 			}
-			if( $filter instanceof Date && $filter->getComparison() === Date::COMPARISON_GREATER_THAN ) {
+			if ( $filter instanceof Date
+				&& $filter->getComparison() === Date::COMPARISON_GREATER_THAN ) {
 				$query['query']['bool']['filter'][] = [
 					"range" => [
 						"entitydata.$fieldname" => [
@@ -202,7 +221,8 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				];
 				continue;
 			}
-			if( $filter instanceof Numeric && $filter->getComparison() === Numeric::COMPARISON_LOWER_THAN ) {
+			if ( $filter instanceof Numeric
+				&& $filter->getComparison() === Numeric::COMPARISON_LOWER_THAN ) {
 				$query['query']['bool']['filter'][] = [
 					"range" => [
 						"entitydata.$fieldname" => [
@@ -212,7 +232,8 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				];
 				continue;
 			}
-			if( $filter instanceof Numeric && $filter->getComparison() === Numeric::COMPARISON_GREATER_THAN ) {
+			if ( $filter instanceof Numeric
+				&& $filter->getComparison() === Numeric::COMPARISON_GREATER_THAN ) {
 				$query['query']['bool']['filter'][] = [
 					"range" => [
 						"entitydata.$fieldname" => [
@@ -222,7 +243,7 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 				];
 				continue;
 			}
-			
+
 			$query['query']['bool']["filter"][] = [
 				"term" => [
 					"entitydata.$fieldname" => $value
@@ -243,21 +264,20 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 	 */
 	protected function makePreOptionConds( $params, $query ) {
 		$sort = $params->getSort();
-		if( is_array( $sort ) ) {
+		if ( is_array( $sort ) ) {
 			$sort = $sort[0];
 		}
-		$mapping = \BlueSpice\Social\ExtendedSearch\MappingProvider\Entity
-			::getValueTypeMapping();
+		$mapping = Mapping::getValueTypeMapping();
 
 		$type = $this->schema[$sort->getProperty()][Schema::TYPE];
-		if( isset( $mapping[$type] ) ) {
+		if ( isset( $mapping[$type] ) ) {
 			$type = $mapping[$type];
 		}
 		$query['sort'] = [
-			"entitydata.".$sort->getProperty() => [
+			"entitydata." . $sort->getProperty() => [
 				"order" => $sort->getDirection(),
 				"unmapped_type" => $type,
-				//"missing" => "_last"
+				// "missing" => "_last"
 			],
 			"_id" => [
 				"order" => "desc"
@@ -269,27 +289,36 @@ class PrimaryDataProvider implements IPrimaryDataProvider {
 		return $query;
 	}
 
-
+	/**
+	 *
+	 * @param \Elastica\Result $row
+	 * @return null
+	 */
 	protected function appendRowToData( \Elastica\Result $row ) {
 		$record = new Record( $row );
 		$entity = $this->factory->newFromObject( $record->getData() );
-		if( !$entity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return;
 		}
 		$user = $this->context->getUser();
-		if( !$user ) {
+		if ( !$user ) {
 			return;
 		}
 
-		if( !$this->isSystemUser( $user ) ) {
-			if( !$entity->userCan( 'read', $user )->isOK() ) {
+		if ( !$this->isSystemUser( $user ) ) {
+			if ( !$entity->userCan( 'read', $user )->isOK() ) {
 				return;
 			}
 		}
 		$this->data[] = $record;
 	}
 
-	protected function isSystemUser( \User $user ) {
+	/**
+	 *
+	 * @param User $user
+	 * @return bool
+	 */
+	protected function isSystemUser( User $user ) {
 		return Services::getInstance()->getBSUtilityFactory()
 			->getMaintenanceUser()->isMaintenanceUser( $user );
 	}

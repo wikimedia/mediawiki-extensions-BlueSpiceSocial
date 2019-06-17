@@ -2,11 +2,12 @@
 
 namespace BlueSpice\Social\Tag;
 
+use Parser;
+use PPFrame;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Services;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Tag\Handler;
-use BlueSpice\Tag\Output;
 
 class TimelineHandler extends Handler {
 	/**
@@ -15,11 +16,24 @@ class TimelineHandler extends Handler {
 	 */
 	protected $context = null;
 
-	public function __construct( $processedInput, array $processedArgs, \Parser $parser, \PPFrame $frame, EntityListContext $context ) {
+	/**
+	 *
+	 * @param string $processedInput
+	 * @param array $processedArgs
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param EntityListContext $context
+	 */
+	public function __construct( $processedInput, array $processedArgs, Parser $parser,
+		PPFrame $frame, EntityListContext $context ) {
 		parent::__construct( $processedInput, $processedArgs, $parser, $frame );
 		$this->context = $context;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function handle() {
 		$params = array_merge(
 			$this->processedArgs,

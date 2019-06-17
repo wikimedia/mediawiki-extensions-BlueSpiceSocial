@@ -38,12 +38,11 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	 * @param Config $config
 	 * @param IContextSource $context
 	 * @param Services $services
-	 * @param EntityFactory $entityFactory
+	 * @param EntityFactory|null $entityFactory
 	 * @return \static
 	 */
 	public static function getInstance( Config $config, IContextSource $context,
 		Services $services, array $entityFactory = null ) {
-
 		if ( !$entityFactory ) {
 			$entityFactory = $services->getBSEntityFactory();
 		}
@@ -74,11 +73,11 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	 * @return bool
 	 */
 	public function mustLockdown( Title $title, User $user, $action ) {
-		if( $action !== 'read' ) {
+		if ( $action !== 'read' ) {
 			return false;
 		}
 		$entity = $this->entityFactory->newFromSourceTitle( $title );
-		if( !$entity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return false;
 		}
 		return !$entity->userCan()->isOK();

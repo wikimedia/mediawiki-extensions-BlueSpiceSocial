@@ -25,7 +25,7 @@ class Menu extends \BlueSpice\TemplateRenderer {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name | ''
-	 * @param CacheHelper $cacheHelper
+	 * @param CacheHelper|null $cacheHelper
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,
@@ -40,7 +40,7 @@ class Menu extends \BlueSpice\TemplateRenderer {
 		);
 
 		$this->entityList = $params->get( static::PARAM_ENTITY_LIST, null );
-		if( !$this->entityList ) {
+		if ( !$this->entityList ) {
 			throw new MWException(
 				'EntityListMenu requires an EntityListRenderer'
 			);
@@ -48,7 +48,7 @@ class Menu extends \BlueSpice\TemplateRenderer {
 		$args = $this->entityList->getArgs();
 
 		$this->args[static::PARAM_TAG] = 'div';
-		if( empty( $this->args[static::PARAM_CLASS] ) ) {
+		if ( empty( $this->args[static::PARAM_CLASS] ) ) {
 			$this->args[static::PARAM_CLASS] = '';
 		}
 		$this->args[static::PARAM_CLASS] .= ' bs-social-entitylist-menu';
@@ -56,12 +56,15 @@ class Menu extends \BlueSpice\TemplateRenderer {
 		$this->args[EntityList::PARAM_HIDDEN]
 			= $args[EntityList::PARAM_HIDDEN];
 
-		if( $this->args[EntityList::PARAM_HIDDEN] ) {
+		if ( $this->args[EntityList::PARAM_HIDDEN] ) {
 			$this->args[static::PARAM_CLASS] .= ' initiallyhidden';
 		}
-
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getTemplateName() {
 		return "BlueSpiceSocial.EntityListMenu";
 	}

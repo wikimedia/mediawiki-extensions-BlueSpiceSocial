@@ -13,7 +13,7 @@ class Entity extends UpdateTitleBase {
 	protected function doRun() {
 		$oDP = $this->getSource()->getDocumentProvider();
 
-		if( !$this->getTitle()->exists() ) {
+		if ( !$this->getTitle()->exists() ) {
 			$this->getSource()->deleteDocumentsFromIndex(
 				[ $oDP->getDocumentId( $this->getTitle()->getCanonicalURL() ) ]
 			);
@@ -29,7 +29,6 @@ class Entity extends UpdateTitleBase {
 		);
 		$this->getSource()->addDocumentsToIndex( [ $aDC ] );
 		return $aDC;
-
 	}
 
 	/**
@@ -37,10 +36,14 @@ class Entity extends UpdateTitleBase {
 	 * @param Title $title
 	 * @param array $params
 	 */
-	public function __construct( $title, $params = array() ) {
+	public function __construct( $title, $params = [] ) {
 		parent::__construct( 'updateEntityIndex', $title, $params );
 	}
 
+	/**
+	 *
+	 * @return SocialEntity
+	 */
 	protected function getDocumentProviderSource() {
 		return Services::getInstance()->getBSEntityFactory()->newFromSourceTitle(
 			$this->getTitle()

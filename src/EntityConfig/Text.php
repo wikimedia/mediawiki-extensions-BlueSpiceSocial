@@ -25,10 +25,11 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\EntityConfig;
+
 use BlueSpice\Social\EntityConfig;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
@@ -42,18 +43,34 @@ use BlueSpice\Social\ExtendedSearch\Formatter\Internal\TextFormatter;
  */
 abstract class Text extends EntityConfig {
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityClass() {
 		return "\\BlueSpice\\Social\\Entity\\Text";
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ParserClass() {
 		return '\\BlueSpice\\Social\\Parser\\WikiText';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_Renderer() {
 		return 'socialentitytext';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_ModuleScripts() {
 		return array_merge(
 			parent::get_ModuleScripts(), [
@@ -61,18 +78,38 @@ abstract class Text extends EntityConfig {
 			]
 		);
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKey() {
 		return 'bs-social-entitytext-header';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKeyCreateNew() {
 		return 'bs-social-entitytext-header-create';
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_VarMessageKeys() {
 		return array_merge(
 			parent::get_VarMessageKeys(),
 			[ Entity::ATTR_TEXT => 'bs-social-var-text' ]
 		);
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),
@@ -102,18 +139,34 @@ abstract class Text extends EntityConfig {
 		);
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_ExtendedSearchResultFormatter() {
 		return TextFormatter::class;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_NotificationObjectClass() {
 		return \BlueSpice\Social\Notifications\SocialTextNotification::class;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_NotificationTypePrefix() {
 		return 'bs-social-entity-text';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AvailableAttachments() {
 		return [
 			'images',
@@ -122,10 +175,18 @@ abstract class Text extends EntityConfig {
 		];
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_CanHaveAttachments() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_ForceRelatedTitleTag() {
 		return false;
 	}

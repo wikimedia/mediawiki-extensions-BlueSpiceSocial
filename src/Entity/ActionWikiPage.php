@@ -26,10 +26,14 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 namespace BlueSpice\Social\Entity;
+
+use Status;
+use User;
+
 /**
  * WikiPage class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
@@ -81,6 +85,11 @@ abstract class ActionWikiPage extends ActionTitle {
 		return $this->set( static::ATTR_REVISION_ID, $iRevisionID );
 	}
 
+	/**
+	 *
+	 * @param array $a
+	 * @return array
+	 */
 	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
 			$a,
@@ -94,24 +103,30 @@ abstract class ActionWikiPage extends ActionTitle {
 					0
 				),
 			]
-		));
+		) );
 	}
 
+	/**
+	 *
+	 * @param string $attrName
+	 * @param mixed|null $default
+	 * @return mixed
+	 */
 	public function get( $attrName, $default = null ) {
-		if( $attrName !== static::ATTR_SUMMARY ) {
+		if ( $attrName !== static::ATTR_SUMMARY ) {
 			return parent::get( $attrName, $default );
 		}
-		if( empty( $this->get( static::ATTR_REVISION_ID, 0 ) ) ) {
+		if ( empty( $this->get( static::ATTR_REVISION_ID, 0 ) ) ) {
 			return parent::get( $attrName, $default );
 		}
 		$revision = \Revision::newFromId( $this->get(
 			static::ATTR_REVISION_ID,
 			0
-		));
-		if( !$revision ) {
+		) );
+		if ( !$revision ) {
 			return parent::get( $attrName, $default );
 		}
-		if( !empty( $revision->getComment() ) ) {
+		if ( !empty( $revision->getComment() ) ) {
 			return $revision->getComment();
 		}
 		return wfMessage(
@@ -119,14 +134,18 @@ abstract class ActionWikiPage extends ActionTitle {
 		)->plain();
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( isset( $o->{static::ATTR_WIKI_PAGE_ID} ) ) {
+		if ( isset( $o->{static::ATTR_WIKI_PAGE_ID} ) ) {
 			$this->set(
 				static::ATTR_WIKI_PAGE_ID,
 				$o->{static::ATTR_WIKI_PAGE_ID}
 			);
 		}
-		if( isset( $o->{static::ATTR_REVISION_ID} ) ) {
+		if ( isset( $o->{static::ATTR_REVISION_ID} ) ) {
 			$this->set(
 				static::ATTR_REVISION_ID,
 				$o->{static::ATTR_REVISION_ID}
@@ -135,18 +154,24 @@ abstract class ActionWikiPage extends ActionTitle {
 		parent::setValuesByObject( $o );
 	}
 
-	public function save( \User $oUser = null, $aOptions = array() ) {
-		if( empty( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) ) ) {
-			return \Status::newFatal( wfMessage(
+	/**
+	 *
+	 * @param User|null $oUser
+	 * @param array $aOptions
+	 * @return Status
+	 */
+	public function save( User $oUser = null, $aOptions = [] ) {
+		if ( empty( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_WIKI_PAGE_ID )->plain()
-			));
+			) );
 		}
-		if( empty( $this->get( static::ATTR_REVISION_ID, 0 ) ) ) {
-			return \Status::newFatal( wfMessage(
+		if ( empty( $this->get( static::ATTR_REVISION_ID, 0 ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_REVISION_ID )->plain()
-			));
+			) );
 		}
 		return parent::save( $oUser, $aOptions );
 	}

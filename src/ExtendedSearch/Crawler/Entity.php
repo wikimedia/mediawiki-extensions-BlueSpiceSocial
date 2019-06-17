@@ -11,6 +11,9 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 	protected $titles = [];
 	protected $ordered = [];
 
+	/**
+	 *
+	 */
 	public function crawl() {
 		$dbr = Services::getInstance()->getDBLoadBalancer()->getConnection(
 			DB_REPLICA
@@ -27,19 +30,27 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		$this->crawlBackwards( $this->ordered );
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function makeQueryConditions() {
 		return [ 'page_namespace' => NS_SOCIALENTITY ];
 	}
 
+	/**
+	 *
+	 * @param \Title[] $titles
+	 */
 	protected function makeEntities( $titles ) {
 		// It can be a very lengthy process since we are reading out
 		// the content of each page to determine parent_id.
 		// Would be nice to have these relationships ( and other metadata )
 		// somewhere else (a table), and only the actual content in wikipages
 		$services = Services::getInstance();
-		foreach( $titles as $title ) {
+		foreach ( $titles as $title ) {
 			$entity = $services->getBSEntityFactory()
-				->newFromSourceTitle($title);
+				->newFromSourceTitle( $title );
 			if ( !$entity instanceof \BlueSpice\Social\Entity || !$entity->exists() ) {
 				continue;
 			}
@@ -49,26 +60,36 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		}
 	}
 
+	/**
+	 *
+	 */
 	protected function order() {
 		$this->addRoots();
-		foreach( $this->ordered as $eid => &$children ) {
+		foreach ( $this->ordered as $eid => &$children ) {
 			$this->makeChildren( $children, $eid );
 		}
 		ksort( $this->ordered );
 	}
 
-	// Add first layer of entities - the ones with no parent
-	// to define the entry point for the structure
+	/**
+	 * Add first layer of entities - the ones with no parent
+	 * to define the entry point for the structure
+	 */
 	protected function addRoots() {
-		foreach( $this->entities as $id => $parent ) {
+		foreach ( $this->entities as $id => $parent ) {
 			if ( $parent === 0 ) {
 				$this->ordered[$id] = [];
 			}
 		}
 	}
 
+	/**
+	 *
+	 * @param array &$target
+	 * @param int $eid
+	 */
 	protected function makeChildren( &$target, $eid ) {
-		foreach( $this->entities as $id => $parent ) {
+		foreach ( $this->entities as $id => $parent ) {
 			if ( $parent === $eid ) {
 				$target[$id] = [];
 				$this->makeChildren( $target[$id], $id );
@@ -76,9 +97,12 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		}
 	}
 
-	// Crawls first children and then parents
+	/**
+	 * Crawls first children and then parents
+	 * @param array $entities
+	 */
 	protected function crawlBackwards( $entities ) {
-		foreach( $entities as $parent => $children ) {
+		foreach ( $entities as $parent => $children ) {
 			if ( count( $children ) > 0 ) {
 				$this->crawlBackwards( $children );
 			}

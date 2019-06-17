@@ -26,9 +26,10 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\Parser;
+
 /**
  * Input class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
@@ -36,7 +37,8 @@ namespace BlueSpice\Social\Parser;
  */
 class Input {
 	protected $aAllowedTags = [];
-	public function __construct() {}
+	public function __construct() {
+	}
 
 	/**
 	 *
@@ -44,17 +46,17 @@ class Input {
 	 * @return string
 	 */
 	public function parse( $sText ) {
-		if( empty( $sText ) ) {
+		if ( empty( $sText ) ) {
 			return '';
 		}
 		if ( !is_scalar( $sText ) ) {
-			if ( is_callable( [$sText, 'toString'] ) ) {
-				$sText = (string) $sText;
+			if ( is_callable( [ $sText, 'toString' ] ) ) {
+				$sText = (string)$sText;
 			} else {
 				return '';
 			}
 		}
-		$sText = str_ireplace( ["<br />", "<br>", "<br/>"], "\n", $sText );
+		$sText = str_ireplace( [ "<br />", "<br>", "<br/>" ], "\n", $sText );
 		$sText = str_replace( "\r\n", "\n", $sText );
 		$sText = $this->stripTags( $sText );
 		$sText = $this->trimLines( $sText );
@@ -62,34 +64,63 @@ class Input {
 		return $sText;
 	}
 
+	/**
+	 *
+	 * @param string $sText
+	 * @return string
+	 */
 	protected function stripTags( $sText ) {
 		$sAllowedTags = '';
-		foreach( $this->getAllowedTags() as $sTag ) {
+		foreach ( $this->getAllowedTags() as $sTag ) {
 			$sAllowedTags .= "<$sTag><$sTag/>";
 		}
 		return strip_tags( $sText, $sAllowedTags );
 	}
 
+	/**
+	 *
+	 * @param string $sText
+	 * @return string
+	 */
 	protected function trim( $sText ) {
 		return trim( $sText );
 	}
 
+	/**
+	 *
+	 * @param string $sText
+	 * @return string
+	 */
 	protected function trimLines( $sText ) {
 		$sNewText = '';
-		foreach( explode("\n", $sText) as $sLine ) {
-			$sNewText .= $this->trim( $sLine )."\n";
+		foreach ( explode( "\n", $sText ) as $sLine ) {
+			$sNewText .= $this->trim( $sLine ) . "\n";
 		};
 		return $sNewText;
 	}
 
+	/**
+	 *
+	 * @param string $sText
+	 * @return string
+	 */
 	protected function trimEnd( $sText ) {
 		return rtrim( $sText );
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getAllowedTags() {
 		return $this->aAllowedTags;
 	}
 
+	/**
+	 *
+	 * @param array $aAllowedTags
+	 * @return Input
+	 */
 	protected function setAllowedTags( $aAllowedTags = [] ) {
 		$this->aAllowedTags = $aAllowedTags;
 		return $this;

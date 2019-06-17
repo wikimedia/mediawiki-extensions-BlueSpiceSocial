@@ -23,34 +23,37 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
 
 namespace BlueSpice\Social;
-use BlueSpice\Social\ResourceCollector;
+
 use BlueSpice\Services;
 
 class Extension extends \BlueSpice\Extension {
 
+	/**
+	 *
+	 */
 	public static function onRegistration() {
-		global $wgExtraNamespaces, $wgContentNamespaces,
-			$wgNamespacesWithSubpages, $wgNamespacesToBeSearchedDefault,
-			$wgContentHandlers, $wgNamespaceContentModels, $bsgSystemNamespaces;
+		global $wgExtraNamespaces, $wgNamespacesWithSubpages,
+			$wgNamespacesToBeSearchedDefault, $wgContentHandlers,
+			$wgNamespaceContentModels, $bsgSystemNamespaces;
 
-		if( !defined( 'NS_SOCIALENTITY' ) ) {
+		if ( !defined( 'NS_SOCIALENTITY' ) ) {
 			define( "NS_SOCIALENTITY", 1506 );
 			$wgExtraNamespaces[NS_SOCIALENTITY] = 'SocialEntity';
 			$wgNamespacesWithSubpages[NS_SOCIALENTITY] = false;
 			$wgNamespacesToBeSearchedDefault[NS_SOCIALENTITY] = false;
 			$bsgSystemNamespaces[1506] = 'NS_SOCIALENTITY';
 		}
-		if( !defined( 'NS_SOCIALENTITY_TALK' ) ) {
+		if ( !defined( 'NS_SOCIALENTITY_TALK' ) ) {
 			define( 'NS_SOCIALENTITY_TALK', 1507 );
 			$wgExtraNamespaces[NS_SOCIALENTITY_TALK] = 'SocialEntity_talk';
 			$bsgSystemNamespaces[1507] = 'NS_SOCIALENTITY_TALK';
 		}
-		if( !defined( 'CONTENT_MODEL_BSSOCIAL' ) ) {
+		if ( !defined( 'CONTENT_MODEL_BSSOCIAL' ) ) {
 			define( 'CONTENT_MODEL_BSSOCIAL', 'BSSocial' );
 			$wgContentHandlers[CONTENT_MODEL_BSSOCIAL]
 				= 'BlueSpice\\Social\\Content\\EntityHandler';
@@ -68,7 +71,6 @@ class Extension extends \BlueSpice\Extension {
 				1506, 1507
 			];
 		}
-
 	}
 
 	/**
@@ -82,16 +84,20 @@ class Extension extends \BlueSpice\Extension {
 			->getMaintenanceUser()->getUser();
 	}
 
+	/**
+	 *
+	 * @return \Title
+	 */
 	public static function getDefaultRelatedTitle() {
-		//TODO: make changeable!
+		// TODO: make changeable!
 		return \Title::newMainPage();
 	}
 
 	/**
 	 * Embeds CSS into pdf export
-	 * @param array $aTemplate
-	 * @param array $aStyleBlocks
-	 * @return boolean Always true to keep hook running
+	 * @param array &$aTemplate
+	 * @param array &$aStyleBlocks
+	 * @return bool Always true to keep hook running
 	 */
 	public static function onBSUEModulePDFBeforeAddingStyleBlocks( &$aTemplate, &$aStyleBlocks ) {
 		$oCollector = ResourceCollector::getMain();
@@ -114,15 +120,15 @@ HEREDOC;
 	 * @param User $watchingUser
 	 * @param Title $title
 	 * @param UserMailer $userMailer
-	 * @param type $this
+	 * @return bool
 	 */
 	public static function onSendWatchlistEmailNotification( $watchingUser, $title, $userMailer ) {
-		if( !$title || $title->getNamespace() !== NS_SOCIALENTITY ) {
+		if ( !$title || $title->getNamespace() !== NS_SOCIALENTITY ) {
 			return true;
 		}
 		$entity = Services::getInstance()->getBSEntityFactory()
 			->newFromSourceTitle( $title );
-		if( !$entity || !$entity->exists() ) {
+		if ( !$entity || !$entity->exists() ) {
 			return true;
 		}
 
