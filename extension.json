@@ -1,15 +1,15 @@
 {
 	"name": "BlueSpiceSocial",
-	"version": "3.2.0-alpha",
+	"version": "3.1.0-alpha",
 	"license-name": "GPL-3.0-only",
 	"url": "https://en.wiki.bluespice.com/wiki/Reference:Social",
 	"author": "Patric Wirth",
 	"descriptionmsg": "bs-social-desc",
 	"requires": {
-		"MediaWiki": ">= 1.34.0",
+		"MediaWiki": "~1.31",
 		"extensions": {
-			"BlueSpiceFoundation": ">= 3.2",
-			"BlueSpiceExtendedSearch": ">= 3.2"
+			"BlueSpiceFoundation": "~3.1",
+			"BlueSpiceExtendedSearch": "~3.1"
 		},
 		"platform": {
 			"php": ">= 7.0"
