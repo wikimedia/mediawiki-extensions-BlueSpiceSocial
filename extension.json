@@ -206,7 +206,7 @@
 		"ext.bluespice.social.entity": {
 			"dependencies": [
 				"ext.bluespice.social",
-				"ext.bluespice.templates"
+				"ext.bluespice.social.entity.templates"
 			],
 			"scripts": [
 				"bluespice.social.El.js",
@@ -278,8 +278,26 @@
 			},
 			"class": "\\BlueSpice\\ResourceModule\\LessVars"
 		},
+		"ext.bluespice.social.entity.templates": {
+			"templates": [
+				"BlueSpiceSocial.Entity.Default.mustache",
+				"BlueSpiceSocial.Entity.List.mustache",
+				"BlueSpiceSocial.Entity.Page.mustache",
+				"BlueSpiceSocial.Entity.Short.mustache"
+			],
+			"class": "\\BlueSpice\\ResourceModule\\Templates"
+		},
+		"ext.bluespice.social.timeline.templates": {
+			"templates": [
+				"BlueSpiceSocial.EntityListMenuButton.mustache",
+				"BlueSpiceSocial.EntityListMenuContent.mustache",
+				"BlueSpiceSocial.EntitySpawner.mustache"
+			],
+			"class": "\\BlueSpice\\ResourceModule\\Templates"
+		},
 		"ext.bluespice.social.timeline": {
 			"dependencies": [
+				"ext.bluespice.social.timeline.templates",
 				"ext.bluespice.social",
 				"mediawiki.widgets.datetime"
 			],
