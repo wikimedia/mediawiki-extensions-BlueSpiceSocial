@@ -11,6 +11,9 @@
  */
 namespace BlueSpice\Social;
 
+use BlueSpice\Services;
+use BlueSpice\TemplateFactory;
+
 /**
  * This view renders the a single item.
  * @package BlueSpiceSocial
@@ -26,18 +29,45 @@ class EntityAttachment {
 	];
 	protected static $bAttachmentsRegistered = false;
 
+	/**
+	 *
+	 * @var Entity
+	 */
 	protected $oEntity = null;
+
+	/**
+	 *
+	 * @var mixed
+	 */
 	protected $mAttachment = null;
+
+	/**
+	 *
+	 * @var array
+	 */
 	protected $aArgs = [];
+
+	/**
+	 *
+	 * @var string
+	 */
 	protected $sType = 'default';
+
+	/**
+	 *
+	 * @var TemplateFactory
+	 */
+	protected $templateFactory = null;
 
 	/**
 	 * @param \Entity $oEntity
 	 * @param mixed|null $mAttachment
 	 * @param type $sType
+	 * @param TemplateFactory|null $templateFactory
 	 * @return \EntityAttachment
 	 */
-	public static function factory( Entity $oEntity, $mAttachment = null, $sType = 'default' ) {
+	public static function factory( Entity $oEntity, $mAttachment = null,
+		$sType = 'default', TemplateFactory $templateFactory = null ) {
 		if ( empty( $mAttachment ) ) {
 			return null;
 		}
@@ -45,10 +75,14 @@ class EntityAttachment {
 		if ( !isset( $aRegisteredAttachments[$sType] ) ) {
 			return null;
 		}
+		if ( !$templateFactory ) {
+			$templateFactory = Services::getInstance()->getBSTemplateFactory();
+		}
 
 		$oInstance = new $aRegisteredAttachments[$sType](
 			$oEntity,
-			$mAttachment
+			$mAttachment,
+			$templateFactory
 		);
 		return $oInstance;
 	}
@@ -86,12 +120,15 @@ class EntityAttachment {
 	 *
 	 * @param Entity $oEntity
 	 * @param mixed $mAttachment
+	 * @param TemplateFactory $templateFactory
 	 */
-	protected function __construct( Entity $oEntity, $mAttachment ) {
+	protected function __construct( Entity $oEntity, $mAttachment,
+		TemplateFactory $templateFactory ) {
 		$this->oEntity = $oEntity;
 		$this->mAttachment = $mAttachment;
 		$this->aArgs['type'] = $this->sType;
 		$this->aArgs['content'] = "&nbsp;";
+		$this->templateFactory = $templateFactory;
 	}
 
 	/**
@@ -101,12 +138,9 @@ class EntityAttachment {
 		if ( !$this->mAttachment ) {
 			return '';
 		}
-		$sOutput = \BSTemplateHelper::process(
-			$this->getTemplateName(),
+		return $this->templateFactory->get( $this->getTemplateName() )->process(
 			$this->getArgs()
 		);
-
-		return $sOutput;
 	}
 
 	/**
