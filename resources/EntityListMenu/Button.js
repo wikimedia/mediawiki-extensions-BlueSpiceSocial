@@ -42,7 +42,7 @@ bs.social.EntityListMenu.Button.prototype.makeButton = function() {
 
 bs.social.EntityListMenu.Button.prototype.getTemplate = function() {
 	return mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.timeline.templates',
 		this.getTemplateName()
 	);
 };

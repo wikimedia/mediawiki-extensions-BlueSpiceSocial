@@ -163,7 +163,7 @@ bs.social.EntityListMenu.prototype.initFilter = function( key, mVal ) {
 
 bs.social.EntityListMenu.prototype.makeOptionButton = function() {
 	var tpl = mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.timeline.templates',
 		'BlueSpiceSocial.EntityListMenuButton.mustache'
 	);
 	var $button = $(tpl.render( {
@@ -175,7 +175,7 @@ bs.social.EntityListMenu.prototype.makeOptionButton = function() {
 
 bs.social.EntityListMenu.prototype.makeFilterButton = function() {
 	var tpl = mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.timeline.templates',
 		'BlueSpiceSocial.EntityListMenuButton.mustache'
 	);
 	var $button = $(tpl.render( {
@@ -187,7 +187,7 @@ bs.social.EntityListMenu.prototype.makeFilterButton = function() {
 
 bs.social.EntityListMenu.prototype.makeOptionContent = function() {
 	var tpl = mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.timeline.templates',
 		'BlueSpiceSocial.EntityListMenuContent.mustache'
 	);
 
@@ -204,7 +204,7 @@ bs.social.EntityListMenu.prototype.makeOptionContent = function() {
 
 bs.social.EntityListMenu.prototype.makeFilterContent = function() {
 	var tpl = mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.timeline.templates',
 		'BlueSpiceSocial.EntityListMenuContent.mustache'
 	);
 
