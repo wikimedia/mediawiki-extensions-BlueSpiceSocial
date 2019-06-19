@@ -74,6 +74,9 @@ class File extends EntityAttachment {
 		if ( isset( self::$aExtensionMapping[$sExt] ) ) {
 			$this->aArgs['class'] .=
 				" bs-social-entityattachment-" . self::$aExtensionMapping[$sExt];
+		} else {
+			$this->aArgs['class'] .= " bs-social-entityattachment-$sExt";
+			$this->aArgs['class'] .= " bs-social-entityattachment-unknown";
 		}
 	}
 
