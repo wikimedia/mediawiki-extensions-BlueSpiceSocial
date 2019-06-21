@@ -40,7 +40,7 @@ OO.mixinClass( bs.social.EntityOutput, OO.EventEmitter );
 
 bs.social.EntityOutput.prototype.render = function( type ) {
 	var tpl = mw.template.get(
-		'ext.bluespice.templates',
+		'ext.bluespice.social.entity.templates',
 		this.getTemplateName( type )
 	);
 	var out = '';
