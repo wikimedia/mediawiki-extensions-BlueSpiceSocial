@@ -10,9 +10,6 @@
 		"extensions": {
 			"BlueSpiceFoundation": "~3.1",
 			"BlueSpiceExtendedSearch": "~3.1"
-		},
-		"platform": {
-			"php": ">= 7.0"
 		}
 	},
 	"type": "bluespice",
