@@ -83,6 +83,14 @@ bs.social.init = function(){
 	$(document).trigger('BSSocialInit', [
 		bs.social
 	]);
+
+    if ( mediaWiki && mediaWiki.mmv && mediaWiki.mmv.bootstrap ) {
+		var mmv = mediaWiki.mmv.bootstrap;
+		$( 'div:not(.mw-body-content) .bs-social-entity-attachment-image img' ).each( function() {
+			mmv.processThumb( this );
+		} );
+		return;
+    }
 };
 bs.social.updater = function(){
 	$.each( bs.social.entityStore, function( k, entity ){
