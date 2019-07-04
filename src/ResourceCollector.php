@@ -85,6 +85,14 @@ class ResourceCollector {
 			if ( $moduleScripts ) {
 				$this->aScripts = array_merge( $this->aScripts, $moduleScripts );
 			}
+			// isLoaded is not working correctly
+			// also this modules can not be loaded within JS because stuff breaks
+			if ( \ExtensionRegistry::getInstance()->getAllThings()[ 'MultimediaViewer' ] ) {
+				$this->aScripts = array_merge(
+					$this->aScripts,
+					[ 'mmv.head', 'mmv.bootstrap.autostart' ]
+				);
+			}
 			if ( empty( $oConfig->get( 'VarMessageKeys' ) ) ) {
 				continue;
 			}
