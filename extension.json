@@ -205,6 +205,7 @@
 		},
 		"ext.bluespice.social.entity": {
 			"dependencies": [
+				"user.options",
 				"ext.bluespice.social",
 				"ext.bluespice.social.entity.templates"
 			],
