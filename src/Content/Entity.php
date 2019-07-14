@@ -79,6 +79,7 @@ class Entity extends \BlueSpice\Content\Entity {
 			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
 		}
 	}
+
 	/**
 	 * Constructs an HTML representation of a JSON object.
 	 * @param array $mapping

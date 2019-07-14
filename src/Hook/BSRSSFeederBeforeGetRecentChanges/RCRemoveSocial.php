@@ -15,6 +15,7 @@ class RCRemoveSocial extends BSRSSFeederBeforeGetRecentChanges {
 		}
 		return false;
 	}
+
 	/**
 	 * Do not show social entities in recent changes
 	 * @return bool

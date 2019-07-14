@@ -37,6 +37,7 @@ namespace BlueSpice\Social\Parser;
  */
 class Input {
 	protected $aAllowedTags = [];
+
 	public function __construct() {
 	}
 
