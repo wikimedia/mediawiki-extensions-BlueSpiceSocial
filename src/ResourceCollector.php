@@ -87,7 +87,8 @@ class ResourceCollector {
 			}
 			// isLoaded is not working correctly
 			// also this modules can not be loaded within JS because stuff breaks
-			if ( \ExtensionRegistry::getInstance()->getAllThings()[ 'MultimediaViewer' ] ) {
+			$extensions = \ExtensionRegistry::getInstance()->getAllThings();
+			if ( isset( $extensions[ 'MultimediaViewer' ] ) ) {
 				$this->aScripts = array_merge(
 					$this->aScripts,
 					[ 'mmv.head', 'mmv.bootstrap.autostart' ]
