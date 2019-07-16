@@ -1,6 +1,7 @@
 <?php
 namespace BlueSpice\Social\Renderer;
 
+use Sanitizer;
 use Config;
 use IContextSource;
 use RequestContext;
@@ -131,6 +132,8 @@ class EntityList extends Renderer implements IParamProvider {
 			$this->args[static::PARAM_CLASS] = '';
 		}
 		$this->args[static::PARAM_CLASS] .= ' bs-social-entitylist';
+		$nameClass = Sanitizer::escapeClass( $this->name );
+		$this->args[static::PARAM_CLASS] .= " $nameClass";
 
 		$this->args[static::PARAM_HIDDEN] = $this->params->get(
 			static::PARAM_HIDDEN,
