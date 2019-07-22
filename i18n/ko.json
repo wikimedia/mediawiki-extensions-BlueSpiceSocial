@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"bs-social-pref-datedisplaymode-mode-mw": "날짜로 표시",
+	"bs-social-entitytext-header": "[[User:$1|$2]]님이 남긴 글:",
+	"bs-social-var-ownerid": "소유자",
+	"bs-social-var-type": "종류",
+	"bs-social-var-timestampcreated": "만든 날짜",
+	"bs-social-option-orderby-label": "정렬",
+	"bs-social-editor-advanced": "고급",
+	"bs-social-editor-cancel": "취소",
+	"bs-social-entityaction-edit": "편집",
+	"bs-social-entityaction-delete": "삭제",
+	"bs-social-entity-fatalstatus-save-emptyfield": "\"$1\" 필드가 비어있습니다",
+	"bs-social-select2-overwrites-noresults": "결과 없음",
+	"bs-social-select2-overwrites-searching": "검색 중...",
+	"bs-extendedsearch-search-center-result-owner-label": "소유자:",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "모두 추가",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "모두 제거",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "오늘",
+	"bs-social-filter-owner-val-all": "모두",
+	"bs-social-filter-button-tooltip": "필터 옵션 표시",
+	"bs-social-entityspawner-button-tooltip": "새로 만들기"
+}
