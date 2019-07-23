@@ -11,12 +11,16 @@
 	"bs-social-var-ownerid": "Besëtzer",
 	"bs-social-var-type": "Typ",
 	"bs-social-var-archived": "Archivéiert",
+	"bs-social-var-text": "Inhalt",
 	"bs-social-editor-cancel": "Ofbriechen",
 	"bs-social-entityactions-label": "Aktiounen",
 	"bs-social-entityaction-edit": "Änneren",
+	"bs-social-entityaction-delete": "Läschen",
 	"bs-social-entityaction-undelete": "Restauréieren",
 	"bs-social-select2-overwrites-noresults": "Kee Resultat",
+	"bs-extendedsearch-search-center-result-owner-label": "Besëtzer:",
 	"bs-social-special-activities-heading": "Aktivitéiten",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Haut",
-	"bs-social-filter-owner-val-all": "All"
+	"bs-social-filter-owner-val-all": "All",
+	"bs-social-renderer-timestampprefix-touched": "Geännert"
 }
