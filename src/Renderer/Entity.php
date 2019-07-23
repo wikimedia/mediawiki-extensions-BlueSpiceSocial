@@ -80,7 +80,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		// TODO: Use linker - needs change in all mustache templates!
 		$this->args[static::AUTHOR_PAGE] = $owner->getUserPage()->getLocalURL();
 		$this->args[static::PARAM_CLASS] .= " bs-social-entity"
-			. " bs-social-entity-{$this->getEntity()->getType()}";
+			. " bs-social-entity-{$this->getEntity()->get( SocialEntity::ATTR_TYPE )}";
 		if ( $this->getEntity()->isArchived() ) {
 			$this->args[static::PARAM_CLASS] .= ' archived';
 		}
@@ -210,8 +210,8 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected function makeTagAttribs() {
 		$attribs = parent::makeTagAttribs();
 		$attribs['data-entity'] = FormatJson::encode( $this->getEntity() );
-		$attribs['data-id'] = $this->getEntity()->getID();
-		$attribs['data-type'] = $this->getEntity()->getType();
+		$attribs['data-id'] = $this->getEntity()->get( SocialEntity::ATTR_ID );
+		$attribs['data-type'] = $this->getEntity()->get( SocialEntity::ATTR_TYPE );
 		$attribs['data-output'] = $this->renderType;
 		return $attribs;
 	}

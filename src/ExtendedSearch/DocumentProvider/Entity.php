@@ -34,8 +34,8 @@ class Entity extends WikiPage {
 		if ( !class_exists( $sStoreClass ) ) {
 			return \Status::newFatal( "Store class '$sStoreClass' not found" );
 		}
-		$oStore = new $sStoreClass( \RequestContext::getMain() );
-		$oSchema = $oStore->getWriter()->getSchema();
+		$oStore = new $sStoreClass();
+		$oSchema = $oStore->getWriter( \RequestContext::getMain() )->getSchema();
 		$aData = array_intersect_key(
 			$oEntity->getFullData(),
 			array_flip( $oSchema->getIndexableFields() )

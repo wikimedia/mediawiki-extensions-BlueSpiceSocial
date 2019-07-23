@@ -3,30 +3,13 @@
 namespace BlueSpice\Social\Data\Entity;
 
 use IContextSource;
-use BlueSpice\Data\IStore;
+use RequestContext;
+use BlueSpice\Data\Entity\IStore;
 use BS\ExtendedSearch\Backend;
 use BlueSpice\EntityFactory;
 use BlueSpice\Services;
 
-class Store implements IStore {
-
-	/**
-	 *
-	 * @var IContextSource
-	 */
-	protected $context = null;
-
-	/**
-	 *
-	 * @var Backend
-	 */
-	protected $searchBackend = null;
-
-	/**
-	 *
-	 * @var string
-	 */
-	protected $searchBackendKey = 'local';
+class Store extends \BS\ExtendedSearch\Data\Store implements IStore {
 
 	/**
 	 *
@@ -36,57 +19,40 @@ class Store implements IStore {
 
 	/**
 	 *
-	 * @param IContextSource $context
-	 * @param EntityFactory|null $factory
 	 * @param Backend|null $searchBackend
+	 * @param EntityFactory|null $factory
 	 */
-	public function __construct( $context, EntityFactory $factory = null,
-		Backend $searchBackend = null ) {
-		$this->context = $context;
-		$this->searchBackend = $searchBackend;
+	public function __construct( Backend $searchBackend = null, EntityFactory $factory = null ) {
+		parent::__construct( $searchBackend );
 		$this->factory = $factory;
 	}
 
 	/**
 	 *
+	 * @param IContextSource|null $context
 	 * @return Reader
 	 */
-	public function getReader() {
+	public function getReader( IContextSource $context = null ) {
+		if ( !$context ) {
+			$context = RequestContext::getMain();
+		}
 		return new Reader(
 			$this->getSearchBackend(),
 			$this->getFactory(),
-			$this->context
+			$context
 		);
 	}
 
 	/**
 	 *
+	 * @param IContextSource|null $context
 	 * @return Writer
 	 */
-	public function getWriter() {
-		return new Writer( $this->context );
-	}
-
-	/**
-	 *
-	 * @return Backend
-	 */
-	protected function getSearchBackend() {
-		if ( $this->searchBackend ) {
-			return $this->searchBackend;
+	public function getWriter( IContextSource $context = null ) {
+		if ( !$context ) {
+			$context = RequestContext::getMain();
 		}
-		$this->searchBackend = Backend::instance(
-			$this->getSearchBackendKey()
-		);
-		return $this->searchBackend;
-	}
-
-	/**
-	 *
-	 * @return string
-	 */
-	protected function getSearchBackendKey() {
-		return $this->searchBackendKey;
+		return new Writer( $context );
 	}
 
 	/**

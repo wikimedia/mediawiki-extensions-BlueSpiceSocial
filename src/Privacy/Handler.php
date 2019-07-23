@@ -157,8 +157,8 @@ class Handler implements IPrivacyHandler {
 			'start' => 0,
 		] );
 
-		$store = new \BlueSpice\Social\Data\Entity\Store( $listContext );
-		$res = $store->getReader()->read( $params );
+		$store = new \BlueSpice\Social\Data\Entity\Store();
+		$res = $store->getReader( $listContext )->read( $params );
 
 		return $res->getRecords();
 	}

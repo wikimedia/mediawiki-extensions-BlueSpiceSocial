@@ -39,7 +39,7 @@ use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter;
  * @package BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  */
-abstract class EntityConfig extends \BlueSpice\EntityConfig {
+abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 
 	/**
 	 *

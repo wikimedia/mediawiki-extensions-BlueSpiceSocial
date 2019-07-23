@@ -1,6 +1,8 @@
 <?php
 namespace BlueSpice\Social;
 
+use BlueSpice\Services;
+
 abstract class Job extends \Job {
 	protected $oEntity = null;
 
@@ -27,7 +29,8 @@ abstract class Job extends \Job {
 	 */
 	public function getEntity() {
 		if ( !$this->oEntity ) {
-			$this->oEntity = Entity::newFromTitle( $this->getTitle() );
+			$this->oEntity = Services::getInstance()->getBSEntityFactory()
+				->newFromSourceTitle( $this->getTitle() );
 		}
 		if ( !$this->oEntity ) {
 			throw new \BsException( 'Invalid Entity' );
