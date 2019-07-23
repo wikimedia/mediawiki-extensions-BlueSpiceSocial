@@ -4,7 +4,7 @@ namespace BlueSpice\Social\Data\Entity;
 
 use BlueSpice\Data\RecordSet;
 
-class Writer extends \BlueSpice\Data\Entity\Writer {
+class Writer extends \BlueSpice\Data\Entity\Writer\Content {
 
 	/**
 	 *
@@ -12,15 +12,6 @@ class Writer extends \BlueSpice\Data\Entity\Writer {
 	 */
 	public function getSchema() {
 		return new Schema();
-	}
-
-	/**
-	 *
-	 * @param RecordSet $dataSet
-	 * @return RecordSet
-	 */
-	public function write( $dataSet ) {
-		throw new Exception( 'Writing entity store is not supported yet' );
 	}
 
 	/**

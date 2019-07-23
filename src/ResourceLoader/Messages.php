@@ -28,6 +28,7 @@ namespace BlueSpice\Social\ResourceLoader;
 
 use BlueSpice\Services;
 use BlueSpice\Social\EntityConfig;
+use BlueSpice\ExtensionAttributeBasedRegistry;
 
 class Messages extends \ResourceLoaderModule {
 	/**
@@ -39,10 +40,12 @@ class Messages extends \ResourceLoaderModule {
 	 */
 	public function getMessages() {
 		$messages = $msgKeys = [];
-		$registry = Services::getInstance()->getBSEntityRegistry();
+		$registry = new ExtensionAttributeBasedRegistry(
+			'BlueSpiceFoundationEntityRegistry'
+		);
 		$configFactory = Services::getInstance()->getBSEntityConfigFactory();
 
-		foreach ( $registry->getTypes() as $type ) {
+		foreach ( $registry->getAllKeys() as $type ) {
 			$config = $configFactory->newFromType( $type );
 			if ( !$config ) {
 				continue;

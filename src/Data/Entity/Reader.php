@@ -10,7 +10,7 @@ use BlueSpice\EntityFactory;
 use BlueSpice\Data\ResultSet;
 use BlueSpice\Data\ISecondaryDataProvider;
 
-class Reader extends \BlueSpice\Data\Entity\Reader {
+class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 
 	/**
 	 *
@@ -46,9 +46,9 @@ class Reader extends \BlueSpice\Data\Entity\Reader {
 	protected function makePrimaryDataProvider( $params ) {
 		return new PrimaryDataProvider(
 			$this->searchBackend,
+			$this->getSchema(),
 			$this->factory,
-			$this->context,
-			$this->getSchema()
+			$this->context
 		);
 	}
 

@@ -34,7 +34,7 @@ class RebuildEntities extends Maintenance {
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
-			$this->output( "\n{$entity->getID()}..." );
+			$this->output( "\n{$entity->get( Entity::ATTR_ID )}..." );
 			try {
 				$status = $entity->save( $user );
 				if ( !$status->isOK() ) {

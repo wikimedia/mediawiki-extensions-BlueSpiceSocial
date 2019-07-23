@@ -24,8 +24,8 @@ class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 	public function getPropertyConfig() {
 		$aPC = parent::getPropertyConfig();
 
-		$store = new Store( \RequestContext::getMain() );
-		$schema = $store->getReader()->getSchema();
+		$store = new Store();
+		$schema = $store->getReader( \RequestContext::getMain() )->getSchema();
 		foreach ( $schema->getIndexableFields() as $sKey ) {
 			if ( !$sKey ) {
 				continue;
