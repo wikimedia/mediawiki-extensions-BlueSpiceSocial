@@ -13,7 +13,7 @@ class AddTimeDisplayMode extends GetPreferences {
 		$this->preferences['bs-social-datedisplaymode'] = [
 			'type' => 'radio',
 			'label-message' => 'bs-social-prof-datedisplaymode',
-			'section' => 'rendering/bssocial',
+			'section' => 'rendering/social',
 			'options' => [
 				wfMessage( 'bs-social-pref-datedisplaymode-mode-age' )->plain()
 					=> 'age',

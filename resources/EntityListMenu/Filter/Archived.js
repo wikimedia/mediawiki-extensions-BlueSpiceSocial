@@ -69,6 +69,7 @@ bs.social.EntityListMenuFilterArchived.prototype.init = function( mVal ) {
 
 	this.$element.find( 'select' ).on( 'select2:select', function( e ) {
 		me.change( parseInt( e.params.data.id ) );
+		return true;
 	});
 	this.$element.find( 'select' ).on( 'select2:unselect', function( e ) {
 		me.change( 0 );

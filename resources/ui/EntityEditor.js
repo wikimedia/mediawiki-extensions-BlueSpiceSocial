@@ -23,6 +23,10 @@ bs.social.EntityEditor = function ( config, entity ) {
 	me.addAdvancedFieldsetItems();
 	me.addActionFieldsetItems();
 
+	for ( var i in me.fields ) {
+		me.passFieldChange( me.fields[i] );
+	}
+
 	config.items.push( me.contentfieldset );
 	me.advancedfieldset.$element.hide();
 	if( this.advancedfieldset.items.length > 0 ) {
@@ -264,4 +268,16 @@ bs.social.EntityEditor.prototype.onEditorStartup = function () {
 
 bs.social.EntityEditor.prototype.onEditorStartupComplete = function () {
 	this.getEntity().hideLoadMask();
+};
+
+bs.social.EntityEditor.prototype.passFieldChange = function ( field ) {
+	var me = this;
+	if (  typeof field !== 'object' ) {
+		return;
+	}
+	if ( typeof field.on === 'function' ) {
+		field.on( 'change', function() {
+			me.emit( 'change', me, field );
+		} );
+	}
 };

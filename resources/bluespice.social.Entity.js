@@ -26,6 +26,8 @@ bs.social.Entity = function( $el, type, data ) {
 	me.AFTER_CONTENT_CONTAINER  = 'bs-social-entity-aftercontent';
 	me.CHILDREN_CONTAINER  = 'bs-social-entitylist-children';
 
+	me.dirty = false;
+
 	me.setData( data );
 	me.init();
 };
@@ -303,10 +305,16 @@ bs.social.Entity.prototype.makeEditMode = function() {
 	if( !me.editor ) {
 		me.editor = this.makeEditor();
 			this.editor.on( 'submit', function( editor, data ) {
-			me.save( data );
+			me.save( data ).done( function() {
+				me.setDirty( false );
+			});
 			return false;
 		});
+		this.editor.on( 'change', function( editor, field ) {
+			me.setDirty( true );
+		} );
 		this.editor.on( 'cancel', function( editor, data ) {
+			me.setDirty( false );
 			if( !me.exists() ) {
 				me.reset();
 				return true;
@@ -384,20 +392,12 @@ bs.social.Entity.prototype.updateTimestampCreated = function( $ts ) {
 	));
 };
 
-bs.social.Entity.prototype.updateTimestampTouched = function( $ts ) {
-	var date = bs.util.convertMWTimestampToDate(
-		this.data.get( 'timestamptouched' )
-	);
-	if( !date ) {
-		return;
+bs.social.Entity.prototype.setDirty = function( dirty ) {
+	this.dirty = dirty;
+	if( this.dirty ) {
+		this.getEl().addClass( 'dirty' );
+	} else {
+		this.getEl().removeClass( 'dirty' );
 	}
-	if( ( new Date() - date ) > 1000 * 60 * 60 * 24  ) {
-		//older that 24 hours... so we do not need to update the ts, i guess
-		return;
-	}
-
-	//timestampToAgeString requires some weird time format as a param o.0
-	$ts.html( bs.util.timestampToAgeString(
-		Math.round( ( date.getTime() - ( date.getTimezoneOffset() * 60000 ) ) / 1000 )
-	));
+	this.emit( 'dirty', this, this.dirty );
 };

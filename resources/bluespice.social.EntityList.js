@@ -210,3 +210,11 @@ bs.social.EntityList.prototype.addChildren = function( entities ) {
 		this.getEl().append( "<li>" + entities[i].view + "</li>" );
 	}
 };
+
+bs.social.EntityList.prototype.getDirtyEntities = function() {
+	var dirty = [];
+	this.getEl().find( '.bs-social-entity.dirty' ).each( function() {
+		dirty.push( bs.social.newFromEl( $( this ) ) );
+	});
+	return dirty;
+};
