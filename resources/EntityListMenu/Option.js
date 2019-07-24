@@ -47,7 +47,13 @@ bs.social.EntityListMenuOption.prototype.deactivate = function() {
 
 bs.social.EntityListMenuOption.prototype.change = function( mVal ) {
 	var oldMVal = this.getData( {} );
-	this.emit( 'change', this, mVal, oldMVal );
+	var res = {
+		result: true
+	};
+	this.emit( 'change', this, mVal, oldMVal, res );
+	if( !res || !res.result ) {
+		return false;
+	}
 	return this;
 };
 

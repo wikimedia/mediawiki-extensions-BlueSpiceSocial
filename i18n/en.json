@@ -81,5 +81,9 @@
 	"action-social-source": "view the source page",
 	"right-social-deleteothers": "Delete others entries",
 	"right-social-editothers": "Edit others entries",
-	"right-social-source": "View the source page"
+	"right-social-source": "View the source page",
+	"prefs-social": "Timeline",
+	"bs-social-pref-warnonleave": "Warn me when I leave an edit of an entry with unsaved changes.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Performing this action may cause you to lose any changes you have made. Do you want discard the changes and proceed?",
+	"bs-social-editwarnonleave-confirmtext": "Leaving this page may cause you to lose any changes you have made. Do you want discard the changes and proceed?"
 }

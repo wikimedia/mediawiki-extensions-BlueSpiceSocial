@@ -219,20 +219,56 @@ bs.social.EntityListMenu.prototype.makeFilterContent = function() {
 	return $content.hide();
 };
 
-bs.social.EntityListMenu.prototype.onOptionChange = function( option, mVal ) {
-	this.emit( 'optionchange', this, option, mVal );
-	this.setLoading();
-	var action = 'replace';
-	if( option.key === 'limit' ) {
-		action = 'add';
+bs.social.EntityListMenu.prototype.onOptionChange = function( option, mVal, oldValue, res ) {
+	var me = this;
+	var execute = function() {
+		me.emit( 'optionchange', me, option, mVal );
+		me.setLoading();
+		var action = 'replace';
+		if( option.key === 'limit' ) {
+			action = 'add';
+		}
+		me.entityList.getEntities( action, me.getData() );
+	};
+	if ( option.key !== 'limit' && this.entityList.getDirtyEntities().length > 0
+		&& mw.user.options.get( 'bs-social-warnonleave', false ) === true ) {
+		var msg = 'bs-social-entitylistmenu-editwarnonchange-confirmtext';
+		me.$optionContent.hide();
+		me.$filterContent.hide();
+		OO.ui.confirm( mw.message( msg ).plain() ).done( function ( confirmed ) {
+			if ( confirmed ) {
+				execute();
+			}
+		});
+		res.result = false;
+		return false;
 	}
-	this.entityList.getEntities( action, this.getData() );
+	execute();
+	return true;
 };
 
-bs.social.EntityListMenu.prototype.onFilterChange = function( filter, mVal ) {
-	this.emit( 'filterchange', this, filter, mVal );
-	this.setLoading();
-	this.entityList.getEntities( 'replace', this.getData() );
+bs.social.EntityListMenu.prototype.onFilterChange = function( filter, mVal, oldValue, res ) {
+	var me = this;
+	var execute = function() {
+		me.emit( 'filterchange', me, filter, mVal );
+		me.setLoading();
+		me.entityList.getEntities( 'replace', me.getData() );
+	};
+	if ( this.entityList.getDirtyEntities().length > 0
+		&& mw.user.options.get( 'bs-social-warnonleave', false ) === true ) {
+		var msg = 'bs-social-entitylistmenu-editwarnonchange-confirmtext';
+		me.$optionContent.hide();
+		me.$filterContent.hide();
+		OO.ui.confirm( mw.message( msg ).plain() ).done( function ( confirmed ) {
+			if ( confirmed ) {
+				execute();
+			}
+		});
+		res.result = false;
+		return false;
+	}
+	execute();
+	return true;
 };
 
 bs.social.EntityListMenu.prototype.makeButtons = function() {
