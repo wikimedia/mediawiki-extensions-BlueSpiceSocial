@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"bs-social-entityaction-delete": "Eliminar",
+	"bs-social-select2-overwrites-searching": "Buscando…"
+}
