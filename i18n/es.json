@@ -4,6 +4,21 @@
 			"Fitoschido"
 		]
 	},
+	"bs-social-pref-datedisplaymode-mode-mw": "Mostrar como fecha",
+	"bs-social-entitytext-header-create": "Entrada nueva",
+	"bs-social-var-ownerid": "Propietario",
+	"bs-social-option-direction-label": "Dirección",
+	"bs-social-editor-advanced": "Avanzado",
+	"bs-social-editor-cancel": "Cancelar",
+	"bs-social-entityaction-edit": "Editar",
 	"bs-social-entityaction-delete": "Eliminar",
-	"bs-social-select2-overwrites-searching": "Buscando…"
+	"bs-social-entity-fatalstatus-save-nouser": "No se puede guardar la entrada si esta carece de propietario",
+	"bs-social-entity-fatalstatus-save-noidgenerated": "No se pudo generar automáticamente un identificador",
+	"bs-social-entity-fatalstatus-save-notype": "El tipo de entidad está vacío",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Se desconoce la acción «$1»",
+	"bs-social-select2-overwrites-searching": "Buscando…",
+	"bs-extendedsearch-search-center-result-entity_type-label": "Tipo de entidad:",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Añadir todo",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Quitar todo",
+	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación"
 }
