@@ -289,8 +289,8 @@ class Entities extends \BSApiTasksBase {
 			: false;
 
 		$oEntity = $this->getEntityFactory()->newFromID(
-			$taskData->id,
-			Entity::NS
+			$taskData->{Entity::ATTR_ID},
+			$taskData->{Entity::ATTR_TYPE}
 		);
 		if ( !$oEntity instanceof Entity ) {
 			$oResult->message = "entity $taskData->id not found";

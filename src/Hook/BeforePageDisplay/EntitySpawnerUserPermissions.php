@@ -3,8 +3,8 @@
 namespace BlueSpice\Social\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
+use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Social\Entity;
-use BlueSpice\EntityRegistry;
 
 class EntitySpawnerUserPermissions extends BeforePageDisplay {
 
@@ -15,8 +15,13 @@ class EntitySpawnerUserPermissions extends BeforePageDisplay {
 	protected function doProcess() {
 		$activityStreamPermissions = [];
 
-		foreach ( EntityRegistry::getRegisterdTypeKeys() as $type ) {
-			$entity = Entity::newFromObject( (object)[ 'type' => $type ] );
+		$registry = new ExtensionAttributeBasedRegistry(
+			'BlueSpiceFoundationEntityRegistry'
+		);
+		foreach ( $registry->getAllKeys() as $type ) {
+			$entity = $this->getServices()->getBSEntityFactory()->newFromObject(
+				(object)[ 'type' => $type ]
+			);
 			if ( !$entity ) {
 				continue;
 			}
@@ -38,7 +43,10 @@ class EntitySpawnerUserPermissions extends BeforePageDisplay {
 			$activityStreamPermissions[] = $type;
 		}
 
-		$this->out->addJsConfigVars( 'bsgSocialUserSpawnerEntities', $activityStreamPermissions );
+		$this->out->addJsConfigVars(
+			'bsgSocialUserSpawnerEntities',
+			$activityStreamPermissions
+		);
 
 		return true;
 	}

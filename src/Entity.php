@@ -50,7 +50,7 @@ use BlueSpice\Social\Job\Archive;
  * @package BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  */
-abstract class Entity extends \BlueSpice\Entity {
+abstract class Entity extends \BlueSpice\Entity\Content {
 	const NS = NS_SOCIALENTITY;
 
 	const ATTR_PARENT_ID = 'parentid';
@@ -308,7 +308,7 @@ abstract class Entity extends \BlueSpice\Entity {
 			'limit' => ReaderParams::LIMIT_INFINITE,
 			'start' => 0,
 		] );
-		$res = $this->getStore( $listContext )->getReader()->read( $params );
+		$res = $this->getStore()->getReader( $listContext )->read( $params );
 		foreach ( $res->getRecords() as $row ) {
 			$entity = $this->entityFactory->newFromObject( $row->getData() );
 			if ( !$entity instanceof Entity ) {

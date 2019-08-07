@@ -43,7 +43,7 @@ class EntityFormatter extends WikiPageFormatter {
 		parent::format( $result, $resultObject );
 
 		$entityFactory = \MediaWiki\MediaWikiServices::getInstance()->getService( 'BSEntityFactory' );
-		$entity = $entityFactory->newFromID( $result['entitydata']['id'], $result['namespace'] );
+		$entity = $entityFactory->newFromID( $result['entitydata']['id'], $result['type'] );
 		if ( !( $entity instanceof \BlueSpice\Social\Entity )
 				|| $entity->exists() == false ) {
 			return;

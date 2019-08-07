@@ -2,6 +2,7 @@
 namespace BlueSpice\Social\Content;
 
 use BlueSpice\Social\Entity as SocialEntity;
+use BlueSpice\Services;
 
 class Entity extends \BlueSpice\Content\Entity {
 
@@ -65,8 +66,9 @@ class Entity extends \BlueSpice\Content\Entity {
 	 */
 	protected function fillParserOutput( \Title $title, $revId,
 		\ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
-		$oEntity = SocialEntity::newFromTitle( $title );
-		if ( is_null( $oEntity ) ) {
+		$oEntity = Services::getInstance()->getBSEntityFactory()
+			->newFromSourceTitle( $title );
+		if ( !$oEntity instanceof SocialEntity ) {
 			return;
 		}
 		$output->setDisplayTitle( strip_tags(

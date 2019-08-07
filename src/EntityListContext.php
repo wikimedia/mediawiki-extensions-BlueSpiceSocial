@@ -6,6 +6,7 @@ use IContextSource;
 use Config;
 use User;
 use BlueSpice\Services;
+use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Data\FieldType;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Date;
@@ -46,7 +47,10 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 		}
 		$this->entityConfigs = [];
 		$factory = $this->getEntityConfigFactory();
-		foreach ( $this->getEntityRegistry()->getTypes() as $type ) {
+		$registry = new ExtensionAttributeBasedRegistry(
+			'BlueSpiceFoundationEntityRegistry'
+		);
+		foreach ( $registry->getAllKeys() as $type ) {
 			$config = $factory->newFromType( $type );
 			if ( !$config ) {
 				continue;
@@ -88,14 +92,6 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	protected function getEntityConfigFactory() {
 		return Services::getInstance()->getBSEntityConfigFactory();
-	}
-
-	/**
-	 *
-	 * @return \BlueSpice\EntityRegistry
-	 */
-	protected function getEntityRegistry() {
-		return Services::getInstance()->getBSEntityRegistry();
 	}
 
 	/**

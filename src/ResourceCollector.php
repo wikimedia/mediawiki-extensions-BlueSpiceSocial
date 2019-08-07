@@ -29,7 +29,7 @@
  */
 namespace BlueSpice\Social;
 
-use BlueSpice\EntityRegistry;
+use BlueSpice\ExtensionAttributeBasedRegistry;
 
 /**
  * ResourceCollector class for BlueSpiceSocial extension
@@ -68,7 +68,10 @@ class ResourceCollector {
 	}
 
 	protected function __construct() {
-		foreach ( EntityRegistry::getRegisterdTypeKeys() as $sType ) {
+		$registry = new ExtensionAttributeBasedRegistry(
+			'BlueSpiceFoundationEntityRegistry'
+		);
+		foreach ( $registry->getAllKeys() as $sType ) {
 			$oConfig = EntityConfig::factory( $sType );
 			if ( !$oConfig ) {
 				continue;

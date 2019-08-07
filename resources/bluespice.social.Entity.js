@@ -253,7 +253,7 @@ bs.social.Entity.prototype.delete = function() {
 	return bs.api.tasks.execSilent(
 		'social',
 		'deleteEntity',
-		{ id: me.id, undelete: me.data.get( 'archived' ) ? true : false }
+		{ id: me.id, type: me.type, undelete: me.data.get( 'archived' ) ? true : false }
 	).done( function( response ) {
 		me.replaceEL( response.payload.view );
 	})

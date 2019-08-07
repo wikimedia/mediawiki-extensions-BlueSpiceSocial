@@ -3,16 +3,18 @@
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
-use \MediaWiki\MediaWikiServices as MWServices;
+use BlueSpice\Services;
+use BlueSpice\ExtensionAttributeBasedRegistry;
 
 class FilterOutActionEntities extends LookupModifierBase {
 
 	public function apply() {
-		$entityRegistry = MWServices::getInstance()->getService( 'BSEntityRegistry' );
-		$entityConfigFactory = MWServices::getInstance()->getService( 'BSEntityConfigFactory' );
+		$entityConfigFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
 
-		$types = $entityRegistry->getTypes();
-		foreach ( $types as $type ) {
+		$registry = new ExtensionAttributeBasedRegistry(
+			'BlueSpiceFoundationEntityRegistry'
+		);
+		foreach ( $registry->getAllKeys() as $type ) {
 			$typeConfig = $entityConfigFactory->newFromType( $type );
 			if ( $typeConfig->get( 'ExtendedSearchListable' ) == false ) {
 				$this->oLookup->addBoolMustNotTerms( 'entitydata.type', $type );

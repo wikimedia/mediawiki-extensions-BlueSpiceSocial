@@ -113,7 +113,7 @@ class EntityList extends Renderer implements IParamProvider {
 			false
 		);
 		if ( !$this->store instanceof Store ) {
-			$this->store = new Store( $this->context );
+			$this->store = new Store();
 		}
 		$this->user = $params->get(
 			static::PARAM_USER,
@@ -270,7 +270,7 @@ class EntityList extends Renderer implements IParamProvider {
 			static::PARAM_PERSIST_SETTINGS,
 			$this->getContext()->getPersistSettings()
 		);
-		$schema = $this->store->getReader()->getSchema();
+		$schema = $this->store->getReader( $this->context )->getSchema();
 		foreach ( $this->args[ static::PARAM_FILTER ] as &$filter ) {
 			$filter = (object)$filter;
 
@@ -334,7 +334,7 @@ class EntityList extends Renderer implements IParamProvider {
 			return $this->entities;
 		}
 		$readerParams = $this->makeStoreReaderParams();
-		$res = $this->store->getReader()->read( $readerParams );
+		$res = $this->store->getReader( $this->context )->read( $readerParams );
 		$factory = Services::getInstance()->getBSEntityFactory();
 
 		$this->entities = [];
