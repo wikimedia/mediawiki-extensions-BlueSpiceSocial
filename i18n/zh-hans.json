@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"VulpesVulpes825"
+		]
+	},
+	"bs-social-entitytext-header-create": "新条目",
+	"bs-social-var-id": "身份证明",
+	"bs-social-var-ownerid": "所有者",
+	"bs-social-var-type": "类型",
+	"bs-social-var-archived": "已存档",
+	"bs-social-var-text": "内容",
+	"bs-social-var-timestampcreated": "创建日期",
+	"bs-social-var-timestamptouched": "编辑日期",
+	"bs-social-var-teasertext": "预告",
+	"bs-social-option-orderby-label": "排序",
+	"bs-social-option-direction-label": "文字方向",
+	"bs-social-option-direction-val-asc": "升序",
+	"bs-social-option-direction-val-desc": "降序",
+	"bs-social-editor-advanced": "高级",
+	"bs-social-editor-ok": "发布",
+	"bs-social-editor-cancel": "取消",
+	"bs-social-entityactions-label": "选项",
+	"bs-social-entityaction-edit": "编辑",
+	"bs-social-entityaction-delete": "删除",
+	"bs-social-entityaction-delete-confirmtext": "删除条目？",
+	"bs-social-entityaction-undelete": "还原",
+	"bs-social-entityaction-undelete-confirmtext": "恢复条目？",
+	"bs-social-entity-fatalstatus-save-nouser": "没有指定的所有者，无法保存该条目",
+	"bs-social-entity-fatalstatus-save-notype": "条目类型为空"
+}
