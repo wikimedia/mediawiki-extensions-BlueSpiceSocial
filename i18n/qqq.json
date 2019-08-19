@@ -72,5 +72,14 @@
 	"bs-social-filter-button-tooltip": "Label for a button that opens a menu for setting filters",
 	"bs-social-sort-button-tooltip": "Label for a button that opens a menu to set sorting",
 	"bs-social-entityspawner-button-tooltip": "Label for a button that opens a menu to create new social entities",
-	"bs-social-sourcetitle-lockdown-reason-reason": "Used to describe that the requested permission for this page is only available for administrators, because social entities should not be edited directly.\n* $1 - Name of the requested action"
+	"bs-social-sourcetitle-lockdown-reason-reason": "Used to describe that the requested permission for this page is only available for administrators, because social entities should not be edited directly.\n* $1 - Name of the requested action",
+	"apihelp-bs-social-tasks-summary": "{{doc-apihelp-summary|bs-social-tasks}}",
+	"apihelp-bs-socialtitlequery-store-summary": "{{doc-apihelp-summary|bs-socialtitlequery-store}}",
+	"apihelp-bs-socialentity-store-summary": "{{doc-apihelp-summary|bs-socialentity-store}}",
+	"action-social-deleteothers": "{{doc-action|social-deleteothers}}",
+	"action-social-editothers": "{{doc-action|social-editothers}}",
+	"action-social-source": "{{doc-action|social-source}}",
+	"right-social-deleteothers": "{{doc-right|social-deleteothers}}",
+	"right-social-editothers": "{{doc-right|social-editothers}}",
+	"right-social-source": "{{doc-right|social-source}}"
 }
