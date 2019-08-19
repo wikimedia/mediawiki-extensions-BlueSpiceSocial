@@ -120,6 +120,11 @@
 			"social-source": true
 		}
 	},
+	"AvailableRights": [
+		"social-deleteothers",
+		"social-editothers",
+		"social-source"
+	],
 	"AutoloadNamespaces": {
 		"BlueSpice\\Social\\": "src/"
 	},
