@@ -72,5 +72,14 @@
 	"bs-social-filter-button-tooltip": "Show filter options",
 	"bs-social-sort-button-tooltip": "Show sort options",
 	"bs-social-entityspawner-button-tooltip": "Create new",
-	"bs-social-sourcetitle-lockdown-reason-reason": "The action $1 can only be performed by administrators, because this entries should not be edited directly."
+	"bs-social-sourcetitle-lockdown-reason-reason": "The action $1 can only be performed by administrators, because this entries should not be edited directly.",
+	"apihelp-bs-social-tasks-summary": "Provides tasks such as editing or deleting entities",
+	"apihelp-bs-socialtitlequery-store-summary": "Provides data for titles, that can be linked within an entity",
+	"apihelp-bs-socialentity-store-summary": "Provides a search store for entities, that can be queried",
+	"action-social-deleteothers": "delete others entries",
+	"action-social-editothers": "edit others entries",
+	"action-social-source": "view the source page",
+	"right-social-deleteothers": "Delete others entries",
+	"right-social-editothers": "Edit others entries",
+	"right-social-source": "View the source page"
 }
