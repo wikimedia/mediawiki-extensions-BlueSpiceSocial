@@ -67,5 +67,14 @@
 	"bs-social-filter-button-tooltip": "Mostrar opções de filtro",
 	"bs-social-sort-button-tooltip": "Mostrar opções de classificação",
 	"bs-social-entityspawner-button-tooltip": "Criar novo",
-	"bs-social-sourcetitle-lockdown-reason-reason": "A ação $1 só pode ser executada por administradores, porque essas entradas não devem ser editadas diretamente."
+	"bs-social-sourcetitle-lockdown-reason-reason": "A ação $1 só pode ser executada por administradores, porque essas entradas não devem ser editadas diretamente.",
+	"apihelp-bs-social-tasks-summary": "Fornece tarefas como editar ou excluir entidades",
+	"apihelp-bs-socialtitlequery-store-summary": "Fornece dados para títulos, que podem ser vinculados dentro de uma entidade",
+	"apihelp-bs-socialentity-store-summary": "Fornece um repositório de pesquisa para entidades que podem ser consultadas",
+	"action-social-deleteothers": "excluir outras entradas",
+	"action-social-editothers": "editar outras entradas",
+	"action-social-source": "ver a página de origem",
+	"right-social-deleteothers": "Excluir outras entradas",
+	"right-social-editothers": "Editar outras entradas",
+	"right-social-source": "Visualizar a página de origem"
 }
