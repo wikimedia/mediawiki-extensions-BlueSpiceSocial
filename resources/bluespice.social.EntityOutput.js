@@ -75,9 +75,7 @@ bs.social.EntityOutput.prototype.getEntityCloseTag = function( type ) {
 };
 
 bs.social.EntityOutput.prototype.getTemplateName = function( type ) {
-	return bs.social.config[
-		this.args['type']
-	]['EntityTemplate' + type ] + '.mustache';
+	return 'BlueSpiceSocial.Entity.' + type + '.mustache';
 };
 
 bs.social.EntityOutput.prototype.getArgs = function( type ) {
