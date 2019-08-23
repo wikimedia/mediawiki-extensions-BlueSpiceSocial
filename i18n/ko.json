@@ -30,5 +30,7 @@
 	"bs-social-filter-owner-val-all": "모두",
 	"bs-social-filter-button-tooltip": "필터 옵션 표시",
 	"bs-social-sort-button-tooltip": "정렬 옵션 보이기",
-	"bs-social-entityspawner-button-tooltip": "새로 만들기"
+	"bs-social-entityspawner-button-tooltip": "새로 만들기",
+	"action-social-source": "원본 문서 보기",
+	"right-social-source": "원본 문서 보기"
 }
