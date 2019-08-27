@@ -7,6 +7,9 @@ bs.social.OutputFactory = new OO.Factory();
 bs.social.entityStore = {};
 bs.social.config = {};
 bs.social.uuid = 0;
+bs.social.mmvInitialized = false;
+bs.social.warnOnLeave = null;
+
 bs.social.generateUniqueId = function() {
 	return "bss-ui-" + ( ++bs.social.uuid );
 };
@@ -84,7 +87,18 @@ bs.social.init = function(){
 		bs.social
 	]);
 
-    if ( mediaWiki && mediaWiki.mmv && mediaWiki.mmv.bootstrap ) {
+	if( mw.user.options.get( 'bs-social-warnonleave', false ) === true ) {
+		this.warnOnLeave = mw.confirmCloseWindow( {
+			test: function () {
+				// We use .textSelection, because editors might not have updated the form yet.
+				return $.find( '.bs-social-entity.dirty' ).length > 0;
+			},
+
+			message: mw.msg( 'bs-social-editwarnonleave-confirmtext' ),
+		} );
+	}
+
+    if ( mediaWiki && mediaWiki.mmv && mediaWiki.mmv.bootstrap && !this.mmvInitialized ) {
 		var mmv = mediaWiki.mmv.bootstrap;
 		$( 'div:not(.mw-body-content) .bs-social-entity-attachment-image img' ).each( function() {
 			mmv.processThumb( this );

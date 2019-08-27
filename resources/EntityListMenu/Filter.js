@@ -48,7 +48,13 @@ bs.social.EntityListMenuFilter.prototype.getData = function( data ) {
 bs.social.EntityListMenuFilter.prototype.change = function( mVal ) {
 	var oldMVal = this.getData( {} );
 	this.selectedFilters = mVal;
-	this.emit( 'change', this, mVal, oldMVal );
+	var res = {
+		result: true
+	};
+	this.emit( 'change', this, mVal, oldMVal, res );
+	if( !res || !res.result ) {
+		return false;
+	}
 	return this;
 };
 bs.social.EntityListMenuFilter.prototype.makeField = function() {

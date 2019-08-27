@@ -199,6 +199,8 @@
 			"dependencies": [
 				"mediawiki.api",
 				"oojs-ui",
+				"mediawiki.confirmCloseWindow",
+				"user.options",
 				"ext.bluespice.jquery.select2",
 				"ext.bluespice",
 				"ext.bluespice.oojs",
@@ -229,6 +231,7 @@
 				"bs-social-entityaction-delete-confirmtext",
 				"bs-social-entityaction-undelete",
 				"bs-social-entityaction-undelete-confirmtext",
+				"bs-social-editwarnonleave-confirmtext",
 				"bs-extendedsearch-search-center-result-owner-label",
 				"bs-extendedsearch-search-center-result-entity_type-label",
 				"bs-extendedsearch-search-center-filter-entitydata-type-label",
@@ -332,6 +335,7 @@
 				"bs-social-entitylistmenufilter-quickfilter-addall",
 				"bs-social-entitylistmenufilter-quickfilter-removeall",
 				"bs-social-entitylistmenufilter-quickfilter-removeall-date",
+				"bs-social-entitylistmenu-editwarnonchange-confirmtext",
 				"bs-social-filter-owner-val-all",
 				"bs-social-filter-owner-val-mine",
 				"bs-social-filter-date-label-from",
@@ -356,7 +360,10 @@
 			"\\BlueSpice\\Social\\Hook\\BeforePageDisplay\\AddSourceBacklLink::callback"
 		],
 		"BSUEModulePDFBeforeAddingStyleBlocks": "\\BlueSpice\\Social\\Extension::onBSUEModulePDFBeforeAddingStyleBlocks",
-		"GetPreferences": "\\BlueSpice\\Social\\Hook\\GetPreferences\\AddTimeDisplayMode::callback",
+		"GetPreferences": [
+			"\\BlueSpice\\Social\\Hook\\GetPreferences\\AddTimeDisplayMode::callback",
+			"\\BlueSpice\\Social\\Hook\\GetPreferences\\AddWarnOnLeave::callback"
+		],
 		"HtmlPageLinkRendererEnd": "\\BlueSpice\\Social\\Hook\\HtmlPageLinkRendererEnd\\MaskEntityLinks::callback",
 		"BeforeEchoEventInsert": "\\BlueSpice\\Social\\Hook\\BeforeEchoEventInsert\\DisableOtherNotificationsForEntityPages::callback",
 		"SendWatchlistEmailNotification": "\\BlueSpice\\Social\\Extension::onSendWatchlistEmailNotification",
@@ -367,6 +374,7 @@
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
+		"bs-social-warnonleave": true,
 		"echo-subscriptions-web-bs-social-entity-cat": 1
 	},
 	"manifest_version": 2
