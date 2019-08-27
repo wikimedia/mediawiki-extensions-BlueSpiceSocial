@@ -13,5 +13,6 @@
 	"bs-social-special-activities-heading": "Aktiviteter",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "I dag",
 	"bs-social-filter-owner-val-all": "Alle",
-	"bs-social-renderer-timestampprefix-touched": "Redigeret"
+	"bs-social-renderer-timestampprefix-touched": "Redigeret",
+	"action-social-source": "vis kildesiden"
 }

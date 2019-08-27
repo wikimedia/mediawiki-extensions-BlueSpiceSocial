@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"RadioAzureus",
+			"Siebrand"
+		]
+	},
+	"action-social-deleteothers": "veeg andere toegoevoegingen uit",
+	"action-social-source": "Bekijk de bron-pagina",
+	"right-social-source": "Bekijk de bron-pagina"
+}
