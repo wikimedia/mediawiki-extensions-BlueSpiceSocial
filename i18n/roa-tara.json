@@ -76,5 +76,9 @@
 	"action-social-source": "'ndruche 'a pàgena sorgende",
 	"right-social-deleteothers": "Scangìlle l'otre vôsce",
 	"right-social-editothers": "Cange l'otre vôsce",
-	"right-social-source": "'Ndruche 'a pàgena sorgende"
+	"right-social-source": "'Ndruche 'a pàgena sorgende",
+	"prefs-social": "Linèe d'u tiembe",
+	"bs-social-pref-warnonleave": "Avvisave quanne jie lasse 'nu cangiamde de 'na vôsce senze ca agghie reggistrate le cangiaminde.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Eseguenne st'azione puè causà 'a perdite de le cangiaminde ca è fatte. Vuè ccu scitte le cangiaminde e vuè ccu vè nnande?",
+	"bs-social-editwarnonleave-confirmtext": "Lassanne sta pàgene puè causà 'a perdite de le cangiaminde ca è fatte. Vuè ccu scitte le cangiaminde e vuè ccu vè nnande?"
 }

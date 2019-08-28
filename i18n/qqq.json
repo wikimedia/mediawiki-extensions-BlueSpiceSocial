@@ -82,5 +82,8 @@
 	"right-social-deleteothers": "{{doc-right|social-deleteothers}}",
 	"right-social-editothers": "{{doc-right|social-editothers}}",
 	"right-social-source": "{{doc-right|social-source}}",
+	"prefs-social": "Preferences section header for Timeline.\n{{notranslate}}",
+	"bs-social-pref-warnonleave": "Label for the checkbox field in user preferences that enables a warning whenever an entry was modified and the user leaves the page or changes the timeline filters.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Text in dialog, that informs the user, that the changes the user made may will be lost if the user performs this action. Must end in the question, if the user wants to discard the changes and continue",
 	"bs-social-editwarnonleave-confirmtext": "Text in dialog, that informs the user, that the changes the user made will be lost if the user leaves the current page. Must end in the question, if the user wants to discard the changes and continue"
 }

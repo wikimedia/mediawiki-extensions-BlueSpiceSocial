@@ -5,7 +5,10 @@
 			"Siebrand"
 		]
 	},
-	"action-social-deleteothers": "veeg andere toegoevoegingen uit",
-	"action-social-source": "Bekijk de bron-pagina",
-	"right-social-source": "Bekijk de bron-pagina"
+	"action-social-deleteothers": "handelingen van anderen te verwijderen",
+	"action-social-source": "bronpagina bekijken",
+	"right-social-source": "Bronpagina bekijken",
+	"prefs-social": "Tijdlijn",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Door deze handeling uit te voeren, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
+	"bs-social-editwarnonleave-confirmtext": "Door deze pagina te verlaten, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?"
 }
