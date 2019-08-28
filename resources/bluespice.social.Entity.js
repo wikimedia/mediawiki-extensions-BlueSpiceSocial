@@ -82,6 +82,9 @@ bs.social.Entity.prototype.makeActionMenu = function() {
 		}
 		html += "<a href='#' class='bs-social-entity-" + actions[i] + "'>" + actions[i] + "</a>";
 	}
+	if ( html === '' ) {
+		$actions.parent().hide();
+	}
 
 	$actions.html( html );
 	$actions.find('a.bs-social-entity-delete').html(
