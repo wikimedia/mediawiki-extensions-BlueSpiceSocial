@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Updater;
 
+use Exception;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Entity as EntityBase;
 use BS\ExtendedSearch\Source\Updater\Base as Updater;
@@ -31,10 +32,11 @@ class Entity extends Updater {
 		);
 
 		// directly run
-		$oJob->run();
-		/*\JobQueueGroup::singleton()->push(
-			$oJob
-		);*/
+		try {
+			$oJob->run();
+		} catch ( Exception $e ) {
+			bsDebugLog( $e->getMessage() );
+		}
 		return true;
 	}
 }
