@@ -2,11 +2,33 @@
 	"@metadata": {
 		"authors": [
 			"Josve05a",
-			"M.M.S."
+			"M.M.S.",
+			"WikiPhoenix"
 		]
 	},
 	"bs-social-editor-cancel": "Avbryt",
 	"bs-social-entityaction-edit": "Redigera",
 	"bs-social-entityaction-delete": "Radera",
-	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Idag"
+	"bs-social-select2-overwrites-noresults": "Inga resultat",
+	"bs-social-select2-overwrites-searching": "Söker...",
+	"bs-extendedsearch-source-label-socialentity": "Tidslinjeentitet",
+	"bs-extendedsearch-search-center-result-owner-label": "Ägare:",
+	"bs-extendedsearch-search-center-result-entity_type-label": "Entitetstyp:",
+	"bs-social-special-activities-heading": "Aktiviteter",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Lägg till alla",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Ta bort alla",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Idag",
+	"bs-social-filter-owner-val-all": "Alla",
+	"bs-social-filter-owner-val-mine": "Mina",
+	"bs-social-filter-date-label-from": "$1 från",
+	"bs-social-filter-date-label-to": "$1 till",
+	"bs-social-renderer-timestampprefix-created": "Skapades",
+	"bs-social-renderer-timestampprefix-touched": "Redigerades",
+	"bs-social-filter-button-tooltip": "Visa filteralternativ",
+	"bs-social-sort-button-tooltip": "Visa sorteringsalternativ",
+	"bs-social-entityspawner-button-tooltip": "Skapa ny",
+	"prefs-social": "Tidslinje",
+	"bs-social-pref-warnonleave": "Varna mig när jag lämnar en redigering av en logg med osparade ändringar.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Om du gör detta kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?",
+	"bs-social-editwarnonleave-confirmtext": "När du lämnar denna sida kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?"
 }

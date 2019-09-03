@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"VulpesVulpes825"
+			"VulpesVulpes825",
+			"A Chinese Wikipedian"
 		]
 	},
 	"bs-social-entitytext-header-create": "新条目",
@@ -27,5 +28,12 @@
 	"bs-social-entityaction-undelete": "还原",
 	"bs-social-entityaction-undelete-confirmtext": "恢复条目？",
 	"bs-social-entity-fatalstatus-save-nouser": "没有指定的所有者，无法保存该条目",
-	"bs-social-entity-fatalstatus-save-notype": "条目类型为空"
+	"bs-social-entity-fatalstatus-save-notype": "条目类型为空",
+	"bs-social-select2-overwrites-searching": "正在搜索……",
+	"bs-extendedsearch-search-center-result-owner-label": "所有者：",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "今日",
+	"bs-social-filter-owner-val-all": "全部",
+	"bs-social-filter-owner-val-mine": "线形图",
+	"bs-social-renderer-timestampprefix-created": "已创建",
+	"bs-social-renderer-timestampprefix-touched": "已编辑"
 }
