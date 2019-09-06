@@ -232,7 +232,7 @@ bs.social.Entity.prototype.save = function( newdata ) {
 			if( response.message && response.message !== '' ) {
 				OO.ui.alert( response.message );
 			}
-			dfd.resolve( me );
+			dfd.resolve( me, response );
 			return;
 		}
 		if( me.exists() ) {
@@ -242,7 +242,7 @@ bs.social.Entity.prototype.save = function( newdata ) {
 			me.reset();
 		};
 
-		dfd.resolve( me );
+		dfd.resolve( me, response );
 	})
 	.then(function(){
 		bs.social.init();
@@ -308,8 +308,10 @@ bs.social.Entity.prototype.makeEditMode = function() {
 	if( !me.editor ) {
 		me.editor = this.makeEditor();
 			this.editor.on( 'submit', function( editor, data ) {
-			me.save( data ).done( function() {
-				me.setDirty( false );
+			me.save( data ).done( function( entity, response ) {
+				if( !entity.editmode || ( response && response.success ) ) {
+					me.setDirty( false );
+				}
 			});
 			return false;
 		});
