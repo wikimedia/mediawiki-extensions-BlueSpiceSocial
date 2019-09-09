@@ -477,9 +477,6 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return string
 	 */
 	protected function render_entityactions( $val ) {
-		if ( !$this->getEntity()->exists() ) {
-			return '';
-		}
 		$renderer = $this->getActionsRenderer();
 		return $renderer->render();
 	}
