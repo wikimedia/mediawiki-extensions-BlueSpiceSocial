@@ -97,7 +97,7 @@ bs.social.EntityListMenuFilterOwnerID.prototype.init = function( mVal ) {
 
 bs.social.EntityListMenuFilterOwnerID.prototype.getVarLabel = function( val ) {
 	if( typeof val !== "string" ) {
-		return this.EntityListMenu.meta.ownername;
+		return val;
 	}
 	var msg = val;
 	if( val === 'all' ) {
