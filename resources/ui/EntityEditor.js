@@ -191,7 +191,7 @@ bs.social.EntityEditor.prototype.addActionFieldsetItems = function() {
 
 bs.social.EntityEditor.prototype.getShortModeField = function() {
 	return null;
-}
+};
 
 bs.social.EntityEditor.prototype.getData = function() {
 	var dfd = $.Deferred();
