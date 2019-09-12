@@ -68,5 +68,18 @@
 	"bs-social-filter-button-tooltip": "إظهار خيارات المرشح",
 	"bs-social-sort-button-tooltip": "إظهار خيارات الفرز",
 	"bs-social-entityspawner-button-tooltip": "إنشاء جديد",
-	"bs-social-sourcetitle-lockdown-reason-reason": "يمكن تنفيذ الإجراء $1 من قبل الإداريين فقط؛ لأنه لا ينبغي تحرير هذه الإدخالات مباشرةً."
+	"bs-social-sourcetitle-lockdown-reason-reason": "يمكن تنفيذ الإجراء $1 من قبل الإداريين فقط؛ لأنه لا ينبغي تحرير هذه الإدخالات مباشرةً.",
+	"apihelp-bs-social-tasks-summary": "يوفر مهاما مثل تحرير أو حذف الكيانات",
+	"apihelp-bs-socialtitlequery-store-summary": "يوفر بيانات للعناوين ، والتي يمكن ربطها داخل كيان",
+	"apihelp-bs-socialentity-store-summary": "يوفر متجر بحث للكيانات التي يمكن الاستعلام عنها",
+	"action-social-deleteothers": "حذف إدخالات الآخرين",
+	"action-social-editothers": "تعديل إدخالات الآخرين",
+	"action-social-source": "عرض الصفحة المصدر",
+	"right-social-deleteothers": "حذف إدخالات الآخرين",
+	"right-social-editothers": "تعديل إدخالات الآخرين",
+	"right-social-source": "عرض الصفحة المصدر",
+	"prefs-social": "الجدول الزمني",
+	"bs-social-pref-warnonleave": "حذرني عندما أترك تحرير إدخال بتغييرات غير المحفوظة.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "قد يؤدي تنفيذ هذا الإجراء إلى فقد أية تغييرات قمت بإجرائها، هل تريد تجاهل التغييرات والمتابعة؟",
+	"bs-social-editwarnonleave-confirmtext": "قد يؤدي ترك هذه الصفحة إلى فقد أية تغييرات قمت بإجرائها، هل تريد تجاهل التغييرات والمتابعة؟"
 }

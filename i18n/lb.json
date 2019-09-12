@@ -33,5 +33,6 @@
 	"bs-social-filter-owner-val-all": "All",
 	"bs-social-filter-owner-val-mine": "Meng",
 	"bs-social-renderer-timestampprefix-touched": "Geännert",
-	"bs-social-filter-button-tooltip": "Optioune vum Filter weisen"
+	"bs-social-filter-button-tooltip": "Optioune vum Filter weisen",
+	"prefs-social": "Chronologie"
 }

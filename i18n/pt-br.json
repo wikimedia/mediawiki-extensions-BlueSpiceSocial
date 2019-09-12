@@ -67,5 +67,18 @@
 	"bs-social-filter-button-tooltip": "Mostrar opções de filtro",
 	"bs-social-sort-button-tooltip": "Mostrar opções de classificação",
 	"bs-social-entityspawner-button-tooltip": "Criar novo",
-	"bs-social-sourcetitle-lockdown-reason-reason": "A ação $1 só pode ser executada por administradores, porque essas entradas não devem ser editadas diretamente."
+	"bs-social-sourcetitle-lockdown-reason-reason": "A ação $1 só pode ser executada por administradores, porque essas entradas não devem ser editadas diretamente.",
+	"apihelp-bs-social-tasks-summary": "Fornece tarefas como editar ou excluir entidades",
+	"apihelp-bs-socialtitlequery-store-summary": "Fornece dados para títulos, que podem ser vinculados dentro de uma entidade",
+	"apihelp-bs-socialentity-store-summary": "Fornece um repositório de pesquisa para entidades que podem ser consultadas",
+	"action-social-deleteothers": "excluir outras entradas",
+	"action-social-editothers": "editar outras entradas",
+	"action-social-source": "ver a página de origem",
+	"right-social-deleteothers": "Excluir outras entradas",
+	"right-social-editothers": "Editar outras entradas",
+	"right-social-source": "Visualizar a página de origem",
+	"prefs-social": "Linha do tempo",
+	"bs-social-pref-warnonleave": "Avise-me quando deixar uma edição de uma entrada com alterações não salvas.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Realizar esta ação pode fazer com que você perca todas as alterações feitas. Você quer descartar as alterações e prosseguir?",
+	"bs-social-editwarnonleave-confirmtext": "Sair desta página pode causar a perda de quaisquer alterações feitas. Deseja descartar as alterações e prosseguir?"
 }

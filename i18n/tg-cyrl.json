@@ -37,5 +37,8 @@
 	"bs-extendedsearch-source-type-socialentity-label": "Воҳиди ҷамъиятӣ",
 	"bs-social-renderer-timestampprefix-created": "Эҷод шуд",
 	"bs-social-renderer-timestampprefix-touched": "Вироишшуда",
-	"bs-social-entityspawner-button-tooltip": "Эҷоди нави"
+	"bs-social-entityspawner-button-tooltip": "Эҷоди нави",
+	"bs-social-var-ownerid": "Соҳиб",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Амали номаълум '$1'",
+	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Кофтан дар Social:"
 }

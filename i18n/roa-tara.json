@@ -67,5 +67,18 @@
 	"bs-social-filter-button-tooltip": "'Ndruche le opziune d'u filtre",
 	"bs-social-sort-button-tooltip": "'Ndruche le opziune de l'ordenamende",
 	"bs-social-entityspawner-button-tooltip": "Ccreje nuève",
-	"bs-social-sourcetitle-lockdown-reason-reason": "L'Azione $1 pò sulamende essere langiate da le amministrature, purcé ste vôsce non g'onna esser cangiate derettamende."
+	"bs-social-sourcetitle-lockdown-reason-reason": "L'Azione $1 pò sulamende essere langiate da le amministrature, purcé ste vôsce non g'onna esser cangiate derettamende.",
+	"apihelp-bs-social-tasks-summary": "Dèje attivitate cumme 'u cangiamende o 'a scangellazione de le endità",
+	"apihelp-bs-socialtitlequery-store-summary": "Dèje date pe le titole, ca ponne essere collegate cu 'n'endità",
+	"apihelp-bs-socialentity-store-summary": "Dèje 'na memorizzazzione d'a recerche pe l'endità, ca ponne essere 'nderrogate",
+	"action-social-deleteothers": "scangìlle l'otre vôsce",
+	"action-social-editothers": "cange l'otre vôsce",
+	"action-social-source": "'ndruche 'a pàgena sorgende",
+	"right-social-deleteothers": "Scangìlle l'otre vôsce",
+	"right-social-editothers": "Cange l'otre vôsce",
+	"right-social-source": "'Ndruche 'a pàgena sorgende",
+	"prefs-social": "Linèe d'u tiembe",
+	"bs-social-pref-warnonleave": "Avvisave quanne jie lasse 'nu cangiamde de 'na vôsce senze ca agghie reggistrate le cangiaminde.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Eseguenne st'azione puè causà 'a perdite de le cangiaminde ca è fatte. Vuè ccu scitte le cangiaminde e vuè ccu vè nnande?",
+	"bs-social-editwarnonleave-confirmtext": "Lassanne sta pàgene puè causà 'a perdite de le cangiaminde ca è fatte. Vuè ccu scitte le cangiaminde e vuè ccu vè nnande?"
 }

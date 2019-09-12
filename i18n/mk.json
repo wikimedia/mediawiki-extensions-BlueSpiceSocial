@@ -39,5 +39,12 @@
 	"bs-social-filter-archived-val-notarchived": "Само неархивирани",
 	"bs-social-renderer-timestampprefix-created": "Создадено",
 	"bs-social-renderer-timestampprefix-touched": "Уредено",
-	"bs-social-entityspawner-button-tooltip": "Создај нов"
+	"bs-social-entityspawner-button-tooltip": "Создај нов",
+	"bs-social-var-id": "Препознавање",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Неважечка вредност за полето „$1“",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Непознато дејство „$1“",
+	"action-social-source": "преглед на изворната страница",
+	"right-social-source": "Преглед на изворната страница",
+	"prefs-social": "Timeline",
+	"bs-social-pref-warnonleave": "Предупреди ме кога напуштам уредување на запис со незачувани промени."
 }
