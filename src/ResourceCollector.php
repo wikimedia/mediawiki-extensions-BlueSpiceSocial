@@ -29,6 +29,7 @@
  */
 namespace BlueSpice\Social;
 
+use BlueSpice\Services;
 use BlueSpice\ExtensionAttributeBasedRegistry;
 
 /**
@@ -71,8 +72,9 @@ class ResourceCollector {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
+		$configFactory = Services::getInstance()->getBSEntityConfigFactory();
 		foreach ( $registry->getAllKeys() as $sType ) {
-			$oConfig = EntityConfig::factory( $sType );
+			$oConfig = $configFactory->newFromType( $sType );
 			if ( !$oConfig ) {
 				continue;
 			}
