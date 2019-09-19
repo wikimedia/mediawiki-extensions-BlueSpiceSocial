@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth <wirth@hallowelt.com>",
+			"Mglaser"
 		]
 	},
 	"bs-social-desc": "Basis-Erweiterung für BlueSpiceSocial-Erweiterungen",
@@ -68,5 +69,19 @@
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Suchen in Social:",
 	"bs-social-filter-button-tooltip": "Filtereinstellungen anzeigen",
 	"bs-social-sort-button-tooltip": "Sortierungseinstellungen anzeigen",
-	"bs-social-entityspawner-button-tooltip": "Neu anlegen"
+	"bs-social-entityspawner-button-tooltip": "Neu anlegen",
+	"bs-social-sourcetitle-lockdown-reason-reason": "Die Aktion $1 kann nur von Administratoren durchgeführt werden, weil diese Einträge nicht direkt bearbeitet werden sollten.",
+	"apihelp-bs-social-tasks-summary": "Stellt Aufgaben wie das Bearbeiten oder Löschen von Entitäten bereit",
+	"apihelp-bs-socialtitlequery-store-summary": "Stellt Daten für Titel bereit, die von einer Entität verlinkt werden können",
+	"apihelp-bs-socialentity-store-summary": "Stellt einen Suchspeicher für Entitäten bereit, die abgefragt werden können",
+	"action-social-deleteothers": "Einträge von anderen zu löschen",
+	"action-social-editothers": "Einträge von anderen zu bearbeiten",
+	"action-social-source": "den Quelltext zu sehen",
+	"right-social-deleteothers": "Löschen von Einträgen anderer",
+	"right-social-editothers": "Bearbeiten von Einträgen anderer",
+	"right-social-source": "Quellseite anzeigen",
+	"prefs-social": "Timeline",
+	"bs-social-pref-warnonleave": "Warnen, wenn eine Bearbeitung eines Eintrags mit ungespeicherten Änderungen verlassen wird",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Die Ausführung dieser Aktion kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
+	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?"
 }
