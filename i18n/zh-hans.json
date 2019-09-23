@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"VulpesVulpes825",
-			"A Chinese Wikipedian"
+			"A Chinese Wikipedian",
+			"予弦"
 		]
 	},
 	"bs-social-entitytext-header-create": "新条目",
@@ -29,6 +30,7 @@
 	"bs-social-entityaction-undelete-confirmtext": "恢复条目？",
 	"bs-social-entity-fatalstatus-save-nouser": "没有指定的所有者，无法保存该条目",
 	"bs-social-entity-fatalstatus-save-notype": "条目类型为空",
+	"bs-social-select2-overwrites-noresults": "没有结果",
 	"bs-social-select2-overwrites-searching": "正在搜索……",
 	"bs-extendedsearch-search-center-result-owner-label": "所有者：",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "今日",

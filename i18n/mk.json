@@ -42,6 +42,8 @@
 	"bs-social-filter-archived-val-notarchived": "Само неархивирани",
 	"bs-social-renderer-timestampprefix-created": "Создадено",
 	"bs-social-renderer-timestampprefix-touched": "Уредено",
+	"bs-social-filter-button-tooltip": "Прикажи опции за филтрирање",
+	"bs-social-sort-button-tooltip": "Прикажи опции за подредување",
 	"bs-social-entityspawner-button-tooltip": "Создај нов",
 	"action-social-source": "преглед на изворната страница",
 	"right-social-source": "Преглед на изворната страница",
