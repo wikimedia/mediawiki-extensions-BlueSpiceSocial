@@ -77,5 +77,9 @@
 	"action-social-source": "檢視來源頁面",
 	"right-social-deleteothers": "刪除其它項目",
 	"right-social-editothers": "編輯其它項目",
-	"right-social-source": "檢視來源頁面"
+	"right-social-source": "檢視來源頁面",
+	"prefs-social": "時間軸",
+	"bs-social-pref-warnonleave": "在我留下未儲存變動的編輯項目時警告我。",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "執行此操作可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？",
+	"bs-social-editwarnonleave-confirmtext": "離開此頁面可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？"
 }
