@@ -69,11 +69,11 @@
 	"bs-social-sort-button-tooltip": "Mostrar opções de ordenação",
 	"bs-social-entityspawner-button-tooltip": "Criar nova",
 	"bs-social-sourcetitle-lockdown-reason-reason": "A operação $1 só pode ser executada por administradores, porque estas entradas não devem ser editadas diretamente.",
-	"action-social-deleteothers": "eliminar outras entradas",
-	"action-social-editothers": "editar outras entradas",
+	"action-social-deleteothers": "eliminar as entradas de outros",
+	"action-social-editothers": "editar as entradas de outros",
 	"action-social-source": "ver a página fonte",
-	"right-social-deleteothers": "Eliminar outras entradas",
-	"right-social-editothers": "Editar outras entradas",
+	"right-social-deleteothers": "Eliminar as entradas de outros",
+	"right-social-editothers": "Editar as entradas de outros",
 	"right-social-source": "Ver a página fonte",
-	"prefs-social": "Barra Cronológica"
+	"prefs-social": "Linha Cronológica"
 }
