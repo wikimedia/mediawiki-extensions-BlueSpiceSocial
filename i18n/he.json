@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Steeve815"
+		]
+	},
+	"bs-social-entity-fatalstatus-save-emptyfield": "השדה \"$1\" ריק",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "ערך בלתי־תקין עבור השדה \"$1\".",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "הפעולה \"$1\" אינה ידועה",
+	"bs-social-sourcetitle-lockdown-reason-reason": "הפעולה $1 יכולה להתבצע רק על ידי מפעילי מערכת, מכיוון שאין לערוך ערכים אלה ישירות.",
+	"prefs-social": "ציר זמן"
+}
