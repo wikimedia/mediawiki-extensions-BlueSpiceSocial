@@ -46,5 +46,7 @@
 	"action-social-source": "преглед на изворната страница",
 	"right-social-source": "Преглед на изворната страница",
 	"prefs-social": "Timeline",
-	"bs-social-pref-warnonleave": "Предупреди ме кога напуштам уредување на запис со незачувани промени."
+	"bs-social-pref-warnonleave": "Предупреди ме кога напуштам уредување на запис со незачувани промени.",
+	"bs-social-filter-button-tooltip": "Прикажи опции за филтрирање",
+	"bs-social-sort-button-tooltip": "Прикажи опции за подредување"
 }
