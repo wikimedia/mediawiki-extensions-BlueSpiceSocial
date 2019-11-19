@@ -112,15 +112,7 @@ abstract class ActionFile extends ActionTitle {
 	 * @return string
 	 */
 	public function getParsedText( $bForceInvalidateFirst = false ) {
-		// Deprecated!!!!
-		if ( !empty( $this->getActionRef() ) ) {
-			// Make sure, the action text content does not get parsed
-			// (possible tag injection)!
-			$sText = strip_tags( $this->sText );
-			$sText = "<nowiki>$sText</nowiki>";
-		} else {
-			$sText = parent::getParsedText( $bForceInvalidateFirst );
-		}
+		$sText = parent::getParsedText( $bForceInvalidateFirst );
 		$oFile = $this->getRelatedFile();
 		if ( !$oFile ) {
 			return $sText;

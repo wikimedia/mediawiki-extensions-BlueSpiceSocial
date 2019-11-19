@@ -47,17 +47,6 @@ abstract class ActionTitle extends Action {
 	const ATTR_TITLE_TEXT = 'titletext';
 
 	/**
-	 * @deprecated since version 2.27.2
-	 * @var mixed
-	 */
-	protected $vActionRef = null;
-	/**
-	 * @deprecated since version 2.27.2
-	 * @var string
-	 */
-	protected $sText = '';
-
-	/**
 	 *
 	 * @param Message|null $oMsg
 	 * @return Message
@@ -91,38 +80,6 @@ abstract class ActionTitle extends Action {
 	public function getNamespace() {
 		wfDeprecated( __METHOD__, '3.0.0' );
 		return $this->get( static::ATTR_NAMESPACE, 0 );
-	}
-
-	/**
-	 * @deprecated since version 2.27.2
-	 * @return mixed
-	 */
-	public function getActionRef() {
-		return $this->vActionRef;
-	}
-
-	/**
-	 *
-	 * @param bool $bForceInvalidateFirst
-	 * @return string
-	 */
-	public function getParsedText( $bForceInvalidateFirst = false ) {
-		// Deprecated!!!!
-		if ( !empty( $this->getActionRef() ) ) {
-			// Make sure, the action text content does not get parsed
-			// (possible tag injection)!
-			$sText = strip_tags( $this->sText );
-			return "<nowiki>$sText</nowiki>";
-		}
-		return parent::getParsedText( $bForceInvalidateFirst );
-	}
-
-	/**
-	 * @deprecated since version 2.27.2
-	 */
-	public function setActionRef( $vActionRef ) {
-		$this->vActionRef = $vActionRef;
-		return $this->setUnsavedChanges();
 	}
 
 	/**
@@ -184,14 +141,6 @@ abstract class ActionTitle extends Action {
 			);
 		}
 
-		// Deprecated!
-		if ( isset( $o->actionref ) ) {
-			$this->setActionRef( $o->actionref );
-		}
-		// Deprecated
-		if ( isset( $o->text ) ) {
-			$this->sText = $o->text;
-		}
 		parent::setValuesByObject( $o );
 	}
 
@@ -201,10 +150,6 @@ abstract class ActionTitle extends Action {
 	 */
 	public function getRelatedTitle() {
 		if ( $this->relatedTitle ) {
-			return $this->relatedTitle;
-		}
-		if ( !empty( $this->getActionRef() ) ) {
-			$this->relatedTitle = Title::newFromText( $this->getActionRef() );
 			return $this->relatedTitle;
 		}
 
