@@ -33,7 +33,7 @@ class NotifyUsers extends BSEntitySaveComplete {
 
 		$notifyAll = false;
 
-		$services = \MediaWiki\MediaWikiServices::getInstance();
+		$services = $this->getServices();
 
 		if ( $services->hasService( 'BSSocialAutoWatcherFactory' ) ) {
 			$autoWatcherFactory = $services->getService( 'BSSocialAutoWatcherFactory' );
