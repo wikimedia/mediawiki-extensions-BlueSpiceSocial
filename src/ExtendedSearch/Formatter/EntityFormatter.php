@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Formatter;
 
+use BlueSpice\Services;
 use BS\ExtendedSearch\Source\Formatter\WikiPageFormatter;
 
 class EntityFormatter extends WikiPageFormatter {
@@ -42,7 +43,7 @@ class EntityFormatter extends WikiPageFormatter {
 
 		parent::format( $result, $resultObject );
 
-		$entityFactory = \MediaWiki\MediaWikiServices::getInstance()->getService( 'BSEntityFactory' );
+		$entityFactory = Services::getInstance()->getBSEntityFactory();
 		$entity = $entityFactory->newFromID( $result['entitydata']['id'], $result['type'] );
 		if ( !( $entity instanceof \BlueSpice\Social\Entity )
 				|| $entity->exists() == false ) {

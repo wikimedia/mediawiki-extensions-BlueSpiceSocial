@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Data\Entity;
 
 use IContextSource;
 use Config;
+use BlueSpice\Services;
 use BS\ExtendedSearch\Backend;
 use BlueSpice\Data\ReaderParams;
 use BlueSpice\EntityFactory;
@@ -58,7 +59,7 @@ class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 	 */
 	protected function makeSecondaryDataProvider() {
 		return new SecondaryDataProvider(
-			\MediaWiki\MediaWikiServices::getInstance()->getLinkRenderer()
+			Services::getInstance()->getLinkRenderer()
 		);
 	}
 
