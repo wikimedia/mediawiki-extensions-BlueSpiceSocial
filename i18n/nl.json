@@ -2,9 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"RadioAzureus",
-			"Siebrand"
+			"Siebrand",
+			"Mainframe98"
 		]
 	},
+	"bs-social-option-direction-val-asc": "Oplopend",
+	"bs-social-option-direction-val-desc": "Aflopend",
+	"bs-social-editor-advanced": "Geavanceerd",
+	"bs-social-editor-cancel": "Annuleren",
+	"bs-social-entityaction-edit": "Bewerken",
+	"bs-social-entityaction-delete": "Verwijderen",
+	"bs-social-entityaction-undelete": "Terugplaatsen",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Vandaag",
+	"bs-social-filter-owner-val-all": "Alle",
+	"bs-social-filter-owner-val-mine": "Mijn eigen",
+	"bs-social-filter-archived-val-archived": "Alleen gearchiveerde",
+	"bs-social-filter-archived-val-notarchived": "Alleen niet-gearchiveerde",
 	"action-social-deleteothers": "handelingen van anderen te verwijderen",
 	"action-social-source": "bronpagina bekijken",
 	"right-social-source": "Bronpagina bekijken",
