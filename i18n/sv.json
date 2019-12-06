@@ -3,7 +3,8 @@
 		"authors": [
 			"Josve05a",
 			"M.M.S.",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Mjälten"
 		]
 	},
 	"bs-social-editor-cancel": "Avbryt",
@@ -30,5 +31,28 @@
 	"prefs-social": "Tidslinje",
 	"bs-social-pref-warnonleave": "Varna mig när jag lämnar en redigering av en logg med osparade ändringar.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Om du gör detta kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?",
-	"bs-social-editwarnonleave-confirmtext": "När du lämnar denna sida kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?"
+	"bs-social-editwarnonleave-confirmtext": "När du lämnar denna sida kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?",
+	"bs-social-pref-datedisplaymode-mode-age": "Visa som matris",
+	"bs-social-pref-datedisplaymode-mode-mw": "Sätt som dato",
+	"bs-social-entitytext-header": "[[User:$1|$2]]&nbsp;skrev:",
+	"bs-social-entitytext-header-create": "Ny uppföring",
+	"bs-social-var-id": "Identifiering",
+	"bs-social-var-ownerid": "Ägare",
+	"bs-social-var-type": "Typ",
+	"bs-social-var-archived": "Arkiverad",
+	"bs-social-var-text": "Innehåll",
+	"bs-social-var-timestampcreated": "Skapningsdatum",
+	"bs-social-var-timestamptouched": "redigeringsdatum",
+	"bs-social-var-teasertext": "Smakprov",
+	"bs-social-option-orderby-label": "Sortering",
+	"bs-social-option-direction-label": "Riktning",
+	"bs-social-option-direction-val-asc": "Stigande",
+	"bs-social-option-direction-val-desc": "Fallande",
+	"bs-social-editor-advanced": "Avancerad",
+	"bs-social-editor-ok": "Skriva",
+	"bs-social-entityactions-label": "Handlingar",
+	"bs-social-entityaction-undelete": "Återställ",
+	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Sök i social",
+	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Sök i social:",
+	"right-social-source": "Visa källsida"
 }
