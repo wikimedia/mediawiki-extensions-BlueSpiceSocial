@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Hook\BeforeEchoEventInsert;
 
-use \BlueSpice\EchoConnector\Hook\BeforeEchoEventInsert;
+use BlueSpice\EchoConnector\Hook\BeforeEchoEventInsert;
 
 class DisableOtherNotificationsForEntityPages extends BeforeEchoEventInsert {
 
