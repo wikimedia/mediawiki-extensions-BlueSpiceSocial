@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Hook\SkinBuildSidebar;
 
-use \BlueSpice\Hook\SkinBuildSidebar;
+use BlueSpice\Hook\SkinBuildSidebar;
 
 class AddTimelineNavigationItem extends SkinBuildSidebar {
 

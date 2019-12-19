@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Hook\BSRSSFeederBeforeGetRecentChanges;
 
-use \BlueSpice\RSSFeeder\Hook\BSRSSFeederBeforeGetRecentChanges;
+use BlueSpice\RSSFeeder\Hook\BSRSSFeederBeforeGetRecentChanges;
 
 class RCRemoveSocial extends BSRSSFeederBeforeGetRecentChanges {
 	/**
