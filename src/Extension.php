@@ -39,19 +39,19 @@ class Extension extends \BlueSpice\Extension {
 	public static function onRegistration() {
 		global $wgExtraNamespaces, $wgNamespacesWithSubpages,
 			$wgNamespacesToBeSearchedDefault, $wgContentHandlers,
-			$wgNamespaceContentModels, $bsgSystemNamespaces;
+			$wgNamespaceContentModels;
 
 		if ( !defined( 'NS_SOCIALENTITY' ) ) {
 			define( "NS_SOCIALENTITY", 1506 );
 			$wgExtraNamespaces[NS_SOCIALENTITY] = 'SocialEntity';
 			$wgNamespacesWithSubpages[NS_SOCIALENTITY] = false;
 			$wgNamespacesToBeSearchedDefault[NS_SOCIALENTITY] = false;
-			$bsgSystemNamespaces[1506] = 'NS_SOCIALENTITY';
+			$GLOBALS['bsgSystemNamespaces'][1506] = 'NS_SOCIALENTITY';
 		}
 		if ( !defined( 'NS_SOCIALENTITY_TALK' ) ) {
 			define( 'NS_SOCIALENTITY_TALK', 1507 );
 			$wgExtraNamespaces[NS_SOCIALENTITY_TALK] = 'SocialEntity_talk';
-			$bsgSystemNamespaces[1507] = 'NS_SOCIALENTITY_TALK';
+			$GLOBALS['bsgSystemNamespaces'][1507] = 'NS_SOCIALENTITY_TALK';
 		}
 		if ( !defined( 'CONTENT_MODEL_BSSOCIAL' ) ) {
 			define( 'CONTENT_MODEL_BSSOCIAL', 'BSSocial' );
