@@ -7,6 +7,8 @@
 			"Mjälten"
 		]
 	},
+	"activities": "Aktiviteter",
+	"bs-social-prof-datedisplaymode": "Datovisningsmodus",
 	"bs-social-pref-datedisplaymode-mode-age": "Visa som matris",
 	"bs-social-pref-datedisplaymode-mode-mw": "Sätt som dato",
 	"bs-social-entitytext-header": "[[User:$1|$2]]&nbsp;skrev:",
