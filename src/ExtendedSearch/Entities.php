@@ -3,6 +3,7 @@
 namespace BlueSpice\Social\ExtendedSearch;
 
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use Entity;
 
 class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 
@@ -69,5 +70,12 @@ class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 	 */
 	public function getFormatter() {
 		return new Formatter\EntityFormatter( $this );
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isSortable() {
+		return false;
 	}
 }
