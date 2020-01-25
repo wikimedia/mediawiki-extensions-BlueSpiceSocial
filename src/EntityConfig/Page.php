@@ -30,10 +30,10 @@
  */
 namespace BlueSpice\Social\EntityConfig;
 
-use BlueSpice\Social\EntityConfig;
-use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
+use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\Entity\Page as Entity;
+use BlueSpice\Social\EntityConfig;
 use BlueSpice\Social\ExtendedSearch\Formatter\Internal\PageFormatter;
 
 /**

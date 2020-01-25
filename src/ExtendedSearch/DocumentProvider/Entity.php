@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\ExtendedSearch\DocumentProvider;
 
-use BS\ExtendedSearch\Source\DocumentProvider\WikiPage;
-use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
+use BlueSpice\Social\Entity as SocialEntity;
+use BS\ExtendedSearch\Source\DocumentProvider\WikiPage;
 
 class Entity extends WikiPage {
 

@@ -2,16 +2,16 @@
 
 namespace BlueSpice\Social;
 
-use IContextSource;
-use Config;
-use User;
-use BlueSpice\Services;
-use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Data\FieldType;
-use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Date;
+use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Sort;
+use BlueSpice\ExtensionAttributeBasedRegistry;
+use BlueSpice\Services;
 use BlueSpice\Social\Data\Entity\Schema;
+use Config;
+use IContextSource;
+use User;
 
 class EntityListContext extends \BlueSpice\Context implements IEntityListContext {
 	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListOutputType';

@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Updater;
 
-use Exception;
-use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Entity as EntityBase;
+use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\Updater\Base as Updater;
+use Exception;
 
 class Entity extends Updater {
 

@@ -27,10 +27,10 @@
  */
 namespace BlueSpice\Social\Api\Task;
 
+use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
-use BlueSpice\Services;
-use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\ResourceCollector;
 

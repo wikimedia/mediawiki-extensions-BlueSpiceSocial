@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
-use BlueSpice\Services;
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use BlueSpice\Services;
+use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 
 class FilterOutActionEntities extends LookupModifierBase {
 

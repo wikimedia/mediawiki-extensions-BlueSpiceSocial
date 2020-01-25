@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Hook\BeforePageDisplay;
 
-use BlueSpice\Social\ResourceCollector;
 use BlueSpice\Hook\BeforePageDisplay;
+use BlueSpice\Social\ResourceCollector;
 
 class AddResources extends BeforePageDisplay {
 

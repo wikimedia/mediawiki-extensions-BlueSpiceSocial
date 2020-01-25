@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social\Renderer\Entity;
 
-use Config;
-use IContextSource;
-use Title;
-use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
-use BlueSpice\Utility\CacheHelper;
 use BlueSpice\Social\Entity\Text as EntityText;
 use BlueSpice\Social\EntityAttachment;
+use BlueSpice\Utility\CacheHelper;
+use Config;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
+use Title;
 
 class Text extends \BlueSpice\Social\Renderer\Entity {
 

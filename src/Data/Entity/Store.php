@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use IContextSource;
-use RequestContext;
 use BlueSpice\Data\Entity\IStore;
-use BS\ExtendedSearch\Backend;
 use BlueSpice\EntityFactory;
 use BlueSpice\Services;
+use BS\ExtendedSearch\Backend;
+use IContextSource;
+use RequestContext;
 
 class Store extends \BS\ExtendedSearch\Data\Store implements IStore {
 

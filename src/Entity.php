@@ -31,19 +31,19 @@
  */
 namespace BlueSpice\Social;
 
-use Exception;
-use Status;
-use Hooks;
-use RequestContext;
-use Message;
-use User;
-use Title;
-use JobQueueGroup;
-use BlueSpice\Services;
 use BlueSpice\Context;
 use BlueSpice\Data\ReaderParams;
-use BsNamespaceHelper;
+use BlueSpice\Services;
 use BlueSpice\Social\Job\Archive;
+use BsNamespaceHelper;
+use Exception;
+use Hooks;
+use JobQueueGroup;
+use Message;
+use RequestContext;
+use Status;
+use Title;
+use User;
 
 /**
  * BlueSpiceSocialEntity class for BlueSpiceSocial extension

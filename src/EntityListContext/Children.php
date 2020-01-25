@@ -2,11 +2,11 @@
 
 namespace BlueSpice\Social\EntityListContext;
 
-use IContextSource;
-use Config;
-use User;
-use BlueSpice\Social\Entity;
 use BlueSpice\Data\Filter\Numeric;
+use BlueSpice\Social\Entity;
+use Config;
+use IContextSource;
+use User;
 
 class Children extends \BlueSpice\Social\EntityListContext {
 	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListChildrenOutputType';

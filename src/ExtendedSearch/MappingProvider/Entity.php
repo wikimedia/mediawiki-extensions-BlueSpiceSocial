@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\ExtendedSearch\MappingProvider;
 
-use BlueSpice\Social\Data\Entity\Store;
-use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
+use BlueSpice\Social\Data\Entity\Schema;
+use BlueSpice\Social\Data\Entity\Store;
 
 class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 	const PREFIX = 'entitydata';

@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social;
 
-use IContextSource;
 use BlueSpice\Social\Data\Entity\Schema;
+use IContextSource;
 
 interface IEntityListContext extends IContextSource {
 	/**

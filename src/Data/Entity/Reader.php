@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use IContextSource;
-use Config;
+use BlueSpice\Data\ISecondaryDataProvider;
+use BlueSpice\Data\ReaderParams;
+use BlueSpice\Data\ResultSet;
+use BlueSpice\EntityFactory;
 use BlueSpice\Services;
 use BS\ExtendedSearch\Backend;
-use BlueSpice\Data\ReaderParams;
-use BlueSpice\EntityFactory;
-use BlueSpice\Data\ResultSet;
-use BlueSpice\Data\ISecondaryDataProvider;
+use Config;
+use IContextSource;
 
 class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 

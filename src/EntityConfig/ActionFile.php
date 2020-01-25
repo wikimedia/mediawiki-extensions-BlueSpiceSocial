@@ -31,8 +31,8 @@
  */
 namespace BlueSpice\Social\EntityConfig;
 
-use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
+use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\Entity\ActionFile as Entity;
 
 /**

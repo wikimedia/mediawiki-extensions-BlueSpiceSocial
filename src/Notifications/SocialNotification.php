@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Notifications;
 
-use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\BaseNotification;
+use BlueSpice\Social\Entity as SocialEntity;
 
 class SocialNotification extends BaseNotification {
 	const ACTION_EDIT = 'edit';

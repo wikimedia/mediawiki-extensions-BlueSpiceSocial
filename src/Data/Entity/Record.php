@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use Status;
 use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as MapingProvider;
+use Status;
 
 class Record extends \BlueSpice\Data\Record {
 

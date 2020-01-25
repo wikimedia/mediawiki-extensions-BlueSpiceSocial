@@ -1,8 +1,8 @@
 <?php
 namespace BlueSpice\Social\Content;
 
-use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Services;
+use BlueSpice\Social\Entity as SocialEntity;
 
 class Entity extends \BlueSpice\Content\Entity {
 

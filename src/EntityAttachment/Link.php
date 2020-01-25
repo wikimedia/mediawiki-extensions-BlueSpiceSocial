@@ -11,11 +11,11 @@
  */
 namespace BlueSpice\Social\EntityAttachment;
 
-use Html;
+use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
+use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
 use BlueSpice\Services;
 use BlueSpice\Social\EntityAttachment;
-use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
-use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
+use Html;
 
 /**
  * This view renders the a single item.

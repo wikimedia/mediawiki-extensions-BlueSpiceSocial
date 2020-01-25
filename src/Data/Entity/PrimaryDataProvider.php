@@ -2,13 +2,13 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
+use BlueSpice\EntityFactory;
+use BlueSpice\Services;
+use BlueSpice\Social\Entity;
+use BS\ExtendedSearch\Backend;
+use BS\ExtendedSearch\Data\PrimaryDataProvider as SearchPrimaryDataProvider;
 use IContextSource;
 use User;
-use BS\ExtendedSearch\Backend;
-use BlueSpice\EntityFactory;
-use BlueSpice\Social\Entity;
-use BlueSpice\Services;
-use BS\ExtendedSearch\Data\PrimaryDataProvider as SearchPrimaryDataProvider;
 
 class PrimaryDataProvider extends SearchPrimaryDataProvider {
 

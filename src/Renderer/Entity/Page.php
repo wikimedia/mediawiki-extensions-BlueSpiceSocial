@@ -2,11 +2,11 @@
 
 namespace BlueSpice\Social\Renderer\Entity;
 
+use BlueSpice\Renderer\Params;
+use BlueSpice\Utility\CacheHelper;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
-use BlueSpice\Renderer\Params;
-use BlueSpice\Utility\CacheHelper;
 
 class Page extends \BlueSpice\Social\Renderer\Entity {
 

@@ -96,7 +96,7 @@ class Input {
 		$sNewText = '';
 		foreach ( explode( "\n", $sText ) as $sLine ) {
 			$sNewText .= $this->trim( $sLine ) . "\n";
-		};
+		}
 		return $sNewText;
 	}
 

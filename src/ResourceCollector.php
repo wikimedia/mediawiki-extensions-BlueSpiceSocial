@@ -29,8 +29,8 @@
  */
 namespace BlueSpice\Social;
 
-use BlueSpice\Services;
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use BlueSpice\Services;
 
 /**
  * ResourceCollector class for BlueSpiceSocial extension

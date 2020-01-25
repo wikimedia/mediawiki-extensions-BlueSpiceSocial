@@ -2,13 +2,13 @@
 
 namespace BlueSpice\Social\Renderer;
 
-use Exception;
-use Config;
-use IContextSource;
-use Html;
-use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Entity;
+use Config;
+use Exception;
+use Html;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
 
 class EntityActions extends \BlueSpice\Renderer {
 

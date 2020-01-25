@@ -25,8 +25,8 @@
  */
 namespace BlueSpice\Social\Hook;
 
-use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Social\Renderer\EntityList;
 
 abstract class BSSocialEntityListInitialized extends \BlueSpice\Hook {
 

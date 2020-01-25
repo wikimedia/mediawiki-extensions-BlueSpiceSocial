@@ -1,13 +1,13 @@
 <?php
 namespace BlueSpice\Social\Renderer\EntityList;
 
-use MWException;
+use BlueSpice\Renderer\Params;
+use BlueSpice\Social\Renderer\EntityList;
+use BlueSpice\Utility\CacheHelper;
 use Config;
 use IContextSource;
-use BlueSpice\Renderer\Params;
-use BlueSpice\Utility\CacheHelper;
 use MediaWiki\Linker\LinkRenderer;
-use BlueSpice\Social\Renderer\EntityList;
+use MWException;
 
 class Menu extends \BlueSpice\TemplateRenderer {
 	const PARAM_ENTITY_LIST = 'entitylist';

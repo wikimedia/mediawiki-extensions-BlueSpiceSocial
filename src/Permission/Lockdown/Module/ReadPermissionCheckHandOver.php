@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social\Permission\Lockdown\Module;
 
-use IContextSource;
+use BlueSpice\EntityFactory;
+use BlueSpice\Services;
+use BlueSpice\Social\Entity;
 use Config;
+use IContextSource;
 use Message;
 use Title;
 use User;
-use BlueSpice\Services;
-use BlueSpice\EntityFactory;
-use BlueSpice\Social\Entity;
 
 class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module {
 

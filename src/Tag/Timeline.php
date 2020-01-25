@@ -2,16 +2,16 @@
 
 namespace BlueSpice\Social\Tag;
 
-use MWException;
+use BlueSpice\ParamProcessor\ParamDefinition;
+use BlueSpice\Services;
+use BlueSpice\Social\EntityListContext\Tag as TagListContext;
+use BlueSpice\Tag\MarkerType;
+use BlueSpice\Tag\MarkerType\NoWiki;
 use FormatJson;
+use MWException;
 use Parser;
 use PPFrame;
 use RequestContext;
-use BlueSpice\Services;
-use BlueSpice\ParamProcessor\ParamDefinition;
-use BlueSpice\Tag\MarkerType;
-use BlueSpice\Tag\MarkerType\NoWiki;
-use BlueSpice\Social\EntityListContext\Tag as TagListContext;
 
 class Timeline extends \BlueSpice\Tag\Tag {
 

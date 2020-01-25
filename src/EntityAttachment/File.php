@@ -11,8 +11,8 @@
  */
 namespace BlueSpice\Social\EntityAttachment;
 
-use Html;
 use BlueSpice\Social\EntityAttachment;
+use Html;
 
 /**
  * This view renders the a single item.

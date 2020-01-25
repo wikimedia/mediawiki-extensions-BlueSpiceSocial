@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Job;
 
-use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Services;
+use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\Job\UpdateTitleBase;
 
 class Entity extends UpdateTitleBase {

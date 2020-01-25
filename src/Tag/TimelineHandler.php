@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Tag;
 
+use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
+use BlueSpice\Social\EntityListContext;
+use BlueSpice\Tag\Handler;
 use Parser;
 use PPFrame;
-use BlueSpice\Social\EntityListContext;
-use BlueSpice\Services;
-use BlueSpice\Renderer\Params;
-use BlueSpice\Tag\Handler;
 
 class TimelineHandler extends Handler {
 	/**

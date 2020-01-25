@@ -31,10 +31,10 @@
  */
 namespace BlueSpice\Social\Entity;
 
+use BlueSpice\Services;
+use BlueSpice\Social\Entity;
 use Status;
 use User;
-use BlueSpice\Social\Entity;
-use BlueSpice\Services;
 
 /**
  * Action class for BlueSpiceSocial extension

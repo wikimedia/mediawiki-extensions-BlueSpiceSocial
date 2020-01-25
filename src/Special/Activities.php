@@ -3,8 +3,8 @@
 namespace BlueSpice\Social\Special;
 
 use BlueSpice\Context;
-use BlueSpice\Services;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 use BlueSpice\Social\EntityListContext\SpecialActivities;
 
 /**

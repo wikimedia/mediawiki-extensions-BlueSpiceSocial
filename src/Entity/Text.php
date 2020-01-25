@@ -31,14 +31,14 @@
  */
 namespace BlueSpice\Social\Entity;
 
-use RequestContext;
-use Status;
-use User;
-use Title;
-use ParserOptions;
-use ParserOutput;
 use BlueSpice\Social\Entity;
 use BsPageContentProvider;
+use ParserOptions;
+use ParserOutput;
+use RequestContext;
+use Status;
+use Title;
+use User;
 
 /**
  * Text class for BlueSpiceSocial extension
@@ -201,7 +201,7 @@ class Text extends Entity {
 	 * @return ParserOutput
 	 */
 	public function getParserOutput() {
-		if ( isset( $this->oParserOutput ) && !is_null( $this->oParserOutput ) ) {
+		if ( isset( $this->oParserOutput ) && $this->oParserOutput !== null ) {
 			return $this->oParserOutput;
 		}
 

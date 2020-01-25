@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\Task\EntityList;
 
-use Status;
-use BlueSpice\Task;
 use BlueSpice\ParamProcessor\ParamDefinition;
+use BlueSpice\Task;
+use Status;
 
 class Reload extends Task {
 

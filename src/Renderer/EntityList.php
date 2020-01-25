@@ -1,27 +1,27 @@
 <?php
 namespace BlueSpice\Social\Renderer;
 
-use Sanitizer;
-use Config;
-use IContextSource;
-use RequestContext;
-use Html;
-use HtmlArmor;
-use MediaWiki\Linker\LinkRenderer;
-use Title;
-use User;
-use Hooks;
-use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as MappingProvider;
+use BlueSpice\Data\ReaderParams;
 use BlueSpice\IParamProvider;
 use BlueSpice\ParamProcessor\ParamDefinition;
 use BlueSpice\ParamProcessor\ParamType;
 use BlueSpice\Renderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Services;
-use BlueSpice\Social\EntityListContext;
-use BlueSpice\Social\Entity;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Data\Entity\Store;
+use BlueSpice\Social\Entity;
+use BlueSpice\Social\EntityListContext;
+use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as MappingProvider;
+use Config;
+use Hooks;
+use Html;
+use HtmlArmor;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
+use RequestContext;
+use Sanitizer;
+use Title;
+use User;
 
 class EntityList extends Renderer implements IParamProvider {
 	const PARAM_CONTEXT = 'context';

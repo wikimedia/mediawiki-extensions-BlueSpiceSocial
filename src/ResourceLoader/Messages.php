@@ -26,9 +26,9 @@
  */
 namespace BlueSpice\Social\ResourceLoader;
 
+use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Services;
 use BlueSpice\Social\EntityConfig;
-use BlueSpice\ExtensionAttributeBasedRegistry;
 
 class Messages extends \ResourceLoaderModule {
 	/**

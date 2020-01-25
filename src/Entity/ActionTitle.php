@@ -31,11 +31,11 @@
  */
 namespace BlueSpice\Social\Entity;
 
+use BsNamespaceHelper;
 use Message;
 use Status;
-use User;
 use Title;
-use BsNamespaceHelper;
+use User;
 
 /**
  * Title class for BlueSpiceSocial extension

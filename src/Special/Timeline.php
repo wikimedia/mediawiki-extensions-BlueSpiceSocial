@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Special;
 
-use FormatJson;
 use BlueSpice\Context;
-use BlueSpice\Services;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 use BlueSpice\Social\EntityListContext\SpecialTimeline;
 use BlueSpice\Social\Renderer\EntityList;
+use FormatJson;
 
 /**
  * Timeline SpecialPage

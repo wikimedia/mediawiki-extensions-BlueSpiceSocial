@@ -4,8 +4,8 @@ $IP = dirname( dirname( dirname( __DIR__ ) ) );
 
 require_once "$IP/maintenance/Maintenance.php";
 
-use BlueSpice\Social\Entity;
 use BlueSpice\Services;
+use BlueSpice\Social\Entity;
 
 class RebuildEntities extends Maintenance {
 

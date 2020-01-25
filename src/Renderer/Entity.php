@@ -2,22 +2,22 @@
 
 namespace BlueSpice\Social\Renderer;
 
-use MWException;
-use Config;
-use IContextSource;
-use FormatJson;
-use Html;
-use Hooks;
-use User;
-use BlueSpice\Utility\CacheHelper;
-use MediaWiki\Linker\LinkRenderer;
-use BlueSpice\Services;
 use BlueSpice\Context;
-use BlueSpice\Timestamp;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Renderer\UserImage;
+use BlueSpice\Services;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Social\EntityListContext\Children;
+use BlueSpice\Timestamp;
+use BlueSpice\Utility\CacheHelper;
+use Config;
+use FormatJson;
+use Hooks;
+use Html;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
+use MWException;
+use User;
 
 class Entity extends \BlueSpice\Renderer\Entity {
 	const NO_TEMPLATE_CACHE = 'notemplatecache';

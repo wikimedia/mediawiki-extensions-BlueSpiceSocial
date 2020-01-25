@@ -2,13 +2,13 @@
 
 namespace BlueSpice\Social\Tag;
 
+use BlueSpice\Services;
+use BlueSpice\Social\Entity;
+use BlueSpice\Social\Renderer\Entity as EntityRenderer;
+use BlueSpice\Tag\Handler;
 use MWException;
 use Parser;
 use PPFrame;
-use BlueSpice\Services;
-use BlueSpice\Tag\Handler;
-use BlueSpice\Social\Entity;
-use BlueSpice\Social\Renderer\Entity as EntityRenderer;
 
 class SocialEntityHandler extends Handler {
 	/**

@@ -31,10 +31,10 @@
  */
 namespace BlueSpice\Social\Entity;
 
+use File;
+use Html;
 use Status;
 use User;
-use Html;
-use File;
 
 /**
  * File class for BlueSpiceSocial extension

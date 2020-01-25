@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social\Tag;
 
-use Parser;
-use PPFrame;
-use BlueSpice\Tag\MarkerType;
-use BlueSpice\Tag\MarkerType\NoWiki;
 use BlueSpice\ParamProcessor\ParamDefinition;
 use BlueSpice\ParamProcessor\ParamType;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Renderer\Entity as EntityRenderer;
+use BlueSpice\Tag\MarkerType;
+use BlueSpice\Tag\MarkerType\NoWiki;
+use Parser;
+use PPFrame;
 
 class SocialEntity extends \BlueSpice\Tag\Tag {
 

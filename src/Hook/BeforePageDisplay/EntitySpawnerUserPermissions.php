@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Hook\BeforePageDisplay;
 
-use BlueSpice\Hook\BeforePageDisplay;
 use BlueSpice\ExtensionAttributeBasedRegistry;
+use BlueSpice\Hook\BeforePageDisplay;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityConfig;
 

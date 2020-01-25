@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social;
 
-use Config;
-use BlueSpice\RendererFactory;
 use BlueSpice\IRenderer;
 use BlueSpice\Renderer\Params;
+use BlueSpice\RendererFactory;
+use Config;
 
 class EntityListFactory {
 	/**
