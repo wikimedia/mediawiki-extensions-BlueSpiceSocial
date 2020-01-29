@@ -125,7 +125,6 @@ class WikiText extends \Parser {
 
 		Hooks::run( 'ParserBeforeTidy', array( &$this, &$text ) );
 
-		$text = $this->replaceTransparentTags( $text );
 		$text = $this->mStripState->unstripGeneral( $text );
 */
 		$text = \Sanitizer::normalizeCharReferences( $text );
