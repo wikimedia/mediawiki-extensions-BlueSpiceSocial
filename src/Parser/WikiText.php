@@ -188,9 +188,6 @@ class WikiText extends \Parser {
 			$this->mOutput->setLimitReportData( 'limitreport-ppvisitednodes',
 				array( $this->mPPNodeCount, $this->mOptions->getMaxPPNodeCount() )
 			);
-			$this->mOutput->setLimitReportData( 'limitreport-ppgeneratednodes',
-				array( $this->mGeneratedPPNodeCount, $this->mOptions->getMaxGeneratedPPNodeCount() )
-			);
 			$this->mOutput->setLimitReportData( 'limitreport-postexpandincludesize',
 				array( $this->mIncludeSizes['post-expand'], $max )
 			);
@@ -235,10 +232,6 @@ class WikiText extends \Parser {
 			$limitReport = str_replace( array( '-', '&' ), array( '‐', '&amp;' ), $limitReport );
 			$text .= "\n<!-- \n$limitReport-->\n";
 
-			if ( $this->mGeneratedPPNodeCount > $this->mOptions->getMaxGeneratedPPNodeCount() / 10 ) {
-				wfDebugLog( 'generated-pp-node-count', $this->mGeneratedPPNodeCount . ' ' .
-					$this->mTitle->getPrefixedDBkey() );
-			}
 		}*/
 		$this->mOutput->setText( $text );
 
