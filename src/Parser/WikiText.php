@@ -78,6 +78,8 @@ class WikiText extends \Parser {
 		];
 		$text = preg_replace( array_keys( $fixtags ), array_values( $fixtags ), $text );
 
+		// FIXME: This function is deprecated in MediaWiki and will
+		// be removed in a future release.
 		$text = $this->doBlockLevels( $text, $linestart );
 
 		$this->replaceLinkHolders( $text );
