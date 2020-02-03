@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Grondin",
 			"Thibaut120094",
-			"Verdy p"
+			"Verdy p",
+			"Derugon"
 		]
 	},
 	"bs-social-desc": "Extension de base pour les extensions sociales",
@@ -58,6 +59,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Ajouter tout",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Supprimer tout",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Aujourd’hui",
+	"bs-social-entitylistmore-linklabel": "…",
 	"bs-social-filter-owner-val-all": "Tout",
 	"bs-social-filter-owner-val-mine": "À moi",
 	"bs-social-filter-date-label-from": "$1 de",
