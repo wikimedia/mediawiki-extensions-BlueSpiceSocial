@@ -75,5 +75,11 @@
 	"right-social-deleteothers": "Eliminar as entradas de outros",
 	"right-social-editothers": "Editar as entradas de outros",
 	"right-social-source": "Ver a página fonte",
-	"prefs-social": "Linha Cronológica"
+	"prefs-social": "Linha Cronológica",
+	"apihelp-bs-social-tasks-summary": "Fornece tarefas como editar ou eliminar entidades",
+	"apihelp-bs-socialtitlequery-store-summary": "Fornece dados para títulos, que podem ser ligados dentro de uma entidade",
+	"apihelp-bs-socialentity-store-summary": "Fornece um repositório de pesquisa para entidades, que pode ser consultado",
+	"bs-social-pref-warnonleave": "Avisar-me quando abandonar uma edição de uma entrada com alterações por gravar.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Realizar esta operação pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?",
+	"bs-social-editwarnonleave-confirmtext": "Abandonar esta página pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?"
 }

@@ -4,7 +4,8 @@
 			"Gomoko",
 			"Grondin",
 			"Thibaut120094",
-			"Verdy p"
+			"Verdy p",
+			"Derugon"
 		]
 	},
 	"bs-social-desc": "Extension de base pour les extensions sociales",
@@ -32,9 +33,9 @@
 	"bs-social-entityactions-label": "Actions",
 	"bs-social-entityaction-edit": "Modifier",
 	"bs-social-entityaction-delete": "Supprimer",
-	"bs-social-entityaction-delete-confirmtext": "Supprimer l’entrée ?",
+	"bs-social-entityaction-delete-confirmtext": "Supprimer l’entrée ?",
 	"bs-social-entityaction-undelete": "Rétablir",
-	"bs-social-entityaction-undelete-confirmtext": "Rétablir l’entrée ?",
+	"bs-social-entityaction-undelete-confirmtext": "Rétablir l’entrée ?",
 	"bs-social-entity-fatalstatus-save-nouser": "L’entrée ne peut pas être enregistrée sans un propriétaire spécifié",
 	"bs-social-entity-fatalstatus-save-noidgenerated": "Un id n’a pas pu être généré automatiquement",
 	"bs-social-entity-fatalstatus-save-notype": "Le type d’entité est vide",
@@ -42,7 +43,7 @@
 	"bs-social-entity-fatalstatus-save-emptyfield": "Le champ « $1 » est vide",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Valeur non valide pour le champ « $1 »",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Action inconnue « $1 »",
-	"bs-social-entity-fatalstatus-permission-recursion": "Récursion possible, parce que le « Title » donné est dans l’espace de noms « NS_SOCIALENTITY » !",
+	"bs-social-entity-fatalstatus-permission-recursion": "Récursion possible, parce que le « Title » donné est dans l’espace de noms « NS_SOCIALENTITY » !",
 	"bs-social-entity-fatalstatus-permission-permissiondeniedusercan": "L’utilisateur n’est pas autorisé à effectuer l’action « $1 » sur « $2 »",
 	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "L’utilisateur n’est pas autorité à effectuer l’action « $1 »",
 	"bs-social-entity-fatalstatus-permission-notitle": "Objet « Title » obligatoire",
@@ -82,6 +83,7 @@
 	"right-social-source": "Afficher la page source",
 	"prefs-social": "Planning",
 	"bs-social-pref-warnonleave": "M’avertir quand je quitte une modification d’une entrée avec des modifications non enregistrées.",
-	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Effectuer cette action peut vous exposer à perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
-	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?"
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Effectuer cette action peut vous exposer à perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
+	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
+	"bs-social-entitylistmore-linklabel": "…"
 }

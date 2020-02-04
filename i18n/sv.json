@@ -54,5 +54,7 @@
 	"bs-social-entityaction-undelete": "Återställ",
 	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Sök i social",
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Sök i social:",
-	"right-social-source": "Visa källsida"
+	"right-social-source": "Visa källsida",
+	"activities": "Aktiviteter",
+	"bs-social-prof-datedisplaymode": "Datovisningsmodus"
 }
