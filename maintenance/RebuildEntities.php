@@ -25,9 +25,10 @@ class RebuildEntities extends Maintenance {
 	public function execute() {
 		$this->output( "\nThis may or may not fix all the problems...\n\n" );
 
-		$this->setContext();
 		$user = Services::getInstance()->getBSUtilityFactory()
 			->getMaintenanceUser()->getUser();
+		\RequestContext::getMain()->setUser( $user );
+
 		foreach ( $this->getTitles() as $title ) {
 			$entity = Services::getInstance()->getBSEntityFactory()
 				->newFromSourceTitle( $title );
@@ -73,17 +74,6 @@ class RebuildEntities extends Maintenance {
 			$titles[] = $title;
 		}
 		return $titles;
-	}
-
-	/**
-	 *
-	 */
-	protected function setContext() {
-		global $wgUser;
-		$user = Services::getInstance()->getBSUtilityFactory()
-			->getMaintenanceUser()->getUser();
-		$wgUser = $user;
-		\RequestContext::getMain()->setUser( $user );
 	}
 }
 
