@@ -1,5 +1,4 @@
 .bs-social-entityspawner {
-	/*margin-bottom: 4px;*/
 	clear: both;
 }
 
@@ -74,7 +73,6 @@
 .bs-social-entityspawner-new div.bs-social-entity .bs-social-entity-right .bs-social-entity-title,
 .bs-social-entityspawner-new div.bs-social-entity .bs-social-entity-right .bs-social-entity-actions {
 	display:none;
-	
 }
 .bs-social-entityspawner-new div.bs-social-entity{
 	background-color: rgba(100,117,160,0.7);

@@ -32,10 +32,6 @@ class AddResources extends BeforePageDisplay {
 		$this->out->addModuleStyles( 'ext.bluespice.social.timeline.styles' );
 
 		$this->out->addJsConfigVars(
-			'bsgSocialModuleStyles',
-			$oCollector->getModuleStyles()
-		);
-		$this->out->addJsConfigVars(
 			'bsgSocialModuleScripts',
 			$oCollector->getModuleScripts()
 		);
