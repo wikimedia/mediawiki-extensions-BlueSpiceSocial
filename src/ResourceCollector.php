@@ -86,19 +86,6 @@ class ResourceCollector {
 			if ( $moduleStyles ) {
 				$this->aStyles = array_merge( $this->aStyles, $moduleStyles );
 			}
-			$moduleScripts = $oConfig->get( 'ModuleScripts' );
-			if ( $moduleScripts ) {
-				$this->aScripts = array_merge( $this->aScripts, $moduleScripts );
-			}
-			// isLoaded is not working correctly
-			// also this modules can not be loaded within JS because stuff breaks
-			$extensions = \ExtensionRegistry::getInstance()->getAllThings();
-			if ( isset( $extensions[ 'MultimediaViewer' ] ) ) {
-				$this->aScripts = array_merge(
-					$this->aScripts,
-					[ 'mmv.head', 'mmv.bootstrap.autostart' ]
-				);
-			}
 			if ( empty( $oConfig->get( 'VarMessageKeys' ) ) ) {
 				continue;
 			}
@@ -118,8 +105,6 @@ class ResourceCollector {
 			&$this->aStyles,
 			&$this->aVarMsgKeys,
 		] );
-		// Make sure to have arrays in JS!
-		$this->aScripts = array_values( array_unique( $this->aScripts ) );
 		$this->aStyles = array_values( array_unique( $this->aStyles ) );
 	}
 
@@ -135,13 +120,6 @@ class ResourceCollector {
 	 */
 	public function getConfig() {
 		return $this->aConfig;
-	}
-
-	/**
-	 * @return array of module scripts of all entities
-	 */
-	public function getModuleScripts() {
-		return $this->aScripts;
 	}
 
 	/**
@@ -184,23 +162,6 @@ class ResourceCollector {
 		}
 
 		return $sCss;
-	}
-
-	/**
-	 * @param string $sScript
-	 * @return string
-	 */
-	public function getCombinedScriptsFile( $sScript = '' ) {
-		$oRLContext = $this->getResourceLoaderContext();
-		foreach ( $this->getModuleScripts() as $sScriptMod ) {
-			$oModule = \RequestContext::getMain()
-				->getOutput()
-				->getResourceLoader()
-				->getModule( $sScriptMod );
-			$sScript .= $oModule->getScript( $oRLContext );
-		}
-
-		return $sScript;
 	}
 
 	/**

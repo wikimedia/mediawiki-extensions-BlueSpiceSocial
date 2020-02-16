@@ -303,6 +303,7 @@
 		},
 		"ext.bluespice.social.timeline": {
 			"dependencies": [
+				"ext.bluespice.social.entity",
 				"ext.bluespice.social.timeline.templates",
 				"ext.bluespice.social",
 				"mediawiki.widgets.datetime"

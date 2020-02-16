@@ -20,21 +20,24 @@ class AddResources extends BeforePageDisplay {
 			return true;
 		}
 
-		if ( !empty( $oCollector->getModuleScripts() ) ) {
-			$this->out->addModules( $oCollector->getModuleScripts() );
-		}
 		if ( !empty( $oCollector->getModuleStyles() ) ) {
 			$this->out->addModuleStyles( $oCollector->getModuleStyles() );
 		}
 
+		$this->out->addModules( 'ext.bluespice.social' );
 		$this->out->addModules( 'ext.bluespice.social.messages' );
 		$this->out->addModules( 'ext.bluespice.social.timeline' );
 		$this->out->addModuleStyles( 'ext.bluespice.social.timeline.styles' );
+		// isLoaded is not working correctly
+		// also this modules can not be loaded within JS because stuff breaks
+		$extensions = \ExtensionRegistry::getInstance()->getAllThings();
+		if ( isset( $extensions[ 'MultimediaViewer' ] ) ) {
+			$this->aScripts = array_merge(
+				$this->aScripts,
+				[ 'mmv.head', 'mmv.bootstrap.autostart' ]
+			);
+		}
 
-		$this->out->addJsConfigVars(
-			'bsgSocialModuleScripts',
-			$oCollector->getModuleScripts()
-		);
 		$this->out->addJsConfigVars(
 			'bsgSocialVarMessageKeys',
 			$oCollector->getVarMessageKeys()
