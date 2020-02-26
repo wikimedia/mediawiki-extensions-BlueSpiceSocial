@@ -32,8 +32,7 @@ class AddResources extends BeforePageDisplay {
 		// also this modules can not be loaded within JS because stuff breaks
 		$extensions = \ExtensionRegistry::getInstance()->getAllThings();
 		if ( isset( $extensions[ 'MultimediaViewer' ] ) ) {
-			$this->aScripts = array_merge(
-				$this->aScripts,
+			$this->out->addModules(
 				[ 'mmv.head', 'mmv.bootstrap.autostart' ]
 			);
 		}
