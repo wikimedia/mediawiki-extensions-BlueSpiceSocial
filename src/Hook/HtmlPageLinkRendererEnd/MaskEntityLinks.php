@@ -31,11 +31,13 @@ class MaskEntityLinks extends HtmlPageLinkRendererEnd {
 		$entityFactory = $this->getServices()->getService(
 			'BSEntityFactory'
 		);
+		/** @var Entity $entity */
 		$entity = $entityFactory->newFromSourceTitle( $this->target );
 		// TODO: Every Entity should have its own mask for its source title
 		$msg = $this->getContext()->msg(
 			$entity->getConfig()->get( 'TypeMessageKey' )
 		);
+
 		$this->text = new \HtmlArmor(
 			"({$msg->plain()}) {$entity->getHeader()}"
 		);
