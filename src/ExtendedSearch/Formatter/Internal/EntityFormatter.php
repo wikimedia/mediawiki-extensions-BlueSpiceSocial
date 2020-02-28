@@ -3,12 +3,15 @@
 namespace BlueSpice\Social\ExtendedSearch\Formatter\Internal;
 
 use BlueSpice\Social\Entity;
+use MediaWiki\Linker\LinkRenderer;
+use RequestContext;
 
 class EntityFormatter {
 	protected $entity;
 	protected $result;
 	protected $resultObject;
 
+	/** @var LinkRenderer */
 	protected $linkRenderer;
 
 	/**
@@ -25,7 +28,7 @@ class EntityFormatter {
 
 	/**
 	 *
-	 * @param \MediaWiki\Linker\LinkRenderer $linkRenderer
+	 * @param LinkRenderer $linkRenderer
 	 */
 	public function setLinkRenderer( $linkRenderer ) {
 		$this->linkRenderer = $linkRenderer;
@@ -36,16 +39,16 @@ class EntityFormatter {
 	 */
 	public function format() {
 		// can these timestamps be different than indexed ones?
-		$this->result['ctime'] = \RequestContext::getMain()->getLanguage()->date(
+		$this->result['ctime'] = RequestContext::getMain()->getLanguage()->date(
 			$this->entity->getTimestampCreated()
 		);
-		$this->result['mtime'] = \RequestContext::getMain()->getLanguage()->date(
+		$this->result['mtime'] = RequestContext::getMain()->getLanguage()->date(
 			$this->entity->getTimestampTouched()
 		);
 
 		$this->result['entity_type'] = $this->entity->get( Entity::ATTR_TYPE );
 		$owner = $this->entity->getOwner();
-		$this->result['page_anchor'] = $this->entity->get( Entity::ATTR_HEADER );
+		$this->result['page_anchor'] = $this->linkRenderer->makeLink( $this->entity->getTitle() );
 		$name = $this->entity->get( Entity::ATTR_OWNER_REAL_NAME );
 		if ( !$name ) {
 			$name = $owner->getName();
