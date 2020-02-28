@@ -2,10 +2,25 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Formatter;
 
-use BlueSpice\Services;
+use BlueSpice\EntityFactory;
+use BlueSpice\Social\Entity;
+use BS\ExtendedSearch\Source\Base as Source;
 use BS\ExtendedSearch\Source\Formatter\WikiPageFormatter;
+use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter as InternalEntityFormatter;
 
 class EntityFormatter extends WikiPageFormatter {
+	/** @var EntityFactory */
+	protected $entityFactory;
+
+	/**
+	 * @param Source $source
+	 * @param EntityFactory $entityFactory
+	 */
+	public function __construct( $source, $entityFactory ) {
+		parent::__construct( $source );
+
+		$this->entityFactory = $entityFactory;
+	}
 
 	/**
 	 *
@@ -37,21 +52,20 @@ class EntityFormatter extends WikiPageFormatter {
 	 * @return bool
 	 */
 	public function format( &$result, $resultObject ) {
-		if ( $this->source->getTypeKey() != $resultObject->getType() ) {
+		if ( $this->source->getTypeKey() !== $resultObject->getType() ) {
 			return true;
 		}
 
 		parent::format( $result, $resultObject );
 
-		$entityFactory = Services::getInstance()->getBSEntityFactory();
-		$entity = $entityFactory->newFromID( $result['entitydata']['id'], $result['type'] );
-		if ( !( $entity instanceof \BlueSpice\Social\Entity )
-				|| $entity->exists() == false ) {
-			return;
+		$entity = $this->getEntityFromResult( $result );
+		if ( !$entity ) {
+			return true;
 		}
 
 		// Transfer formatting to internal formatter - different depending on the Entity type
 		$internalFormatterClass = $entity->getConfig()->get( 'ExtendedSearchResultFormatter' );
+		/** @var InternalEntityFormatter $internalFormatter */
 		$internalFormatter = new $internalFormatterClass( $entity, $result, $resultObject );
 		$internalFormatter->setLinkRenderer( $this->linkRenderer );
 		$internalFormatter->format();
@@ -72,11 +86,20 @@ class EntityFormatter extends WikiPageFormatter {
 			$result['basename'] = $result['entitydata']['header'];
 			$result['type'] .= " ({$result['entitydata']['type']})";
 
-			$title = \Title::newFromText( $result['prefixed_title'] );
-			if ( $title instanceof \Title ) {
-				$result['pageAnchor'] = $this->linkRenderer->makeLink( $title, $result['basename'] );
-				$result['image_uri'] = $this->getImageUri( $result['prefixed_title'], 150 );
+			$entity = $this->getEntityFromResult( $result );
+			if ( !$entity ) {
+				return;
 			}
+
+			$typeMsg = $this->getContext()->msg( $entity->getConfig()->get( 'TypeMessageKey' ) );
+			$strippedHeader = strip_tags( $entity->getHeader() );
+			$pageHeaderText = "({$typeMsg->plain()}) $strippedHeader";
+			$result['page_anchor'] = $this->linkRenderer->makeLink(
+				$entity->getTitle(), $pageHeaderText
+			);
+			$result['image_uri'] = $this->getImageUri(
+				$entity->getTitle()->getPrefixedText(), 150
+			);
 		}
 	}
 
@@ -104,5 +127,21 @@ class EntityFormatter extends WikiPageFormatter {
 
 			$result['is_ranked'] = true;
 		}
+	}
+
+	/**
+	 * @param array $result
+	 * @return Entity|null
+	 */
+	private function getEntityFromResult( $result ) {
+		/** @var Entity $entity */
+		$entity = $this->entityFactory->newFromID(
+			$result['entitydata']['id'], $result['entitydata']['type']
+		);
+		if ( !$entity instanceof Entity || $entity->exists() == false ) {
+			return null;
+		}
+
+		return $entity;
 	}
 }

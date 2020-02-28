@@ -2,6 +2,8 @@
 
 namespace BlueSpice\Social\ExtendedSearch;
 
+use BlueSpice\EntityFactory;
+use BlueSpice\Services;
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 use Entity;
 
@@ -69,7 +71,9 @@ class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 	 * @return Formatter\EntityFormatter
 	 */
 	public function getFormatter() {
-		return new Formatter\EntityFormatter( $this );
+		/** @var EntityFactory $entityFactory */
+		$entityFactory = Services::getInstance()->getService( 'BSEntityFactory' );
+		return new Formatter\EntityFormatter( $this, $entityFactory );
 	}
 
 	/**
