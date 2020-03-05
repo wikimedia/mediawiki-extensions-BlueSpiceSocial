@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата"
+			"Ата",
+			"Piramidion"
 		]
 	},
 	"bs-social-desc": "Базове розширення для соціальних розширень",
@@ -67,5 +68,18 @@
 	"bs-social-filter-button-tooltip": "Показати фільтри",
 	"bs-social-sort-button-tooltip": "Показати параметри сортування",
 	"bs-social-entityspawner-button-tooltip": "Створити новий",
-	"bs-social-sourcetitle-lockdown-reason-reason": "Дія $1 може бути виконана лише адміністраторами, тому що ці записи не мають редагуватися напряму."
+	"bs-social-sourcetitle-lockdown-reason-reason": "Дія $1 може бути виконана лише адміністраторами, тому що ці записи не мають редагуватися напряму.",
+	"apihelp-bs-social-tasks-summary": "Надає такі завдання, як редагування чи вилучення сутностей",
+	"apihelp-bs-socialtitlequery-store-summary": "Надає дані для назв, на які можна дати посилання в межах сутності",
+	"apihelp-bs-socialentity-store-summary": "Надає пошуковий сховок для сутностей, до якого можна надсилати запити",
+	"action-social-deleteothers": "вилучення записів інших користувачів",
+	"action-social-editothers": "вилучення записів інших користувачів",
+	"action-social-source": "перегляд вихідної сторінки",
+	"right-social-deleteothers": "вилучення записів інших користувачів",
+	"right-social-editothers": "вилучення записів інших користувачів",
+	"right-social-source": "перегляд вихідної сторінки",
+	"prefs-social": "Хронологія",
+	"bs-social-pref-warnonleave": "Попереджати мене, коли я покидаю редагування запису без збереження змін.",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Виконання цієї дії може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни і продовжити?",
+	"bs-social-editwarnonleave-confirmtext": "Якщо покинете цю сторінку, це може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни і продовжити?"
 }
