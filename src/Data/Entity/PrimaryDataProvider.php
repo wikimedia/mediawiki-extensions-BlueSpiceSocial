@@ -69,7 +69,7 @@ class PrimaryDataProvider extends SearchPrimaryDataProvider {
 	 * @return bool
 	 */
 	protected function isSystemUser( User $user ) {
-		return Services::getInstance()->getBSUtilityFactory()
+		return Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->isMaintenanceUser( $user );
 	}
 

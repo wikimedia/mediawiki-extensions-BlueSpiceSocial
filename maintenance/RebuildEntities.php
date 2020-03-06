@@ -26,10 +26,10 @@ class RebuildEntities extends Maintenance {
 		$this->output( "\nThis may or may not fix all the problems...\n\n" );
 
 		$this->setContext();
-		$user = Services::getInstance()->getBSUtilityFactory()
+		$user = Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		foreach ( $this->getTitles() as $title ) {
-			$entity = Services::getInstance()->getBSEntityFactory()
+			$entity = Services::getInstance()->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $title );
 			if ( !$entity instanceof Entity ) {
 				continue;

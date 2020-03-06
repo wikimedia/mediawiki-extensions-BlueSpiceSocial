@@ -91,7 +91,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 * @return \BlueSpice\EntityConfigFactory
 	 */
 	protected function getEntityConfigFactory() {
-		return Services::getInstance()->getBSEntityConfigFactory();
+		return Services::getInstance()->getService( 'BSEntityConfigFactory' );
 	}
 
 	/**

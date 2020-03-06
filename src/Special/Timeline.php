@@ -63,7 +63,7 @@ class Timeline extends \BlueSpice\SpecialPage {
 			}
 		}
 
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( $rendererParams )
 		);

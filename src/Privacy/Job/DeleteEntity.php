@@ -20,10 +20,12 @@ class DeleteEntity extends \Job {
 	 *
 	 */
 	public function run() {
-		$entity = Services::getInstance()->getBSEntityFactory()->newFromSourceTitle( $this->title );
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromSourceTitle(
+			$this->title
+		);
 		$entity->set( \BlueSpice\Entity::ATTR_OWNER_ID, $this->params['deletedUserId'] );
 
-		$serviceUser = Services::getInstance()->getBSUtilityFactory()
+		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		$entity->save( $serviceUser );
 	}

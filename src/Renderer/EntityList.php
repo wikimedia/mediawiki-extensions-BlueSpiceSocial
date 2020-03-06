@@ -335,7 +335,7 @@ class EntityList extends Renderer implements IParamProvider {
 		}
 		$readerParams = $this->makeStoreReaderParams();
 		$res = $this->store->getReader( $this->context )->read( $readerParams );
-		$factory = Services::getInstance()->getBSEntityFactory();
+		$factory = Services::getInstance()->getService( 'BSEntityFactory' );
 
 		$this->entities = [];
 		foreach ( $res->getRecords() as $record ) {
@@ -382,7 +382,7 @@ class EntityList extends Renderer implements IParamProvider {
 	}
 
 	protected function renderEntityListMenu() {
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylistmenu',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -390,7 +390,7 @@ class EntityList extends Renderer implements IParamProvider {
 	}
 
 	protected function renderEntityListHeadline() {
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylistheadline',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -403,7 +403,7 @@ class EntityList extends Renderer implements IParamProvider {
 		if ( $limitReached && $this->args[static::PARAM_USE_MORE_SCROLL] ) {
 			return '';
 		}
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylistmore',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -455,7 +455,7 @@ class EntityList extends Renderer implements IParamProvider {
 			return $out;
 		}
 
-		$entity = Services::getInstance()->getBSEntityFactory()->newFromObject(
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
 			(object)$rawEntity
 		);
 		if ( !$entity instanceof Entity ) {

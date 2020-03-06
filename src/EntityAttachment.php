@@ -76,7 +76,7 @@ class EntityAttachment {
 			return null;
 		}
 		if ( !$templateFactory ) {
-			$templateFactory = Services::getInstance()->getBSTemplateFactory();
+			$templateFactory = Services::getInstance()->getService( 'BSTemplateFactory' );
 		}
 
 		$oInstance = new $aRegisteredAttachments[$sType](

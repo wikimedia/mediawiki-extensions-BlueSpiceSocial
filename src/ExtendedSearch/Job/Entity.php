@@ -45,7 +45,7 @@ class Entity extends UpdateTitleBase {
 	 * @return SocialEntity
 	 */
 	protected function getDocumentProviderSource() {
-		return Services::getInstance()->getBSEntityFactory()->newFromSourceTitle(
+		return Services::getInstance()->getService( 'BSEntityFactory' )->newFromSourceTitle(
 			$this->getTitle()
 		);
 	}

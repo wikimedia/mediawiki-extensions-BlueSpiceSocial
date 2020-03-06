@@ -27,7 +27,7 @@ class SocialEntityHandler extends Handler {
 	public function __construct( $processedInput, array $processedArgs, Parser $parser,
 		PPFrame $frame ) {
 		parent::__construct( $processedInput, $processedArgs, $parser, $frame );
-		$this->entity = Services::getInstance()->getBSEntityFactory()->newFromID(
+		$this->entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromID(
 			$processedArgs[Entity::ATTR_ID],
 			NS_SOCIALENTITY
 		);

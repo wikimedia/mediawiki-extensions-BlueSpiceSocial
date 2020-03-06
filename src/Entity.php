@@ -209,7 +209,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function delete( User $oUser = null ) {
 		if ( !$oUser instanceof User ) {
-			$oUser = Services::getInstance()->getBSUtilityFactory()
+			$oUser = Services::getInstance()->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		$status = parent::delete( $oUser );
@@ -228,7 +228,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function undelete( User $user = null ) {
 		if ( !$user instanceof User ) {
-			$user = Services::getInstance()->getBSUtilityFactory()
+			$user = Services::getInstance()->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		return parent::undelete( $user );
@@ -295,7 +295,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			RequestContext::getMain(),
 			$this->getConfig()
 		);
-		$user = Services::getInstance()->getBSUtilityFactory()
+		$user = Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\Children(

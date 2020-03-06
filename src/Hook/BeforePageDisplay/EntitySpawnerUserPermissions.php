@@ -18,13 +18,13 @@ class EntitySpawnerUserPermissions extends BeforePageDisplay {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
-		$configFactory = $this->getServices()->getBSEntityConfigFactory();
+		$configFactory = $this->getServices()->getService( 'BSEntityConfigFactory' );
 		foreach ( $registry->getAllKeys() as $type ) {
 			$entityConfig = $configFactory->newFromType( $type );
 			if ( !$entityConfig instanceof EntityConfig ) {
 				continue;
 			}
-			$entity = $this->getServices()->getBSEntityFactory()->newFromObject(
+			$entity = $this->getServices()->getService( 'BSEntityFactory' )->newFromObject(
 				(object)[ 'type' => $type ]
 			);
 			if ( !$entity ) {

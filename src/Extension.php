@@ -75,12 +75,12 @@ class Extension extends \BlueSpice\Extension {
 
 	/**
 	 * @deprecated since version 3.0.0 - use Services::getInstance()
-	 * ->getBSUtilityFactory()->getMaintenanceUser()->getUser() instead
+	 * ->getService( 'BSUtilityFactory' )->getMaintenanceUser()->getUser() instead
 	 * @return \User
 	 */
 	public static function getMaintenanceUser() {
 		wfDeprecated( __METHOD__, '3.0.0' );
-		return Services::getInstance()->getBSUtilityFactory()
+		return Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 	}
 
@@ -126,7 +126,7 @@ HEREDOC;
 		if ( !$title || $title->getNamespace() !== NS_SOCIALENTITY ) {
 			return true;
 		}
-		$entity = Services::getInstance()->getBSEntityFactory()
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $title );
 		if ( !$entity || !$entity->exists() ) {
 			return true;

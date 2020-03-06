@@ -29,7 +29,7 @@ abstract class Job extends \Job {
 	 */
 	public function getEntity() {
 		if ( !$this->oEntity ) {
-			$this->oEntity = Services::getInstance()->getBSEntityFactory()
+			$this->oEntity = Services::getInstance()->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $this->getTitle() );
 		}
 		if ( !$this->oEntity ) {

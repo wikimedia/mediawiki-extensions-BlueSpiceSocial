@@ -169,7 +169,7 @@ class Entities extends \BSApiTasksBase {
 			(array)$taskData,
 			[ 'context' => $context ]
 		);
-		$renderer = $this->getServices()->getBSRendererFactory()->get(
+		$renderer = $this->getServices()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( $params )
 		);
@@ -353,7 +353,7 @@ class Entities extends \BSApiTasksBase {
 	 * @return \BlueSpice\EntityFactory
 	 */
 	protected function getEntityFactory() {
-		return $this->getServices()->getBSEntityFactory();
+		return $this->getServices()->getService( 'BSEntityFactory' );
 	}
 
 	/**

@@ -73,7 +73,7 @@ class Link extends EntityAttachment {
 			ArticlePreviewImage::TITLETEXT => $this->mAttachment->getFullText(),
 		];
 		$dfdUrlBuilder = Services::getInstance()
-			->getBSDynamicFileDispatcherUrlBuilder();
+			->getService( 'BSDynamicFileDispatcherUrlBuilder' );
 		return $dfdUrlBuilder->build(
 			new DFDParams( $params )
 		);

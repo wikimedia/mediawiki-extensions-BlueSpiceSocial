@@ -37,7 +37,7 @@ class Activities extends \BlueSpice\SpecialPage {
 			$this->getConfig(),
 			$this->getContext()->getUser()
 		);
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [ 'context' => $context ] )
 		);
