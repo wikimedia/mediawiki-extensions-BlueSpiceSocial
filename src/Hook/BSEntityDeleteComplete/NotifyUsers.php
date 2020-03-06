@@ -20,14 +20,14 @@ class NotifyUsers extends BSEntityDeleteComplete {
 
 	protected function doProcess() {
 		$isWatchEnabled = \BlueSpice\Services::getInstance()
-			->getBSExtensionRegistry()->hasName( "BlueSpiceSocialWatch" );
+			->getService( 'BSExtensionRegistry' )->hasName( "BlueSpiceSocialWatch" );
 
 		$notifyAll = false;
 		if ( !$isWatchEnabled ) {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = \BlueSpice\Services::getInstance()->getBSNotificationManager();
+		$notificationsManager = \BlueSpice\Services::getInstance()->getService( 'BSNotificationManager' );
 
 		$notifier = $notificationsManager->getNotifier();
 

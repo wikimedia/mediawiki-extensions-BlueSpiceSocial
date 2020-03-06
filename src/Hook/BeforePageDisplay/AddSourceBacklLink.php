@@ -18,7 +18,7 @@ class AddSourceBacklLink extends BeforePageDisplay {
 		if ( !$this->out->getTitle()->exists() ) {
 			return true;
 		}
-		$entity = Services::getInstance()->getBSEntityFactory()
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $this->out->getTitle() );
 		if ( !$entity instanceof Entity || !$entity->exists() ) {
 			return true;
@@ -27,7 +27,7 @@ class AddSourceBacklLink extends BeforePageDisplay {
 	}
 
 	protected function doProcess() {
-		$entity = Services::getInstance()->getBSEntityFactory()
+		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $this->out->getTitle() );
 
 		$this->out->addBacklinkSubtitle(

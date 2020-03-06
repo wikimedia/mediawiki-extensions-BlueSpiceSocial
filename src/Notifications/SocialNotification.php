@@ -60,7 +60,7 @@ class SocialNotification extends BaseNotification {
 		$this->user = $agent;
 		$this->action = $action;
 
-		$realname = \BlueSpice\Services::getInstance()->getBSUtilityFactory()
+		$realname = \BlueSpice\Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getUserHelper( $this->user )->getDisplayName();
 
 		$this->realname = $realname;

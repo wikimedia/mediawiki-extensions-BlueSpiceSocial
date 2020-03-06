@@ -44,7 +44,7 @@ class NotifyUsers extends BSEntitySaveComplete {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = \BlueSpice\Services::getInstance()->getBSNotificationManager();
+		$notificationsManager = \BlueSpice\Services::getInstance()->getService( 'BSNotificationManager' );
 
 		$notifier = $notificationsManager->getNotifier();
 

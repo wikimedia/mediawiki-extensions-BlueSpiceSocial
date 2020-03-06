@@ -63,7 +63,7 @@ class Store extends \BS\ExtendedSearch\Data\Store implements IStore {
 		if ( $this->factory ) {
 			return $this->factory;
 		}
-		$this->factory = Services::getInstance()->getBSEntityFactory();
+		$this->factory = Services::getInstance()->getService( 'BSEntityFactory' );
 		return $this->factory;
 	}
 }
