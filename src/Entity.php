@@ -36,14 +36,17 @@ use BlueSpice\Data\ReaderParams;
 use BlueSpice\Services;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
+use DeferredUpdates;
 use Exception;
 use Hooks;
 use JobQueueGroup;
 use Message;
+use MWException;
 use RequestContext;
 use Status;
 use Title;
 use User;
+use WikiPage;
 
 /**
  * BlueSpiceSocialEntity class for BlueSpiceSocial extension
@@ -569,10 +572,12 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 		$this->getRenderer()->invalidate();
 		if ( $this->getRelatedTitle() instanceof Title ) {
 			$this->getRelatedTitle()->invalidateCache();
+			$this->runSecondaryDataUpdates( $this->getRelatedTitle() );
 		}
 		if ( $this->hasParent() ) {
 			$this->getParent()->invalidateCache();
 		}
+
 		return $this;
 	}
 
@@ -582,5 +587,17 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function getBackLinkTitle() {
 		return $this->getRelatedTitle();
+	}
+
+	/**
+	 * @param Title $title
+	 * @throws MWException
+	 */
+	private function runSecondaryDataUpdates( Title $title ) {
+		$wikipage = WikiPage::factory( $this->getRelatedTitle() );
+		$updates = $wikipage->getContent()->getSecondaryDataUpdates( $title );
+		foreach ( $updates as $update ) {
+			$update->doUpdate();
+		}
 	}
 }
