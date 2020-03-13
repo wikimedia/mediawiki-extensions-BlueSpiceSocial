@@ -161,7 +161,10 @@ class SocialNotification extends BaseNotification {
 					continue;
 				}
 
-				if ( $title->userCan( 'read', $user ) == false ) {
+				if ( \MediaWiki\MediaWikiServices::getInstance()
+					->getPermissionManager()
+					->userCan( 'read', $user, $title ) == false
+				) {
 					continue;
 				}
 				$users[] = $user->getId();

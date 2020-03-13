@@ -455,7 +455,10 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 					'bs-social-entity-fatalstatus-permission-recursion'
 				) );
 			}
-			if ( !$oTitle->userCan( $sPermission, $oUser ) ) {
+			if ( !\MediaWiki\MediaWikiServices::getInstance()
+				->getPermissionManager()
+				->userCan( $sPermission, $oUser, $oTitle )
+			) {
 				return Status::newFatal( wfMessage(
 					'bs-social-entity-fatalstatus-permission-permissiondeniedusercan',
 					$sAction,

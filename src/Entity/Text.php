@@ -93,7 +93,13 @@ class Text extends Entity {
 			$title = Title::newFromText(
 				$this->get( static::ATTR_PRELOAD, '' )
 			);
-			if ( !$title || !$title->exists() || !$title->userCan( 'read' ) ) {
+			if ( !$title || !$title->exists() ) {
+				return parent::get( $attrName, '' );
+			}
+
+			$pm = \MediaWiki\MediaWikiServices::getInstance()->getPermissionManager();
+			$user = RequestContext::getMain()->getUser();
+			if ( !$pm->userCan( 'read', $user, $title ) ) {
 				return parent::get( $attrName, '' );
 			}
 			return BsPageContentProvider::getInstance()->getWikiTextContentFor(
