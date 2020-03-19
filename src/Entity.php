@@ -595,7 +595,11 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	private function runSecondaryDataUpdates( Title $title ) {
 		$wikipage = WikiPage::factory( $this->getRelatedTitle() );
-		$updates = $wikipage->getContent()->getSecondaryDataUpdates( $title );
+		$content = $wikipage->getContent();
+		if ( !$content ) {
+			return;
+		}
+		$updates = $content->getSecondaryDataUpdates( $title );
 		foreach ( $updates as $update ) {
 			$update->doUpdate();
 		}
