@@ -371,7 +371,8 @@
 		"BSEntitySaveComplete": "\\BlueSpice\\Social\\Hook\\BSEntitySaveComplete\\NotifyUsers::callback",
 		"BSEntityDeleteComplete": "\\BlueSpice\\Social\\Hook\\BSEntityDeleteComplete\\NotifyUsers::callback",
 		"SkinBuildSidebar": "\\BlueSpice\\Social\\Hook\\SkinBuildSidebar\\AddTimelineNavigationItem::callback",
-		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback"
+		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback",
+		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback"
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
