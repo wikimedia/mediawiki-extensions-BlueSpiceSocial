@@ -33,6 +33,7 @@ namespace BlueSpice\Social\Entity;
 
 use File;
 use Html;
+use MediaWiki\MediaWikiServices;
 use Status;
 use User;
 
@@ -191,9 +192,10 @@ abstract class ActionFile extends ActionTitle {
 	 * @return File|null
 	 */
 	public function getRelatedFile() {
-		return wfFindFile( $this->getRelatedTitle(), [
-			'time' => $this->get( static::ATTR_FILE_TIMESTAMP, '' )
-		] );
+		return MediaWikiServices::getInstance()->getRepoGroup()
+			->findFile( $this->getRelatedTitle(), [
+				'time' => $this->get( static::ATTR_FILE_TIMESTAMP, '' )
+			] );
 	}
 
 	/**
