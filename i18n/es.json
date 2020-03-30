@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Joanmp17"
 		]
 	},
+	"activities": "Actividades",
 	"bs-social-pref-datedisplaymode-mode-mw": "Mostrar como fecha",
 	"bs-social-entitytext-header-create": "Entrada nueva",
 	"bs-social-var-id": "Identificación",
@@ -37,6 +39,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Hoy",
 	"bs-social-filter-owner-val-all": "Todo",
 	"bs-social-filter-owner-val-mine": "Lo mío",
+	"bs-social-renderer-timestampprefix-created": "Creado",
 	"bs-social-filter-button-tooltip": "Mostrar opciones del filtro",
 	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación"
 }
