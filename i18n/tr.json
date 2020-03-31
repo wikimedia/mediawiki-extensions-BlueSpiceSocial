@@ -81,5 +81,8 @@
 	"prefs-social": "Zaman çizelgesi",
 	"bs-social-pref-warnonleave": "Kaydedilmemiş değişikliklerle bir girdinin düzenlemesinden ayrıldığımda beni uyar.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Bu eylemi gerçekleştirmek yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?",
-	"bs-social-editwarnonleave-confirmtext": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?"
+	"bs-social-editwarnonleave-confirmtext": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?",
+	"bs-social-specialpagelisting-socialentities": "Sosyal girdileri $1",
+	"bs-social-specialpagelisting-socialentities-show": "Göster",
+	"bs-social-specialpagelisting-socialentities-hide": "Gizle"
 }

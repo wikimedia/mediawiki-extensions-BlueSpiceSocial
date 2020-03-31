@@ -6,7 +6,8 @@
 			"Thibaut120094",
 			"Verdy p",
 			"Derugon",
-			"Urhixidur"
+			"Urhixidur",
+			"Wladek92"
 		]
 	},
 	"bs-social-desc": "Extension de base pour les extensions sociales",
@@ -86,5 +87,7 @@
 	"prefs-social": "Planification",
 	"bs-social-pref-warnonleave": "M’avertir quand je quitte une modification d’une entrée avec des modifications non enregistrées.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Effectuer cette action peut vous exposer à perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
-	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?"
+	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
+	"bs-social-specialpagelisting-socialentities-show": "Afficher",
+	"bs-social-specialpagelisting-socialentities-hide": "Masquer"
 }
