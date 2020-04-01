@@ -25,5 +25,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Rimuovi tutto",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Oggi",
 	"bs-social-renderer-timestampprefix-touched": "Modificato",
-	"bs-social-entityspawner-button-tooltip": "Crea nuovo"
+	"bs-social-entityspawner-button-tooltip": "Crea nuovo",
+	"bs-social-specialpagelisting-socialentities-show": "Mostra",
+	"bs-social-specialpagelisting-socialentities-hide": "Nascondi"
 }
