@@ -41,5 +41,7 @@
 	"bs-social-filter-owner-val-mine": "Lo mío",
 	"bs-social-renderer-timestampprefix-created": "Creado",
 	"bs-social-filter-button-tooltip": "Mostrar opciones del filtro",
-	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación"
+	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación",
+	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
+	"bs-social-specialpagelisting-socialentities-hide": "Ocultar"
 }
