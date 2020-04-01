@@ -36,7 +36,6 @@ use BlueSpice\Data\ReaderParams;
 use BlueSpice\Services;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
-use DeferredUpdates;
 use Exception;
 use Hooks;
 use JobQueueGroup;
