@@ -9,6 +9,7 @@ use BlueSpice\Utility\CacheHelper;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class Text extends \BlueSpice\Social\Renderer\Entity {
@@ -54,6 +55,7 @@ class Text extends \BlueSpice\Social\Renderer\Entity {
 		$availableAttachments = $this->getEntity()->getConfig()->get(
 			'AvailableAttachments'
 		);
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		foreach ( $val as $type => $attachments ) {
 			if ( !in_array( $type, $availableAttachments ) ) {
 				continue;
@@ -65,7 +67,7 @@ class Text extends \BlueSpice\Social\Renderer\Entity {
 						continue;
 					}
 
-					$file = wfFindFile( $title );
+					$file = $repoGroup->findFile( $title );
 					if ( !$file ) {
 						continue;
 					}
