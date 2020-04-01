@@ -31,7 +31,6 @@
  */
 namespace BlueSpice\Social;
 
-use DeferredUpdates;
 use Exception;
 use MWException;
 use Status;
