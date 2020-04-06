@@ -37,5 +37,7 @@
 	"action-social-source": "원본 문서 보기",
 	"right-social-source": "원본 문서 보기",
 	"prefs-social": "타임라인",
-	"bs-social-pref-warnonleave": "바꾼 내용을 저장하지 않고 편집 페이지를 벗어날 때 내게 알립니다."
+	"bs-social-pref-warnonleave": "바꾼 내용을 저장하지 않고 편집 페이지를 벗어날 때 내게 알립니다.",
+	"bs-social-specialpagelisting-socialentities-show": "보이기",
+	"bs-social-specialpagelisting-socialentities-hide": "숨기기"
 }
