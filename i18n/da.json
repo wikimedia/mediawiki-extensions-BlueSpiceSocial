@@ -16,5 +16,7 @@
 	"bs-social-renderer-timestampprefix-touched": "Redigeret",
 	"action-social-source": "vis kildesiden",
 	"right-social-source": "Vis kildesiden",
-	"prefs-social": "Tidslinje"
+	"prefs-social": "Tidslinje",
+	"bs-social-specialpagelisting-socialentities-show": "Vis",
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
 }
