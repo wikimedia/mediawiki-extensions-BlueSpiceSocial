@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"FF11",
 			"Mglaser",
 			"Patric Wirth"
 		]
@@ -81,5 +82,7 @@
 	"prefs-social": "Timeline",
 	"bs-social-pref-warnonleave": "Warnen, wenn eine Bearbeitung eines Eintrags mit ungespeicherten Änderungen verlassen wird",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Die Ausführung dieser Aktion kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
-	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?"
+	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
+	"bs-social-specialpagelisting-socialentities-show": "Anzeigen",
+	"bs-social-specialpagelisting-socialentities-hide": "Verstecken"
 }
