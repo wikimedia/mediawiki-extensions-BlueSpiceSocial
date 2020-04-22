@@ -1,6 +1,5 @@
 <?php
 
-
 namespace BlueSpice\Social\Privacy\Job;
 
 use BlueSpice\Services;
