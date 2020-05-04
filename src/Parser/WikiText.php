@@ -2,6 +2,8 @@
 
 namespace BlueSpice\Social\Parser;
 
+use MWTidy;
+
 /**
  * WikiText class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
