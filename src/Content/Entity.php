@@ -66,7 +66,7 @@ class Entity extends \BlueSpice\Content\Entity {
 	 */
 	protected function fillParserOutput( \Title $title, $revId,
 		\ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
-		$oEntity = Services::getInstance()->getBSEntityFactory()
+		$oEntity = Services::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $title );
 		if ( !$oEntity instanceof SocialEntity ) {
 			return;

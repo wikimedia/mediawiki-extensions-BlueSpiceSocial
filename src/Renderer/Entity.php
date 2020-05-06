@@ -74,7 +74,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		$this->args[static::CHILDREN] = '';
 		$this->args[static::ACTIONS] = '';
 		$owner = $this->getEntity()->getOwner();
-		$userHelper = $this->getServices()->getBSUtilityFactory()
+		$userHelper = $this->getServices()->getService( 'BSUtilityFactory' )
 			->getUserHelper( $owner );
 		$this->args[static::AUTHOR] = $userHelper->getDisplayName();
 		// TODO: Use linker - needs change in all mustache templates!
@@ -222,7 +222,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return string
 	 */
 	protected function render_userimage( $val ) {
-		$factory = $this->getServices()->getBSRendererFactory();
+		$factory = $this->getServices()->getService( 'BSRendererFactory' );
 		$user = User::newFromId( $this->getEntity()->get(
 			SocialEntity::ATTR_OWNER_ID,
 			0
@@ -381,7 +381,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return EntityList
 	 */
 	protected function getChildListRenderer() {
-		return $this->getServices()->getBSRendererFactory()->get(
+		return $this->getServices()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [
 				EntityList::PARAM_CONTEXT => $this->getChildListContext(),
@@ -486,7 +486,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return EntityActions
 	 */
 	protected function getActionsRenderer() {
-		return $this->getServices()->getBSRendererFactory()->get(
+		return $this->getServices()->getService( 'BSRendererFactory' )->get(
 			'entityactions',
 			new Params( [
 				EntityActions::PARAM_ENTITY => $this->getEntity(),

@@ -72,7 +72,7 @@ class ResourceCollector {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
-		$configFactory = Services::getInstance()->getBSEntityConfigFactory();
+		$configFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
 		foreach ( $registry->getAllKeys() as $sType ) {
 			$oConfig = $configFactory->newFromType( $sType );
 			if ( !$oConfig ) {

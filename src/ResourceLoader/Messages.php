@@ -43,7 +43,7 @@ class Messages extends \ResourceLoaderModule {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
-		$configFactory = Services::getInstance()->getBSEntityConfigFactory();
+		$configFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
 
 		foreach ( $registry->getAllKeys() as $type ) {
 			$config = $configFactory->newFromType( $type );

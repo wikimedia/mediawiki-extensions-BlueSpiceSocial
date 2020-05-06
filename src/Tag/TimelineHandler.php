@@ -39,7 +39,7 @@ class TimelineHandler extends Handler {
 			$this->processedArgs,
 			[ 'context' => $this->context ]
 		);
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( $params )
 		);

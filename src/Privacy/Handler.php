@@ -42,7 +42,7 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
+			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -71,7 +71,7 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
+			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -107,7 +107,7 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getBSEntityFactory()->newFromObject( $data );
+			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity\Text ) {
 				continue;
 			}
@@ -133,7 +133,7 @@ class Handler implements IPrivacyHandler {
 			\RequestContext::getMain(),
 			Services::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
 		);
-		$serviceUser = Services::getInstance()->getBSUtilityFactory()
+		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\PrivacyHandler(

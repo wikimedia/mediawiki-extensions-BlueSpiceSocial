@@ -49,7 +49,7 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		// somewhere else (a table), and only the actual content in wikipages
 		$services = Services::getInstance();
 		foreach ( $titles as $title ) {
-			$entity = $services->getBSEntityFactory()
+			$entity = $services->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $title );
 			if ( !$entity instanceof \BlueSpice\Social\Entity || !$entity->exists() ) {
 				continue;

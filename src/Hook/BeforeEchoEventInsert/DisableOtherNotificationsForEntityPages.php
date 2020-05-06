@@ -19,7 +19,7 @@ class DisableOtherNotificationsForEntityPages extends BeforeEchoEventInsert {
 		if ( $this->event->getTitle()->getNamespace() !== NS_SOCIALENTITY ) {
 			return true;
 		}
-		$entity = $this->getServices()->getBSEntityFactory()->newFromSourceTitle(
+		$entity = $this->getServices()->getService( 'BSEntityFactory' )->newFromSourceTitle(
 			$this->event->getTitle()
 		);
 		if ( !$entity || !$entity->exists() ) {

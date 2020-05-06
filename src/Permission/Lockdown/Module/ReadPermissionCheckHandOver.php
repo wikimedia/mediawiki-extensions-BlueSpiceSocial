@@ -44,7 +44,7 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	public static function getInstance( Config $config, IContextSource $context,
 		Services $services, array $entityFactory = null ) {
 		if ( !$entityFactory ) {
-			$entityFactory = $services->getBSEntityFactory();
+			$entityFactory = $services->getService( 'BSEntityFactory' );
 		}
 
 		return new static(
