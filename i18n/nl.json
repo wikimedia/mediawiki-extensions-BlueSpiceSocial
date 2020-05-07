@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Mainframe98",
+			"PonkoSasuke",
 			"RadioAzureus",
-			"Siebrand",
-			"Mainframe98"
+			"Siebrand"
 		]
 	},
 	"action-social-deleteothers": "handelingen van anderen te verwijderen",
@@ -40,5 +41,6 @@
 	"bs-social-select2-overwrites-searching": "Zoeken...",
 	"bs-extendedsearch-search-center-result-owner-label": "Eigenaar:",
 	"bs-social-renderer-timestampprefix-created": "Aangemaakt",
-	"bs-social-renderer-timestampprefix-touched": "Bewerkt"
+	"bs-social-renderer-timestampprefix-touched": "Bewerkt",
+	"bs-social-specialpagelisting-socialentities-show": "Weergeven"
 }

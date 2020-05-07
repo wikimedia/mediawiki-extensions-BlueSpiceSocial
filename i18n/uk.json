@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата",
-			"Piramidion"
+			"Movses",
+			"Piramidion",
+			"Ата"
 		]
 	},
 	"bs-social-desc": "Базове розширення для соціальних розширень",
@@ -81,5 +82,8 @@
 	"prefs-social": "Хронологія",
 	"bs-social-pref-warnonleave": "Попереджати мене, коли я покидаю редагування запису без збереження змін.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Виконання цієї дії може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни і продовжити?",
-	"bs-social-editwarnonleave-confirmtext": "Якщо покинете цю сторінку, це може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни і продовжити?"
+	"bs-social-editwarnonleave-confirmtext": "Якщо покинете сторінку, це може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни та продовжити?",
+	"bs-social-specialpagelisting-socialentities": "$1 соціальні сутності",
+	"bs-social-specialpagelisting-socialentities-show": "Показати",
+	"bs-social-specialpagelisting-socialentities-hide": "Сховати"
 }
