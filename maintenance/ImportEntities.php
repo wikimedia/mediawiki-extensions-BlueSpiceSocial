@@ -34,10 +34,9 @@ class ImportEntities extends Maintenance {
 				$oStatus = $oEntity->save();
 				if ( $oStatus->isOK() ) {
 					$this->output( '.' );
-				}
- else {
+				} else {
 					$this->output( 'F' );
-	}
+				}
 			}
 		}
 	}
