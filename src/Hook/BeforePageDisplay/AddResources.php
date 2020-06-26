@@ -28,6 +28,7 @@ class AddResources extends BeforePageDisplay {
 		$this->out->addModules( 'ext.bluespice.social.messages' );
 		$this->out->addModules( 'ext.bluespice.social.timeline' );
 		$this->out->addModuleStyles( 'ext.bluespice.social.timeline.styles' );
+		$this->addLegacyResources();
 		// isLoaded is not working correctly
 		// also this modules can not be loaded within JS because stuff breaks
 		$extensions = \ExtensionRegistry::getInstance()->getAllThings();
@@ -43,4 +44,36 @@ class AddResources extends BeforePageDisplay {
 		);
 		return true;
 	}
+
+	/**
+	 * DEPRECATED
+	 * @deprecated since version 3.2
+	 */
+	private function addLegacyResources() {
+		if ( empty( $GLOBALS['wgHooks']['BSSocialModuleDepths'] ) ) {
+			return;
+		}
+		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
+		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
+		\Hooks::run( 'BSSocialModuleDepths', [
+			// deprecated
+			$this->getContext()->getOutput(),
+			// deprecated
+			$this->getContext()->getSkin(),
+			&$aConfig,
+			&$aScripts,
+			&$aStyles,
+			&$aVarMsgKeys,
+		] );
+		if ( !empty( $aConfig ) ) {
+			$this->out->addJsConfigVars( $aConfig );
+		}
+		if ( !empty( $aScripts ) ) {
+			$this->out->addModules( $aScripts );
+		}
+		if ( !empty( $aVarMsgKeys ) ) {
+			$this->out->addModuleStyles( $aVarMsgKeys );
+		}
+	}
+
 }
