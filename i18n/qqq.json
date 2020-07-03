@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Patric Wirth"
 		]
 	},
@@ -61,7 +62,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Tooltip, that resets the date filter to setting \"today\"",
 	"bs-social-entitylistmore-linklabel": "Label for button, that either loads more items or links to another page, that contains more items.\n{{notranslate}}",
 	"bs-social-filter-owner-val-all": "Label for \"all\" option in owner selection filter, wich lists all entries from all users.\n{{Identical|All}}",
-	"bs-social-filter-owner-val-mine": "Label for \"mine\" option in owner selection filter, wich lists only all entries the user owns.\n{{Identical|Mine}}",
+	"bs-social-filter-owner-val-mine": "Label for \"mine\" option in owner selection filter, which lists only all entries the user owns.",
 	"bs-social-filter-date-label-from": "Label for \"from\" date filter, which shows only entries, that are younger then the given date.\n* $1 - Given date, the filter refers to",
 	"bs-social-filter-date-label-to": "Label for \"to\" date filter, which shows only entries, that are older then the given date.\n* $1 - Given date, the filter refers to",
 	"bs-social-filter-archived-val-archived": "Label for \"archived\" option in archived selection filter, wich lists only entries that are marked as archived.",
@@ -86,7 +87,7 @@
 	"bs-social-pref-warnonleave": "Label for the checkbox field in user preferences that enables a warning whenever an entry was modified and the user leaves the page or changes the timeline filters.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Text in dialog, that informs the user, that the changes the user made may will be lost if the user performs this action. Must end in the question, if the user wants to discard the changes and continue",
 	"bs-social-editwarnonleave-confirmtext": "Text in dialog, that informs the user, that the changes the user made will be lost if the user leaves the current page. Must end in the question, if the user wants to discard the changes and continue",
-	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}\n{{Identical|$1 social entities}}",
+	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}",
 	"bs-social-specialpagelisting-socialentities-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}\n{{Identical|Show}}",
 	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}"
 }
