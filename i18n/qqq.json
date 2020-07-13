@@ -28,7 +28,7 @@
 	"bs-social-editor-advanced": "Label for button, that shows/hides advanced option on entries.\n{{Identical|Advanced}}",
 	"bs-social-editor-ok": "Label for button, that saves the edit of the entry.\n{{Identical|Post}}",
 	"bs-social-editor-cancel": "Label for button, that cancels the edit of the entry.\n{{Identical|Cancel}}",
-	"bs-social-entityactions-label": "Label for the summary of actions that can be performed on the entry.\n{{Identical|Actions}}",
+	"bs-social-entityactions-label": "Label for the summary of actions that can be performed on the entry.",
 	"bs-social-entityaction-edit": "Label for action \"edit\" that can be performed on the entry.\n{{Identical|Edit}}",
 	"bs-social-entityaction-delete": "Label for action \"delete\" that can be performed on the entry.\n{{Identical|Delete}}",
 	"bs-social-entityaction-delete-confirmtext": "Deletion confirmation text that asks the user, if this entry really should be deleted",
