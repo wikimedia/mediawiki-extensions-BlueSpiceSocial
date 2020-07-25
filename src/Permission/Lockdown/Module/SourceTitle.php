@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\Permission\Lockdown\Module;
 
+use MediaWiki\MediaWikiServices;
 use Message;
 use Title;
 use User;
@@ -30,7 +31,13 @@ class SourceTitle extends \BlueSpice\Permission\Lockdown\Module {
 			return false;
 		}
 		// No one should be able to modify this articles besides a sysop
-		return $action !== 'wikiadmin' && !$user->isAllowed( 'wikiadmin' );
+		if ( $action === 'wikiadmin' ) {
+			return false;
+		}
+		return !MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
+			$user,
+			'wikiadmin'
+		);
 	}
 
 	/**

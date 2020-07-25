@@ -39,6 +39,7 @@ use BsNamespaceHelper;
 use Exception;
 use Hooks;
 use JobQueueGroup;
+use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 use RequestContext;
@@ -467,7 +468,11 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			return $oStatus;
 		}
 
-		if ( !$oUser->isAllowed( $sPermission ) ) {
+		$isAllowed = MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
+			$oUser,
+			$sPermission
+		);
+		if ( !$isAllowed ) {
 			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed',
 				$sAction
