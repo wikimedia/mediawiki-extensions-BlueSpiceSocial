@@ -26,5 +26,6 @@
 	"bs-social-filter-date-label-from": "$1 fra",
 	"bs-social-filter-date-label-to": "$1 til",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
-	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
+	"bs-social-option-direction-label": "Retning"
 }
