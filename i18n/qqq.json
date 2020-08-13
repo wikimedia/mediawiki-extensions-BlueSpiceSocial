@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Patric Wirth"
+			"Patric Wirth",
+			"Umherirrender"
 		]
 	},
 	"bs-social-desc": "{{desc|name=BlueSpiceSocial}}",
@@ -60,7 +61,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Tooltip for button, that adds all items to the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Tooltip for button, that removes all items from the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Tooltip, that resets the date filter to setting \"today\"",
-	"bs-social-entitylistmore-linklabel": "Label for button, that either loads more items or links to another page, that contains more items.\n{{notranslate}}",
+	"bs-social-entitylistmore-linklabel": "Label for button, that either loads more items or links to another page, that contains more items.\n{{optional}}",
 	"bs-social-filter-owner-val-all": "Label for \"all\" option in owner selection filter, wich lists all entries from all users.\n{{Identical|All}}",
 	"bs-social-filter-owner-val-mine": "Label for \"mine\" option in owner selection filter, which lists only all entries the user owns.",
 	"bs-social-filter-date-label-from": "Label for \"from\" date filter, which shows only entries, that are younger then the given date.\n* $1 - Given date, the filter refers to",
@@ -83,7 +84,7 @@
 	"right-social-deleteothers": "{{doc-right|social-deleteothers}}",
 	"right-social-editothers": "{{doc-right|social-editothers}}",
 	"right-social-source": "{{doc-right|social-source}}",
-	"prefs-social": "Preferences section header for Timeline.\n{{notranslate}}",
+	"prefs-social": "Preferences section header for Timeline.",
 	"bs-social-pref-warnonleave": "Label for the checkbox field in user preferences that enables a warning whenever an entry was modified and the user leaves the page or changes the timeline filters.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Text in dialog, that informs the user, that the changes the user made may will be lost if the user performs this action. Must end in the question, if the user wants to discard the changes and continue",
 	"bs-social-editwarnonleave-confirmtext": "Text in dialog, that informs the user, that the changes the user made will be lost if the user leaves the current page. Must end in the question, if the user wants to discard the changes and continue",
