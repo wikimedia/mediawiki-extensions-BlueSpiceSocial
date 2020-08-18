@@ -8,7 +8,7 @@
 	"echo-category-title-bs-social-entity-cat": "Beitragsaktionen auf beobachtet Seiten",
 	"bs-social-notifications-entity-create": "Beitrag vom Typ „$1“ wurde erstellt",
 	"bs-social-notifications-email-entity-create-subject": "Beitrag vom Typ „$1“ wurde erstellt",
-	"bs-social-notifications-email-entity-create-body": "User {{GENDER:$1|$2 has created}} a new \"$3\"",
+	"bs-social-notifications-email-entity-create-body": "Benutzer {{GENDER:$1|$2 hat}} ein neue „$3“ erstellt",
 	"bs-social-notifications-email-entity-create-text-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ „$3“ mit folgendem Text erstellt:\n$4",
 	"bs-social-notifications-web-entity-create-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ „$3“ erstellt",
 	"bs-social-notifications-entity-edit": "Beitrag vom Typ „$1“ wurde bearbeitet",
