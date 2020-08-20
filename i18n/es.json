@@ -7,6 +7,7 @@
 	},
 	"activities": "Actividades",
 	"bs-social-pref-datedisplaymode-mode-mw": "Mostrar como fecha",
+	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:",
 	"bs-social-entitytext-header-create": "Entrada nueva",
 	"bs-social-var-id": "Identificación",
 	"bs-social-var-ownerid": "Propietario",
