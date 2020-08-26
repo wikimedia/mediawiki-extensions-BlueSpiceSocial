@@ -17,6 +17,7 @@ use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
 use MWException;
+use RequestContext;
 use User;
 
 class Entity extends \BlueSpice\Renderer\Entity {
@@ -87,7 +88,11 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		if ( $this->isUserOwner() ) {
 			$this->args[static::PARAM_CLASS] .= ' owned';
 		}
-		$this->args[static::HEADER] = $this->getEntity()->getHeader()->parse();
+		$msg = $this->getEntity()->getHeader();
+		// make sure to explicitly use global context for header messages to remove
+		// "self linkes" when added by parser tag i.e.
+		$msg->setContext( RequestContext::getMain() );
+		$this->args[static::HEADER] = $msg->parse();
 	}
 
 	/**
