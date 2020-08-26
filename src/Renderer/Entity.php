@@ -18,6 +18,7 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\Renderer\UserImage;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Social\EntityListContext\Children;
+use RequestContext;
 
 class Entity extends \BlueSpice\Renderer\Entity {
 	const NO_TEMPLATE_CACHE = 'notemplatecache';
@@ -87,7 +88,11 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		if ( $this->isUserOwner() ) {
 			$this->args[static::PARAM_CLASS] .= ' owned';
 		}
-		$this->args[static::HEADER] = $this->getEntity()->getHeader()->parse();
+		$msg = $this->getEntity()->getHeader();
+		// make sure to explicitly use global context for header messages to remove
+		// "self linkes" when added by parser tag i.e.
+		$msg->setContext( RequestContext::getMain() );
+		$this->args[static::HEADER] = $msg->parse();
 	}
 
 	/**
