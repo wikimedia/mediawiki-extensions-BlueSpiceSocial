@@ -13,9 +13,9 @@ namespace BlueSpice\Social\EntityAttachment;
 
 use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
 use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
-use BlueSpice\Services;
 use BlueSpice\Social\EntityAttachment;
 use Html;
+use MediaWiki\MediaWikiServices;
 
 /**
  * This view renders the a single item.
@@ -72,7 +72,7 @@ class Link extends EntityAttachment {
 			ArticlePreviewImage::WIDTH => 100,
 			ArticlePreviewImage::TITLETEXT => $this->mAttachment->getFullText(),
 		];
-		$dfdUrlBuilder = Services::getInstance()
+		$dfdUrlBuilder = MediaWikiServices::getInstance()
 			->getService( 'BSDynamicFileDispatcherUrlBuilder' );
 		return $dfdUrlBuilder->build(
 			new DFDParams( $params )

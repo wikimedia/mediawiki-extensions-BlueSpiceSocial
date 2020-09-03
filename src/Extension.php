@@ -29,7 +29,7 @@
 
 namespace BlueSpice\Social;
 
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 class Extension extends \BlueSpice\Extension {
 
@@ -80,7 +80,7 @@ class Extension extends \BlueSpice\Extension {
 	 */
 	public static function getMaintenanceUser() {
 		wfDeprecated( __METHOD__, '3.0.0' );
-		return Services::getInstance()->getService( 'BSUtilityFactory' )
+		return MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 	}
 
@@ -126,7 +126,7 @@ HEREDOC;
 		if ( !$title || $title->getNamespace() !== NS_SOCIALENTITY ) {
 			return true;
 		}
-		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
+		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $title );
 		if ( !$entity || !$entity->exists() ) {
 			return true;

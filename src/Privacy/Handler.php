@@ -6,10 +6,10 @@ use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Data\ReaderParams;
 use BlueSpice\Privacy\IPrivacyHandler;
 use BlueSpice\Privacy\Module\Transparency;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\Privacy\Job\DeleteEntity;
+use MediaWiki\MediaWikiServices;
 
 class Handler implements IPrivacyHandler {
 	/**
@@ -42,7 +42,8 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
+			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+				->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -71,7 +72,8 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
+			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+				->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -107,7 +109,8 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject( $data );
+			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+				->newFromObject( $data );
 			if ( !$entity instanceof Entity\Text ) {
 				continue;
 			}
@@ -131,9 +134,9 @@ class Handler implements IPrivacyHandler {
 	protected function getAllEntities() {
 		$context = new \BlueSpice\Context(
 			\RequestContext::getMain(),
-			Services::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
+			MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
 		);
-		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$serviceUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\PrivacyHandler(

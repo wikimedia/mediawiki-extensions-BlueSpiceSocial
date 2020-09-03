@@ -4,8 +4,8 @@ $IP = dirname( dirname( dirname( __DIR__ ) ) );
 
 require_once "$IP/maintenance/Maintenance.php";
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
+use MediaWiki\MediaWikiServices;
 
 class RebuildEntities extends Maintenance {
 
@@ -25,12 +25,12 @@ class RebuildEntities extends Maintenance {
 	public function execute() {
 		$this->output( "\nThis may or may not fix all the problems...\n\n" );
 
-		$user = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		\RequestContext::getMain()->setUser( $user );
 
 		foreach ( $this->getTitles() as $title ) {
-			$entity = Services::getInstance()->getService( 'BSEntityFactory' )
+			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $title );
 			if ( !$entity instanceof Entity ) {
 				continue;

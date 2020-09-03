@@ -31,8 +31,8 @@
  */
 namespace BlueSpice\Social\Entity;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
+use MediaWiki\MediaWikiServices;
 use Status;
 use User;
 
@@ -105,7 +105,7 @@ abstract class Page extends Entity {
 	public function save( User $user = null, $options = [] ) {
 		// always use the maintenance user for page entities to prevent
 		// unrealistic edit statistics for users
-		$user = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		return parent::save( $user, $options );
 	}
