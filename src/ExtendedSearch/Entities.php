@@ -3,9 +3,9 @@
 namespace BlueSpice\Social\ExtendedSearch;
 
 use BlueSpice\EntityFactory;
-use BlueSpice\Services;
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 use Entity;
+use MediaWiki\MediaWikiServices;
 
 class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 
@@ -72,7 +72,7 @@ class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 	 */
 	public function getFormatter() {
 		/** @var EntityFactory $entityFactory */
-		$entityFactory = Services::getInstance()->getService( 'BSEntityFactory' );
+		$entityFactory = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' );
 		return new Formatter\EntityFormatter( $this, $entityFactory );
 	}
 

@@ -3,10 +3,10 @@
 namespace BlueSpice\Social\Permission\Lockdown\Module;
 
 use BlueSpice\EntityFactory;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use Config;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use Message;
 use Title;
 use User;
@@ -23,11 +23,11 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	 *
 	 * @param Config $config
 	 * @param IContextSource $context
-	 * @param Services $services
+	 * @param MediaWikiServices $services
 	 * @param EntityFactory $entityFactory
 	 */
-	protected function __construct( Config $config, IContextSource $context, Services $services,
-		EntityFactory $entityFactory ) {
+	protected function __construct( Config $config, IContextSource $context,
+		MediaWikiServices $services, EntityFactory $entityFactory ) {
 		parent::__construct( $config, $context, $services );
 
 		$this->entityFactory = $entityFactory;
@@ -37,12 +37,12 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	 *
 	 * @param Config $config
 	 * @param IContextSource $context
-	 * @param Services $services
+	 * @param MediaWikiServices $services
 	 * @param EntityFactory|null $entityFactory
 	 * @return \static
 	 */
 	public static function getInstance( Config $config, IContextSource $context,
-		Services $services, array $entityFactory = null ) {
+		MediaWikiServices $services, array $entityFactory = null ) {
 		if ( !$entityFactory ) {
 			$entityFactory = $services->getService( 'BSEntityFactory' );
 		}

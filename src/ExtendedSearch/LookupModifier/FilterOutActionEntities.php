@@ -3,13 +3,15 @@
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
-use BlueSpice\Services;
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use MediaWiki\MediaWikiServices;
 
 class FilterOutActionEntities extends LookupModifierBase {
 
 	public function apply() {
-		$entityConfigFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
+		$entityConfigFactory = MediaWikiServices::getInstance()->getService(
+			'BSEntityConfigFactory'
+		);
 
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'

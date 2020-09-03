@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Crawler;
 
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 	protected $sJobClass = "\\BlueSpice\\Social\\ExtendedSearch\\Job\\Entity";
@@ -15,7 +15,7 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 	 *
 	 */
 	public function crawl() {
-		$dbr = Services::getInstance()->getDBLoadBalancer()->getConnection(
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection(
 			DB_REPLICA
 		);
 		$res = $dbr->select(
@@ -47,7 +47,7 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		// the content of each page to determine parent_id.
 		// Would be nice to have these relationships ( and other metadata )
 		// somewhere else (a table), and only the actual content in wikipages
-		$services = Services::getInstance();
+		$services = MediaWikiServices::getInstance();
 		foreach ( $titles as $title ) {
 			$entity = $services->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $title );

@@ -27,8 +27,8 @@
 namespace BlueSpice\Social\ResourceLoader;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
-use BlueSpice\Services;
 use BlueSpice\Social\EntityConfig;
+use MediaWiki\MediaWikiServices;
 
 class Messages extends \ResourceLoaderModule {
 	/**
@@ -43,7 +43,7 @@ class Messages extends \ResourceLoaderModule {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
-		$configFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
+		$configFactory = MediaWikiServices::getInstance()->getService( 'BSEntityConfigFactory' );
 
 		foreach ( $registry->getAllKeys() as $type ) {
 			$config = $configFactory->newFromType( $type );

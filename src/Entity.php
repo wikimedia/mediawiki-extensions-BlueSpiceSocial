@@ -33,7 +33,6 @@ namespace BlueSpice\Social;
 
 use BlueSpice\Context;
 use BlueSpice\Data\ReaderParams;
-use BlueSpice\Services;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
 use Exception;
@@ -210,7 +209,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function delete( User $oUser = null ) {
 		if ( !$oUser instanceof User ) {
-			$oUser = Services::getInstance()->getService( 'BSUtilityFactory' )
+			$oUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		$status = parent::delete( $oUser );
@@ -229,7 +228,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function undelete( User $user = null ) {
 		if ( !$user instanceof User ) {
-			$user = Services::getInstance()->getService( 'BSUtilityFactory' )
+			$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		return parent::undelete( $user );
@@ -296,7 +295,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			RequestContext::getMain(),
 			$this->getConfig()
 		);
-		$user = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\Children(
@@ -455,7 +454,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 					'bs-social-entity-fatalstatus-permission-recursion'
 				) );
 			}
-			if ( !\MediaWiki\MediaWikiServices::getInstance()
+			if ( !MediaWikiServices::getInstance()
 				->getPermissionManager()
 				->userCan( $sPermission, $oUser, $oTitle )
 			) {

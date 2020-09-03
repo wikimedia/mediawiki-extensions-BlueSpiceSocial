@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\Tag;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Renderer\Entity as EntityRenderer;
 use BlueSpice\Tag\Handler;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Parser;
 use PPFrame;
@@ -27,10 +27,8 @@ class SocialEntityHandler extends Handler {
 	public function __construct( $processedInput, array $processedArgs, Parser $parser,
 		PPFrame $frame ) {
 		parent::__construct( $processedInput, $processedArgs, $parser, $frame );
-		$this->entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromID(
-			$processedArgs[Entity::ATTR_ID],
-			NS_SOCIALENTITY
-		);
+		$this->entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+			->newFromID( $processedArgs[Entity::ATTR_ID], NS_SOCIALENTITY );
 		if ( !$this->entity instanceof Entity ) {
 			new MWException(
 				"Non existent or invalid entity for '" . Entity::ATTR_ID . "'"

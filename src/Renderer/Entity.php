@@ -5,7 +5,6 @@ namespace BlueSpice\Social\Renderer;
 use BlueSpice\Context;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Renderer\UserImage;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Social\EntityListContext\Children;
 use BlueSpice\Timestamp;
@@ -16,6 +15,7 @@ use Hooks;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use RequestContext;
 use User;
@@ -428,10 +428,10 @@ class Entity extends \BlueSpice\Renderer\Entity {
 
 	/**
 	 *
-	 * @return Services
+	 * @return MediaWikiServices
 	 */
 	protected function getServices() {
-		return Services::getInstance();
+		return MediaWikiServices::getInstance();
 	}
 
 	/**

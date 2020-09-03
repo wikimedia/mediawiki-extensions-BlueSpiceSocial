@@ -30,7 +30,7 @@
 namespace BlueSpice\Social;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 /**
  * ResourceCollector class for BlueSpiceSocial extension
@@ -72,7 +72,7 @@ class ResourceCollector {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
-		$configFactory = Services::getInstance()->getService( 'BSEntityConfigFactory' );
+		$configFactory = MediaWikiServices::getInstance()->getService( 'BSEntityConfigFactory' );
 		foreach ( $registry->getAllKeys() as $sType ) {
 			$oConfig = $configFactory->newFromType( $sType );
 			if ( !$oConfig ) {
