@@ -3,9 +3,9 @@
 namespace BlueSpice\Social\Tag;
 
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Tag\Handler;
+use MediaWiki\MediaWikiServices;
 use Parser;
 use PPFrame;
 
@@ -39,7 +39,7 @@ class TimelineHandler extends Handler {
 			$this->processedArgs,
 			[ 'context' => $this->context ]
 		);
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( $params )
 		);

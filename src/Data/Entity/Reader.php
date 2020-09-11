@@ -6,10 +6,10 @@ use BlueSpice\Data\ISecondaryDataProvider;
 use BlueSpice\Data\ReaderParams;
 use BlueSpice\Data\ResultSet;
 use BlueSpice\EntityFactory;
-use BlueSpice\Services;
 use BS\ExtendedSearch\Backend;
 use Config;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 
 class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 
@@ -59,7 +59,7 @@ class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 	 */
 	protected function makeSecondaryDataProvider() {
 		return new SecondaryDataProvider(
-			Services::getInstance()->getLinkRenderer()
+			MediaWikiServices::getInstance()->getLinkRenderer()
 		);
 	}
 

@@ -3,11 +3,11 @@
 namespace BlueSpice\Social\Data\Entity;
 
 use BlueSpice\EntityFactory;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BS\ExtendedSearch\Backend;
 use BS\ExtendedSearch\Data\PrimaryDataProvider as SearchPrimaryDataProvider;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use User;
 
 class PrimaryDataProvider extends SearchPrimaryDataProvider {
@@ -69,7 +69,7 @@ class PrimaryDataProvider extends SearchPrimaryDataProvider {
 	 * @return bool
 	 */
 	protected function isSystemUser( User $user ) {
-		return Services::getInstance()->getService( 'BSUtilityFactory' )
+		return MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->isMaintenanceUser( $user );
 	}
 

@@ -1,8 +1,8 @@
 <?php
 namespace BlueSpice\Social\Content;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity as SocialEntity;
+use MediaWiki\MediaWikiServices;
 
 class Entity extends \BlueSpice\Content\Entity {
 
@@ -66,7 +66,7 @@ class Entity extends \BlueSpice\Content\Entity {
 	 */
 	protected function fillParserOutput( \Title $title, $revId,
 		\ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
-		$oEntity = Services::getInstance()->getService( 'BSEntityFactory' )
+		$oEntity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $title );
 		if ( !$oEntity instanceof SocialEntity ) {
 			return;

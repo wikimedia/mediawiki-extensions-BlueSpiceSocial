@@ -11,8 +11,8 @@
  */
 namespace BlueSpice\Social;
 
-use BlueSpice\Services;
 use BlueSpice\TemplateFactory;
+use MediaWiki\MediaWikiServices;
 
 /**
  * This view renders the a single item.
@@ -76,7 +76,9 @@ class EntityAttachment {
 			return null;
 		}
 		if ( !$templateFactory ) {
-			$templateFactory = Services::getInstance()->getService( 'BSTemplateFactory' );
+			$templateFactory = MediaWikiServices::getInstance()->getService(
+				'BSTemplateFactory'
+			);
 		}
 
 		$oInstance = new $aRegisteredAttachments[$sType](

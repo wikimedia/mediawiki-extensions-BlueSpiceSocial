@@ -28,7 +28,6 @@
 namespace BlueSpice\Social\Api\Task;
 
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\Renderer\EntityList;
@@ -354,13 +353,5 @@ class Entities extends \BSApiTasksBase {
 	 */
 	protected function getEntityFactory() {
 		return $this->getServices()->getService( 'BSEntityFactory' );
-	}
-
-	/**
-	 *
-	 * @return Services
-	 */
-	protected function getServices() {
-		return Services::getInstance();
 	}
 }

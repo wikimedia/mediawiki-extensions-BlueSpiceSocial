@@ -1,7 +1,7 @@
 <?php
 namespace BlueSpice\Social;
 
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 abstract class Job extends \Job {
 	protected $oEntity = null;
@@ -29,7 +29,7 @@ abstract class Job extends \Job {
 	 */
 	public function getEntity() {
 		if ( !$this->oEntity ) {
-			$this->oEntity = Services::getInstance()->getService( 'BSEntityFactory' )
+			$this->oEntity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 				->newFromSourceTitle( $this->getTitle() );
 		}
 		if ( !$this->oEntity ) {

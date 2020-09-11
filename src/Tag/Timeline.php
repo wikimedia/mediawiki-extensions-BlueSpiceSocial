@@ -3,11 +3,11 @@
 namespace BlueSpice\Social\Tag;
 
 use BlueSpice\ParamProcessor\ParamDefinition;
-use BlueSpice\Services;
 use BlueSpice\Social\EntityListContext\Tag as TagListContext;
 use BlueSpice\Tag\MarkerType;
 use BlueSpice\Tag\MarkerType\NoWiki;
 use FormatJson;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Parser;
 use PPFrame;
@@ -93,7 +93,7 @@ class Timeline extends \BlueSpice\Tag\Tag {
 
 		$context = new TagListContext(
 			RequestContext::getMain(),
-			Services::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
+			MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
 		);
 
 		return new TimelineHandler(

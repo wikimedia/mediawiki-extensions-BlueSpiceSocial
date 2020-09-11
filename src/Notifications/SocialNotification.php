@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Notifications;
 
 use BlueSpice\BaseNotification;
 use BlueSpice\Social\Entity as SocialEntity;
+use MediaWiki\MediaWikiServices;
 
 class SocialNotification extends BaseNotification {
 	const ACTION_EDIT = 'edit';
@@ -60,7 +61,7 @@ class SocialNotification extends BaseNotification {
 		$this->user = $agent;
 		$this->action = $action;
 
-		$realname = \BlueSpice\Services::getInstance()->getService( 'BSUtilityFactory' )
+		$realname = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getUserHelper( $this->user )->getDisplayName();
 
 		$this->realname = $realname;
@@ -161,7 +162,7 @@ class SocialNotification extends BaseNotification {
 					continue;
 				}
 
-				if ( \MediaWiki\MediaWikiServices::getInstance()
+				if ( MediaWikiServices::getInstance()
 					->getPermissionManager()
 					->userCan( 'read', $user, $title ) == false
 				) {

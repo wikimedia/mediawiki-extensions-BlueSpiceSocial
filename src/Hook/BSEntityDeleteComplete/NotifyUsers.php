@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Hook\BSEntityDeleteComplete;
 
 use BlueSpice\Hook\BSEntityDeleteComplete;
 use BlueSpice\Social\Notifications\SocialNotification;
+use MediaWiki\MediaWikiServices;
 
 class NotifyUsers extends BSEntityDeleteComplete {
 	protected function skipProcessing() {
@@ -19,7 +20,7 @@ class NotifyUsers extends BSEntityDeleteComplete {
 	}
 
 	protected function doProcess() {
-		$isWatchEnabled = \BlueSpice\Services::getInstance()
+		$isWatchEnabled = MediaWikiServices::getInstance()
 			->getService( 'BSExtensionRegistry' )->hasName( "BlueSpiceSocialWatch" );
 
 		$notifyAll = false;
@@ -27,7 +28,9 @@ class NotifyUsers extends BSEntityDeleteComplete {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = \BlueSpice\Services::getInstance()->getService( 'BSNotificationManager' );
+		$notificationsManager = MediaWikiServices::getInstance()->getService(
+			'BSNotificationManager'
+		);
 
 		$notifier = $notificationsManager->getNotifier();
 

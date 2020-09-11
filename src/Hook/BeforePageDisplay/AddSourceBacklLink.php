@@ -3,8 +3,8 @@
 namespace BlueSpice\Social\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
+use MediaWiki\MediaWikiServices;
 
 class AddSourceBacklLink extends BeforePageDisplay {
 
@@ -18,7 +18,7 @@ class AddSourceBacklLink extends BeforePageDisplay {
 		if ( !$this->out->getTitle()->exists() ) {
 			return true;
 		}
-		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
+		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $this->out->getTitle() );
 		if ( !$entity instanceof Entity || !$entity->exists() ) {
 			return true;
@@ -27,7 +27,7 @@ class AddSourceBacklLink extends BeforePageDisplay {
 	}
 
 	protected function doProcess() {
-		$entity = Services::getInstance()->getService( 'BSEntityFactory' )
+		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $this->out->getTitle() );
 
 		$this->out->addBacklinkSubtitle(

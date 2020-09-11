@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Hook\BSEntitySaveComplete;
 
 use BlueSpice\Hook\BSEntitySaveComplete;
 use BlueSpice\Social\Notifications\SocialNotification;
+use MediaWiki\MediaWikiServices;
 
 class NotifyUsers extends BSEntitySaveComplete {
 	/**
@@ -44,7 +45,9 @@ class NotifyUsers extends BSEntitySaveComplete {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = \BlueSpice\Services::getInstance()->getService( 'BSNotificationManager' );
+		$notificationsManager = MediaWikiServices::getInstance()->getService(
+			'BSNotificationManager'
+		);
 
 		$notifier = $notificationsManager->getNotifier();
 

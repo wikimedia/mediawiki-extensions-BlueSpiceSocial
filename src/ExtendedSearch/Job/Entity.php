@@ -2,9 +2,9 @@
 
 namespace BlueSpice\Social\ExtendedSearch\Job;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\Job\UpdateTitleBase;
+use MediaWiki\MediaWikiServices;
 
 class Entity extends UpdateTitleBase {
 
@@ -45,8 +45,7 @@ class Entity extends UpdateTitleBase {
 	 * @return SocialEntity
 	 */
 	protected function getDocumentProviderSource() {
-		return Services::getInstance()->getService( 'BSEntityFactory' )->newFromSourceTitle(
-			$this->getTitle()
-		);
+		return MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+			->newFromSourceTitle( $this->getTitle() );
 	}
 }

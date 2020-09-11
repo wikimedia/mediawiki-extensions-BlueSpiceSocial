@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Privacy\Job;
 
-use BlueSpice\Services;
+use MediaWiki\MediaWikiServices;
 
 class DeleteEntity extends \Job {
 
@@ -19,12 +19,11 @@ class DeleteEntity extends \Job {
 	 *
 	 */
 	public function run() {
-		$entity = Services::getInstance()->getService( 'BSEntityFactory' )->newFromSourceTitle(
-			$this->title
-		);
+		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+			->newFromSourceTitle( $this->title );
 		$entity->set( \BlueSpice\Entity::ATTR_OWNER_ID, $this->params['deletedUserId'] );
 
-		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$serviceUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		$entity->save( $serviceUser );
 	}
