@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"MuratTheTurkish",
 			"Patric Wirth",
 			"Umherirrender"
 		]
@@ -20,7 +21,7 @@
 	"bs-social-var-archived": "Label for entry field \"archived\".\n{{Identical|Archived}}",
 	"bs-social-var-text": "Label for entry field \"text\".\n{{Identical|Content}}",
 	"bs-social-var-timestampcreated": "Label for entry field \"timestampcreated\".\n{{Identical|Creation date}}",
-	"bs-social-var-timestamptouched": "Label for entry field \"timestamptouched\".\n{{Identical|Edit date}}",
+	"bs-social-var-timestamptouched": "Label for entry field \"timestamptouched\".",
 	"bs-social-var-teasertext": "Label for entry field \"teasertext\".\n{{Identical|Teaser}}",
 	"bs-social-option-orderby-label": "Label for order by fieldname selection field.\n{{Identical|Sorting}}",
 	"bs-social-option-direction-label": "Label for order direction selection field.\n{{Identical|Direction}}",
