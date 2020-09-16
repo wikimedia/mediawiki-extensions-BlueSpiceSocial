@@ -20,7 +20,7 @@
 	"bs-social-var-type": "Label for entry field \"type\".\n{{Identical|Type}}",
 	"bs-social-var-archived": "Label for entry field \"archived\".\n{{Identical|Archived}}",
 	"bs-social-var-text": "Label for entry field \"text\".\n{{Identical|Content}}",
-	"bs-social-var-timestampcreated": "Label for entry field \"timestampcreated\".\n{{Identical|Creation date}}",
+	"bs-social-var-timestampcreated": "Label for entry field \"timestampcreated\".",
 	"bs-social-var-timestamptouched": "Label for entry field \"timestamptouched\".",
 	"bs-social-var-teasertext": "Label for entry field \"teasertext\".\n{{Identical|Teaser}}",
 	"bs-social-option-orderby-label": "Label for order by fieldname selection field.\n{{Identical|Sorting}}",
