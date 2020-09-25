@@ -527,7 +527,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 		$bAnon = $oUser->isAnon();
 
 		if ( $this->userCan( 'read', $oUser ) ) {
-			$aActions[] = 'read';
+			$aActions['read'] = [];
 		} else {
 			return $aActions;
 		}
@@ -539,7 +539,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 				$oStatus = $this->userCan( 'editothers', $oUser );
 			}
 			if ( $oStatus->isOK() ) {
-				$aActions[] = 'edit';
+				$aActions['edit'] = [];
 			}
 		}
 		if ( $this->getConfig()->get( 'IsDeleteable' ) && !$bAnon ) {
@@ -549,19 +549,19 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 				$oStatus = $this->userCan( 'deleteothers', $oUser );
 			}
 			if ( $oStatus->isOK() ) {
-				$aActions[] = 'delete';
+				$aActions['delete'] = [];
 			}
 		}
 		if ( $this->getConfig()->get( 'IsCreatable' ) && !$this->exists() && !$bAnon ) {
 			$oStatus = $this->userCan( 'create', $oUser );
 			if ( $oStatus->isOK() ) {
-				$aActions[] = 'create';
+				$aActions['create'] = [];
 			}
 		}
 		if ( $this->exists() && !$bAnon ) {
 			$oStatus = $this->userCan( 'source', $oUser );
 			if ( $oStatus->isOK() ) {
-				$aActions[] = 'source';
+				$aActions['source'] = [];
 			}
 		}
 

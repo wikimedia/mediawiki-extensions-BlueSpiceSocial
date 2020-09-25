@@ -56,100 +56,11 @@ bs.social.Entity.prototype.exists = function() {
 };
 
 bs.social.Entity.prototype.makeActionMenu = function() {
-	//TODO!
-	var me = this;
-	if( !me.exists() ) {
-		return null;
+	if( this.actionMenu ) {
+		return this.actionMenu;
 	}
-	var actions = me.data.get('actions', []);
-
-	if( !actions || actions.length < 1 ) {
-		return null;
-	}
-
-	var $actionsContainer = me.getContainer( me.ACTIONS_CONTAINER );
-	var $actions = $actionsContainer.children(
-		'.bs-social-entity-actions-content'
-	).first();
-	$actions.parent().show();
-	var html = '';
-	for( var i = 0; i < actions.length; i++ ) {
-		if( actions[i] === 'read' ) {
-			continue;
-		}
-		if( actions[i] === 'source' ) {
-			continue;
-		}
-		html += "<a href='#' class='bs-social-entity-" + actions[i] + "'>" + actions[i] + "</a>";
-	}
-	if ( html === '' ) {
-		$actions.parent().hide();
-	}
-
-	$actions.html( html );
-	$actions.find('a.bs-social-entity-delete').html(
-		mw.message(
-			me.data.get( 'archived' ) ? "bs-social-entityaction-undelete" : "bs-social-entityaction-delete"
-		).plain()
-	);
-	$actions.find('a.bs-social-entity-delete').click( function(e) {
-		var msg = me.getConfig().DeleteConfirmMessageKey;
-		if( me.data.get( 'archived' ) ) {
-			msg = me.getConfig().UnDeleteConfirmMessageKey
-		}
-		OO.ui.confirm( mw.message( msg ).plain() ).done( function ( confirmed ) {
-			if ( confirmed ) {
-				me.delete();
-			}
-		});
-
-		e.preventDefault();
-		return false;
-	});
-
-	$actions.find('a.bs-social-entity-edit').html(
-		mw.message( "bs-social-entityaction-edit").plain()
-	);
-	$actions.find('a.bs-social-entity-edit').click( function(e) {
-		if( me.editmode ) {
-			e.preventDefault();
-			return false;
-		}
-		me.makeEditMode();
-		e.preventDefault();
-		return false;
-	});
-
-	$actions.find('a.bs-social-entity-source').html( me.id );
-	$actions.find('a.bs-social-entity-source').click( function(e) {
-		if( me.editmode ) {
-			e.preventDefault();
-			return false;
-		}
-		window.location = mw.util.getUrl( 'SocialEntity:' + me.id );
-		e.preventDefault();
-		return false;
-	});
-
-	var $btn = $actionsContainer.find( '.bs-social-entity-actions-btn' ).first();
-	$(document).on( 'click', function( e ) {
-		if( $( e.target ).length < 1 || $btn.length < 1 ) {
-			return true;
-		}
-		if( $( e.target )[0] !== $btn[0] ) {
-			$actions.hide();
-			return true;
-		}
-		e.stopPropagation();
-		if( $actions.is( ':visible' ) ) {
-			$actions.hide();
-			return false;
-		}	
-		$actions.show();
-		return false;
-	});
-
-	return null;
+	this.actionMenu = new bs.social.EntityActionMenu( this.$el, this );
+	return this.actionMenu;
 };
 bs.social.Entity.prototype.reset = function() {
 	this.removeEditMode();
@@ -338,19 +249,19 @@ bs.social.Entity.prototype.makeEditMode = function() {
 
 bs.social.Entity.prototype.removeEditMode = function() {
 	this.editmode = false;
-	
+
 		if( this.wasSpawned ) {
 			this.removeEL();
 			return;
 		}
-	
+
 		this.getEl().removeClass( 'bs-social-entity-edit-mode' );
 
 		if( this.editor ) {
 			this.editor.$element.remove();
 			delete this.editor;
 		}
-	
+
 };
 
 bs.social.Entity.prototype.makeEditor = function() {

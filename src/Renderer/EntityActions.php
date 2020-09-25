@@ -58,14 +58,32 @@ class EntityActions extends \BlueSpice\Renderer {
 
 	protected function makeTagContent() {
 		$content = '';
-		$content .= Html::element( 'a', [
-			'class' => 'bs-social-entity-actions-btn',
-			'title' => $this->msg( 'bs-social-entityactions-label' )->plain(),
-			'href' => '#',
-		] );
 		$content .= Html::element( 'div', [
-			'class' => 'bs-social-entity-actions-content',
+			'class' => 'bs-social-entity-actions-menu-prio'
 		] );
+		$content .= Html::openElement( 'div', [
+			'class' => 'bs-social-entity-actions-menu'
+		] );
+
+		$content .= Html::openElement( 'div', [
+			'class' => 'dropdown'
+		] );
+		$content .= Html::openElement( 'button', [
+			'class' => 'btn btn-secondary dropdown-toggle',
+			'type' => 'button',
+			'data-toggle' => 'dropdown',
+			'aria-haspopup' => 'true',
+			'aria-expanded' => 'false',
+		] );
+		$content .= Html::element( 'span', [
+			'class' => 'caret'
+		] );
+		$content .= Html::closeElement( 'button' );
+		$content .= Html::element( 'ul', [
+			'class' => 'dropdown-menu bs-social-entity-actions-menu-content'
+		] );
+		$content .= Html::closeElement( 'div' );
+		$content .= Html::closeElement( 'div' );
 		return $content;
 	}
 }
