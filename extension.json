@@ -219,6 +219,9 @@
 			"scripts": [
 				"bluespice.social.El.js",
 				"bluespice.social.Entity.js",
+				"bluespice.social.EntityActionMenu.js",
+				"EntityActionMenu/Edit.js",
+				"EntityActionMenu/Delete.js",
 				"bluespice.social.EntityOutput.js",
 				"ui/EntityEditor.js"
 			],
