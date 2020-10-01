@@ -15,11 +15,11 @@ bs.social.EntityActionMenu.Edit = function ( entityActionMenu ) {
 	me.entityActionMenu = entityActionMenu;
 	me.$element = null;
 	me.priority = 20;
-	me.$element = $( '<li><a class="dropdown-item">'
-		+ mw.message( "bs-social-entityaction-edit").plain()
+	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-edit">'
+		+ '<span>' + mw.message( "bs-social-entityaction-edit" ).plain() + '</span>'
 		+ '</a></li>'
 	);
-	me.$element.on( 'click', function() { me.click(); } );
+	me.$element.on( 'click', function( e ) { me.click( e ); } );
 };
 
 OO.initClass( bs.social.EntityActionMenu.Edit );
