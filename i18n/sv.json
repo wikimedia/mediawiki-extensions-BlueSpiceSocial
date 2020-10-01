@@ -4,6 +4,8 @@
 			"Josve05a",
 			"M.M.S.",
 			"Mjälten",
+			"Pyscowicz",
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
@@ -56,5 +58,8 @@
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Sök i social:",
 	"right-social-source": "Visa källsida",
 	"activities": "Aktiviteter",
-	"bs-social-prof-datedisplaymode": "Datovisningsmodus"
+	"bs-social-prof-datedisplaymode": "Datovisningsmodus",
+	"action-social-source": "visa källsidan",
+	"bs-social-specialpagelisting-socialentities-show": "Visa",
+	"bs-social-specialpagelisting-socialentities-hide": "Dölj"
 }
