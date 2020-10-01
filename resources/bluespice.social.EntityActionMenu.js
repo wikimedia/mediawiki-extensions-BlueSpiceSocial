@@ -21,9 +21,11 @@ bs.social.EntityActionMenu = function( $el, entity ) {
 	};
 
 	me.$actionsContainer = me.entity.getContainer( me.entity.ACTIONS_CONTAINER );
-	var $dropDownContent = me.$actionsContainer.find( '.bs-social-entity-actions-menu-content' );
-	var $highPrioElement = me.$actionsContainer.find( '.bs-social-entity-actions-menu-prio' );
-
+	me.$dropDownContent = me.$actionsContainer.find( '.bs-social-entity-actions-menu-content' );
+	me.$dropDownButton = me.$actionsContainer.find( '.bs-social-entity-actions-menu' );
+	me.$highPrioElement = me.$actionsContainer.find( '.bs-social-entity-actions-menu-prio' );
+	me.$actionsContainer.hide();
+	me.$dropDownButton.hide();
 	$(document).trigger( 'BSSocialEntityActionMenuInit', [ me, $el ] );
 
 	var priorityActions = []
@@ -32,31 +34,26 @@ bs.social.EntityActionMenu = function( $el, entity ) {
 			continue;
 		}
 		me.buttons[i] = new me.classes[i]( this, me.actions[i] );
-		priorityActions.push( { action: me.buttons[i] ,priority: me.buttons[i].priority } );
+		priorityActions.push( me.buttons[i] );
 	}
 
 	priorityActions.sort( function( a, b ) {
 		return a.priority < b.priority;
 	});
 
-	if( priorityActions.length === 0 ) {
-		me.$actionsContainer.hide();
-		return;
-	}
-
-	$highPrioElement.append( priorityActions[0].action.$element );
-
-	for( var i = 1; i < priorityActions.length; i++ ) {
-		$dropDownContent.append( priorityActions[i].action.$element );
-
-		me.showEntities = true;
-	}
-
-	if( me.showEntities ) {
-		me.$actionsContainer.show();
-	}
-	else {
-		$dropDownContent.hide();
+	var first = true;
+	for( var i = 0; i < priorityActions.length; i++ ) {
+		if ( !priorityActions[i].$element || priorityActions[i].$element === '' ) {
+			continue;
+		}
+		if ( first ) {
+			me.$highPrioElement.append( priorityActions[i].$element );
+			me.$actionsContainer.show();
+			first = false;
+			continue;
+		}
+		me.$dropDownContent.append( priorityActions[i].$element );
+		me.$dropDownButton.show();
 	}
 
 	return;

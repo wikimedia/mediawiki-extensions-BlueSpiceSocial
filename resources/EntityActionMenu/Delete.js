@@ -14,8 +14,8 @@ bs.social.EntityActionMenu.Delete = function ( entityActionMenu ) {
 	var me = this;
 	me.entityActionMenu = entityActionMenu;
 	me.$element = null;
-	me.$element = $( '<li><a class="dropdown-item">'
-		+ mw.message( 'bs-social-entityaction-delete' ).plain()
+	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-delete">'
+		+ '<span>' + mw.message( 'bs-social-entityaction-delete' ).plain() + '</span>'
 		+ '</a></li>'
 	);
 	me.$element.on( 'click', function( e ) { me.click( e ); } );
