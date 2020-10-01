@@ -81,6 +81,16 @@ abstract class Text extends EntityConfig {
 
 	/**
 	 *
+	 * @return string[]
+	 */
+	protected function get_ModuleEditScripts() {
+		return array_merge( parent::get_ModuleEditScripts(), [
+			'ext.bluespice.social.entity.editor.text'
+		] );
+	}
+
+	/**
+	 *
 	 * @return string
 	 */
 	protected function get_HeaderMessageKey() {

@@ -70,6 +70,10 @@ class Messages extends \ResourceLoaderModule {
 				$config->get( 'VarMessageKeys' )
 			);
 		}
+		$msgKeys = array_merge(
+			$msgKeys,
+			$this->getLegacyMessageKeys()
+		);
 		foreach ( $msgKeys as $varName => $msgKey ) {
 			if ( empty( $msgKey ) ) {
 				continue;
@@ -77,6 +81,30 @@ class Messages extends \ResourceLoaderModule {
 			$messages[] = $msgKey;
 		}
 		return $messages;
+	}
+
+	/**
+	 * DEPRECATED
+	 * @deprecated since version 3.2
+	 * @return array
+	 */
+	private function getLegacyMessageKeys() {
+		if ( empty( $GLOBALS['wgHooks']['BSSocialModuleDepths'] ) ) {
+			return [];
+		}
+		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
+		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
+		\Hooks::run( 'BSSocialModuleDepths', [
+			// deprecated
+			null,
+			// deprecated
+			null,
+			&$aConfig,
+			&$aScripts,
+			&$aStyles,
+			&$aVarMsgKeys,
+		] );
+		return $aVarMsgKeys;
 	}
 
 	/**
