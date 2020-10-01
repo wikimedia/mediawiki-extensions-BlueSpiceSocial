@@ -25,7 +25,6 @@ class AddResources extends BeforePageDisplay {
 		}
 
 		$this->out->addModules( 'ext.bluespice.social' );
-		$this->out->addModules( 'ext.bluespice.social.messages' );
 		$this->out->addModules( 'ext.bluespice.social.timeline' );
 		$this->out->addModuleStyles( 'ext.bluespice.social.timeline.styles' );
 		$this->addLegacyResources();
@@ -63,16 +62,14 @@ class AddResources extends BeforePageDisplay {
 			&$aConfig,
 			&$aScripts,
 			&$aStyles,
+			// deprecated
 			&$aVarMsgKeys,
 		] );
 		if ( !empty( $aConfig ) ) {
 			$this->out->addJsConfigVars( $aConfig );
 		}
 		if ( !empty( $aScripts ) ) {
-			$this->out->addModules( $aScripts );
-		}
-		if ( !empty( $aVarMsgKeys ) ) {
-			$this->out->addModuleStyles( $aVarMsgKeys );
+			$this->out->addJsConfigVars( 'bsgSocialLegacyModules', $aScripts );
 		}
 	}
 

@@ -75,37 +75,64 @@
 	};
 	bs.social.init = function(){
 		bs.social.config = mw.config.get( 'bsgSocialEntityConfigs', {} );
-
+		var els = [], modules = [];
 		$( ".bs-social-entity" ).each( function() {
 			if( bs.social.getUiID( $(this) ) ) {
 				//already exists
 				return null;
 			}
-			bs.social.createFromEl( $(this) );
+			// collect all elements first and initialize them later else this may
+			// would lead in some browsers to a short stop of jquery 
+			els.push( $(this) );
 		} );
-
-		$( d ).trigger('BSSocialInit', [
-			bs.social
-		] );
-
-		if ( mw.user.options.get( 'bs-social-warnonleave', false ) === true ) {
-			this.warnOnLeave = mw.confirmCloseWindow( {
-				test: function () {
-					// We use .textSelection, because editors might not have updated the form yet.
-					return $.find( '.bs-social-entity.dirty' ).length > 0;
-				},
-
-				message: mw.msg( 'bs-social-editwarnonleave-confirmtext' )
-			} );
+		for ( var i = 0; els.length > i; i++ ) {
+			var type = els[i].attr( 'data-type' );
+			if ( !type ) {
+				continue;
+			}
+			if ( !bs.social.config[type] || !bs.social.config[type].ModuleScripts ) {
+				continue;
+			}
+			for ( var y = 0; bs.social.config[type].ModuleScripts.length > y; y++ ) {
+				modules.push( bs.social.config[type].ModuleScripts[y] );
+			}
 		}
 
-		if ( mw && mw.mmv && mw.mmv.bootstrap && !this.mmvInitialized ) {
-			var mmv = mw.mmv.bootstrap;
-			$( 'div:not(.mw-body-content) .bs-social-entity-attachment-image img' ).each( function() {
-				mmv.processThumb( this );
-			} );
-			return;
+		modules.push( "user.options" );
+		modules.push( 'ext.bluespice.social.messages' );
+		for ( var i = 0; i < mw.config.get( 'bsgSocialLegacyModules', [] ).length; i++ ) {
+			modules.push( mw.config.get( 'bsgSocialLegacyModules' )[i] );
 		}
+		// pre-collect all required modules of already displayed entities to
+		// reduce requests
+		mw.loader.using( modules ).done( function() {
+			for ( var i = 0; els.length > i; i++ ) {
+				bs.social.createFromEl( els[i] );
+			}
+
+			$( d ).trigger( 'BSSocialInit', [
+				bs.social
+			] );
+
+			if ( mw.user.options.get( 'bs-social-warnonleave', false ) === true ) {
+				this.warnOnLeave = mw.confirmCloseWindow( {
+					test: function () {
+						// We use .textSelection, because editors might not have updated the form yet.
+						return $.find( '.bs-social-entity.dirty' ).length > 0;
+					},
+
+					message: mw.msg( 'bs-social-editwarnonleave-confirmtext' )
+				} );
+			}
+
+			if ( mw && mw.mmv && mw.mmv.bootstrap && !this.mmvInitialized ) {
+				var mmv = mw.mmv.bootstrap;
+				$( 'div:not(.mw-body-content) .bs-social-entity-attachment-image img' ).each( function() {
+					mmv.processThumb( this );
+				} );
+				return;
+			}
+		} );
 	};
 	bs.social.updater = function(){
 		$.each( bs.social.entityStore, function( k, entity ){
