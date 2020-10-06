@@ -295,6 +295,16 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 *
 	 * @return string[]
 	 */
+	protected function get_ModuleEditScripts() {
+		return [
+			'ext.bluespice.social.entity.editor',
+		];
+	}
+
+	/**
+	 *
+	 * @return string[]
+	 */
 	protected function get_ModuleStyles() {
 		return [
 			'ext.bluespice.social.styles',

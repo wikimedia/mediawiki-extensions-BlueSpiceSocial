@@ -216,35 +216,39 @@ bs.social.Entity.prototype.makeEditMode = function() {
 	var $wrapper = this.getContainer( this.WRAPPER_CONTAINER );
 	var me = this;
 	me.editmode = true;
-	if( !me.editor ) {
-		me.editor = this.makeEditor();
-			this.editor.on( 'submit', function( editor, data ) {
-			me.save( data ).done( function( entity, response ) {
-				if( !entity.editmode || ( response && response.success ) ) {
-					me.setDirty( false );
-				}
+	me.showLoadMask();
+	mw.loader.using( this.getConfig().ModuleEditScripts ).done( function() {
+		if( !me.editor ) {
+			me.editor = me.makeEditor();
+			me.editor.on( 'submit', function( editor, data ) {
+				me.save( data ).done( function( entity, response ) {
+					if( !entity.editmode || ( response && response.success ) ) {
+						me.setDirty( false );
+					}
+				});
+				return false;
 			});
-			return false;
-		});
-		this.editor.on( 'change', function( editor, field ) {
-			me.setDirty( true );
-		} );
-		this.editor.on( 'cancel', function( editor, data ) {
-			me.setDirty( false );
-			if( !me.exists() ) {
-				me.reset();
+			me.editor.on( 'change', function( editor, field ) {
+				me.setDirty( true );
+			} );
+			me.editor.on( 'cancel', function( editor, data ) {
+				me.setDirty( false );
+				if( !me.exists() ) {
+					me.reset();
+					return true;
+				}
+				me.removeEditMode( data );
 				return true;
-			}
-			me.removeEditMode( data );
-			return true;
-		});
-	}
-
-	this.getEl().addClass( 'bs-social-entity-edit-mode' );
-
-	this.editor.appendTo( $wrapper );
-
-	this.editmode = true;
+			});
+			me.getEl().addClass( 'bs-social-entity-edit-mode' );
+			me.editor.appendTo( $wrapper );
+			me.hideLoadMask();
+		} else {
+			me.getEl().addClass( 'bs-social-entity-edit-mode' );
+			me.editor.appendTo( $wrapper );
+			me.hideLoadMask();
+		}
+	} );
 };
 
 bs.social.Entity.prototype.removeEditMode = function() {

@@ -200,7 +200,6 @@
 				"mediawiki.api",
 				"oojs-ui",
 				"mediawiki.confirmCloseWindow",
-				"user.options",
 				"ext.bluespice.jquery.select2",
 				"ext.bluespice",
 				"ext.bluespice.oojs",
@@ -212,7 +211,6 @@
 		},
 		"ext.bluespice.social.entity": {
 			"dependencies": [
-				"user.options",
 				"ext.bluespice.social",
 				"ext.bluespice.social.entity.templates"
 			],
@@ -222,8 +220,7 @@
 				"bluespice.social.EntityActionMenu.js",
 				"EntityActionMenu/Edit.js",
 				"EntityActionMenu/Delete.js",
-				"bluespice.social.EntityOutput.js",
-				"ui/EntityEditor.js"
+				"bluespice.social.EntityOutput.js"
 			],
 			"messages": [
 				"bs-social-editor-advanced",
@@ -242,6 +239,11 @@
 				"bs-extendedsearch-source-type-socialentity-label"
 			]
 		},
+		"ext.bluespice.social.entity.editor": {
+			"scripts": [
+				"ui/EntityEditor.js"
+			]
+		},
 		"ext.bluespice.social.messages": {
 			"class": "\\BlueSpice\\Social\\ResourceLoader\\Messages"
 		},
@@ -251,9 +253,16 @@
 			],
 			"scripts": [
 				"entities/bluespice.social.Entity.Text.js",
-				"entityoutputs/bluespice.social.EntityOutput.Text.js",
-				"ui/EntityEditorText.js",
-				"ui/widget/TextInputVisualEditor.js"
+				"entityoutputs/bluespice.social.EntityOutput.Text.js"
+			]
+		},
+		"ext.bluespice.social.entity.editor.text": {
+			"dependencies": [
+				"ext.bluespice.social.entity.editor"
+			],
+			"scripts": [
+				"ui/widget/TextInputVisualEditor.js",
+				"ui/EntityEditorText.js"
 			]
 		},
 		"ext.bluespice.social.entity.action": {
