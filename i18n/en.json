@@ -88,5 +88,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Leaving this page may cause you to lose any changes you have made. Do you want discard the changes and proceed?",
 	"bs-social-specialpagelisting-socialentities": "$1 social entities",
 	"bs-social-specialpagelisting-socialentities-show": "Show",
-	"bs-social-specialpagelisting-socialentities-hide": "Hide"
+	"bs-social-specialpagelisting-socialentities-hide": "Hide",
+	"bs-socialactionsmw-autoeditsummary": "(No summary)"
 }
