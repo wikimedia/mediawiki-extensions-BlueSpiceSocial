@@ -130,7 +130,7 @@ abstract class ActionWikiPage extends ActionTitle {
 			return $revision->getComment();
 		}
 		return wfMessage(
-			'bs-socialactionsmw-autoeditsummaray'
+			'bs-socialactionsmw-autoeditsummary'
 		)->plain();
 	}
 
