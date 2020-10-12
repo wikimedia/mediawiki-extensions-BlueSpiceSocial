@@ -27,5 +27,6 @@
 	"bs-social-renderer-timestampprefix-touched": "Modificato",
 	"bs-social-entityspawner-button-tooltip": "Crea nuovo",
 	"bs-social-specialpagelisting-socialentities-show": "Mostra",
-	"bs-social-specialpagelisting-socialentities-hide": "Nascondi"
+	"bs-social-specialpagelisting-socialentities-hide": "Nascondi",
+	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)"
 }

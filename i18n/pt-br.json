@@ -83,5 +83,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Sair desta página pode causar a perda de quaisquer alterações feitas. Deseja descartar as alterações e prosseguir?",
 	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
-	"bs-social-specialpagelisting-socialentities-hide": "Ocultar"
+	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
+	"bs-socialactionsmw-autoeditsummary": "(Sem sumário)"
 }

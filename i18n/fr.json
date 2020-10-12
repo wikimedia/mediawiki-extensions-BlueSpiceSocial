@@ -90,5 +90,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
 	"bs-social-specialpagelisting-socialentities": "$1 les entités sociales",
 	"bs-social-specialpagelisting-socialentities-show": "Afficher",
-	"bs-social-specialpagelisting-socialentities-hide": "Masquer"
+	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
+	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)"
 }

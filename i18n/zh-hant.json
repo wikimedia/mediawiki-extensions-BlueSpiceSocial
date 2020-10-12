@@ -84,5 +84,6 @@
 	"bs-social-editwarnonleave-confirmtext": "離開此頁面可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？",
 	"bs-social-specialpagelisting-socialentities": "$1社交項目",
 	"bs-social-specialpagelisting-socialentities-show": "顯示",
-	"bs-social-specialpagelisting-socialentities-hide": "隱藏"
+	"bs-social-specialpagelisting-socialentities-hide": "隱藏",
+	"bs-socialactionsmw-autoeditsummary": "（無摘要）"
 }
