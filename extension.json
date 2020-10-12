@@ -8,8 +8,8 @@
 	"requires": {
 		"MediaWiki": ">= 1.36.0",
 		"extensions": {
-			"BlueSpiceFoundation": ">= 3.4",
-			"BlueSpiceExtendedSearch": ">= 3.4"
+			"BlueSpiceFoundation": ">= 4.1",
+			"BlueSpiceExtendedSearch": ">= 4.1"
 		},
 		"platform": {
 			"php": ">= 7.0"
