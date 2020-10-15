@@ -31,6 +31,7 @@
  */
 namespace BlueSpice\Social\Entity;
 
+use MediaWiki\MediaWikiServices;
 use Status;
 use User;
 
@@ -119,15 +120,16 @@ abstract class ActionWikiPage extends ActionTitle {
 		if ( empty( $this->get( static::ATTR_REVISION_ID, 0 ) ) ) {
 			return parent::get( $attrName, $default );
 		}
-		$revision = \Revision::newFromId( $this->get(
+		$lookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$revision = $lookup->getRevisionById( $this->get(
 			static::ATTR_REVISION_ID,
 			0
 		) );
 		if ( !$revision ) {
 			return parent::get( $attrName, $default );
 		}
-		if ( !empty( $revision->getComment() ) ) {
-			return $revision->getComment();
+		if ( !empty( $revision->getComment()->text ) ) {
+			return $revision->getComment()->text;
 		}
 		return wfMessage(
 			'bs-socialactionsmw-autoeditsummary'
