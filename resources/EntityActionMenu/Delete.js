@@ -14,10 +14,14 @@ bs.social.EntityActionMenu.Delete = function ( entityActionMenu ) {
 	var me = this;
 	me.entityActionMenu = entityActionMenu;
 	me.$element = null;
+	var key = me.entityActionMenu.entity.data.get( 'archived' )
+		? 'bs-social-entityaction-undelete'
+		: 'bs-social-entityaction-delete';
 	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-delete">'
-		+ '<span>' + mw.message( 'bs-social-entityaction-delete' ).plain() + '</span>'
+		+ '<span>' + mw.message( key ).plain() + '</span>'
 		+ '</a></li>'
 	);
+
 	me.$element.on( 'click', function( e ) { me.click( e ); } );
 	me.priority = 10;
 };
@@ -29,7 +33,7 @@ bs.social.EntityActionMenu.Delete.prototype.click = function ( e ) {
 	var me = this;
 	var msg = this.entityActionMenu.entity.getConfig().DeleteConfirmMessageKey;
 	if( this.entityActionMenu.entity.data.get( 'archived' ) ) {
-		msg = this.entityActionMenu.entity.getConfig().UnDeleteConfirmMessageKey
+		msg = this.entityActionMenu.entity.getConfig().UnDeleteConfirmMessageKey;
 	}
 	OO.ui.confirm( mw.message( msg ).plain() ).done( function ( confirmed ) {
 		if ( confirmed ) {
