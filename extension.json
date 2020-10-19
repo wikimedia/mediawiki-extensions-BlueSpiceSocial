@@ -65,24 +65,6 @@
 				"timeline": "\\BlueSpice\\Social\\Tag\\Timeline",
 				"socialentity": "\\BlueSpice\\Social\\Tag\\SocialEntity"
 			},
-			"LessVarsRegistry": {
-				"bs-primary-light-background": "#98A7C4",
-				"bs-light-background": "lighten(@bs-color-neutral, 38.43%)",
-				"bs-primary-light-subelement-background": "lighten(@bs-primary-light-background, 24.3%)",
-				"bs-primary-light-subelement-border": "#3E5389",
-				"bs-tertiary-light-background": "lighten(@bs-color-tertiary, 45%)",
-				"bs-color-neutral-headline": "lighten(@bs-color-neutral, 27.8%)",
-				"bs-color-lighten-information": "#BABABA",
-				"bs-color-header-information": "#252525",
-				"bs-color-header-information-link": "@bs-primary-light-subelement-border",
-				"bs-color-social-entity-background": "white",
-				"bs-color-social-link": "#0060DF",
-				"bs-color-social-link-dark": "@bs-primary-light-subelement-border",
-				"navigation-tab-color": "@bs-color-primary",
-				"navigation-color": "lighten( @bs-color-neutral3, 23.1373 )",
-				"bs-social-background-color-archived": "#F1D8D8",
-				"bs-social-background-color-owned": "lighten(desaturate(spin(@bs-primary-light-background, 0.4545), 2.1605), 27.0588)"
-			},
 			"TaskRegistry": {
 				"social-entitylist-reload": "\\BlueSpice\\Social\\Task\\EntityList\\Reload::factory"
 			},
@@ -173,7 +155,7 @@
 					"media": "all and ( min-width: 1024px )"
 				}
 			},
-			"class": "\\BlueSpice\\ResourceModule\\LessVars"
+			"class": "\\MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\LessVars"
 		},
 		"ext.bluespice.jquery.select2": {
 			"scripts": [
