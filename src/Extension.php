@@ -30,6 +30,7 @@
 namespace BlueSpice\Social;
 
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\CommonUserInterface\LessVars;
 
 class Extension extends \BlueSpice\Extension {
 
@@ -71,6 +72,27 @@ class Extension extends \BlueSpice\Extension {
 				1506, 1507
 			];
 		}
+
+		$lessVars = LessVars::getInstance();
+		$lessVars->setVar( 'bs-primary-light-background', '#98A7C4' );
+		$lessVars->setVar( 'bs-light-background', 'lighten(@bs-color-neutral, 38.43%)' );
+		$lessVars->setVar( 'bs-primary-light-subelement-background', 'lighten(@bs-primary-light-background, 24.3%)' );
+		$lessVars->setVar( 'bs-tertiary-light-background', 'lighten(@bs-color-tertiary, 45%)' );
+		$lessVars->setVar( 'bs-color-neutral-headline', 'lighten(@bs-color-neutral, 27.8%)' );
+		$lessVars->setVar( 'bs-color-lighten-information', '#BABABA' );
+		$lessVars->setVar( 'bs-color-header-information', '#252525' );
+		$lessVars->setVar( 'bs-color-header-information-link', '@bs-primary-light-subelement-border' );
+		$lessVars->setVar( 'bs-color-social-entity-background', 'white' );
+		$lessVars->setVar( 'bs-color-social-link', '#0060DF' );
+		$lessVars->setVar( 'bs-color-social-link-dark', '@bs-primary-light-subelement-border' );
+		$lessVars->setVar( 'navigation-tab-color', '@bs-color-primary' );
+		$lessVars->setVar( 'navigation-color', 'lighten( @bs-color-neutral3, 23.1373)' );
+		$lessVars->setVar( 'bs-social-background-color-archived', '#F1D8D8' );
+		$lessVars->setVar(
+			'bs-social-background-color-owned',
+			'lighten(desaturate(spin(@bs-primary-light-background, 0.4545), 2.1605), 27.0588)'
+		);
+		$lessVars->setVar( 'bs-primary-light-subelement-border', '#3E5389' );
 	}
 
 	/**
