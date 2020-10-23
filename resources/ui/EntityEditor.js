@@ -157,7 +157,7 @@ bs.social.EntityEditor.prototype.makeCancel = function() {
 };
 bs.social.EntityEditor.prototype.makeSettings = function() {
 	return new OO.ui.ButtonWidget( {
-		icon: 'advanced',
+		icon: 'settings',
 		iconOnly: true,
 		disabled: true,
 		framed: false
