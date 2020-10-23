@@ -224,6 +224,9 @@
 		"ext.bluespice.social.entity.editor": {
 			"scripts": [
 				"ui/EntityEditor.js"
+			],
+			"dependencies": [
+				"oojs-ui.styles.icons-interactions"
 			]
 		},
 		"ext.bluespice.social.messages": {
