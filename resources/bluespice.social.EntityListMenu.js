@@ -29,6 +29,11 @@ bs.social.EntityListMenu = function( $el, entityList ) {
 	me.$optionContent = me.makeOptionContent();
 	me.$optionButton.on( 'click', function() {
 		me.$optionContent.toggle();
+		if( me.$optionContent.is( ":visible" ) ) {
+			me.$optionButton.addClass( 'active' );
+		} else {
+			me.$optionButton.removeClass( 'active' );
+		}
 	});
 
 	me.getEl().find( '.' + this.MENU_SECTION ).append( me.$optionContent );
@@ -36,6 +41,11 @@ bs.social.EntityListMenu = function( $el, entityList ) {
 	me.$filterContent = me.makeFilterContent();
 	me.$filterButton.on( 'click', function() {
 		me.$filterContent.toggle();
+		if( me.$filterContent.is( ":visible" ) ) {
+			me.$filterButton.addClass( 'active' );
+		} else {
+			me.$filterButton.removeClass( 'active' );
+		}
 	});
 	me.getEl().find( '.' + this.MENU_SECTION ).append( me.$filterContent );
 
