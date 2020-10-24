@@ -145,38 +145,6 @@ class Text extends Entity {
 	}
 
 	/**
-	 * Returns the text
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getText() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_TEXT, '' );
-	}
-
-	/**
-	 * Returns the parsed text
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @param type $bForceInvalidateFirst - not in use anymore
-	 * @return string
-	 */
-	public function getParsedText( $bForceInvalidateFirst = false ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_PARSED_TEXT, '' );
-	}
-
-	/**
-	 * Returns the attachments as an array
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @param boolean $bForceInvalidateFirst - not in use anymore
-	 * @return array
-	 */
-	public function getAttachments( $bForceInvalidateFirst = false ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_ATTACHMENTS, [] );
-	}
-
-	/**
 	 * Returns the attachments of type images as array
 	 * @return array
 	 */
@@ -227,17 +195,6 @@ class Text extends Entity {
 	public function getParserOptions() {
 		$oUser = RequestContext::getMain()->getUser();
 		return ParserOptions::newFromUser( $oUser );
-	}
-
-	/**
-	 * Sets the text
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @param string
-	 * @return Text
-	 */
-	public function setText( $sText ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		$this->set( static::ATTR_TEXT, $sText );
 	}
 
 	/**

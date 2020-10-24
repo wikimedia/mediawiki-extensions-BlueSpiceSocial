@@ -96,17 +96,6 @@ class Extension extends \BlueSpice\Extension {
 	}
 
 	/**
-	 * @deprecated since version 3.0.0 - use Services::getInstance()
-	 * ->getService( 'BSUtilityFactory' )->getMaintenanceUser()->getUser() instead
-	 * @return \User
-	 */
-	public static function getMaintenanceUser() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
-			->getMaintenanceUser()->getUser();
-	}
-
-	/**
 	 *
 	 * @return \Title
 	 */

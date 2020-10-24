@@ -46,60 +46,6 @@ abstract class Action extends Entity {
 	const ATTR_SUMMARY = 'summary';
 
 	/**
-	 * Returns the action attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getAction() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_ACTION, 'create' );
-	}
-
-	/**
-	 * Returns the summary attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getSummary() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_SUMMARY, '' );
-	}
-
-	/**
-	 * Sets the action attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @param string $sAction
-	 * @return Action
-	 */
-	public function setAction( $sAction ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_ACTION, $sAction );
-	}
-
-	/**
-	 * Sets the summary attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @param string $sSummary
-	 * @return Action
-	 */
-	public function setSummary( $sSummary ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_SUMMARY, $sSummary );
-	}
-
-	/**
-	 *
-	 * @param bool $bForceInvalidateFirst
-	 * @return string
-	 */
-	public function getParsedText( $bForceInvalidateFirst = false ) {
-		// Make sure, the action text content does not get parsed
-		// (possible tag injection)!
-		$sText = strip_tags( $this->get( static::ATTR_SUMMARY, '' ) );
-		return "<nowiki>$sText</nowiki>";
-	}
-
-	/**
 	 *
 	 * @param array $a
 	 * @return array

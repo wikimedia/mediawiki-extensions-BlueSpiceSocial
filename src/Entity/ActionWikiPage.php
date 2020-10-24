@@ -45,48 +45,6 @@ abstract class ActionWikiPage extends ActionTitle {
 	const ATTR_REVISION_ID = 'revisionid';
 
 	/**
-	 * Returns the wikipageid attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return integer
-	 */
-	public function getWikiPageID() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_WIKI_PAGE_ID, 0 );
-	}
-
-	/**
-	 * Returns the revisionid attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return integer
-	 */
-	public function getRevisionID() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_REVISION_ID, 0 );
-	}
-
-	/**
-	 * Sets the wikipageid attribute
-	 * @param integer $iWikiPageID
-	 * @deprecated since version 3.0.0 - use set( $attrName, $variable ) instead
-	 * @return ActionWikiPage
-	 */
-	public function setWikiPageID( $iWikiPageID ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_WIKI_PAGE_ID, $iWikiPageID );
-	}
-
-	/**
-	 * Sets the revisionid attribute
-	 * @param integer $iRevisionID
-	 * @deprecated since version 3.0.0 - use set( $attrName, $variable ) instead
-	 * @return ActionWikiPage
-	 */
-	public function setRevisionID( $iRevisionID ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_REVISION_ID, $iRevisionID );
-	}
-
-	/**
 	 *
 	 * @param array $a
 	 * @return array

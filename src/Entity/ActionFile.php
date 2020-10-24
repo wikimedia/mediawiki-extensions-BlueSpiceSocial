@@ -32,7 +32,6 @@
 namespace BlueSpice\Social\Entity;
 
 use File;
-use Html;
 use MediaWiki\MediaWikiServices;
 use Status;
 use User;
@@ -47,37 +46,6 @@ abstract class ActionFile extends ActionTitle {
 	const ATTR_FILE_TIMESTAMP = 'filetimestamp';
 
 	protected $iNamespace = NS_FILE;
-
-	/**
-	 * Returns the filename attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getFileName() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_FILE_NAME, '' );
-	}
-
-	/**
-	 * Returns the filetimestamp attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getFileTimestamp() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_FILE_TIMESTAMP, '' );
-	}
-
-	/**
-	 * Sets the filename attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @param string $sFileName
-	 * @return string
-	 */
-	public function setFileName( $sFileName ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_FILE_NAME, $sFileName );
-	}
 
 	/**
 	 *
@@ -109,41 +77,12 @@ abstract class ActionFile extends ActionTitle {
 
 	/**
 	 *
-	 * @param bool $bForceInvalidateFirst
-	 * @return string
-	 */
-	public function getParsedText( $bForceInvalidateFirst = false ) {
-		$sText = parent::getParsedText( $bForceInvalidateFirst );
-		$oFile = $this->getRelatedFile();
-		if ( !$oFile ) {
-			return $sText;
-		}
-		$sText .= Html::element( 'img', [
-			'src' => $oFile->createThumb( 200 ),
-			'title' => $oFile->getName(),
-		] );
-		return $sText;
-	}
-
-	/**
-	 *
 	 * @param int $iNamespace
 	 * @return ActionFile
 	 */
 	public function setNamespace( $iNamespace ) {
 		$this->iNamespace = NS_FILE;
 		return $this->setUnsavedChanges();
-	}
-
-	/**
-	 * Sets the filetimestamp attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @param string $sFileTimestamp
-	 * @return string
-	 */
-	public function setFileTimestamp( $sFileTimestamp ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_FILE_TIMESTAMP, $sFileTimestamp );
 	}
 
 	/**

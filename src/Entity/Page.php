@@ -76,27 +76,6 @@ abstract class Page extends Entity {
 	}
 
 	/**
-	 * Returns the description
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getDescription() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_DESCRIPTION, '' );
-	}
-
-	/**
-	 * Sets the description
-	 * @deprecated since version 3.0.0 - use set( $attrName, $variable ) instead
-	 * @param string
-	 * @return Page
-	 */
-	public function setDescription( $sDescription ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		$this->set( static::ATTR_DESCRIPTION, $sDescription );
-	}
-
-	/**
 	 *
 	 * @param User|null $user
 	 * @param array $options

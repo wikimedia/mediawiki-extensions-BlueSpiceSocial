@@ -345,27 +345,6 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	}
 
 	/**
-	 * Returns the parent ID
-	 * @deprecated since version 3.0.0 - use get( $attrName ) instead
-	 * @return integer
-	 */
-	public function getParentID() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_PARENT_ID, 0 );
-	}
-
-	/**
-	 * Sets the parent ID
-	 * @deprecated since version 3.0.0 - use set( $attrName ) instead
-	 * @param int
-	 * @return Entity
-	 */
-	public function setParentID( $iID ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_PARENT_ID, $iID );
-	}
-
-	/**
 	 *
 	 * @param \stdClass $o
 	 */
