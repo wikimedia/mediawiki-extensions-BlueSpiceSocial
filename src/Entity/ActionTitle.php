@@ -63,46 +63,6 @@ abstract class ActionTitle extends Action {
 	}
 
 	/**
-	 * Returns the titletext attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getTitleText() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_TITLE_TEXT, '' );
-	}
-
-	/**
-	 * Returns the namespace attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return integer
-	 */
-	public function getNamespace() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_NAMESPACE, 0 );
-	}
-
-	/**
-	 * Sets the titletext attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @return ActionTitle
-	 */
-	public function setTitleText( $sTitleText ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_TITLE_TEXT, $sTitleText );
-	}
-
-	/**
-	 * Sets the namespace attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @return ActionTitle
-	 */
-	public function setNamespace( $iNamespace ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_NAMESPACE, $iNamespace );
-	}
-
-	/**
 	 *
 	 * @param array $a
 	 * @return array
