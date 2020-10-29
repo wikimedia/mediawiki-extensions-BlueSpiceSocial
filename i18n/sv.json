@@ -4,6 +4,8 @@
 			"Josve05a",
 			"M.M.S.",
 			"Mjälten",
+			"Pyscowicz",
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
@@ -56,5 +58,9 @@
 	"prefs-social": "Tidslinje",
 	"bs-social-pref-warnonleave": "Varna mig när jag lämnar en redigering av en logg med osparade ändringar.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Om du gör detta kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?",
-	"bs-social-editwarnonleave-confirmtext": "När du lämnar denna sida kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?"
+	"bs-social-editwarnonleave-confirmtext": "När du lämnar denna sida kan du förlora alla ändringar du har gjort. Vill du slänga ändringarna och fortsätta?",
+	"action-social-source": "visa källsidan",
+	"bs-social-specialpagelisting-socialentities-show": "Visa",
+	"bs-social-specialpagelisting-socialentities-hide": "Dölj",
+	"bs-socialactionsmw-autoeditsummary": "(Ingen redigeringssammanfattning)"
 }

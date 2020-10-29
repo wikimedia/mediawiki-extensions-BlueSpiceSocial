@@ -83,5 +83,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Å forlate denne siden vil gjøre at du mister endringer du har gjort. Ønsker du å forkaste endringene og fortsette?",
 	"bs-social-specialpagelisting-socialentities": "$1 sosiale entiteter",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
-	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
+	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)"
 }

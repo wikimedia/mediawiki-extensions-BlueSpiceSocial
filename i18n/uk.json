@@ -85,5 +85,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Якщо покинете сторінку, це може спричинити втрату будь-яких змін, які ви внесли. Хочете покинути свої зміни та продовжити?",
 	"bs-social-specialpagelisting-socialentities": "$1 соціальні сутності",
 	"bs-social-specialpagelisting-socialentities-show": "Показати",
-	"bs-social-specialpagelisting-socialentities-hide": "Сховати"
+	"bs-social-specialpagelisting-socialentities-hide": "Сховати",
+	"bs-socialactionsmw-autoeditsummary": "(Без опису змін)"
 }
