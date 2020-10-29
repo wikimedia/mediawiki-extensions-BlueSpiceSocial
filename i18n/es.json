@@ -43,5 +43,7 @@
 	"bs-social-filter-button-tooltip": "Mostrar opciones del filtro",
 	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
-	"bs-social-specialpagelisting-socialentities-hide": "Ocultar"
+	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
+	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:",
+	"bs-socialactionsmw-autoeditsummary": "(Sin resumen)"
 }

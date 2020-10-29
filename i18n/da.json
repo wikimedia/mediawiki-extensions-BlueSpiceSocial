@@ -27,5 +27,8 @@
 	"right-social-source": "Vis kildesiden",
 	"prefs-social": "Tidslinje",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
-	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
+	"bs-social-var-timestamptouched": "Rediger dato",
+	"bs-social-entityaction-undelete": "Gendan",
+	"bs-extendedsearch-search-center-result-owner-label": "Ejer:"
 }

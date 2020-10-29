@@ -84,5 +84,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?",
 	"bs-social-specialpagelisting-socialentities": "Sosyal girdileri $1",
 	"bs-social-specialpagelisting-socialentities-show": "Göster",
-	"bs-social-specialpagelisting-socialentities-hide": "Gizle"
+	"bs-social-specialpagelisting-socialentities-hide": "Gizle",
+	"bs-socialactionsmw-autoeditsummary": "(Özet yok)"
 }

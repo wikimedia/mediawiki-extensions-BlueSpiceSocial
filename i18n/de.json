@@ -3,7 +3,8 @@
 		"authors": [
 			"FF11",
 			"Mglaser",
-			"Patric Wirth"
+			"Patric Wirth",
+			"Umherirrender"
 		]
 	},
 	"bs-social-desc": "Basis-Erweiterung für BlueSpiceSocial-Erweiterungen",
@@ -47,7 +48,7 @@
 	"bs-social-entity-fatalstatus-permission-notitle": "'Title' Objekt erforderlich",
 	"bs-social-select2-overwrites-inputtooshort": "Die Suche beginnt ab dem ersten Zeichen",
 	"bs-social-select2-overwrites-noresults": "Kein Ergebnis",
-	"bs-social-select2-overwrites-searching": "Suche...",
+	"bs-social-select2-overwrites-searching": "Suche…",
 	"bs-extendedsearch-source-label-socialentity": "Timeline-Beitrag",
 	"bs-extendedsearch-search-center-result-owner-label": "Ersteller:",
 	"bs-extendedsearch-search-center-result-entity_type-label": "Typ:",
@@ -85,5 +86,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
 	"bs-social-specialpagelisting-socialentities": "Soziale Entitäten $1",
 	"bs-social-specialpagelisting-socialentities-show": "anzeigen",
-	"bs-social-specialpagelisting-socialentities-hide": "verstecken"
+	"bs-social-specialpagelisting-socialentities-hide": "verstecken",
+	"bs-socialactionsmw-autoeditsummary": "(Keine Zusammenfassung)"
 }
