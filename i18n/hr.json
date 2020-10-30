@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bugoslav"
+			"Bugoslav",
+			"Neptune, the Mystic"
 		]
 	},
 	"bs-social-specialpagelisting-socialentities-show": "Prikaži",
-	"bs-social-specialpagelisting-socialentities-hide": "Skrij"
+	"bs-social-specialpagelisting-socialentities-hide": "Skrij",
+	"bs-socialactionsmw-autoeditsummary": "(Bez sažetka)"
 }
