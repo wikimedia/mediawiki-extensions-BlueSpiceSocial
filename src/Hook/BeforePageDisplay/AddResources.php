@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Hook\BeforePageDisplay;
 
 use BlueSpice\Hook\BeforePageDisplay;
 use BlueSpice\Social\ResourceCollector;
+use MediaWiki\MediaWikiServices;
 
 class AddResources extends BeforePageDisplay {
 
@@ -54,7 +55,7 @@ class AddResources extends BeforePageDisplay {
 		}
 		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
 		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
-		\Hooks::run( 'BSSocialModuleDepths', [
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialModuleDepths', [
 			// deprecated
 			$this->getContext()->getOutput(),
 			// deprecated

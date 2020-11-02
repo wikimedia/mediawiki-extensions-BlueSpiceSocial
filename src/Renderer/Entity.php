@@ -11,7 +11,6 @@ use BlueSpice\Timestamp;
 use BlueSpice\Utility\CacheHelper;
 use Config;
 use FormatJson;
-use Hooks;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
@@ -252,13 +251,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		}
 		$renderer = [];
 		$out = '';
-		$b = Hooks::run( 'BSSocialEntityOutputRenderBeforeContent', [
-			$this,
-			&$renderer,
-			&$out,
-			$val,
-			$this->renderType,
-		] );
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityOutputRenderBeforeContent',
+			[
+				$this,
+				&$renderer,
+				&$out,
+				$val,
+				$this->renderType,
+			]
+		);
 		if ( !$b ) {
 			return $out;
 		}
@@ -276,13 +278,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		}
 		$renderer = [];
 		$out = '';
-		$b = Hooks::run( 'BSSocialEntityOutputRenderAfterContent', [
-			$this,
-			&$renderer,
-			&$out,
-			$val,
-			$this->renderType,
-		] );
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityOutputRenderAfterContent',
+			[
+				$this,
+				&$renderer,
+				&$out,
+				$val,
+				$this->renderType,
+			]
+		);
 		if ( !$b ) {
 			return $out;
 		}
@@ -442,13 +447,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected function render_beforechildren( $val ) {
 		$renderer = [];
 		$out = '';
-		$b = Hooks::run( 'BSSocialEntityOutputRenderBeforeChildren', [
-			$this,
-			&$renderer,
-			&$out,
-			$val,
-			$this->renderType,
-		] );
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityOutputRenderBeforeChildren',
+			[
+				$this,
+				&$renderer,
+				&$out,
+				$val,
+				$this->renderType,
+			]
+		);
 		if ( !$b ) {
 			return $out;
 		}
@@ -463,13 +471,16 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected function render_afterchildren( $val ) {
 		$renderer = [];
 		$out = '';
-		$b = Hooks::run( 'BSSocialEntityOutputRenderAfterChildren', [
-			$this,
-			&$renderer,
-			&$out,
-			$val,
-			$this->renderType,
-		] );
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityOutputRenderAfterChildren',
+			[
+				$this,
+				&$renderer,
+				&$out,
+				$val,
+				$this->renderType,
+			]
+		);
 		if ( !$b ) {
 			return $out;
 		}
