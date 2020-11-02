@@ -36,7 +36,6 @@ use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
 use Exception;
-use Hooks;
 use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
 use Message;
@@ -416,7 +415,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			) );
 		}
 		$oStatus = Status::newGood( $this );
-		$b = Hooks::run( 'BSSocialEntityUserCan', [
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialEntityUserCan', [
 			$this,
 			$oUser,
 			$sPermission,
@@ -544,7 +543,10 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			}
 		}
 
-		Hooks::run( 'BSSocialEntityGetActions', [ $this, &$aActions ] );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialEntityGetActions', [
+			$this,
+			&$aActions
+		] );
 		return $aActions;
 	}
 

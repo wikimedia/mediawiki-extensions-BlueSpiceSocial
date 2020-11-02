@@ -94,7 +94,7 @@ class Messages extends \ResourceLoaderModule {
 		}
 		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
 		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
-		\Hooks::run( 'BSSocialModuleDepths', [
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialModuleDepths', [
 			// deprecated
 			null,
 			// deprecated

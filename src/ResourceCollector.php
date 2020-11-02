@@ -95,7 +95,7 @@ class ResourceCollector {
 			);
 		}
 
-		\Hooks::run( 'BSSocialModuleDepths', [
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialModuleDepths', [
 			// deprecated
 			$this->getContext()->getOutput(),
 			// deprecated

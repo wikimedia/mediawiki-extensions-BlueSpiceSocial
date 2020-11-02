@@ -99,9 +99,12 @@ class EntityAttachment {
 			return true;
 		}
 
-		$b = \Hooks::run( 'BSEntityAttachmentsRegister', [
-			&self::$aAttachments,
-		] );
+		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSEntityAttachmentsRegister',
+			[
+				&self::$aAttachments,
+			]
+		);
 
 		static::$bAttachmentsRegistered = $b;
 		return $b;
