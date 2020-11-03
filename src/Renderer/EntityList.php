@@ -12,7 +12,6 @@ use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as MappingProvider;
 use Config;
-use Hooks;
 use Html;
 use HtmlArmor;
 use IContextSource;
@@ -301,11 +300,14 @@ class EntityList extends Renderer implements IParamProvider {
 			$this->context->getPreloadedEntities()
 		);
 
-		Hooks::run( 'BSSocialEntityListInitialized', [
-			$this,
-			&$this->args,
-			$this->params
-		] );
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityListInitialized',
+			[
+				$this,
+				&$this->args,
+				$this->params
+			]
+		);
 		foreach ( $this->args as $name => $arg ) {
 			if ( $name === static::PARAM_ENTITY_LIST_DATA_ATTR ) {
 				continue;
@@ -433,12 +435,15 @@ class EntityList extends Renderer implements IParamProvider {
 
 		$out .= Html::openElement( 'li' );
 		$renderer = $entity->getRenderer( $this->getContext() );
-		Hooks::run( 'BSSocialEntityListRenderEntity', [
-			$this,
-			$entity,
-			&$renderer,
-			&$renderType
-		] );
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'BSSocialEntityListRenderEntity',
+			[
+				$this,
+				$entity,
+				&$renderer,
+				&$renderType
+			]
+		);
 		$out .= $renderer->render( $renderType );
 		$out .= Html::closeElement( 'li' );
 		return $out;
