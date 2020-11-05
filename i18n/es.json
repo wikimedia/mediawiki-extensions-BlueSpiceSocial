@@ -44,5 +44,6 @@
 	"bs-social-renderer-timestampprefix-created": "Creado",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
-	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:"
+	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:",
+	"bs-socialactionsmw-autoeditsummary": "(Sin resumen)"
 }

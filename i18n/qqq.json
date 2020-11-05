@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK",
 			"MuratTheTurkish",
 			"Patric Wirth",
+			"Raymond",
 			"Umherirrender"
 		]
 	},
@@ -58,7 +59,7 @@
 	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Label for the entity type field in the filter when its empty (nothing selected)",
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Label for the entity type field in the filter when values are selected",
 	"bs-social-special-timeline-heading": "Heading for [[Special:Timeline]] special page.\n{{notranslate}}",
-	"bs-social-special-activities-heading": "Heading for [[Special:Activities]] special page.\n{{Identical|Activities}}",
+	"bs-social-special-activities-heading": "Heading for [[Special:Activities]] special page.\n{{Identical|Activity}}",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Tooltip for button, that adds all items to the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Tooltip for button, that removes all items from the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Tooltip, that resets the date filter to setting \"today\"",
@@ -91,5 +92,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Text in dialog, that informs the user, that the changes the user made will be lost if the user leaves the current page. Must end in the question, if the user wants to discard the changes and continue",
 	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}",
 	"bs-social-specialpagelisting-socialentities-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}\n{{Identical|Show}}",
-	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}"
+	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}",
+	"bs-socialactionsmw-autoeditsummary": "Text that gets displayed instead of the edit summary, when it was left empty"
 }

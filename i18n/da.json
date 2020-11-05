@@ -27,5 +27,8 @@
 	"bs-social-filter-date-label-to": "$1 til",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
 	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
-	"bs-social-option-direction-label": "Retning"
+	"bs-social-option-direction-label": "Retning",
+	"bs-social-var-timestamptouched": "Rediger dato",
+	"bs-social-entityaction-undelete": "Gendan",
+	"bs-extendedsearch-search-center-result-owner-label": "Ejer:"
 }

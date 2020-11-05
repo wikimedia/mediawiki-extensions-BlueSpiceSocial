@@ -42,5 +42,6 @@
 	"bs-extendedsearch-search-center-result-owner-label": "Eigenaar:",
 	"bs-social-renderer-timestampprefix-created": "Aangemaakt",
 	"bs-social-renderer-timestampprefix-touched": "Bewerkt",
-	"bs-social-specialpagelisting-socialentities-show": "Weergeven"
+	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
+	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)"
 }

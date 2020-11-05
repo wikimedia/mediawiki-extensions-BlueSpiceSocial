@@ -84,5 +84,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Abandonar esta página pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
-	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais"
+	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais",
+	"bs-socialactionsmw-autoeditsummary": "(sem resumo)"
 }

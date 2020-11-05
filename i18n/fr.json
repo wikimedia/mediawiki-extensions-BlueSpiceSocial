@@ -90,5 +90,6 @@
 	"bs-social-entitylistmore-linklabel": "…",
 	"bs-social-specialpagelisting-socialentities": "$1 les entités sociales",
 	"bs-social-specialpagelisting-socialentities-show": "Afficher",
-	"bs-social-specialpagelisting-socialentities-hide": "Masquer"
+	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
+	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)"
 }
