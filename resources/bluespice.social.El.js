@@ -86,7 +86,7 @@ bs.social.El.prototype.showLoadMask = function() {
 	).appendTo( 'body' );
 	var $element = this.getEl();
 	this.$loadMask.css({
-		width: $( $element[0] ).width() + 'px',
+		width: $( $element[0] ).outerWidth() + 'px',
 		position: 'absolute',
 		top: $element.offset().top,
 		left: $element.offset().left,
