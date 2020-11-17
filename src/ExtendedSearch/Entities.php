@@ -4,23 +4,9 @@ namespace BlueSpice\Social\ExtendedSearch;
 
 use BlueSpice\EntityFactory;
 use BlueSpice\Services;
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 use Entity;
 
 class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
-
-	protected $lookupModifiers = [
-		LookupModifierBase::TYPE_SEARCH => [
-			'filteroutactionentities' => LookupModifier\FilterOutActionEntities::class,
-			'addhighlighters' => LookupModifier\AddHighlighters::class,
-			'entitytypeaggregation' => LookupModifier\EntityTypeAggregation::class,
-			'entitysimpleqsfields' => LookupModifier\EntitySimpleQSFields::class
-		],
-		LookupModifierBase::TYPE_AUTOCOMPLETE => [
-			'filteroutactionentities' => LookupModifier\FilterOutActionEntities::class,
-			'autocompletesourcefields' => LookupModifier\AutocompleteSourceFields::class
-		]
-	];
 
 	/**
 	 * @param \BS\ExtendedSearch\Source\Base $base

@@ -91,6 +91,13 @@
 		"BlueSpiceExtendedSearch": {
 			"Sources": {
 				"socialentity":  "\\BlueSpice\\Social\\ExtendedSearch\\Entities::create"
+			},
+			"LookupModifierRegistry": {
+				"entity-filteroutactionentities": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\FilterOutActionEntities::callback",
+				"entity-addhighlighters": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\LookupModifier\\AddHighlighters::callback",
+				"entity-entitytypeaggregation": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\LookupModifier\\EntityTypeAggregation::callback",
+				"entity-entitysimpleqsfields": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\LookupModifier\\EntitySimpleQSFields::callback",
+				"entity-autocompletesourcefields": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\LookupModifier\\AutocompleteSourceFields::callback"
 			}
 		},
 		"BlueSpicePrivacy": {
