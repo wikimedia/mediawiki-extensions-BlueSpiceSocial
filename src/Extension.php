@@ -73,6 +73,10 @@ class Extension extends \BlueSpice\Extension {
 			];
 		}
 
+		// Set robot policy for social namespaces
+		$GLOBALS['wgNamespaceRobotPolicies'][NS_SOCIALENTITY] = 'noindex,nofollow';
+		$GLOBALS['wgNamespaceRobotPolicies'][NS_SOCIALENTITY_TALK] = 'noindex,nofollow';
+
 		$lessVars = LessVars::getInstance();
 		$lessVars->setVar( 'bs-primary-light-background', '#98A7C4' );
 		$lessVars->setVar( 'bs-light-background', 'lighten(@bs-color-neutral, 38.43%)' );
