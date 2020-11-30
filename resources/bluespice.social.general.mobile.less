@@ -1,10 +1,6 @@
 ul.bs-social-entitylist {
-	li {
-		padding-top: 10px;
-	}
-
 	.bs-social-entitylist {
-		padding-left: 15px;
+		padding-left: 30px;
 	}
 }
 
@@ -112,9 +108,8 @@ ul.bs-social-entitylist {
 		}
 
 		.bs-social-entity-right {
-			margin: 0px;
+			margin: 5px;
 			padding: 5px 25px;
-			background-color: @bs-color-social-entity-background;
 			border-radius: 3px;
 			position: relative;
 
@@ -132,8 +127,7 @@ ul.bs-social-entitylist {
 			width: 20px;
 
 			&:before {
-				visibility: visible;
-				font-size: 20px;
+				visibility: visible;				
 			}
 		}
 
@@ -212,4 +206,8 @@ ul.bs-social-entitylist {
 		text-decoration: none !important;
 	}
 
+}
+
+.bs-social-entity-timecreated, .bs-social-entity-author {
+	display: none;
 }
