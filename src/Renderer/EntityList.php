@@ -466,6 +466,12 @@ class EntityList extends Renderer implements IParamProvider {
 		if ( !$entity instanceof Entity ) {
 			return $out;
 		}
+		if ( !$entity->userCan( 'read', $this->getUser() )->isOK() ) {
+			return $out;
+		}
+		if ( !$entity->exists() && !$entity->userCan( 'edit', $this->getUser() )->isOK() ) {
+			return $out;
+		}
 
 		// if this is an existing entity we need to render one less from the
 		// store, so the given limit fits ;)
