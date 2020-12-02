@@ -71,6 +71,10 @@ class Extension extends \BlueSpice\Extension {
 				1506, 1507
 			];
 		}
+
+		// Set robot policy for social namespaces
+		$GLOBALS['wgNamespaceRobotPolicies'][NS_SOCIALENTITY] = 'noindex,nofollow';
+		$GLOBALS['wgNamespaceRobotPolicies'][NS_SOCIALENTITY_TALK] = 'noindex,nofollow';
 	}
 
 	/**
