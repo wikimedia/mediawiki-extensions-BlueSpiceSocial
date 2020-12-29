@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veeven"
+		]
+	},
+	"activities": "కార్యకలాపాలు",
+	"bs-social-var-id": "గుర్తింపు",
+	"bs-social-var-ownerid": "యజమాని",
+	"bs-social-var-type": "రకం",
+	"bs-social-option-direction-label": "దిశ",
+	"bs-social-option-direction-val-asc": "ఆరోహణ",
+	"bs-social-option-direction-val-desc": "అవరోహణ",
+	"bs-social-editor-advanced": "ఉన్నతం",
+	"bs-social-editor-cancel": "రద్దుచేయి",
+	"bs-social-entityactions-label": "చర్యలు",
+	"bs-social-entityaction-delete": "తొలగించు",
+	"bs-social-entityaction-delete-confirmtext": "పద్దును తొలగించాలా?",
+	"bs-extendedsearch-search-center-result-owner-label": "యజమాని:",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "నేడు",
+	"bs-social-filter-owner-val-all": "అన్నీ",
+	"bs-social-filter-owner-val-mine": "నావి",
+	"bs-social-specialpagelisting-socialentities-show": "చూపించు",
+	"bs-social-specialpagelisting-socialentities-hide": "దాచు",
+	"bs-socialactionsmw-autoeditsummary": "(సారాంశం లేదు)"
+}
