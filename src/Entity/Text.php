@@ -57,7 +57,7 @@ class Text extends Entity {
 	/**
 	 * Gets the BSSociaEntityText attributes formated for the api
 	 * @param array $a
-	 * @return object
+	 * @return array
 	 */
 	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
