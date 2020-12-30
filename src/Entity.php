@@ -259,7 +259,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	/**
 	 * Gets the BlueSpiceSocialEntity attributes formated for the api
 	 * @param array $a
-	 * @return object
+	 * @return array
 	 */
 	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
