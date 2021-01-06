@@ -19,6 +19,8 @@ class RestoreContenModel extends Maintenance {
 	}
 
 	public function execute() {
+		global $wgExtraNamespaces;
+
 		$execute = $this->getOption( 'execute', false );
 
 		if ( !defined( 'NS_SOCIALENTITY' ) ) {
