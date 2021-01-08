@@ -19,6 +19,8 @@ class RemoveContentModel extends Maintenance {
 	}
 
 	public function execute() {
+		global $wgExtraNamespaces;
+
 		$execute = $this->getOption( 'execute', false );
 		if ( !defined( 'NS_SOCIALENTITY' ) ) {
 			define( "NS_SOCIALENTITY", 1506 );
