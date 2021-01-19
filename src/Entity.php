@@ -331,7 +331,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 
 	/**
 	 * Returns the parent entity or null, if there is non
-	 * @return Entity | null
+	 * @return Entity|null
 	 */
 	public function getParent() {
 		if ( !$this->hasParent() ) {

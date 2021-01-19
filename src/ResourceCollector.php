@@ -38,14 +38,21 @@ use MediaWiki\MediaWikiServices;
  * @subpackage BlueSpiceSocial
  */
 class ResourceCollector {
+	/** @var ResourceCollector|null */
 	protected static $oInstance = null;
+	/** @var \RequestContext|null */
 	protected static $oContext = null;
 
+	/** @var \ResourceLoaderContext|null */
 	protected $oResourceLoaderContext = null;
 
+	/** @var array */
 	protected $aConfig = [];
+	/** @var array */
 	protected $aScripts = [];
+	/** @var array */
 	protected $aStyles = [];
+	/** @var array */
 	protected $aVarMsgKeys = [];
 
 	/**

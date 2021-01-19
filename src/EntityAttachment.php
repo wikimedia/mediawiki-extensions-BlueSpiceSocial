@@ -20,6 +20,7 @@ use MediaWiki\MediaWikiServices;
  * @subpackage BlueSpiceSocial
  */
 class EntityAttachment {
+	/** @var string[] */
 	protected static $aAttachments = [
 		'default' => "\\BlueSpice\\Social\\EntityAttachment",
 		'file' => "\\BlueSpice\\Social\\EntityAttachment\\File",
@@ -27,6 +28,7 @@ class EntityAttachment {
 		'link' => "\\BlueSpice\\Social\\EntityAttachment\\Link",
 		// 'entity' TODO!
 	];
+	/** @var bool */
 	protected static $bAttachmentsRegistered = false;
 
 	/**
@@ -62,7 +64,7 @@ class EntityAttachment {
 	/**
 	 * @param \Entity $oEntity
 	 * @param mixed|null $mAttachment
-	 * @param type $sType
+	 * @param string $sType
 	 * @param TemplateFactory|null $templateFactory
 	 * @return \EntityAttachment
 	 */

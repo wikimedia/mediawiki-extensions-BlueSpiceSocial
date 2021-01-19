@@ -23,6 +23,7 @@ use MediaWiki\MediaWikiServices;
  * @subpackage BlueSpiceSocial
  */
 class Link extends EntityAttachment {
+	/** @var inheritDoc */
 	protected $sType = 'link';
 
 	/**

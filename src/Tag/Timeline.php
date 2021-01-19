@@ -73,7 +73,7 @@ class Timeline extends \BlueSpice\Tag\Tag {
 
 	/**
 	 *
-	 * @param type $processedInput
+	 * @param mixed $processedInput
 	 * @param array $processedArgs
 	 * @param Parser $parser
 	 * @param PPFrame $frame

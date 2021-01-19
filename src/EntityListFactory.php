@@ -32,7 +32,7 @@ class EntityListFactory {
 
 	/**
 	 * @param Params $params
-	 * @param IEntityListContext|null $context | null
+	 * @param IEntityListContext|null $context
 	 * @return IRenderer
 	 */
 	public function newFromEntityListContext( Params $params, IEntityListContext $context = null ) {

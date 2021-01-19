@@ -5,10 +5,14 @@ namespace BlueSpice\Social\ExtendedSearch\Crawler;
 use MediaWiki\MediaWikiServices;
 
 class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
+	/** @var string */
 	protected $sJobClass = "\\BlueSpice\\Social\\ExtendedSearch\\Job\\Entity";
 
+	/** @var array */
 	protected $entities = [];
+	/** @var array */
 	protected $titles = [];
+	/** @var array */
 	protected $ordered = [];
 
 	/**
