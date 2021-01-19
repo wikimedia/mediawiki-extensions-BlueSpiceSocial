@@ -8,6 +8,7 @@ use MediaWiki\MediaWikiServices;
 
 class Entity extends UpdateTitleBase {
 
+	/** @var string */
 	protected $sSourceKey = 'socialentity';
 
 	protected function doRun() {

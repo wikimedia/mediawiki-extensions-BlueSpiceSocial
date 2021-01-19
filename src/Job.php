@@ -4,6 +4,7 @@ namespace BlueSpice\Social;
 use MediaWiki\MediaWikiServices;
 
 abstract class Job extends \Job {
+	/** @var Entity|null */
 	protected $oEntity = null;
 
 	const JOBCOMMAND = '';

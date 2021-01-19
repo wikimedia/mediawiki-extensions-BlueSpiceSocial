@@ -20,6 +20,7 @@ use Html;
  * @subpackage BlueSpiceSocial
  */
 class File extends EntityAttachment {
+	/** @inheritDoc */
 	protected $sType = 'file';
 
 	/**
@@ -80,6 +81,7 @@ class File extends EntityAttachment {
 		}
 	}
 
+	/** @var string[] */
 	protected static $aExtensionMapping = [
 		// docs
 		"doc" => 'word',

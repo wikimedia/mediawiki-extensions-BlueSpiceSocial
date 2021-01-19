@@ -36,8 +36,11 @@ namespace BlueSpice\Social\Parser;
  * @subpackage BlueSpiceSocial
  */
 class Teaser extends Input {
+	/** @var int */
 	protected $iMinWordCount = 20;
+	/** @var int */
 	protected $iMaxWordCount = 40;
+	/** @var string[] */
 	protected $aShortenOnChars = [
 		'.',
 		':',

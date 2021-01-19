@@ -7,8 +7,11 @@ use MediaWiki\Linker\LinkRenderer;
 use RequestContext;
 
 class EntityFormatter {
+	/** @var Entity */
 	protected $entity;
+	/** @var array */
 	protected $result;
+	/** @var \Elastica\Result */
 	protected $resultObject;
 
 	/** @var LinkRenderer */

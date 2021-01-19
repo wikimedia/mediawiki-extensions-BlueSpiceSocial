@@ -39,7 +39,9 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	const AUTHOR_PAGE = 'authorpage';
 	const ACTIONS = 'entityactions';
 
+	/** @var string */
 	protected $renderType = 'Default';
+	/** @var bool */
 	protected $noCache = false;
 
 	/**
@@ -48,7 +50,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @param Params $params
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
-	 * @param string $name | ''
+	 * @param string $name
 	 * @param CacheHelper|null $cacheHelper
 	 */
 	protected function __construct( Config $config, Params $params,
@@ -513,8 +515,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	/**
 	 *
 	 * @param string $out
-	 * @param array $renderer - array of \BlueSpice\Renderer | \ViewBaseElement
-	 * | strings
+	 * @param (\BlueSpice\Renderer|\ViewBaseElement)[] $renderer
 	 * @return string
 	 */
 	protected function subRender( $out, $renderer ) {

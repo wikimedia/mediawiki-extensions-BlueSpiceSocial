@@ -52,6 +52,7 @@ class Text extends Entity {
 	const ATTR_PARSED_TEXT = 'parsedtext';
 	const ATTR_ATTACHMENTS = 'attachments';
 
+	/** @var ParserOutput|null */
 	protected $oParserOutput = null;
 
 	/**

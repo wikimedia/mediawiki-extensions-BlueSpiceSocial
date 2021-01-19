@@ -92,7 +92,7 @@ class EntityList extends Renderer implements IParamProvider {
 	 * @param Params $params
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
-	 * @param string $name | ''
+	 * @param string $name
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,

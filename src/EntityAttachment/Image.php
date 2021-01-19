@@ -20,6 +20,7 @@ use Html;
  * @subpackage BlueSpiceSocial
  */
 class Image extends EntityAttachment {
+	/** @inheritDoc */
 	protected $sType = 'image';
 
 	/**
