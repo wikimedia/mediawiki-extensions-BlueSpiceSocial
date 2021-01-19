@@ -6,15 +6,19 @@ use BlueSpice\Entity as EntityBase;
 use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\Updater\Base as Updater;
 use Exception;
+use MediaWiki\HookContainer\HookContainer;
 
 class Entity extends Updater {
 
 	/**
 	 *
-	 * @param array &$aHooks
+	 * @param HookContainer $hookContainer
 	 */
-	public function init( &$aHooks ) {
-		$aHooks['BSEntityInvalidate'][] = [ $this, 'onBSEntityInvalidate' ];
+	public function init( $hookContainer ) {
+		$hookContainer->register(
+			'BSEntityInvalidate',
+			[ $this, 'onBSEntityInvalidate' ]
+		);
 	}
 
 	/**
