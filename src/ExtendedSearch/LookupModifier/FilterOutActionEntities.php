@@ -4,6 +4,7 @@ namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
 use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
 use BlueSpice\Services;
+use BS\ExtendedSearch\Backend;
 use BlueSpice\ExtensionAttributeBasedRegistry;
 
 class FilterOutActionEntities extends LookupModifierBase {
@@ -24,6 +25,13 @@ class FilterOutActionEntities extends LookupModifierBase {
 
 	public function undo() {
 		$this->oLookup->removeBoolMustNot( 'entitydata.type' );
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function getSearchTypes() {
+		return [ Backend::QUERY_TYPE_SEARCH, Backend::QUERY_TYPE_AUTOCOMPLETE ];
 	}
 
 }

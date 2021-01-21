@@ -79,7 +79,8 @@ class EntityFormatter extends WikiPageFormatter {
 	public function formatAutocompleteResults( &$results, $searchData ) {
 		parent::formatAutocompleteResults( $results, $searchData );
 		foreach ( $results as &$result ) {
-			if ( $result['type'] !== $this->source->getTypeKey() ) {
+			if ( $result['type'] !== $this->source->getTypeKey()
+				|| !isset( $result['entitydata'] ) ) {
 				continue;
 			}
 
@@ -116,6 +117,9 @@ class EntityFormatter extends WikiPageFormatter {
 			}
 
 			$val = strtolower( $searchData['value'] );
+			if ( !isset( $result['entitydata'] ) ) {
+				continue;
+			}
 			$header = strtolower( $result['entitydata']['header'] );
 			if ( $header == $val ) {
 				$result['rank'] = self::AC_RANK_TOP;
@@ -134,6 +138,10 @@ class EntityFormatter extends WikiPageFormatter {
 	 * @return Entity|null
 	 */
 	private function getEntityFromResult( $result ) {
+		if ( !isset( $result['entitydata']['id'] )
+			|| !isset( $result['entitydata']['type'] ) ) {
+			return null;
+		}
 		/** @var Entity $entity */
 		$entity = $this->entityFactory->newFromID(
 			$result['entitydata']['id'], $result['entitydata']['type']
