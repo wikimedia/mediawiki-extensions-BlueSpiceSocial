@@ -138,7 +138,7 @@ bs.social.EntityListMenu.prototype.initOption = function( key, mVal ) {
 			if( locked[i] !== key ) {
 				continue;
 			}
-			this.filters[key].deactivate();
+			this.options[key].deactivate();
 		}
 	} catch( e ) {
 		console.log( e );
