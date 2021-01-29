@@ -319,8 +319,7 @@ class EntityList extends Renderer implements IParamProvider {
 		$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ][ 'EntityListContext' ]
 			= get_class( $this->getContext() );
 		if ( $this->getContext()->getParent() instanceof Entity ) {
-			$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ]
-				[ Entity::ATTR_PARENT_ID ]
+			$this->args[ static::PARAM_ENTITY_LIST_DATA_ATTR ][ Entity::ATTR_PARENT_ID ]
 				= $this->getContext()->getParent()->get( Entity::ATTR_ID );
 		}
 		$this->args[static::PARAM_ENTITY_LIST_DATA_ATTR][static::PARAM_PERSIST_SETTINGS] =
