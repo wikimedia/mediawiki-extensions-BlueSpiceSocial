@@ -75,8 +75,11 @@ bs.social.EntityListMenuFilterType.prototype.makeQuickFilterButtons = function()
 	);
 	this.$removeAllButton.on( 'click',function() {
 		var $select2 = me.$element.find( 'select' );
+		if( $select2.attr( 'disabled' ) === 'disabled' ) {
+			return;
+		}
 		$select2.val( null );
-		$select2.trigger('change');
+		$select2.trigger( 'change' );
 	});
 
 	var msg = mw.message(
@@ -89,10 +92,13 @@ bs.social.EntityListMenuFilterType.prototype.makeQuickFilterButtons = function()
 	);
 	this.$addAllButton.on( 'click',function() {
 		var $select2 = me.$element.find( 'select' );
+		if( $select2.attr( 'disabled' ) === 'disabled' ) {
+			return;
+		}
 		$select2.val( null );
 		$select2.children( 'option' ).prop( "selected", "selected" );
 		$select2.trigger( 'change' );
-		me.change( me.$element.find('select').select2( "val" ) );
+		me.change( me.$element.find( 'select' ).select2( "val" ) );
 	});
 	this.$removeAllButton.insertBefore( this.$element.find('select') );
 	this.$addAllButton.insertBefore( this.$element.find('select') );

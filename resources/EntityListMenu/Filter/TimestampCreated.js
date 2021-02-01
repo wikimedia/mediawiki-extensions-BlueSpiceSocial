@@ -58,6 +58,9 @@ bs.social.EntityListMenuFilterTimestampCreated.prototype.init = function( mVar )
 		this
 	);
 	this.$removeAllButton.on( 'click', function( e ) {
+		if ( me.field.isDisabled() ) {
+			return;
+		}
 		var date = new Date();
 		me.field.setValue( date );
 		return false;
@@ -121,6 +124,16 @@ bs.social.EntityListMenuFilterTimestampCreated.prototype.getData = function( dat
 		comparison: 'lt'
 	});
 	return data;
+};
+
+bs.social.EntityListMenuFilterTimestampCreated.prototype.activate = function() {
+	this.field.setDisabled( false );
+	return bs.social.EntityListMenuFilterTimestampCreated.super.prototype.activate.apply( this );
+};
+
+bs.social.EntityListMenuFilterTimestampCreated.prototype.deactivate = function() {
+	this.field.setDisabled( true );
+	return bs.social.EntityListMenuFilterTimestampCreated.super.prototype.deactivate.apply( this );
 };
 
 bs.social.EntityListMenuFilters.timestampcreated = bs.social.EntityListMenuFilterTimestampCreated;
