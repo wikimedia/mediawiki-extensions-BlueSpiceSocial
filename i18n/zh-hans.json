@@ -4,6 +4,7 @@
 			")8",
 			"A Chinese Wikipedian",
 			"A Retired User",
+			"Lakejason0",
 			"VulpesVulpes825",
 			"予弦"
 		]
@@ -34,6 +35,7 @@
 	"bs-social-entityaction-undelete-confirmtext": "恢复条目？",
 	"bs-social-entity-fatalstatus-save-nouser": "没有指定的所有者，无法保存该条目",
 	"bs-social-entity-fatalstatus-save-notype": "条目类型为空",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "未知操作“$1”",
 	"bs-social-select2-overwrites-noresults": "没有结果",
 	"bs-social-select2-overwrites-searching": "正在搜索……",
 	"bs-extendedsearch-search-center-result-owner-label": "所有者：",
@@ -45,6 +47,7 @@
 	"bs-social-filter-owner-val-mine": "线形图",
 	"bs-social-renderer-timestampprefix-created": "已创建",
 	"bs-social-renderer-timestampprefix-touched": "已编辑",
+	"bs-social-entityspawner-button-tooltip": "创建新的",
 	"bs-social-pref-warnonleave": "当我离开编辑页面时，如果有尚未保存的更改，请提醒我",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "执行操作，可能导致您失去所做的任何更改。继续吗？",
 	"bs-social-editwarnonleave-confirmtext": "离开此页面可能会导致您丢失所做的任何更改。您要放弃更改并继续吗？",
