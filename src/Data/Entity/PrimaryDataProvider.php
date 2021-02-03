@@ -42,7 +42,6 @@ class PrimaryDataProvider extends SearchPrimaryDataProvider {
 	/**
 	 *
 	 * @param \Elastica\Result $row
-	 * @return null
 	 */
 	protected function appendRowToData( \Elastica\Result $row ) {
 		$record = new Record( $row );
