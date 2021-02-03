@@ -81,5 +81,9 @@
 	"apihelp-bs-socialentity-store-summary": "Fornece um repositório de pesquisa para entidades, que pode ser consultado",
 	"bs-social-pref-warnonleave": "Avisar-me quando abandonar uma edição de uma entrada com alterações por gravar.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Realizar esta operação pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?",
-	"bs-social-editwarnonleave-confirmtext": "Abandonar esta página pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?"
+	"bs-social-editwarnonleave-confirmtext": "Abandonar esta página pode causar a perda de todas as suas alterações. Quer descartar as alterações e prosseguir?",
+	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais",
+	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
+	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
+	"bs-socialactionsmw-autoeditsummary": "(sem resumo)"
 }

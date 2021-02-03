@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Suvarioglu",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Suvarioglu"
 		]
 	},
 	"right-social-editothers": "Diğer girdileri düzenle",
@@ -28,7 +28,7 @@
 	"bs-social-editor-advanced": "Gelişmiş",
 	"bs-social-editor-ok": "Gönder",
 	"bs-social-editor-cancel": "İptal",
-	"bs-social-entityactions-label": "İşlemler",
+	"bs-social-entityactions-label": "Eylemler",
 	"bs-social-entityaction-edit": "Düzenle",
 	"bs-social-entityaction-delete": "Sil",
 	"bs-social-entityaction-delete-confirmtext": "Girişi silin mi?",
@@ -37,7 +37,7 @@
 	"bs-social-entity-fatalstatus-save-nouser": "Girdi, belirtilen bir sahip olmadan kaydedilemez",
 	"bs-social-entity-fatalstatus-save-noidgenerated": "Bir kimlik otomatik olarak oluşturulamadı",
 	"bs-social-entity-fatalstatus-save-notype": "Varlık türü boş",
-	"bs-social-entity-fatalstatus-save-norelatedtitle": "İlgili wiki sayfası bulunamadı",
+	"bs-social-entity-fatalstatus-save-norelatedtitle": "İlgili vikisayfası bulunamadı",
 	"bs-social-entity-fatalstatus-save-emptyfield": "\"$1\" alanı boş",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "\"$1\" alanı için geçersiz değer",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Bilinmeyen işlem \"$1\"",
@@ -58,18 +58,18 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Hepsini kaldır",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Bugün",
 	"bs-social-filter-owner-val-all": "Hepsi",
-	"bs-social-filter-owner-val-mine": "Maden Ocağı",
-	"bs-social-filter-date-label-from": "$1 üzerinden",
-	"bs-social-filter-date-label-to": "$1",
-	"bs-social-filter-archived-val-archived": "Yalnızca arşivlendi",
-	"bs-social-filter-archived-val-notarchived": "Yalnızca arşivlenmedi",
+	"bs-social-filter-owner-val-mine": "Benim",
+	"bs-social-filter-date-label-from": "$1 tarihinden",
+	"bs-social-filter-date-label-to": "$1 tarihe kadar",
+	"bs-social-filter-archived-val-archived": "Yalnızca arşivlenmiş",
+	"bs-social-filter-archived-val-notarchived": "Yalnızca arşivlenmemiş",
 	"bs-extendedsearch-source-type-socialentity-label": "Sosyal varlık",
 	"bs-social-renderer-timestampprefix-created": "Oluşturuldu",
 	"bs-social-renderer-timestampprefix-touched": "Düzenlendi",
 	"bs-social-filter-button-tooltip": "Filtre seçeneklerini göster",
 	"bs-social-sort-button-tooltip": "Sıralama seçeneklerini göster",
 	"bs-social-entityspawner-button-tooltip": "Yeni oluştur",
-	"bs-social-sourcetitle-lockdown-reason-reason": "$1 eylemi yalnızca yöneticiler tarafından gerçekleştirilebilir, çünkü bu girişler doğrudan düzenlenmemelidir.",
+	"bs-social-sourcetitle-lockdown-reason-reason": "$1 eylemi yalnızca hizmetliler tarafından gerçekleştirilebilir, çünkü bu girişler doğrudan düzenlenmemelidir.",
 	"apihelp-bs-social-tasks-summary": "Varlıkları düzenleme veya silme gibi görevler sağlar",
 	"apihelp-bs-socialtitlequery-store-summary": "Bir varlığa bağlanabilecek başlıklar için veri sağlar",
 	"apihelp-bs-socialentity-store-summary": "Varlıklar için sorgulanabilecek bir arama mağazası sağlar",
@@ -81,5 +81,9 @@
 	"prefs-social": "Zaman çizelgesi",
 	"bs-social-pref-warnonleave": "Kaydedilmemiş değişikliklerle bir girdinin düzenlemesinden ayrıldığımda beni uyar.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Bu eylemi gerçekleştirmek yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?",
-	"bs-social-editwarnonleave-confirmtext": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?"
+	"bs-social-editwarnonleave-confirmtext": "Bu sayfadan çıkmak yaptığınız değişiklikleri kaybetmenize neden olabilir. Değişiklikleri atmak ve devam etmek istiyor musunuz?",
+	"bs-social-specialpagelisting-socialentities": "Sosyal girdileri $1",
+	"bs-social-specialpagelisting-socialentities-show": "Göster",
+	"bs-social-specialpagelisting-socialentities-hide": "Gizle",
+	"bs-socialactionsmw-autoeditsummary": "(Özet yok)"
 }

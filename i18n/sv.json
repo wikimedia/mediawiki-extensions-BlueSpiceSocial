@@ -3,8 +3,10 @@
 		"authors": [
 			"Josve05a",
 			"M.M.S.",
-			"WikiPhoenix",
-			"Mjälten"
+			"Mjälten",
+			"Pyscowicz",
+			"Sabelöga",
+			"WikiPhoenix"
 		]
 	},
 	"bs-social-editor-cancel": "Avbryt",
@@ -56,5 +58,9 @@
 	"bs-social-entityaction-undelete": "Återställ",
 	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Sök i social",
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Sök i social:",
-	"right-social-source": "Visa källsida"
+	"right-social-source": "Visa källsida",
+	"action-social-source": "visa källsidan",
+	"bs-social-specialpagelisting-socialentities-show": "Visa",
+	"bs-social-specialpagelisting-socialentities-hide": "Dölj",
+	"bs-socialactionsmw-autoeditsummary": "(Ingen redigeringssammanfattning)"
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Meno25",
-			"ديفيد"
+			"ديفيد",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"bs-social-desc": "امتداد قاعدة للامتدادات الاجتماعية",
@@ -81,5 +82,8 @@
 	"prefs-social": "الجدول الزمني",
 	"bs-social-pref-warnonleave": "حذرني عندما أترك تحرير إدخال بتغييرات غير المحفوظة.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "قد يؤدي تنفيذ هذا الإجراء إلى فقد أية تغييرات قمت بإجرائها، هل تريد تجاهل التغييرات والمتابعة؟",
-	"bs-social-editwarnonleave-confirmtext": "قد يؤدي ترك هذه الصفحة إلى فقد أية تغييرات قمت بإجرائها، هل تريد تجاهل التغييرات والمتابعة؟"
+	"bs-social-editwarnonleave-confirmtext": "قد يؤدي ترك هذه الصفحة إلى فقد أية تغييرات قمت بإجرائها، هل تريد تجاهل التغييرات والمتابعة؟",
+	"bs-social-specialpagelisting-socialentities-show": "أظهر",
+	"bs-social-specialpagelisting-socialentities-hide": "أخف",
+	"bs-socialactionsmw-autoeditsummary": "(بدون ملخص)"
 }

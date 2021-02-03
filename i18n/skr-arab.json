@@ -21,5 +21,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "سب ہٹاؤ",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "اڄ",
 	"bs-social-filter-owner-val-all": "یکے",
-	"bs-social-renderer-timestampprefix-created": "بݨ ڳیا"
+	"bs-social-renderer-timestampprefix-created": "بݨ ڳیا",
+	"bs-social-specialpagelisting-socialentities-show": "ݙِکھاؤ",
+	"bs-social-specialpagelisting-socialentities-hide": "لُکاؤ"
 }

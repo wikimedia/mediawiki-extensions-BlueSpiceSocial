@@ -39,7 +39,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "全部移除",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "今日",
 	"bs-social-filter-owner-val-all": "所有",
-	"bs-extendedsearch-source-type-socialentity-label": "Social 實體",
+	"bs-extendedsearch-source-type-socialentity-label": "社交項目",
 	"bs-social-renderer-timestampprefix-created": "已建立",
 	"bs-social-renderer-timestampprefix-touched": "已編輯",
 	"bs-social-filter-button-tooltip": "顯示篩選選項",
@@ -81,5 +81,9 @@
 	"prefs-social": "時間軸",
 	"bs-social-pref-warnonleave": "在我留下未儲存變動的編輯項目時警告我。",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "執行此操作可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？",
-	"bs-social-editwarnonleave-confirmtext": "離開此頁面可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？"
+	"bs-social-editwarnonleave-confirmtext": "離開此頁面可能會導致失去您做過的任何更改。您是否要放棄更改並繼續？",
+	"bs-social-specialpagelisting-socialentities": "$1社交項目",
+	"bs-social-specialpagelisting-socialentities-show": "顯示",
+	"bs-social-specialpagelisting-socialentities-hide": "隱藏",
+	"bs-socialactionsmw-autoeditsummary": "（無摘要）"
 }

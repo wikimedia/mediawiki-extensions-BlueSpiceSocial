@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"VulpesVulpes825",
+			")8",
 			"A Chinese Wikipedian",
-			"予弦",
-			"A Retired User"
+			"A Retired User",
+			"Lakejason0",
+			"VulpesVulpes825",
+			"予弦"
 		]
 	},
 	"bs-social-entitytext-header-create": "新条目",
@@ -43,5 +45,13 @@
 	"bs-social-select2-overwrites-noresults": "没有结果",
 	"bs-social-special-activities-heading": "活动",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "添加全部",
-	"bs-social-entitylistmenufilter-quickfilter-removeall": "全部删除"
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "全部删除",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "未知操作“$1”",
+	"bs-social-entityspawner-button-tooltip": "创建新的",
+	"bs-social-pref-warnonleave": "当我离开编辑页面时，如果有尚未保存的更改，请提醒我",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "执行操作，可能导致您失去所做的任何更改。继续吗？",
+	"bs-social-editwarnonleave-confirmtext": "离开此页面可能会导致您丢失所做的任何更改。您要放弃更改并继续吗？",
+	"bs-social-specialpagelisting-socialentities-show": "显示",
+	"bs-social-specialpagelisting-socialentities-hide": "隐藏",
+	"bs-socialactionsmw-autoeditsummary": "（无摘要）"
 }

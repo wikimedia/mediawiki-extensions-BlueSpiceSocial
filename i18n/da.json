@@ -16,5 +16,19 @@
 	"bs-social-renderer-timestampprefix-touched": "Redigeret",
 	"action-social-source": "vis kildesiden",
 	"right-social-source": "Vis kildesiden",
-	"prefs-social": "Tidslinje"
+	"prefs-social": "Tidslinje",
+	"bs-social-pref-datedisplaymode-mode-age": "Vis som alder",
+	"bs-social-pref-datedisplaymode-mode-mw": "Vis som dato",
+	"bs-social-var-timestamptouched": "Rediger dato",
+	"bs-social-option-direction-label": "Retning",
+	"bs-social-editor-advanced": "Avanceret",
+	"bs-social-entityaction-undelete": "Gendan",
+	"bs-social-select2-overwrites-searching": "Søger...",
+	"bs-extendedsearch-search-center-result-owner-label": "Ejer:",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Tilføj alle",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Fjern alle",
+	"bs-social-filter-date-label-from": "$1 fra",
+	"bs-social-filter-date-label-to": "$1 til",
+	"bs-social-specialpagelisting-socialentities-show": "Vis",
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
 }

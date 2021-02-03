@@ -80,5 +80,9 @@
 	"prefs-social": "Linha do tempo",
 	"bs-social-pref-warnonleave": "Avise-me quando deixar uma edição de uma entrada com alterações não salvas.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Realizar esta ação pode fazer com que você perca todas as alterações feitas. Você quer descartar as alterações e prosseguir?",
-	"bs-social-editwarnonleave-confirmtext": "Sair desta página pode causar a perda de quaisquer alterações feitas. Deseja descartar as alterações e prosseguir?"
+	"bs-social-editwarnonleave-confirmtext": "Sair desta página pode causar a perda de quaisquer alterações feitas. Deseja descartar as alterações e prosseguir?",
+	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais",
+	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
+	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
+	"bs-socialactionsmw-autoeditsummary": "(Sem sumário)"
 }
