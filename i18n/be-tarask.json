@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"W"
+		]
+	},
+	"activities": "Дзейнасьць",
+	"bs-social-pref-datedisplaymode-mode-age": "Паказаць як узрост",
+	"bs-social-pref-datedisplaymode-mode-mw": "Паказаць як дату",
+	"bs-social-var-ownerid": "Уласьнік(-ца)",
+	"bs-social-var-type": "Від",
+	"bs-social-var-text": "Зьмест",
+	"bs-social-var-timestampcreated": "Дата стварэньня",
+	"bs-social-var-timestamptouched": "Правіць дату",
+	"bs-social-editor-cancel": "Скасаваць",
+	"bs-social-entityactions-label": "Дзеяньні",
+	"bs-social-entityaction-edit": "Правіць",
+	"bs-social-entityaction-delete": "Выдаліць",
+	"bs-social-entityaction-undelete": "Аднавіць",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Поле «$1» пустое",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Невядомае дзеяньне «$1»",
+	"bs-social-select2-overwrites-noresults": "Няма выніку",
+	"bs-extendedsearch-search-center-result-owner-label": "Уласьнік(-ца):",
+	"bs-social-special-activities-heading": "Дзейнасьць",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Дадаць усё",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Прыбраць усё",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Сёньня",
+	"bs-social-filter-owner-val-all": "Усё",
+	"bs-social-specialpagelisting-socialentities-show": "Паказаць",
+	"bs-social-specialpagelisting-socialentities-hide": "Схаваць",
+	"bs-socialactionsmw-autoeditsummary": "(Няма падсумоўваньня)"
+}
