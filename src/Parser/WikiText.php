@@ -58,13 +58,13 @@ class WikiText extends \Parser {
 			$this->mRevisionSize = null;
 		}
 
-		// Hooks::run( 'ParserBeforeStrip', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserBeforeStrip', array( &$this, &$text, &$this->getStripState() ) );
 		# No more strip!
-		// Hooks::run( 'ParserAfterStrip', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserAfterStrip', array( &$this, &$text, &$this->getStripState() ) );
 		$text = $this->internalParse( $text );
-		// Hooks::run( 'ParserAfterParse', array( &$this, &$text, &$this->mStripState ) );
+		// Hooks::run( 'ParserAfterParse', array( &$this, &$text, &$this->getStripState() ) );
 
-		$text = $this->mStripState->unstripGeneral( $text );
+		$text = $this->getStripState()->unstripGeneral( $text );
 
 		# Clean up special characters, only run once, next-to-last before doBlockLevels
 		$fixtags = [
@@ -123,11 +123,11 @@ class WikiText extends \Parser {
 			}
 		}
 
-		$text = $this->mStripState->unstripNoWiki( $text );
+		$text = $this->getStripState()->unstripNoWiki( $text );
 
 		Hooks::run( 'ParserBeforeTidy', array( &$this, &$text ) );
 
-		$text = $this->mStripState->unstripGeneral( $text );
+		$text = $this->getStripState()->unstripGeneral( $text );
 */
 		$text = \Sanitizer::normalizeCharReferences( $text );
 
