@@ -75,7 +75,7 @@
 		},
 		"BlueSpiceExtendedSearch": {
 			"Sources": {
-				"socialentity":  "\\BlueSpice\\Social\\ExtendedSearch\\Entities::create"
+				"socialentity": "\\BlueSpice\\Social\\ExtendedSearch\\Entities::create"
 			},
 			"LookupModifierRegistry": {
 				"entity-filteroutactionentities": "\\BlueSpice\\Social\\ExtendedSearch\\LookupModifier\\FilterOutActionEntities::factory",
