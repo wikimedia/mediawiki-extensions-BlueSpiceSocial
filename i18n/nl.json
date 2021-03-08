@@ -36,6 +36,7 @@
 	"bs-social-filter-archived-val-notarchived": "Alleen niet-gearchiveerde",
 	"bs-social-renderer-timestampprefix-created": "Aangemaakt",
 	"bs-social-renderer-timestampprefix-touched": "Bewerkt",
+	"bs-social-entityspawner-button-tooltip": "Nieuwe aanmaken",
 	"action-social-deleteothers": "handelingen van anderen te verwijderen",
 	"action-social-source": "bronpagina bekijken",
 	"right-social-source": "Bronpagina bekijken",
@@ -43,5 +44,6 @@
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Door deze handeling uit te voeren, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
 	"bs-social-editwarnonleave-confirmtext": "Door deze pagina te verlaten, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
+	"bs-social-specialpagelisting-socialentities-hide": "Verbergen",
 	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)"
 }
