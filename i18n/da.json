@@ -30,5 +30,8 @@
 	"bs-social-filter-date-label-from": "$1 fra",
 	"bs-social-filter-date-label-to": "$1 til",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
-	"bs-social-specialpagelisting-socialentities-hide": "Skjul"
+	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
+	"bs-social-entitytext-header": "[[User:$1|$2]] skrev:",
+	"bs-social-var-ownerid": "Ejer",
+	"bs-social-var-type": "Type"
 }

@@ -43,5 +43,7 @@
 	"bs-social-renderer-timestampprefix-created": "Aangemaakt",
 	"bs-social-renderer-timestampprefix-touched": "Bewerkt",
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
-	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)"
+	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
+	"bs-social-entityspawner-button-tooltip": "Nieuwe aanmaken",
+	"bs-social-specialpagelisting-socialentities-hide": "Verbergen"
 }
