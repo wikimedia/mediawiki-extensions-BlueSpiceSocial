@@ -17,6 +17,9 @@ class FilterOutActionEntities extends LookupModifierBase {
 		);
 		foreach ( $registry->getAllKeys() as $type ) {
 			$typeConfig = $entityConfigFactory->newFromType( $type );
+			if ( $typeConfig === null ) {
+				continue;
+			}
 			if ( $typeConfig->get( 'ExtendedSearchListable' ) == false ) {
 				$this->oLookup->addBoolMustNotTerms( 'entitydata.type', $type );
 			}
