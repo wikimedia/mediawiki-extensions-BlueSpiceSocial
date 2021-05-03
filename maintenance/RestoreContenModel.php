@@ -31,7 +31,7 @@ class RestoreContenModel extends Maintenance {
 			define( 'NS_SOCIALENTITY_TALK', 1507 );
 			$wgExtraNamespaces[NS_SOCIALENTITY_TALK] = 'SocialEntity_talk';
 		}
-		$res = $this->getDB( DB_MASTER )->select(
+		$res = $this->getDB( DB_PRIMARY )->select(
 			'page',
 			'page_id',
 			[ 'page_namespace' => NS_SOCIALENTITY, 'page_content_model' => CONTENT_MODEL_JSON ],
@@ -59,7 +59,7 @@ class RestoreContenModel extends Maintenance {
 			$this->output( "$start - $limit ..." );
 			$updated = true;
 			if ( $execute ) {
-				$updated = $this->getDB( DB_MASTER )->update(
+				$updated = $this->getDB( DB_PRIMARY )->update(
 					'page',
 					[ 'page_content_model' => 'BSSocial' ],
 					[

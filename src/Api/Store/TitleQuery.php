@@ -10,7 +10,7 @@ class TitleQuery extends \BSApiTitleQueryStore {
 	 * @return array of objects
 	 */
 	protected function makeData( $query = '' ) {
-		$data = array_filter( parent::makeData( $query ), function ( $row ) {
+		$data = array_filter( parent::makeData( $query ), static function ( $row ) {
 			return $row->type === 'wikipage';
 		} );
 		return array_values( $data );

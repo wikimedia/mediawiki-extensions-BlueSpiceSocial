@@ -29,7 +29,7 @@ class AddSocialEntityFilter extends ChangesListSpecialPageStructuredFilters {
 					'name' => 'hidesocialentities',
 					'showHide' => 'bs-social-specialpagelisting-socialentities',
 					'default' => true,
-					'queryCallable' => function (
+					'queryCallable' => static function (
 						$specialClassName, $ctx, $dbr, &$tables, &$fields,
 						&$conds, &$query_options, &$join_conds
 					) {

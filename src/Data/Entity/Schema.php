@@ -11,7 +11,7 @@ class Schema extends \BlueSpice\Data\Entity\Schema {
 	 */
 	protected function getEntityConfigs() {
 		$entityConfigs = parent::getEntityConfigs();
-		return array_filter( $entityConfigs, function ( $entityConfig ) {
+		return array_filter( $entityConfigs, static function ( $entityConfig ) {
 			return $entityConfig instanceof EntityConfig;
 		} );
 	}
