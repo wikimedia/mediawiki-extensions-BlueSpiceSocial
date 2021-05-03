@@ -2,7 +2,11 @@
 
 namespace BlueSpice\Social\Parser;
 
+use BlockLevelPass;
+use ILanguageConverter;
+use MediaWiki\MediaWikiServices;
 use MWTidy;
+use Sanitizer;
 
 /**
  * WikiText class for BlueSpiceSocial extension
@@ -10,6 +14,7 @@ use MWTidy;
  * @subpackage BlueSpiceSocial
  */
 class WikiText extends \Parser {
+
 	/**
 	 *
 	 * @param string $text
@@ -55,7 +60,7 @@ class WikiText extends \Parser {
 
 		# No more strip!
 		$text = $this->internalParse( $text );
-
+		$text = $this->internalParseHalfParsed( $text, true, $linestart );
 		$text = $this->getStripState()->unstripGeneral( $text );
 
 		# Clean up special characters, only run once, next-to-last before doBlockLevels
@@ -104,4 +109,62 @@ class WikiText extends \Parser {
 		parent::makeImage( $title, $options, $holders );
 		return '';
 	}
+
+	/**
+	 * Helper function for parse() that transforms half-parsed HTML into fully
+	 * parsed HTML.
+	 *
+	 * @param string $text
+	 * @param bool $isMain
+	 * @param bool $linestart
+	 * @return string
+	 */
+	protected function internalParseHalfParsed( $text, $isMain = true, $linestart = true ) {
+		$text = $this->mStripState->unstripGeneral( $text );
+
+		$text = BlockLevelPass::doBlockLevels( $text, $linestart );
+
+		$this->replaceLinkHolders( $text );
+
+		/**
+		 * The input doesn't get language converted if
+		 * a) It's disabled
+		 * b) Content isn't converted
+		 * c) It's a conversion table
+		 * d) it is an interface message (which is in the user language)
+		 */
+		if ( !( $this->mOptions->getDisableContentConversion()
+			|| isset( $this->mDoubleUnderscores['nocontentconvert'] ) )
+			&& !$this->mOptions->getInterfaceMessage()
+		) {
+			# The position of the convert() call should not be changed. it
+			# assumes that the links are all replaced and the only thing left
+			# is the <nowiki> mark.
+			$text = $this->getTargetLanguageConverter()->convert( $text );
+		}
+
+		$text = $this->mStripState->unstripNoWiki( $text );
+
+		$text = $this->mStripState->unstripGeneral( $text );
+
+		# Clean up special characters, only run once, after doBlockLevels
+		$text = Sanitizer::armorFrenchSpaces( $text );
+
+		$text = Sanitizer::normalizeCharReferences( $text );
+
+		$text = MWTidy::tidy( $text );
+
+		return $text;
+	}
+
+	/**
+	 * Shorthand for getting a Language Converter for Target language
+	 *
+	 * @return ILanguageConverter
+	 */
+	protected function getTargetLanguageConverter() {
+		return MediaWikiServices::getInstance()->getLanguageConverterFactory()
+			->getLanguageConverter( $this->getTargetLanguage() );
+	}
+
 }
