@@ -2,12 +2,17 @@
 
 namespace BlueSpice\Social\Parser;
 
+use Hooks;
+use MWTidy;
+use Sanitizer;
+
 /**
  * WikiText class for BlueSpiceSocial extension
  * @package BlueSpiceSocial
  * @subpackage BlueSpiceSocial
  */
 class WikiText extends \Parser {
+
 	/**
 	 *
 	 * @param string $text
@@ -63,7 +68,7 @@ class WikiText extends \Parser {
 		// Hooks::run( 'ParserAfterStrip', array( &$this, &$text, &$this->mStripState ) );
 		$text = $this->internalParse( $text );
 		// Hooks::run( 'ParserAfterParse', array( &$this, &$text, &$this->mStripState ) );
-
+		$text = $this->internalParseHalfParsed( $text, true, $linestart );
 		$text = $this->mStripState->unstripGeneral( $text );
 
 		# Clean up special characters, only run once, next-to-last before doBlockLevels
@@ -263,5 +268,108 @@ class WikiText extends \Parser {
 	public function makeImage( $title, $options, $holders = false ) {
 		parent::makeImage( $title, $options, $holders );
 		return '';
+	}
+
+	/**
+	 * Helper function for parse() that transforms half-parsed HTML into fully
+	 * parsed HTML.
+	 *
+	 * @param string $text
+	 * @param bool $isMain
+	 * @param bool $linestart
+	 * @return string
+	 */
+	protected function internalParseHalfParsed( $text, $isMain = true, $linestart = true ) {
+		$text = $this->mStripState->unstripGeneral( $text );
+
+		// Avoid PHP 7.1 warning from passing $this by reference
+		$parser = $this;
+
+		if ( $isMain ) {
+			Hooks::run( 'ParserAfterUnstrip', [ &$parser, &$text ] );
+		}
+
+		# Clean up special characters, only run once, next-to-last before doBlockLevels
+		$fixtags = [
+			# French spaces, last one Guillemet-left
+			# only if there is something before the space
+			'/(.) (?=\\?|:|;|!|%|\\302\\273)/' => '\\1&#160;',
+			# french spaces, Guillemet-right
+			'/(\\302\\253) /' => '\\1&#160;',
+			# Beware of CSS magic word !important, T13874.
+			'/&#160;(!\s*important)/' => ' \\1',
+		];
+		$text = preg_replace( array_keys( $fixtags ), array_values( $fixtags ), $text );
+
+		$text = $this->doBlockLevels( $text, $linestart );
+
+		$this->replaceLinkHolders( $text );
+
+		/**
+		 * The input doesn't get language converted if
+		 * a) It's disabled
+		 * b) Content isn't converted
+		 * c) It's a conversion table
+		 * d) it is an interface message (which is in the user language)
+		 */
+		if ( !( $this->mOptions->getDisableContentConversion()
+			|| isset( $this->mDoubleUnderscores['nocontentconvert'] ) )
+		) {
+			if ( !$this->mOptions->getInterfaceMessage() ) {
+				# The position of the convert() call should not be changed. it
+				# assumes that the links are all replaced and the only thing left
+				# is the <nowiki> mark.
+				$text = $this->getConverterLanguage()->convert( $text );
+			}
+		}
+
+		$text = $this->mStripState->unstripNoWiki( $text );
+
+		if ( $isMain ) {
+			Hooks::run( 'ParserBeforeTidy', [ &$parser, &$text ] );
+		}
+
+		$text = $this->replaceTransparentTags( $text );
+		$text = $this->mStripState->unstripGeneral( $text );
+
+		$text = Sanitizer::normalizeCharReferences( $text );
+
+		if ( MWTidy::isEnabled() ) {
+			if ( $this->mOptions->getTidy() ) {
+				$text = MWTidy::tidy( $text );
+			}
+		} else {
+			# attempt to sanitize at least some nesting problems
+			# (T4702 and quite a few others)
+			$tidyregs = [
+				# ''Something [http://www.cool.com cool''] -->
+				# <i>Something</i><a href="http://www.cool.com"..><i>cool></i></a>
+				'/(<([bi])>)(<([bi])>)?([^<]*)(<\/?a[^<]*>)([^<]*)(<\/\\4>)?(<\/\\2>)/' =>
+				'\\1\\3\\5\\8\\9\\6\\1\\3\\7\\8\\9',
+				# fix up an anchor inside another anchor, only
+				# at least for a single single nested link (T5695)
+				'/(<a[^>]+>)([^<]*)(<a[^>]+>[^<]*)<\/a>(.*)<\/a>/' =>
+				'\\1\\2</a>\\3</a>\\1\\4</a>',
+				# fix div inside inline elements- doBlockLevels won't wrap a line which
+				# contains a div, so fix it up here; replace
+				# div with escaped text
+				'/(<([aib]) [^>]+>)([^<]*)(<div([^>]*)>)(.*)(<\/div>)([^<]*)(<\/\\2>)/' =>
+				'\\1\\3&lt;div\\5&gt;\\6&lt;/div&gt;\\8\\9',
+				# remove empty italic or bold tag pairs, some
+				# introduced by rules above
+				'/<([bi])><\/\\1>/' => '',
+			];
+
+			$text = preg_replace(
+				array_keys( $tidyregs ),
+				array_values( $tidyregs ),
+				$text );
+		}
+
+		if ( $isMain ) {
+			Hooks::run( 'ParserAfterTidy', [ &$parser, &$text ] );
+		}
+
+		return $text;
 	}
 }
