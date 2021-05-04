@@ -43,5 +43,5 @@ class ImportEntities extends Maintenance {
 
 }
 
-$maintClass = 'importEntities';
+$maintClass = ImportEntities::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

@@ -80,5 +80,5 @@ class RemoveContentModel extends Maintenance {
 	}
 }
 
-$maintClass = 'RemoveContentModel';
+$maintClass = RemoveContentModel::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
