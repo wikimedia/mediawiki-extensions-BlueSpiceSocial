@@ -81,5 +81,5 @@ class RestoreContenModel extends Maintenance {
 	}
 }
 
-$maintClass = 'RestoreContenModel';
+$maintClass = RestoreContenModel::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
