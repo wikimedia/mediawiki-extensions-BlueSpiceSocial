@@ -25,7 +25,7 @@ class WikiText extends \Parser {
 	 * @param int|null $revid
 	 * @return string
 	 */
-	public function parse( $text, \Title $title, \ParserOptions $options, $linestart = true,
+	public function parse( $text, \MediaWiki\Page\PageReference $title, \ParserOptions $options, $linestart = true,
 		$clearState = true, $revid = null
 	) {
 		$this->setTitle( $title );
