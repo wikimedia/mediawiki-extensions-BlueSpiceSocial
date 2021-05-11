@@ -4,6 +4,7 @@
 			")8",
 			"A Chinese Wikipedian",
 			"A Retired User",
+			"Ken418",
 			"Lakejason0",
 			"VulpesVulpes825",
 			"予弦"
@@ -53,5 +54,6 @@
 	"bs-social-editwarnonleave-confirmtext": "离开此页面可能会导致您丢失所做的任何更改。您要放弃更改并继续吗？",
 	"bs-social-specialpagelisting-socialentities-show": "显示",
 	"bs-social-specialpagelisting-socialentities-hide": "隐藏",
-	"bs-socialactionsmw-autoeditsummary": "（无摘要）"
+	"bs-socialactionsmw-autoeditsummary": "（无摘要）",
+	"prefs-social": "时间轴"
 }
