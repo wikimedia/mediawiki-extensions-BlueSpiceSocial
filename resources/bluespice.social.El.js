@@ -33,6 +33,7 @@ bs.social.El.prototype.getEl = function() {
 bs.social.El.prototype.replaceEL = function( El ) {
 	this.insertAfterEL( El ).removeEL();
 	this.$el = $( El );
+	bs.social.init();
 	return this;
 };
 
@@ -54,10 +55,7 @@ bs.social.El.prototype.insertBeforeEL = function( El ) {
 	li.innerHTML = El;
 	this.getEl().hide();
 	$(li).insertBefore( this.getEl() );
-	$(li).find(".bs-social-entity").each( function() {
-		//init all and have fun!
-		bs.social.newFromEl( $(this) );
-	});
+	bs.social.init();
 	this.getEl().fadeIn();
 	return this;
 };

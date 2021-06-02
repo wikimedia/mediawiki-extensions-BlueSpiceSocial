@@ -245,7 +245,6 @@ bs.social.Entity.prototype.save = function( newdata ) {
 		dfd.resolve( me, response );
 	})
 	.then(function(){
-		bs.social.init();
 		$( ".bs-social-entityspawner-new" ).removeClass( "bs-social-entityspawner-new" );
 		me.hideLoadMask();
 	});
