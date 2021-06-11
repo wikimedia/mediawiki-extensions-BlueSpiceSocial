@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Abbas dhothar"
+		]
+	},
+	"activities": "سرگرمیاں",
+	"bs-social-entitytext-header-create": "نویں اینٹری",
+	"bs-social-var-id": "شناخت",
+	"bs-social-var-ownerid": "مالک",
+	"bs-social-var-type": "قسم",
+	"bs-social-var-text": "مواد",
+	"bs-social-var-timestampcreated": "تخلیق تریخ",
+	"bs-social-var-timestamptouched": "اڈیٹ تریخ",
+	"bs-social-editor-advanced": "اضافی",
+	"bs-social-editor-ok": "پوسٹ",
+	"bs-social-editor-cancel": "ختم",
+	"bs-social-entityactions-label": "کم",
+	"bs-social-entityaction-edit": "لِکھو",
+	"bs-social-entityaction-delete": "مٹاؤ",
+	"bs-social-select2-overwrites-noresults": "کوئی نتارہ نئیں",
+	"bs-extendedsearch-search-center-result-owner-label": "مالک:",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "اج",
+	"bs-social-filter-owner-val-all": "سارے",
+	"bs-social-filter-owner-val-mine": "میرا",
+	"bs-social-renderer-timestampprefix-created": "بن گیا",
+	"bs-social-specialpagelisting-socialentities-show": "وکھاؤ",
+	"bs-social-specialpagelisting-socialentities-hide": "لُکاؤ"
+}

@@ -30,5 +30,8 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
 	"bs-social-var-timestamptouched": "Rediger dato",
 	"bs-social-entityaction-undelete": "Gendan",
-	"bs-extendedsearch-search-center-result-owner-label": "Ejer:"
+	"bs-extendedsearch-search-center-result-owner-label": "Ejer:",
+	"bs-social-entitytext-header": "[[User:$1|$2]] skrev:",
+	"bs-social-var-ownerid": "Ejer",
+	"bs-social-var-type": "Type"
 }

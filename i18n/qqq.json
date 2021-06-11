@@ -59,7 +59,7 @@
 	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Label for the entity type field in the filter when its empty (nothing selected)",
 	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Label for the entity type field in the filter when values are selected",
 	"bs-social-special-timeline-heading": "Heading for [[Special:Timeline]] special page.\n{{notranslate}}",
-	"bs-social-special-activities-heading": "Heading for [[Special:Activities]] special page.\n{{Identical|Activities}}",
+	"bs-social-special-activities-heading": "Heading for [[Special:Activities]] special page.\n{{Identical|Activity}}",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Tooltip for button, that adds all items to the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Tooltip for button, that removes all items from the selection",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Tooltip, that resets the date filter to setting \"today\"",

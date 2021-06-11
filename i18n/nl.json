@@ -43,5 +43,7 @@
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Door deze handeling uit te voeren, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
 	"bs-social-editwarnonleave-confirmtext": "Door deze pagina te verlaten, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
-	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)"
+	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
+	"bs-social-entityspawner-button-tooltip": "Nieuwe aanmaken",
+	"bs-social-specialpagelisting-socialentities-hide": "Verbergen"
 }

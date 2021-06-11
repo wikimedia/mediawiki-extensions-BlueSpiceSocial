@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			")8",
 			"A Chinese Wikipedian",
 			"A Retired User",
+			"Ken418",
+			"Lakejason0",
 			"VulpesVulpes825",
 			"予弦"
 		]
@@ -47,5 +50,10 @@
 	"bs-social-pref-warnonleave": "当我离开编辑页面时，如果有尚未保存的更改，请提醒我",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "执行操作，可能导致您失去所做的任何更改。继续吗？",
 	"bs-social-editwarnonleave-confirmtext": "离开此页面可能会导致您丢失所做的任何更改。您要放弃更改并继续吗？",
-	"bs-socialactionsmw-autoeditsummary": "（无摘要）"
+	"bs-socialactionsmw-autoeditsummary": "（无摘要）",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "未知操作“$1”",
+	"bs-social-entityspawner-button-tooltip": "创建新的",
+	"prefs-social": "时间轴",
+	"bs-social-specialpagelisting-socialentities-show": "显示",
+	"bs-social-specialpagelisting-socialentities-hide": "隐藏"
 }
