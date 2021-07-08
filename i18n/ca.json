@@ -5,7 +5,9 @@
 			"Vfc"
 		]
 	},
+	"bs-social-var-archived": "Arxivat",
 	"bs-social-select2-overwrites-searching": "S’està cercant…",
+	"bs-social-filter-archived-val-archived": "Només arxivat",
 	"bs-social-renderer-timestampprefix-created": "Creat",
 	"bs-social-specialpagelisting-socialentities-hide": "Amaga"
 }
