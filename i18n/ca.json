@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Vfc"
 		]
 	},
 	"bs-social-select2-overwrites-searching": "S’està cercant…",
-	"bs-social-specialpagelisting-socialentities-hide": "Amaga"
+	"bs-social-specialpagelisting-socialentities-hide": "Amaga",
+	"bs-social-var-archived": "Arxivat",
+	"bs-social-filter-archived-val-archived": "Només arxivat",
+	"bs-social-renderer-timestampprefix-created": "Creat"
 }
