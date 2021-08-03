@@ -4,6 +4,7 @@
 			"Mainframe98",
 			"PonkoSasuke",
 			"RadioAzureus",
+			"Romaine",
 			"Siebrand"
 		]
 	},
@@ -45,5 +46,16 @@
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
 	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
 	"bs-social-entityspawner-button-tooltip": "Nieuwe aanmaken",
-	"bs-social-specialpagelisting-socialentities-hide": "Verbergen"
+	"bs-social-specialpagelisting-socialentities-hide": "Verbergen",
+	"bs-social-desc": "Basisextensie voor sociale extensies",
+	"bs-social-prof-datedisplaymode": "Datumweergavemodus:",
+	"bs-social-entitytext-header-create": "Nieuwe invoer",
+	"bs-social-var-id": "Identificatie",
+	"bs-social-option-orderby-label": "Sortering",
+	"bs-social-editor-ok": "Plaatsen",
+	"bs-social-entityactions-label": "Acties",
+	"bs-social-entityaction-delete-confirmtext": "Invoer verwijderen?",
+	"bs-social-entityaction-undelete-confirmtext": "Invoer herstellen?",
+	"bs-social-filter-button-tooltip": "Filteropties weergeven",
+	"bs-social-sort-button-tooltip": "Sorteeropties weergeven"
 }

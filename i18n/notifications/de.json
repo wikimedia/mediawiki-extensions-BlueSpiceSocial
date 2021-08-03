@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Mglaser",
 			"Patric Wirth",
 			"Umherirrender"
 		]
 	},
-	"echo-category-title-bs-social-entity-cat": "Beitragsaktionen auf beobachtet Seiten",
+	"echo-category-title-bs-social-entity-cat": "Beitragsaktionen auf beobachteten Seiten",
 	"bs-social-notifications-entity-create": "Beitrag vom Typ „$1“ wurde erstellt",
 	"bs-social-notifications-email-entity-create-subject": "Beitrag vom Typ „$1“ wurde erstellt",
 	"bs-social-notifications-email-entity-create-body": "Benutzer {{GENDER:$1|$2 hat}} ein neue „$3“ erstellt",
