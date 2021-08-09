@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Movses",
 			"Piramidion",
 			"Ата"
@@ -57,6 +58,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Додати все",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Вилучити все",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Сьогодні",
+	"bs-social-entitylistmore-linklabel": "…",
 	"bs-social-filter-owner-val-all": "Усе",
 	"bs-social-filter-owner-val-mine": "Моє",
 	"bs-social-filter-date-label-from": "від $1",
