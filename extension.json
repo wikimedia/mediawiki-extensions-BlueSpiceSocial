@@ -69,7 +69,7 @@
 				"bs-primary-light-subelement-border": "#3E5389",
 				"bs-tertiary-light-background": "lighten(@bs-color-tertiary, 45%)",
 				"bs-color-neutral-headline": "lighten(@bs-color-neutral, 27.8%)",
-				"bs-color-lighten-information": "#BABABA",
+				"bs-color-lighten-information": "#747475",
 				"bs-color-header-information": "#252525",
 				"bs-color-header-information-link": "@bs-primary-light-subelement-border",
 				"bs-color-social-entity-background": "white",
