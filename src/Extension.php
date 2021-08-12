@@ -83,7 +83,7 @@ class Extension extends \BlueSpice\Extension {
 		$lessVars->setVar( 'bs-primary-light-subelement-background', 'lighten(@bs-primary-light-background, 24.3%)' );
 		$lessVars->setVar( 'bs-tertiary-light-background', 'lighten(@bs-color-tertiary, 45%)' );
 		$lessVars->setVar( 'bs-color-neutral-headline', 'lighten(@bs-color-neutral, 27.8%)' );
-		$lessVars->setVar( 'bs-color-lighten-information', '#BABABA' );
+		$lessVars->setVar( 'bs-color-lighten-information', '#747475' );
 		$lessVars->setVar( 'bs-color-header-information', '#252525' );
 		$lessVars->setVar( 'bs-color-header-information-link', '@bs-primary-light-subelement-border' );
 		$lessVars->setVar( 'bs-color-social-entity-background', 'white' );
