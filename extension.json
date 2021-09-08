@@ -253,7 +253,6 @@
 				"ext.bluespice.social.entity.editor"
 			],
 			"scripts": [
-				"ui/widget/TextInputVisualEditor.js",
 				"ui/EntityEditorText.js"
 			]
 		},
