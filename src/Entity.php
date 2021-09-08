@@ -568,6 +568,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function invalidateCache() {
 		parent::invalidateCache();
+		$this->children = null;
 		$this->getRenderer()->invalidate();
 		if ( $this->getRelatedTitle() instanceof Title ) {
 			$this->getRelatedTitle()->invalidateCache();
