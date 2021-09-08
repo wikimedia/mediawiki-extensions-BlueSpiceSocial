@@ -253,8 +253,7 @@
 			"scripts": [
 				"entities/bluespice.social.Entity.Text.js",
 				"entityoutputs/bluespice.social.EntityOutput.Text.js",
-				"ui/EntityEditorText.js",
-				"ui/widget/TextInputVisualEditor.js"
+				"ui/EntityEditorText.js"
 			]
 		},
 		"ext.bluespice.social.entity.action": {
