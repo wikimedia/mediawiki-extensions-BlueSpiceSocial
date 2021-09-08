@@ -106,6 +106,7 @@ bs.social.EntityEditor.prototype.makeShortEditor = function( shortField, reverse
 
 bs.social.EntityEditor.prototype.onBtnOKClick = function () {
 	var me = this;
+	this.getEntity().showLoadMask();
 	this.getData().done( function( data ) {
 		me.emit( 'submit', me, data );
 	});
