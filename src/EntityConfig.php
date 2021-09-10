@@ -526,4 +526,18 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	protected function get_EntityListPrivacyHandlerTypeAllowed() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function get_UseRenderCache() {
+		if ( !$this->get( 'SocialUseRenderCache' ) ) {
+			return false;
+		}
+		return in_array(
+			$this->type,
+			$this->get( 'SocialRenderCacheEntityBlacklist' )
+		);
+	}
 }
