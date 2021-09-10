@@ -104,12 +104,12 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			return false;
 		}
 		return $this->getCacheHelper()->getCacheKey(
-			'BlueSpiceSocial',
-			'EntityRenderer',
+			'BSSocial',
+			'ER',
 			$this->getEntity()->get( SocialEntity::ATTR_ID ),
 			$this->getEntity()->get( SocialEntity::ATTR_TIMESTAMP_TOUCHED ),
 			$this->renderType,
-			$this->getContext()->getUser()
+			$this->getContext()->getUser()->getName()
 		);
 	}
 
@@ -121,6 +121,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		if ( !$this->getEntity()->exists() ) {
 			return true;
 		}
+		$currentRenderType = $this->renderType;
 		foreach ( $this->getAvailableRenderTypes() as $renderType ) {
 			$this->renderType = $renderType;
 			$res = parent::invalidate();
@@ -131,19 +132,18 @@ class Entity extends \BlueSpice\Renderer\Entity {
 				);
 			}
 		}
+		$this->renderType = $currentRenderType;
 		return $res;
 	}
 
 	/**
 	 *
 	 * @param string $renderType
-	 * @param bool $noCache
 	 * @return string
 	 * @throws MWException
 	 */
-	public function render( $renderType = 'Default', $noCache = false ) {
-		$this->noCache = $noCache
-		|| $this->getContext()->getRequest()->getBool(
+	public function render( $renderType = 'Default' ) {
+		$this->noCache = $this->getContext()->getRequest()->getBool(
 			static::NO_TEMPLATE_CACHE,
 			false
 		)
@@ -151,6 +151,9 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			static::DEBUG_MODE,
 			false
 		);
+		if ( !$this->getEntity()->getConfig()->get( 'UseRenderCache' ) ) {
+			$this->noCache = true;
+		}
 
 		if ( !$this->isAllowedRenderType( $renderType ) ) {
 			throw new MWException(

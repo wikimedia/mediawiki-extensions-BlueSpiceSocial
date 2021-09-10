@@ -353,6 +353,15 @@
 			]
 		}
 	},
+	"config_prefix": "bsg",
+	"config": {
+		"SocialUseRenderCache": {
+			"value": true
+		},
+		"SocialRenderCacheEntityBlacklist": {
+			"value": []
+		}
+	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",
 		"remoteExtPath": "BlueSpiceSocial/resources"
