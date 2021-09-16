@@ -23,6 +23,8 @@ class ImportEntities extends Maintenance {
 	 * @param SplFileInfo $oFile
 	 */
 	protected function importJSONFile( $oFile ) {
+		$serviceUser = \MediaWiki\MediaWikiServices::getInstance()
+			->getService( 'BSUtilityFactory' )->getMaintenanceUser()->getUser();
 		$oData = FormatJson::decode( file_get_contents( $oFile->getPathname() ) );
 		if ( isset( $oData->entities ) ) {
 			foreach ( $oData->entities as $oEntiy ) {
@@ -31,7 +33,7 @@ class ImportEntities extends Maintenance {
 					$this->output( 'E' );
 					continue;
 				}
-				$oStatus = $oEntity->save();
+				$oStatus = $oEntity->save( $serviceUser );
 				if ( $oStatus->isOK() ) {
 					$this->output( '.' );
 				}
