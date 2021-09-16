@@ -140,6 +140,7 @@
 	"JobClasses": {
 		"updateEntityIndex": "\\BlueSpice\\Social\\ExtendedSearch\\Job\\Entity",
 		"socialentityupdate": "\\BlueSpice\\Social\\Job\\Update",
+		"socialentitychangeowner": "\\BlueSpice\\Social\\Job\\ChangeOwner",
 		"socialentityarchive": "\\BlueSpice\\Social\\Job\\Archive",
 		"privacyDeleteEntity": "\\BlueSpice\\Social\\Privacy\\Job\\DeleteEntity"
 	},
@@ -384,7 +385,8 @@
 		"BSEntityDeleteComplete": "\\BlueSpice\\Social\\Hook\\BSEntityDeleteComplete\\NotifyUsers::callback",
 		"SkinBuildSidebar": "\\BlueSpice\\Social\\Hook\\SkinBuildSidebar\\AddTimelineNavigationItem::callback",
 		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback",
-		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback"
+		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback",
+		"MergeAccountFromTo": "\\BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner::callback"
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
