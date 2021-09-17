@@ -24,9 +24,9 @@ class Handler implements IPrivacyHandler {
 
 	/**
 	 *
-	 * @param \Database $db
+	 * @param \IDatabase $db
 	 */
-	public function __construct( \Database $db ) {
+	public function __construct( \IDatabase $db ) {
 		$this->language = \RequestContext::getMain()->getLanguage();
 	}
 
