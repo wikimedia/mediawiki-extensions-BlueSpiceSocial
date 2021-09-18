@@ -10,6 +10,7 @@ use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\Privacy\Job\DeleteEntity;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 class Handler implements IPrivacyHandler {
 	/**
@@ -24,9 +25,9 @@ class Handler implements IPrivacyHandler {
 
 	/**
 	 *
-	 * @param \IDatabase $db
+	 * @param IDatabase $db
 	 */
-	public function __construct( \IDatabase $db ) {
+	public function __construct( IDatabase $db ) {
 		$this->language = \RequestContext::getMain()->getLanguage();
 	}
 
