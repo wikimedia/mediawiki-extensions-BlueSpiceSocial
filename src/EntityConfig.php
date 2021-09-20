@@ -276,6 +276,14 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 *
 	 * @return bool
 	 */
+	protected function get_IsOwnerChangable() {
+		return true;
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_CanHaveChildren() {
 		return true;
 	}
