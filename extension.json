@@ -367,6 +367,11 @@
 		"localBasePath": "resources",
 		"remoteExtPath": "BlueSpiceSocial/resources"
 	},
+	"HookHandlers": {
+		"discovery-skin": {
+			"class": "\\BlueSpice\\Social\\HookHandler\\DiscoverySkin"
+		}
+	},
 	"Hooks": {
 		"BeforePageDisplay": [
 			"\\BlueSpice\\Social\\Hook\\BeforePageDisplay\\AddResources::callback",
@@ -386,7 +391,8 @@
 		"SkinBuildSidebar": "\\BlueSpice\\Social\\Hook\\SkinBuildSidebar\\AddTimelineNavigationItem::callback",
 		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback",
 		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback",
-		"MergeAccountFromTo": "\\BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner::callback"
+		"MergeAccountFromTo": "\\BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner::callback",
+		"MWStakeCommonUIRegisterSkinSlotComponents": "discovery-skin"
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
