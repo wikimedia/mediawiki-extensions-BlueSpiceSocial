@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DiGro",
 			"Mainframe98",
 			"PonkoSasuke",
 			"RadioAzureus",
@@ -57,5 +58,20 @@
 	"bs-social-entityaction-delete-confirmtext": "Invoer verwijderen?",
 	"bs-social-entityaction-undelete-confirmtext": "Invoer herstellen?",
 	"bs-social-filter-button-tooltip": "Filteropties weergeven",
-	"bs-social-sort-button-tooltip": "Sorteeropties weergeven"
+	"bs-social-sort-button-tooltip": "Sorteeropties weergeven",
+	"bs-social-entity-fatalstatus-save-norelatedtitle": "De gerelateerde wikipagina kon niet worden gevonden",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Veld \"$1\" is leeg",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Ongeldige waarde voor veld \"$1\".",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Onbekende actie \"$1\"",
+	"bs-social-entity-fatalstatus-permission-permissiondeniedusercan": "De gebruiker mag de handeling \"$1\" op \"$2\" niet uitvoeren",
+	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "De gebruiker mag de handeling \"$1\" niet uitvoeren",
+	"bs-social-entity-fatalstatus-permission-notitle": "Object \"Title\" vereist",
+	"bs-extendedsearch-search-center-result-entity_type-label": "Type entiteit:",
+	"bs-social-special-activities-heading": "Activiteiten",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Alles toevoegen",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Alles verwijderen",
+	"bs-social-filter-date-label-from": "$1 van",
+	"bs-social-filter-date-label-to": "$1 naar",
+	"bs-extendedsearch-source-type-socialentity-label": "Sociale entiteit",
+	"bs-social-sourcetitle-lockdown-reason-reason": "De actie $1 mag alleen worden uitgevoerd door beheerders, omdat deze items niet direct bewerkt zouden moeten worden."
 }
