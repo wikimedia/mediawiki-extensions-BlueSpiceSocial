@@ -40,7 +40,18 @@ bs.social.EntityEditor = function ( config, entity ) {
 	var shortField = me.getShortModeField();
 	if( me.shortMode && shortField ) {
 		me.makeShortEditor( shortField );
+	} else {
+		if ( !this.entity.dirty && !this.entity.exists() && !this.entity.wasSpawned ) {
+			this.cancel.setDisabled( true );
+			this.entity.on( 'dirty', function() {
+				me.cancel.setDisabled( false );
+			} );
+		}
 	}
+	this.submit.setDisabled( true );
+	this.entity.on( 'dirty', function() {
+		me.submit.setDisabled( false );
+	} );
 
 };
 OO.initClass( bs.social.EntityEditor );
