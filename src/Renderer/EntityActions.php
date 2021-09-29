@@ -64,14 +64,13 @@ class EntityActions extends \BlueSpice\Renderer {
 		$content .= Html::openElement( 'div', [
 			'class' => 'bs-social-entity-actions-menu'
 		] );
+		$content .= Html::openElement( 'div', [ 'class' => 'dropdown' ] );
 
-		$content .= Html::openElement( 'div', [
-			'class' => 'dropdown'
-		] );
 		$content .= Html::openElement( 'button', [
 			'class' => 'btn btn-secondary dropdown-toggle',
 			'type' => 'button',
 			'data-toggle' => 'dropdown',
+			'data-bs-toggle' => 'dropdown',
 			'aria-haspopup' => 'true',
 			'aria-expanded' => 'false',
 		] );
@@ -84,6 +83,7 @@ class EntityActions extends \BlueSpice\Renderer {
 		] );
 		$content .= Html::closeElement( 'div' );
 		$content .= Html::closeElement( 'div' );
+
 		return $content;
 	}
 }
