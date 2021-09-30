@@ -68,8 +68,8 @@ class Entities extends \BSApiTasksBase {
 		return [
 			'getEntities' => [ 'read' ],
 			'getEntity' => [ 'read' ],
-			'editEntity' => [ 'read', 'edit' ],
-			'deleteEntity' => [ 'read', 'edit' ],
+			'editEntity' => [ 'read' ],
+			'deleteEntity' => [ 'read' ],
 			'getConfigs' => [ 'read' ],
 		];
 	}

@@ -361,6 +361,9 @@
 		},
 		"SocialRenderCacheEntityBlacklist": {
 			"value": []
+		},
+		"SocialCanHaveChildrenBlacklist": {
+			"value": []
 		}
 	},
 	"ResourceFileModulePaths": {
