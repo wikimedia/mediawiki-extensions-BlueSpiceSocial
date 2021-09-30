@@ -285,7 +285,10 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 * @return bool
 	 */
 	protected function get_CanHaveChildren() {
-		return true;
+		return !in_array(
+			$this->type,
+			$this->get( 'SocialCanHaveChildrenBlacklist' )
+		);
 	}
 
 	/**
