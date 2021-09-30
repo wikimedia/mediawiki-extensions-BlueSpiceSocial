@@ -479,12 +479,6 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 * @return Status
 	 */
 	public function userCan( $sAction = 'read', User $oUser = null ) {
-		if ( $this->hasParent() ) {
-			$status = $this->getParent()->userCan( $sAction, $oUser );
-			if ( !$status->isOK() ) {
-				return $status;
-			}
-		}
 		$oTitle = null;
 		if ( !$oUser instanceof User ) {
 			$oUser = RequestContext::getMain()->getUser();
