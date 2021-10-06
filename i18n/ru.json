@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT",
+			"Александр Сигачёв"
+		]
+	},
+	"bs-social-prof-datedisplaymode": "Режим отображения даты",
+	"bs-social-pref-datedisplaymode-mode-age": "Показывать как возраст",
+	"bs-social-pref-datedisplaymode-mode-mw": "Показать как дату",
+	"bs-social-entitytext-header": "[[User:$1|$2]] написал:",
+	"bs-social-entitytext-header-create": "Новая запись",
+	"bs-social-var-id": "Идентификация",
+	"bs-social-var-ownerid": "Владелец",
+	"bs-social-var-type": "Тип",
+	"bs-social-var-archived": "Архивировано",
+	"bs-social-var-text": "Содержимое",
+	"bs-social-var-timestampcreated": "Дата создания",
+	"bs-social-editor-ok": "Сообщение",
+	"bs-social-editor-cancel": "Отмена",
+	"bs-social-entityactions-label": "Действия",
+	"bs-social-entityaction-edit": "Править",
+	"bs-social-entityaction-delete": "Удалить",
+	"bs-social-entityaction-delete-confirmtext": "Удалить запись?",
+	"bs-social-entityaction-undelete": "Восстановить",
+	"bs-social-entityaction-undelete-confirmtext": "Восстановить запись?",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Поле «$1» пустое",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Недопустимое значение поля \"$1\".",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Неизвестное действие «$1»",
+	"bs-social-select2-overwrites-noresults": "Ничего не найдено",
+	"bs-social-select2-overwrites-searching": "Поиск…",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Добавить всё",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "Удалить все",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Сегодня",
+	"bs-social-filter-owner-val-all": "Всё",
+	"bs-social-renderer-timestampprefix-created": "Создано",
+	"bs-social-renderer-timestampprefix-touched": "Отредактировано",
+	"bs-social-entityspawner-button-tooltip": "Создать новый",
+	"bs-social-specialpagelisting-socialentities-show": "Показать",
+	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
+	"bs-socialactionsmw-autoeditsummary": "(без описания)"
+}
