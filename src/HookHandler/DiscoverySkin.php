@@ -17,7 +17,8 @@ class DiscoverySkin implements MWStakeCommonUIRegisterSkinSlotComponents {
 				'special-timeline' => [
 					'factory' => static function () {
 						return new MainLinkPanel();
-					}
+					},
+					'position' => 50
 				]
 			]
 		);
