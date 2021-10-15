@@ -12,7 +12,7 @@ use MediaWiki\Linker\LinkRenderer;
 
 class EntityActions extends \BlueSpice\Renderer {
 
-	const PARAM_ENTITY = 'entity';
+	public const PARAM_ENTITY = 'entity';
 
 	/**
 	 *

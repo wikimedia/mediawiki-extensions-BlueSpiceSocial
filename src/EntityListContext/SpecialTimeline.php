@@ -5,7 +5,7 @@ namespace BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\Entity;
 
 class SpecialTimeline extends \BlueSpice\Social\EntityListContext {
-	const CONFIG_NAME_TYPE_SELECTED = 'EntityListSpecialTimelineTypeSelected';
+	public const CONFIG_NAME_TYPE_SELECTED = 'EntityListSpecialTimelineTypeSelected';
 
 	/**
 	 *

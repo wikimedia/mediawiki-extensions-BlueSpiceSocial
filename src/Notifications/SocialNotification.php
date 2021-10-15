@@ -7,9 +7,9 @@ use BlueSpice\Social\Entity as SocialEntity;
 use MediaWiki\MediaWikiServices;
 
 class SocialNotification extends BaseNotification {
-	const ACTION_EDIT = 'edit';
-	const ACTION_CREATE = 'create';
-	const ACTION_DELETE = 'delete';
+	public const ACTION_EDIT = 'edit';
+	public const ACTION_CREATE = 'create';
+	public const ACTION_DELETE = 'delete';
 
 	/**
 	 *

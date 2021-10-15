@@ -5,7 +5,7 @@ use Exception;
 use MediaWiki\MediaWikiServices;
 
 class Update extends \BlueSpice\Social\Job {
-	const JOBCOMMAND = 'socialentityupdate';
+	public const JOBCOMMAND = 'socialentityupdate';
 
 	public function run() {
 		$entity = $this->getEntity();

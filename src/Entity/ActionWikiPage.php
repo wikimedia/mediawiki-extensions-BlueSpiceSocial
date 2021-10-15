@@ -41,8 +41,8 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 abstract class ActionWikiPage extends ActionTitle {
-	const ATTR_WIKI_PAGE_ID = 'wikipageid';
-	const ATTR_REVISION_ID = 'revisionid';
+	public const ATTR_WIKI_PAGE_ID = 'wikipageid';
+	public const ATTR_REVISION_ID = 'revisionid';
 
 	/**
 	 *

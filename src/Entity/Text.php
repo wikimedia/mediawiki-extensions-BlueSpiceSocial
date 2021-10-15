@@ -46,11 +46,11 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 class Text extends Entity {
-	const TYPE = 'text';
+	public const TYPE = 'text';
 
-	const ATTR_TEXT = 'text';
-	const ATTR_PARSED_TEXT = 'parsedtext';
-	const ATTR_ATTACHMENTS = 'attachments';
+	public const ATTR_TEXT = 'text';
+	public const ATTR_PARSED_TEXT = 'parsedtext';
+	public const ATTR_ATTACHMENTS = 'attachments';
 
 	/** @var ParserOutput|null */
 	protected $oParserOutput = null;

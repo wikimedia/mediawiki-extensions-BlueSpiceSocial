@@ -42,8 +42,8 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 abstract class ActionFile extends ActionTitle {
-	const ATTR_FILE_NAME = 'filename';
-	const ATTR_FILE_TIMESTAMP = 'filetimestamp';
+	public const ATTR_FILE_NAME = 'filename';
+	public const ATTR_FILE_TIMESTAMP = 'filetimestamp';
 
 	/** @var int */
 	protected $iNamespace = NS_FILE;
