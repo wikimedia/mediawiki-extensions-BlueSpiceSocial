@@ -42,8 +42,8 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 abstract class Action extends Entity {
-	const ATTR_ACTION = 'action';
-	const ATTR_SUMMARY = 'summary';
+	public const ATTR_ACTION = 'action';
+	public const ATTR_SUMMARY = 'summary';
 
 	/**
 	 *

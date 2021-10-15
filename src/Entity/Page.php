@@ -42,7 +42,7 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 abstract class Page extends Entity {
-	const ATTR_DESCRIPTION = 'description';
+	public const ATTR_DESCRIPTION = 'description';
 
 	/**
 	 * Gets the Page attributes formated for the api

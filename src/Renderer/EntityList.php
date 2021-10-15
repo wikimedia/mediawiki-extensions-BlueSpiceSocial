@@ -23,38 +23,38 @@ use Title;
 use User;
 
 class EntityList extends Renderer implements IParamProvider {
-	const PARAM_CONTEXT = 'context';
-	const PARAM_STORE = 'store';
-	const PARAM_USER = 'user';
-	const PARAM_ENTITY_LIST_RENDERER_NAME = 'renderername';
+	public const PARAM_CONTEXT = 'context';
+	public const PARAM_STORE = 'store';
+	public const PARAM_USER = 'user';
+	public const PARAM_ENTITY_LIST_RENDERER_NAME = 'renderername';
 
-	const PARAM_SHOW_HEADLINE = 'showheadline';
-	const PARAM_SHOW_ENTITY_LIST_MENU = 'showentitylistmenu';
-	const PARAM_SHOW_ENTITY_SPAWNER = 'showentityspawner';
-	const PARAM_USE_ENDLESS_SCROLL = 'useendlessscroll';
-	const PARAM_SHOW_ENTITY_LIST_MORE = 'showentitylistmore';
-	const PARAM_USE_MORE_SCROLL = 'usemorescroll';
-	const PARAM_MORE_LINK = 'morelink';
-	const PARAM_HEADLINE_MESSAGE_KEY = 'headlinemessagekey';
-	const PARAM_OUTPUT_TYPES = 'outputtypes';
-	const PARAM_PRELOAD_TITLES = 'preloadtitles';
-	const PARAM_HIDDEN = 'hidden';
-	const PARAM_PERSIST_SETTINGS = 'persistsettings';
+	public const PARAM_SHOW_HEADLINE = 'showheadline';
+	public const PARAM_SHOW_ENTITY_LIST_MENU = 'showentitylistmenu';
+	public const PARAM_SHOW_ENTITY_SPAWNER = 'showentityspawner';
+	public const PARAM_USE_ENDLESS_SCROLL = 'useendlessscroll';
+	public const PARAM_SHOW_ENTITY_LIST_MORE = 'showentitylistmore';
+	public const PARAM_USE_MORE_SCROLL = 'usemorescroll';
+	public const PARAM_MORE_LINK = 'morelink';
+	public const PARAM_HEADLINE_MESSAGE_KEY = 'headlinemessagekey';
+	public const PARAM_OUTPUT_TYPES = 'outputtypes';
+	public const PARAM_PRELOAD_TITLES = 'preloadtitles';
+	public const PARAM_HIDDEN = 'hidden';
+	public const PARAM_PERSIST_SETTINGS = 'persistsettings';
 
-	const PARAM_LIMIT = 'limit';
-	const PARAM_SORT = 'sort';
-	const PARAM_OFFSET = 'start';
-	const PARAM_AVAILABLE_SORTER_FIELDS = 'availablesorterfields';
-	const PARAM_LOCKED_OPTION_NAMES = 'lockedoptionnames';
+	public const PARAM_LIMIT = 'limit';
+	public const PARAM_SORT = 'sort';
+	public const PARAM_OFFSET = 'start';
+	public const PARAM_AVAILABLE_SORTER_FIELDS = 'availablesorterfields';
+	public const PARAM_LOCKED_OPTION_NAMES = 'lockedoptionnames';
 
-	const PARAM_FILTER = 'filter';
-	const PARAM_AVAILABLE_FILTER_FIELDS = 'availablefilterfields';
-	const PARAM_LOCKED_FILTER_NAMES = 'lockedfilternames';
-	const PARAM_AVAILABLE_TYPES = 'availabletypes';
+	public const PARAM_FILTER = 'filter';
+	public const PARAM_AVAILABLE_FILTER_FIELDS = 'availablefilterfields';
+	public const PARAM_LOCKED_FILTER_NAMES = 'lockedfilternames';
+	public const PARAM_AVAILABLE_TYPES = 'availabletypes';
 
-	const PARAM_PRELOADED_ENTITIES = 'preloadedentities';
+	public const PARAM_PRELOADED_ENTITIES = 'preloadedentities';
 
-	const PARAM_ENTITY_LIST_DATA_ATTR = 'data-entitylist';
+	public const PARAM_ENTITY_LIST_DATA_ATTR = 'data-entitylist';
 
 	/**
 	 *

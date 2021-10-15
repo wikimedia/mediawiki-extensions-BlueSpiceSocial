@@ -10,7 +10,7 @@ use MediaWiki\Linker\LinkRenderer;
 use MWException;
 
 class Headline extends \BlueSpice\TemplateRenderer {
-	const PARAM_ENTITY_LIST = 'entitylist';
+	public const PARAM_ENTITY_LIST = 'entitylist';
 
 	/**
 	 *

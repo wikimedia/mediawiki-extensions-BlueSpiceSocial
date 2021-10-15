@@ -3,9 +3,9 @@
 namespace BlueSpice\Social\EntityListContext;
 
 class SpecialActivities extends \BlueSpice\Social\EntityListContext {
-	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListSpecialActivitiesOutputType';
-	const CONFIG_NAME_TYPE_ALLOWED = 'EntityListSpecialActivitiesTypeAllowed';
-	const CONFIG_NAME_TYPE_SELECTED = 'EntityListSpecialActivitiesTypeSelected';
+	public const CONFIG_NAME_OUTPUT_TYPE = 'EntityListSpecialActivitiesOutputType';
+	public const CONFIG_NAME_TYPE_ALLOWED = 'EntityListSpecialActivitiesTypeAllowed';
+	public const CONFIG_NAME_TYPE_SELECTED = 'EntityListSpecialActivitiesTypeSelected';
 
 	/**
 	 *

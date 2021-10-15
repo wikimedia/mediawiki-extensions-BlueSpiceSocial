@@ -20,24 +20,24 @@ use RequestContext;
 use User;
 
 class Entity extends \BlueSpice\Renderer\Entity {
-	const NO_TEMPLATE_CACHE = 'notemplatecache';
-	const DEBUG_MODE = 'debug';
+	public const NO_TEMPLATE_CACHE = 'notemplatecache';
+	public const DEBUG_MODE = 'debug';
 
-	const RENDER_TYPE = 'rendertype';
+	public const RENDER_TYPE = 'rendertype';
 
-	const RENDER_TYPE_DEFAULT = 'Default';
-	const RENDER_TYPE_PAGE = 'Page';
-	const RENDER_TYPE_SHORT = 'Short';
-	const RENDER_TYPE_LIST = 'List';
+	public const RENDER_TYPE_DEFAULT = 'Default';
+	public const RENDER_TYPE_PAGE = 'Page';
+	public const RENDER_TYPE_SHORT = 'Short';
+	public const RENDER_TYPE_LIST = 'List';
 
-	const BEFORE_CONTENT = 'beforecontent';
-	const AFTER_CONTENT = 'aftercontent';
-	const USER_IMAGE = 'userimage';
-	const CHILDREN = 'children';
-	const HEADER = 'title';
-	const AUTHOR = 'author';
-	const AUTHOR_PAGE = 'authorpage';
-	const ACTIONS = 'entityactions';
+	public const BEFORE_CONTENT = 'beforecontent';
+	public const AFTER_CONTENT = 'aftercontent';
+	public const USER_IMAGE = 'userimage';
+	public const CHILDREN = 'children';
+	public const HEADER = 'title';
+	public const AUTHOR = 'author';
+	public const AUTHOR_PAGE = 'authorpage';
+	public const ACTIONS = 'entityactions';
 
 	/** @var string */
 	protected $renderType = 'Default';

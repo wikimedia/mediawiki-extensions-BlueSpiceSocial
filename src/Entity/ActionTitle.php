@@ -43,8 +43,8 @@ use User;
  * @subpackage BlueSpiceSocial
  */
 abstract class ActionTitle extends Action {
-	const ATTR_NAMESPACE = 'namespace';
-	const ATTR_TITLE_TEXT = 'titletext';
+	public const ATTR_NAMESPACE = 'namespace';
+	public const ATTR_TITLE_TEXT = 'titletext';
 
 	/**
 	 *
