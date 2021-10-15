@@ -9,8 +9,8 @@ use IContextSource;
 use User;
 
 class Children extends \BlueSpice\Social\EntityListContext {
-	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListChildrenOutputType';
-	const CONFIG_NAME_TYPE_ALLOWED = 'EntityListTypeChildrenAllowed';
+	public const CONFIG_NAME_OUTPUT_TYPE = 'EntityListChildrenOutputType';
+	public const CONFIG_NAME_TYPE_ALLOWED = 'EntityListTypeChildrenAllowed';
 
 	/**
 	 *

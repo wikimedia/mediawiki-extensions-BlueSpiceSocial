@@ -14,10 +14,10 @@ use MediaWiki\MediaWikiServices;
 use User;
 
 class EntityListContext extends \BlueSpice\Context implements IEntityListContext {
-	const CONFIG_NAME_OUTPUT_TYPE = 'EntityListOutputType';
-	const CONFIG_NAME_TYPE_ALLOWED = 'EntityListTypeAllowed';
-	const CONFIG_NAME_TYPE_SELECTED = 'EntityListTypeSelected';
-	const CONFIG_NAME_PRELOAD_TITLE = 'EntityListPreloadTitle';
+	public const CONFIG_NAME_OUTPUT_TYPE = 'EntityListOutputType';
+	public const CONFIG_NAME_TYPE_ALLOWED = 'EntityListTypeAllowed';
+	public const CONFIG_NAME_TYPE_SELECTED = 'EntityListTypeSelected';
+	public const CONFIG_NAME_PRELOAD_TITLE = 'EntityListPreloadTitle';
 
 	/**
 	 *

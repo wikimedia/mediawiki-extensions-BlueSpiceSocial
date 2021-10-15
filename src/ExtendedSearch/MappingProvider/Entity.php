@@ -7,15 +7,15 @@ use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\Data\Entity\Store;
 
 class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
-	const PREFIX = 'entitydata';
-	const TYPE = 'type';
+	public const PREFIX = 'entitydata';
+	public const TYPE = 'type';
 
-	const TEXT = 'text';
-	const KEYWORD = 'keyword';
-	const INTEGER = 'integer';
-	const BOOLEAN = 'boolean';
-	const DATE = 'date';
-	const FLOAT = 'float';
+	public const TEXT = 'text';
+	public const KEYWORD = 'keyword';
+	public const INTEGER = 'integer';
+	public const BOOLEAN = 'boolean';
+	public const DATE = 'date';
+	public const FLOAT = 'float';
 
 	/**
 	 *

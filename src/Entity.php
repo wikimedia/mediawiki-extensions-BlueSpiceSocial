@@ -52,15 +52,15 @@ use WikiPage;
  * @subpackage BlueSpiceSocial
  */
 abstract class Entity extends \BlueSpice\Entity\Content {
-	const NS = NS_SOCIALENTITY;
+	public const NS = NS_SOCIALENTITY;
 
-	const ATTR_PARENT_ID = 'parentid';
-	const ATTR_HEADER = 'header';
-	const ATTR_RELATED_TITLE = 'relatedtitle';
-	const ATTR_OWNER_NAME = 'ownername';
-	const ATTR_OWNER_REAL_NAME = 'ownerrealname';
-	const ATTR_ACTIONS = 'actions';
-	const ATTR_PRELOAD = 'preload';
+	public const ATTR_PARENT_ID = 'parentid';
+	public const ATTR_HEADER = 'header';
+	public const ATTR_RELATED_TITLE = 'relatedtitle';
+	public const ATTR_OWNER_NAME = 'ownername';
+	public const ATTR_OWNER_REAL_NAME = 'ownerrealname';
+	public const ATTR_ACTIONS = 'actions';
+	public const ATTR_PRELOAD = 'preload';
 
 	/**
 	 *
