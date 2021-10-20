@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"echo-category-title-bs-social-entity-cat": "Actiones de entitate sur paginas sub observation",
+	"bs-social-notifications-entity-create": "Entitate social del typo \"$1\" create",
+	"bs-social-notifications-email-entity-create-subject": "Entitate social del typo \"$1\" create",
+	"bs-social-notifications-email-entity-create-body": "Le usator {{GENDER:$1|$2 ha create}} un nove \"$3\"",
+	"bs-social-notifications-email-entity-create-text-body": "Le usator {{GENDER:$1|$2 ha create}} un nove \"$3\" con le sequente texto:\n$4",
+	"bs-social-notifications-web-entity-create-body": "Le usator {{GENDER:$1|$2 ha create}} un nove \"$3\"",
+	"bs-social-notifications-entity-edit": "Entitate social del typo \"$1\" ha essite modificate",
+	"bs-social-notifications-email-entity-edit-subject": "Entitate social del typo \"$1\" ha essite modificate",
+	"bs-social-notifications-email-entity-edit-body": "Le usator {{GENDER:$1|$2 ha modificate}} un entitate social del typo \"$3\"",
+	"bs-social-notifications-email-entity-edit-text-body": "Le usator {{GENDER:$1|$2 ha modificate}} un entitate social del typo \"$3\" con le sequente texto:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "Le usator {{GENDER:$1|$2 ha modificate}} un entitate social del typo \"$3\"",
+	"bs-social-notifications-entity-delete": "Entitate social del typo \"$1\" ha essite delite",
+	"bs-social-notifications-email-entity-delete-subject": "Entitate social del typo \"$1\" ha essite delite",
+	"bs-social-notifications-email-entity-delete-body": "Le usator {{GENDER:$1|$2 ha delite}} un entitate social del typo \"$3\"",
+	"bs-social-notifications-web-entity-delete-body": "Le usator {{GENDER:$1|$2 ha delite}} un entitate social del typo \"$3\"",
+	"bs-social-notification-primary-link-label": "Vider entitate"
+}

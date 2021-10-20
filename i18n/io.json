@@ -6,5 +6,6 @@
 	},
 	"bs-social-specialpagelisting-socialentities": "$1 sociala enti",
 	"bs-social-specialpagelisting-socialentities-show": "Montrez",
-	"bs-social-specialpagelisting-socialentities-hide": "Celez"
+	"bs-social-specialpagelisting-socialentities-hide": "Celez",
+	"bs-social-entityaction-delete": "Efacez"
 }

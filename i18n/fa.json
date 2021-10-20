@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amir1arch",
-			"FarsiNevis"
+			"FarsiNevis",
+			"Jeeputer"
 		]
 	},
 	"activities": "فعالیت​ها",
@@ -43,5 +44,8 @@
 	"bs-social-entityspawner-button-tooltip": "ایجاد جدید",
 	"prefs-social": "خط زمان",
 	"bs-social-specialpagelisting-socialentities-show": "نشان بده",
-	"bs-social-specialpagelisting-socialentities-hide": "پنهان کن"
+	"bs-social-specialpagelisting-socialentities-hide": "پنهان کن",
+	"bs-social-prof-datedisplaymode": "حالت نمایش تاریخ",
+	"bs-social-entityaction-delete-confirmtext": "حذف مدخل؟",
+	"bs-social-entityaction-undelete-confirmtext": "احیای مدخل؟"
 }

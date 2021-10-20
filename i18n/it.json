@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Stefano"
 		]
 	},
 	"activities": "Attività",
@@ -28,5 +29,15 @@
 	"bs-social-entityspawner-button-tooltip": "Crea nuovo",
 	"bs-social-specialpagelisting-socialentities-show": "Mostra",
 	"bs-social-specialpagelisting-socialentities-hide": "Nascondi",
-	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)"
+	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)",
+	"bs-social-entitytext-header": "[[User:$1|$2]] ha scritto:",
+	"bs-social-var-text": "Contenuto",
+	"bs-social-option-direction-val-asc": "Crescente",
+	"bs-social-option-direction-val-desc": "Decrescente",
+	"bs-social-entityaction-undelete": "Ripristina",
+	"bs-social-select2-overwrites-searching": "Ricerca...",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Aggiungi tutto",
+	"bs-social-filter-date-label-from": "$1 da",
+	"bs-social-renderer-timestampprefix-created": "Creato",
+	"prefs-social": "Barra del tempo"
 }
