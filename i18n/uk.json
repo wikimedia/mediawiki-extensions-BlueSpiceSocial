@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Movses",
 			"Piramidion",
 			"Ата"
@@ -86,5 +87,6 @@
 	"bs-social-specialpagelisting-socialentities": "$1 соціальні сутності",
 	"bs-social-specialpagelisting-socialentities-show": "Показати",
 	"bs-social-specialpagelisting-socialentities-hide": "Сховати",
-	"bs-socialactionsmw-autoeditsummary": "(Без опису змін)"
+	"bs-socialactionsmw-autoeditsummary": "(Без опису змін)",
+	"bs-social-entitylistmore-linklabel": "…"
 }
