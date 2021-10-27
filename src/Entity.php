@@ -35,7 +35,6 @@ use BlueSpice\Context;
 use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
-use DeferredUpdates;
 use Exception;
 use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
@@ -44,7 +43,6 @@ use RequestContext;
 use Status;
 use Title;
 use User;
-use WikiPage;
 
 /**
  * BlueSpiceSocialEntity class for BlueSpiceSocial extension
@@ -575,31 +573,11 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 * @param Title $title
 	 */
 	private function runSecondaryDataUpdates( Title $title ) {
-		try {
-			if ( $title && $title->exists() && $title->getNamespace() >= NS_MAIN ) {
-				$wikiPage = WikiPage::factory( $title );
-				$wikiPage->doSecondaryDataUpdates( [
-					'recursive' => false,
-					'defer' => DeferredUpdates::POSTSEND
-				] );
-			}
-		} catch ( Exception $e ) {
-		}
-		if ( !$this->getRelatedTitle() || !$this->getRelatedTitle()->exists()
-			|| $this->getRelatedTitle()->getNamespace() < NS_MAIN ) {
+		$dataUpdater = MediaWikiServices::getInstance()->getService( 'BSSecondaryDataUpdater' );
+		$dataUpdater->run( $title );
+		if ( !$this->getRelatedTitle() ) {
 			return;
 		}
-		try {
-			$relatedWikiPage = WikiPage::factory( $this->getRelatedTitle() );
-		} catch ( Exception $e ) {
-			return;
-		}
-		if ( !$relatedWikiPage ) {
-			return;
-		}
-		$relatedWikiPage->doSecondaryDataUpdates( [
-			'recursive' => false,
-			'defer' => DeferredUpdates::POSTSEND
-		] );
+		$dataUpdater->run( $this->getRelatedTitle() );
 	}
 }
