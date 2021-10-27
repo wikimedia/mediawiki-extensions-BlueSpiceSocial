@@ -31,20 +31,21 @@
  */
 namespace BlueSpice\Social;
 
-use Exception;
-use MWException;
-use Status;
-use Hooks;
-use RequestContext;
-use Message;
-use User;
-use Title;
-use JobQueueGroup;
-use BlueSpice\Services;
 use BlueSpice\Context;
 use BlueSpice\Data\ReaderParams;
-use BsNamespaceHelper;
+use BlueSpice\Services;
 use BlueSpice\Social\Job\Archive;
+use BsNamespaceHelper;
+use Exception;
+use Hooks;
+use MediaWiki\MediaWikiServices;
+use Message;
+use MWException;
+use JobQueueGroup;
+use RequestContext;
+use Status;
+use Title;
+use User;
 use WikiPage;
 
 /**
@@ -585,17 +586,13 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 
 	/**
 	 * @param Title $title
-	 * @throws MWException
 	 */
 	private function runSecondaryDataUpdates( Title $title ) {
-		$wikipage = WikiPage::factory( $this->getRelatedTitle() );
-		$content = $wikipage->getContent();
-		if ( !$content ) {
+		$dataUpdater = MediaWikiServices::getInstance()->getService( 'BSSecondaryDataUpdater' );
+		$dataUpdater->run( $title );
+		if ( !$this->getRelatedTitle() ) {
 			return;
 		}
-		$updates = $content->getSecondaryDataUpdates( $title );
-		foreach ( $updates as $update ) {
-			$update->doUpdate();
-		}
+		$dataUpdater->run( $this->getRelatedTitle() );
 	}
 }
