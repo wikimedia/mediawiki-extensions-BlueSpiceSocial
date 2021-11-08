@@ -49,6 +49,7 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 	margin: 0;
 	padding: 10px;
 	clear: both;
+	font-family: inherit;
 	li {
 		list-style-type: none !important;
 	}
@@ -294,6 +295,7 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 
 .bs-social-entity {
 	font-size: 0.875rem;
+	font-family: inherit;
 
 	.bs-social-entity-author {
 		a {
@@ -360,6 +362,7 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 		border: 1px solid #d8dfec;
 		background-color: #fff;
 		border-radius: 4px;
+		height: 38px;
 		a {
 			color: #7B7B7B;
 		}
@@ -378,6 +381,8 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 		button {
 			border: 1px solid #d8dfec;
 			background-color: #fff;
+			color: inherit;
+			height: 38px;
 		}
 		.dropdown-menu {
 			min-width: 60px;
@@ -389,13 +394,32 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 					color: #7B7B7B;
 					&:hover {
 						color: #23527c !important;
-					}	
-				}		
+					}
+				}
 			}
 		}
 		img {
 			height: 16px;
 			width: 15px;
+		}
+	}
+
+	.bs-social-entity-title {
+		margin-bottom: 5px;
+		h3 {
+			font-size: 17px !important;
+			color: @bs-color-primary !important;
+			margin-top: 3px !important;
+			margin-bottom: 0px !important;
+
+			a {
+				color: @bs-color-social-link !important;
+
+				&:active,
+				&:hover {
+					color: @bs-color-social-link !important;
+				}
+			}
 		}
 	}
 
@@ -413,28 +437,6 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 		border-radius: 3px;
 		position: relative;
 
-		.bs-social-entity-title {
-			h3 {
-				font-size: 17px !important;
-				color: @bs-color-primary !important;
-				margin-top: 3px !important;
-				margin-bottom: 0px !important;
-
-				a {
-					color: @bs-color-social-link !important;
-
-					&:active,
-					&:hover {
-						color: @bs-color-social-link !important;
-					}
-				}
-			}
-
-			.bs-social-entity-timecreated {
-				color: @bs-color-lighten-information;
-			}
-		}
-
 		.bs-social-entity-beforecontent {
 			.bs-social-beforecontent-topic,
 			.bs-social-beforecontent-tags {
@@ -449,6 +451,9 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 					}
 				}
 			}
+		}
+		.bs-social-entity-timecreated {
+			color: @bs-color-lighten-information;
 		}
 	}
 
@@ -468,26 +473,9 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 				border-left: none;
 				box-shadow: none;
 			}
-			.bs-social-entity-title {
-				h3 {
-					font-size: 13px !important;
-					color: @bs-color-primary !important;
-					margin-top: 3px !important;
-					margin-bottom: 0px !important;
 
-					a {
-						color: @bs-color-social-link !important;
-
-						&:active,
-						&:hover {
-							color: @bs-color-social-link !important;
-						}
-					}
-				}
-
-				.bs-social-entity-timecreated {
-					color: @bs-color-lighten-information;
-				}
+			.bs-social-entity-timecreated {
+				color: @bs-color-lighten-information;
 			}
 		}
 		&.archived {
@@ -524,8 +512,20 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 
 	.bs-social-entitylist-children {
 		margin-left: 70px;
+
+		.bs-social-entity-title {
+			h3 {
+				font-size: 17px !important;
+				color: #3e5389 !important;
+
+				a {
+					color: @bs-color-social-link !important;
+
+				}
+			}
+		}
 		.bs-social-entity-userimage {
-			margin-top: 8px !important;
+			margin-top: 5px !important;
 			float: left;
 		}
 
@@ -533,22 +533,11 @@ ul.bs-social-entitylist, #content [class^="mw-content-"] ul.bs-social-entitylist
 			padding-top: 5px;
 			position: relative;
 
-			.bs-social-entity-title {
-				h3 {
-					font-size: 17px !important;
-					color: #3e5389 !important;
-
-					a {
-						color: @bs-color-social-link !important;
-
-					}
-				}
-
-				.bs-social-entity-timecreated {
-					color: @bs-color-lighten-information;
-					font-size: 0.8em;
-				}
+			.bs-social-entity-timecreated {
+				color: @bs-color-lighten-information;
+				font-size: 0.8em;
 			}
+
 		}
 	}
 
@@ -680,4 +669,9 @@ a.bs-social-entity-action-source:before {
 
 .bs-social-entity-content {
 	overflow: hidden;
+	width: 80%;
+}
+
+#content .bs-social-entity-content p {
+	margin-top: 0px;
 }
