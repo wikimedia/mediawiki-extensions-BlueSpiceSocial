@@ -13,7 +13,7 @@
 	"bs-social-pref-datedisplaymode-mode-age": "Alter des Eintrags anzeigen",
 	"bs-social-pref-datedisplaymode-mode-mw": "Speicherdatum des Eintrags anzeigen",
 	"bs-social-entitytext-header": "[[User:$1|$2]] schrieb:",
-	"bs-social-entitytext-header-create": "Neuer Beitrag",
+	"bs-social-entitytext-header-create": "Neuer Beitrag...",
 	"bs-social-var-id": "Identifikation",
 	"bs-social-var-ownerid": "Besitzer",
 	"bs-social-var-type": "Typ",

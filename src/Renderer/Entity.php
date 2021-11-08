@@ -319,18 +319,19 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		$dateMode = $this->getContext()->getUser()->getOption(
 			'bs-social-datedisplaymode'
 		);
-		$prefix = $this->msg( 'bs-social-renderer-timestampprefix-created' )->plain();
+
 		if ( $dateMode === 'age' ) {
-			return "$prefix " . Html::element(
+			return Html::element(
 				'span', [ 'class' => 'timestampcreated' ],
-				$mwTS->getAgeString()
+				$mwTS->getAgeString( null, null, 1 )
 			);
 		}
 		$ts = $this->getContext()->getLanguage()->userTimeAndDate(
 			$mwTS->format( 'YmdHis' ),
 			$this->getContext()->getUser()
 		);
-		return "$prefix " . Html::element(
+
+		return Html::element(
 			'span', [ 'class' => 'timestampcreated' ],
 			$ts
 		);
@@ -361,7 +362,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		if ( $dateMode === 'age' ) {
 			return "$prefix " . Html::element(
 				'span', [ 'class' => 'timestamptouched' ],
-				$mwTS->getAgeString()
+				$mwTS->getAgeString( null, null, 1 )
 			);
 		}
 		$ts = $this->getContext()->getLanguage()->userTimeAndDate(
