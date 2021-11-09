@@ -87,5 +87,7 @@
 	"bs-social-specialpagelisting-socialentities": "Soziale Entitäten $1",
 	"bs-social-specialpagelisting-socialentities-show": "anzeigen",
 	"bs-social-specialpagelisting-socialentities-hide": "verstecken",
-	"bs-socialactionsmw-autoeditsummary": "(Keine Zusammenfassung)"
+	"bs-socialactionsmw-autoeditsummary": "(Keine Zusammenfassung)",
+	"bs-social-config-mainlinks-timeline-label": "Einstiegspunkt \"Timeline\" anzeigen",
+	"bs-social-config-mainlinks-timeline-help": "Einstiegspunkt \"Timeline\" in der linken Navigation anzeigen"
 }
