@@ -71,6 +71,9 @@
 			"PermissionLockdownRegistry": {
 				"social-sourcetitle": "\\BlueSpice\\Social\\Permission\\Lockdown\\Module\\SourceTitle::getInstance",
 				"social-readpermissioncheckhandover": "\\BlueSpice\\Social\\Permission\\Lockdown\\Module\\ReadPermissionCheckHandOver::getInstance"
+			},
+			"ConfigDefinitionRegistry": {
+				"SocialMainLinksTimeline": "\\BlueSpice\\Social\\ConfigDefinition\\MainLinksTimeline::getInstance"
 			}
 		},
 		"BlueSpiceExtendedSearch": {
@@ -364,6 +367,11 @@
 		},
 		"SocialCanHaveChildrenBlacklist": {
 			"value": []
+		},
+		"SocialMainLinksTimeline": {
+			"value": true,
+			"public": true,
+			"descriptionmsg": "bs-social-config-mainlinks-timeline-label"
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -372,7 +380,8 @@
 	},
 	"HookHandlers": {
 		"common-user-interface": {
-			"class": "\\BlueSpice\\Social\\HookHandler\\CommonUserInterface"
+			"class": "\\BlueSpice\\Social\\HookHandler\\CommonUserInterface",
+			"services": [ "ConfigFactory" ]
 		}
 	},
 	"Hooks": {
