@@ -84,5 +84,7 @@
 	"bs-social-specialpagelisting-socialentities": "$1 entitates social",
 	"bs-social-specialpagelisting-socialentities-show": "Monstrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Celar",
-	"bs-socialactionsmw-autoeditsummary": "(Sin summario)"
+	"bs-socialactionsmw-autoeditsummary": "(Sin summario)",
+	"bs-social-config-mainlinks-timeline-label": "Monstrar le puncto de entrata \"Chronologia\"",
+	"bs-social-config-mainlinks-timeline-help": "Monstrar le ligamine del puncto de entrata \"Chronologia\" in le navigation al sinistra"
 }
