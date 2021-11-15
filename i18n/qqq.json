@@ -93,5 +93,7 @@
 	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}",
 	"bs-social-specialpagelisting-socialentities-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}\n{{Identical|Show}}",
 	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}",
-	"bs-socialactionsmw-autoeditsummary": "Text that gets displayed instead of the edit summary, when it was left empty"
+	"bs-socialactionsmw-autoeditsummary": "Text that gets displayed instead of the edit summary, when it was left empty",
+	"bs-social-config-mainlinks-timeline-label": "Label for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
+	"bs-social-config-mainlinks-timeline-help": "Help message for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation"
 }
