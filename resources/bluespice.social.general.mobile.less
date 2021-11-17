@@ -1,6 +1,7 @@
 ul.bs-social-entitylist {
 	.bs-social-entitylist {
-		padding-left: 30px;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
 
@@ -10,6 +11,7 @@ ul.bs-social-entitylist {
 }
 
 .bs-social-entity-content-attachments {
+	margin-left: 25px;
 	div {
 		height: 78px;
 		width: 64px;
@@ -89,12 +91,17 @@ ul.bs-social-entitylist {
 		&:before {
 			content: none;
 		}
+		.bs-social-entity-actions a {
+			> span {
+				display: none;
+			}
+		}
 	}
 
 	&.bs-social-entity-output-Short,
 	&.bs-social-entity-output-Default {
 		.bs-social-entitylist-children {
-			margin-left: 40px;
+			margin-left: 20px;
 		}
 	}
 
@@ -172,22 +179,7 @@ ul.bs-social-entitylist {
 	.bs-social-entity-aftercontent {
 		clear: both;
 		padding-left: 60px;
-
-		a {
-			font-size: 11px !important;
-
-		}
-
-		.bs-social-count-short {
-			left: -6px;
-			position: relative;
-			font-size: 15px;
-		}
-
-		.bs-social-count-default {
-			display: none;
-		}
-
+		display: none;
 	}
 
 	.bs-social-entity-aftercontent a, .bs-social-entity-aftercontent .bs-rating-bssocial .bs-rating-bssocial-numvotes {
@@ -210,4 +202,13 @@ ul.bs-social-entitylist {
 
 .bs-social-entity-timecreated, .bs-social-entity-author {
 	display: none;
+}
+
+.bs-social-entity-content {
+	overflow: hidden;
+	width: 50%;
+}
+
+#content .bs-social-entity-content p {
+	margin-top: 0px;
 }
