@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Renessaince",
 			"W"
 		]
 	},
@@ -28,5 +29,6 @@
 	"bs-social-filter-owner-val-all": "Усё",
 	"bs-social-specialpagelisting-socialentities-show": "Паказаць",
 	"bs-social-specialpagelisting-socialentities-hide": "Схаваць",
-	"bs-socialactionsmw-autoeditsummary": "(Няма падсумоўваньня)"
+	"bs-socialactionsmw-autoeditsummary": "(Няма падсумоўваньня)",
+	"bs-social-config-mainlinks-timeline-label": "Паказаць пункт уваходу „Храналёгія“"
 }
