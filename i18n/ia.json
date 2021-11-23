@@ -84,5 +84,7 @@
 	"bs-social-editwarnonleave-confirmtext": "Quitar iste pagina pote causar le perdita de omne modificationes que tu ha facite. Vole tu abandonar le cambiamentos e continuar?",
 	"bs-social-specialpagelisting-socialentities": "$1 entitates social",
 	"bs-social-specialpagelisting-socialentities-show": "Monstrar",
-	"bs-social-specialpagelisting-socialentities-hide": "Celar"
+	"bs-social-specialpagelisting-socialentities-hide": "Celar",
+	"bs-social-config-mainlinks-timeline-label": "Monstrar le puncto de entrata \"Chronologia\"",
+	"bs-social-config-mainlinks-timeline-help": "Monstrar le ligamine del puncto de entrata \"Chronologia\" in le navigation al sinistra"
 }

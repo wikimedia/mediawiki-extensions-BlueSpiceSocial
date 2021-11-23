@@ -4,5 +4,21 @@
 			"Ajeje Brazorf"
 		]
 	},
-	"bs-social-entityaction-delete": "Cancella"
+	"bs-social-entityaction-delete": "Cancella",
+	"bs-social-entitytext-header": "[[User:$1|$2]] scrivìu:",
+	"bs-social-var-ownerid": "Prupitariu",
+	"bs-social-var-type": "Tipu",
+	"bs-social-var-text": "Cuntinutu",
+	"bs-social-editor-cancel": "Annulla",
+	"bs-social-entityactions-label": "Azzioni",
+	"bs-social-entityaction-edit": "Cancia",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "Agghiunci tuttu",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Oi",
+	"bs-social-filter-owner-val-all": "Tutti",
+	"bs-social-filter-owner-val-mine": "Miu",
+	"bs-social-renderer-timestampprefix-touched": "Canciatu",
+	"action-social-source": "taliari la pàggina surgenti",
+	"bs-social-specialpagelisting-socialentities-show": "Ammustra",
+	"bs-social-specialpagelisting-socialentities-hide": "Ammuccia",
+	"bs-socialactionsmw-autoeditsummary": "(Nuddu uggettu)"
 }
