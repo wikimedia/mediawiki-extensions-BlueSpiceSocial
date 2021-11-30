@@ -91,5 +91,7 @@
 	"bs-social-specialpagelisting-socialentities": "$1 les entités sociales",
 	"bs-social-specialpagelisting-socialentities-show": "Afficher",
 	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
-	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)"
+	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)",
+	"bs-social-config-mainlinks-timeline-label": "Afficher le point d’entrée « Chronologie »",
+	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans la navigation à gauche"
 }
