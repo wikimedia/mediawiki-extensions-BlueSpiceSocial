@@ -25,6 +25,7 @@ bs.social.Entity = function( $el, type, data ) {
 	me.BEFORE_CONTENT_CONTAINER  = 'bs-social-entity-beforecontent';
 	me.AFTER_CONTENT_CONTAINER  = 'bs-social-entity-aftercontent';
 	me.CHILDREN_CONTAINER  = 'bs-social-entitylist-children';
+	me.TIMESTAMP_CONTAINER = 'bs-social-entity-timecreated';
 
 	me.dirty = false;
 
@@ -277,14 +278,14 @@ bs.social.Entity.prototype.makeEditor = function() {
 
 bs.social.Entity.prototype.update = function() {
 	if( mw.user.options.get( 'bs-social-datedisplaymode' ) === 'age' ) {
-		var $ts = this.getContainer( this.TITLE_CONTAINER ).find(
+		var $ts = this.getContainer( this.TIMESTAMP_CONTAINER ).find(
 			'.timestampcreated'
 		).first();
 		if( $ts.length > 0 ) {
 			this.updateTimestampCreated( $ts );
 		}
 
-		var $ts = this.getContainer( this.TITLE_CONTAINER ).find(
+		var $ts = this.getContainer( this.TIMESTAMP_CONTAINER ).find(
 			'.timestamptouched'
 		).first();
 		if( $ts.length > 0 ) {
