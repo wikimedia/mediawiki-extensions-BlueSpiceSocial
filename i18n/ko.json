@@ -24,13 +24,18 @@
 	"bs-social-entity-fatalstatus-permission-unknownaction": "알 수 없는 동작 \"$1\"",
 	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "사용자는 \"$1\" 동작을 수행할 권한이 없습니다",
 	"bs-social-entity-fatalstatus-permission-notitle": "\"Title\" 객체는 필수입니다",
+	"bs-social-select2-overwrites-inputtooshort": "검색은 첫 문자로 시작합니다",
 	"bs-social-select2-overwrites-noresults": "결과 없음",
 	"bs-social-select2-overwrites-searching": "검색 중...",
+	"bs-extendedsearch-source-label-socialentity": "타임라인-엔티티",
 	"bs-extendedsearch-search-center-result-owner-label": "소유자:",
+	"bs-social-special-activities-heading": "활동",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "모두 추가",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "모두 제거",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "오늘",
 	"bs-social-filter-owner-val-all": "모두",
+	"bs-social-renderer-timestampprefix-created": "생성됨",
+	"bs-social-renderer-timestampprefix-touched": "편집됨",
 	"bs-social-filter-button-tooltip": "필터 옵션 표시",
 	"bs-social-sort-button-tooltip": "정렬 옵션 보이기",
 	"bs-social-entityspawner-button-tooltip": "새로 만들기",
@@ -40,6 +45,5 @@
 	"bs-social-pref-warnonleave": "바꾼 내용을 저장하지 않고 편집 페이지를 벗어날 때 내게 알립니다.",
 	"bs-social-specialpagelisting-socialentities-show": "보이기",
 	"bs-social-specialpagelisting-socialentities-hide": "숨기기",
-	"bs-socialactionsmw-autoeditsummary": "(요약 없음)",
-	"bs-social-special-activities-heading": "활동"
+	"bs-socialactionsmw-autoeditsummary": "(요약 없음)"
 }
