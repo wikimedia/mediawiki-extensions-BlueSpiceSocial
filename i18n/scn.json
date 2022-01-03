@@ -4,7 +4,7 @@
 			"Ajeje Brazorf"
 		]
 	},
-	"bs-social-entityaction-delete": "Cancella",
+	"bs-social-pref-datedisplaymode-mode-age": "Ammustra comu etati",
 	"bs-social-entitytext-header": "[[User:$1|$2]] scrivìu:",
 	"bs-social-var-ownerid": "Prupitariu",
 	"bs-social-var-type": "Tipu",
@@ -12,6 +12,7 @@
 	"bs-social-editor-cancel": "Annulla",
 	"bs-social-entityactions-label": "Azzioni",
 	"bs-social-entityaction-edit": "Cancia",
+	"bs-social-entityaction-delete": "Cancella",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Agghiunci tuttu",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Oi",
 	"bs-social-filter-owner-val-all": "Tutti",
