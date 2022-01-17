@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Yunbj"
 		]
 	},
 	"activities": "활동",
 	"bs-social-pref-datedisplaymode-mode-mw": "날짜로 표시",
 	"bs-social-entitytext-header": "[[User:$1|$2]]님이 남긴 글:",
+	"bs-social-var-id": "식별",
 	"bs-social-var-ownerid": "소유자",
 	"bs-social-var-type": "종류",
+	"bs-social-var-text": "내용",
 	"bs-social-var-timestampcreated": "만든 날짜",
 	"bs-social-var-timestamptouched": "편집일",
 	"bs-social-var-teasertext": "티저",
