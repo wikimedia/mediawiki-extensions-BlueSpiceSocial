@@ -11,7 +11,7 @@ use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext\SpecialTimeline;
 use BlueSpice\Social\Job\ChangeOwner;
 use IContextSource;
-use JobQueueGroup;
+use MediaWiki\MediaWikiServices;
 
 class ChangeEntityOwner extends MergeAccountFromTo {
 
@@ -73,7 +73,7 @@ class ChangeEntityOwner extends MergeAccountFromTo {
 			$entity->getTitle(),
 			[ Entity::ATTR_OWNER_ID => $this->newUser->getId() ]
 		);
-		JobQueueGroup::singleton()->push(
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push(
 			$job
 		);
 	}

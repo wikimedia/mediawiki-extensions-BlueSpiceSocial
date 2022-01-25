@@ -40,24 +40,24 @@ class Handler implements IPrivacyHandler {
 		$this->user = \User::newFromName( $oldUsername );
 		$entityRecords = $this->getAllEntities();
 
+		$services = MediaWikiServices::getInstance();
+		$entityFactory = $services->getService( 'BSEntityFactory' );
+		$jobs = [];
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-				->newFromObject( $data );
+			$entity = $entityFactory->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
 
 			// Add job to update search index after the process has completed
-			$job = new \BlueSpice\Social\ExtendedSearch\Job\Entity(
+			$jobs[] = new \BlueSpice\Social\ExtendedSearch\Job\Entity(
 				$entity->getTitle()
 			);
-
-			\JobQueueGroup::singleton()->push(
-				$job
-			);
 		}
+		$services->getJobQueueGroup()->push( $jobs );
+
 		return \Status::newGood();
 	}
 
@@ -70,26 +70,26 @@ class Handler implements IPrivacyHandler {
 		$this->user = $userToDelete;
 		$entityRecords = $this->getAllEntities();
 
+		$services = MediaWikiServices::getInstance();
+		$entityFactory = $services->getService( 'BSEntityFactory' );
+		$jobs = [];
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-				->newFromObject( $data );
+			$entity = $entityFactory->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
 
 			// Do changing owner ID in a job, since it edits the page
-			$job = new DeleteEntity(
+			$jobs[] = new DeleteEntity(
 				$entity->getTitle(), [
 					'deletedUserId' => $deletedUser->getId()
 				]
 			);
-
-			\JobQueueGroup::singleton()->push(
-				$job
-			);
 		}
+		$services->getJobQueueGroup()->push( $jobs );
+
 		return \Status::newGood();
 	}
 
