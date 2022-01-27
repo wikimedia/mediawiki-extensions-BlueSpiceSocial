@@ -76,7 +76,7 @@ class Entity extends \BlueSpice\Content\Entity {
 		) );
 		if ( $generateHtml ) {
 			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
-			$output->addModuleStyles( 'mediawiki.content.json' );
+			$output->addModuleStyles( [ 'mediawiki.content.json' ] );
 		} else {
 			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
 		}
