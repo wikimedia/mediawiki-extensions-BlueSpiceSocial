@@ -6,7 +6,7 @@
 	"author": "Patric Wirth",
 	"descriptionmsg": "bs-social-desc",
 	"requires": {
-		"MediaWiki": ">= 1.36.0",
+		"MediaWiki": ">= 1.37.0",
 		"extensions": {
 			"BlueSpiceFoundation": ">= 4.1",
 			"BlueSpiceExtendedSearch": ">= 4.1"

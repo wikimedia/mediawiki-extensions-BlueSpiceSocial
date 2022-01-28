@@ -36,7 +36,6 @@ use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
 use Exception;
-use JobQueueGroup;
 use MediaWiki\MediaWikiServices;
 use Message;
 use RequestContext;
@@ -238,14 +237,13 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function deleteChildren( User $user = null ) {
 		$status = Status::newGood( $this );
+		$jobQueueGroup = MediaWikiServices::getInstance()->getJobQueueGroup();
 		foreach ( $this->getChildren() as $entity ) {
 			try {
 				$job = new Archive(
 					$entity->getTitle()
 				);
-				JobQueueGroup::singleton()->push(
-					$job
-				);
+				$jobQueueGroup->push( $job );
 			} catch ( Exception $e ) {
 				$status->error( $e->getMessage() );
 			}
