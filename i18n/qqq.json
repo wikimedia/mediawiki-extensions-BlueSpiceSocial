@@ -95,5 +95,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}",
 	"bs-socialactionsmw-autoeditsummary": "Text that gets displayed instead of the edit summary, when it was left empty",
 	"bs-social-config-mainlinks-timeline-label": "Label for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
-	"bs-social-config-mainlinks-timeline-help": "Help message for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation"
+	"bs-social-config-mainlinks-timeline-help": "Help message for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
+	"bs-social-wikipage-attachments-section-heading": "Heading for attachments section on pages{{Identical|Attachments}}"
 }
