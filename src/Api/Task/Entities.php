@@ -168,14 +168,17 @@ class Entities extends \BSApiTasksBase {
 			(array)$taskData,
 			[ 'context' => $context ]
 		);
-		$renderer = $this->getServices()->getService( 'BSRendererFactory' )->get(
-			'entitylist',
+
+		$entityListRenderer = $this->getServices()->getService( 'BSRendererFactory' )->get(
+			$context->getRendererName(),
 			new Params( $params )
 		);
 
 		$oResult->success = true;
 		$oResult->payload['entities'] = [];
-		$args = $renderer->getArgs();
+		// TODO: MOve all of this into a "raw" renderer of some sort that uses the
+		// entitylistcontext but provides the rendererd entities only!
+		$args = $entityListRenderer->getArgs();
 		$renderTypes = $args[EntityList::PARAM_OUTPUT_TYPES];
 		if ( $args[EntityList::PARAM_OFFSET] < 1 ) {
 
@@ -190,16 +193,24 @@ class Entities extends \BSApiTasksBase {
 				if ( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
 					$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 				}
+				$renderer = $entity->getRenderer( $context );
+				$this->getServices()->getHookContainer()->run(
+					'BSSocialEntityListRenderEntity',
+					[
+						$entityListRenderer,
+						$entity,
+						&$renderer,
+						&$renderType
+					]
+				);
 				$oResult->payload['entities'][] = [
 					'entity' => \FormatJson::encode( $entity ),
-					'view' => $entity->getRenderer( $context )->render(
-						$renderType
-					),
+					'view' => $renderer->render( $renderType ),
 				];
 			}
 		}
 
-		foreach ( $renderer->getEntities() as $entity ) {
+		foreach ( $entityListRenderer->getEntities() as $entity ) {
 			if ( !$entity ) {
 				continue;
 			}
@@ -207,11 +218,19 @@ class Entities extends \BSApiTasksBase {
 			if ( isset( $renderTypes[$entity->get( Entity::ATTR_TYPE )] ) ) {
 				$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 			}
+			$renderer = $entity->getRenderer( $context );
+			$this->getServices()->getHookContainer()->run(
+				'BSSocialEntityListRenderEntity',
+				[
+					$entityListRenderer,
+					$entity,
+					&$renderer,
+					&$renderType
+				]
+			);
 			$oResult->payload['entities'][] = [
 				'entity' => \FormatJson::encode( $entity ),
-				'view' => $entity->getRenderer( $context )->render(
-					$renderType
-				),
+				'view' => $renderer->render( $renderType ),
 			];
 		}
 
