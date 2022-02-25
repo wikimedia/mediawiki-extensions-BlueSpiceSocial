@@ -315,7 +315,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		} catch ( MWException $e ) {
 			$mwTS = new Timestamp();
 		}
-		$mwTS->offsetForUser( $this->getContext()->getUser() );
+
 		$dateMode = $this->getContext()->getUser()->getOption(
 			'bs-social-datedisplaymode'
 		);
@@ -326,6 +326,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 				$mwTS->getAgeString( null, null, 1 )
 			);
 		}
+		$mwTS->offsetForUser( $this->getContext()->getUser() );
 		$ts = $this->getContext()->getLanguage()->userTimeAndDate(
 			$mwTS->format( 'YmdHis' ),
 			$this->getContext()->getUser()
@@ -350,10 +351,11 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			$mwTS = new Timestamp(
 				$this->args[SocialEntity::ATTR_TIMESTAMP_TOUCHED]
 			);
+
 		} catch ( MWException $e ) {
 			$mwTS = new Timestamp();
 		}
-		$mwTS->offsetForUser( $this->getContext()->getUser() );
+
 		$dateMode = $this->getContext()->getUser()->getOption(
 			'bs-social-datedisplaymode'
 		);
@@ -365,6 +367,8 @@ class Entity extends \BlueSpice\Renderer\Entity {
 				$mwTS->getAgeString( null, null, 1 )
 			);
 		}
+
+		$mwTS->offsetForUser( $this->getContext()->getUser() );
 		$ts = $this->getContext()->getLanguage()->userTimeAndDate(
 			$mwTS->format( 'YmdHis' ),
 			$this->getContext()->getUser()
