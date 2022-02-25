@@ -120,6 +120,9 @@
 		"social-editothers",
 		"social-source"
 	],
+	"AutoloadClasses": {
+		"BSSocialMigrateStash": "maintenance/BSSocialMigrateStash.php"
+	},
 	"AutoloadNamespaces": {
 		"BlueSpice\\Social\\": "src/"
 	},
@@ -404,7 +407,8 @@
 		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback",
 		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback",
 		"MergeAccountFromTo": "\\BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner::callback",
-		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
+		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
+		"LoadExtensionSchemaUpdates": "\\BlueSpice\\Social\\Hook\\LoadExtensionSchemaUpdates\\AddMigrationMaintenanceScript::callback"
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
