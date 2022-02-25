@@ -245,6 +245,11 @@ bs.social.EntityEditor.prototype.getData = function() {
 		if( this.fields[i].select2 ) {
 			data[i] = this.fields[i].$element.find('select').select2( "val" );
 		}
+		//oojs ui hidden fields
+		if( this.fields[i].getData ) {
+			data[i] = this.fields[i].getData();
+			continue;
+		}
 	}
 
 	if( dfds.length > 0 ) {
