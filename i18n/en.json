@@ -91,5 +91,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Hide",
 	"bs-socialactionsmw-autoeditsummary": "(No summary)",
 	"bs-social-config-mainlinks-timeline-label": "Show entrypoint \"Timeline\"",
-	"bs-social-config-mainlinks-timeline-help": "Show entrypoint \"Timeline\" link in the left navigation"
+	"bs-social-config-mainlinks-timeline-help": "Show entrypoint \"Timeline\" link in the left navigation",
+	"bs-social-wikipage-attachments-section-heading": "Attachments"
 }
