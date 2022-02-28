@@ -93,5 +93,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
 	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)",
 	"bs-social-config-mainlinks-timeline-label": "Afficher le point d’entrée « Chronologie »",
-	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche"
+	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche",
+	"bs-social-wikipage-attachments-section-heading": "Pièces jointes"
 }

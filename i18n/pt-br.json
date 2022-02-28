@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
-			"Eduardoaddad"
+			"Eduardoaddad",
+			"Juan90264"
 		]
 	},
 	"bs-social-desc": "Extensão de base para extensões sociais",
@@ -85,5 +86,7 @@
 	"bs-social-specialpagelisting-socialentities": "$1 entidades sociais",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
-	"bs-socialactionsmw-autoeditsummary": "(Sem sumário)"
+	"bs-socialactionsmw-autoeditsummary": "(Sem sumário)",
+	"bs-social-config-mainlinks-timeline-label": "Mostrar ponto de entrada \"Linha do tempo\"",
+	"bs-social-config-mainlinks-timeline-help": "Mostrar o link \"Linha do tempo\" do ponto de entrada na navegação à esquerda"
 }
