@@ -6,6 +6,7 @@
 			"PonkoSasuke",
 			"RadioAzureus",
 			"Romaine",
+			"Rots61",
 			"Siebrand"
 		]
 	},
@@ -73,5 +74,6 @@
 	"bs-social-editwarnonleave-confirmtext": "Door deze pagina te verlaten, kan u de wijzigingen die u hebt gemaakt ongedaan maken. Wilt u de wijzigingen negeren en doorgaan?",
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
 	"bs-social-specialpagelisting-socialentities-hide": "Verbergen",
-	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)"
+	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
+	"bs-social-wikipage-attachments-section-heading": "Bijlagen"
 }
