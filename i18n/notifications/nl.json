@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rots61"
+		]
+	},
+	"bs-social-notifications-email-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\"",
+	"bs-social-notifications-email-entity-create-text-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\" met de volgende tekst:\n$4",
+	"bs-social-notifications-web-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\""
+}

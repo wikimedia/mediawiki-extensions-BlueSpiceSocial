@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Joanmp17"
+			"Joanmp17",
+			"Johny Weissmuller Jr"
 		]
 	},
 	"activities": "Actividades",
 	"bs-social-pref-datedisplaymode-mode-mw": "Mostrar como fecha",
+	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:",
 	"bs-social-entitytext-header-create": "Entrada nueva",
 	"bs-social-var-id": "Identificación",
 	"bs-social-var-ownerid": "Propietario",
@@ -44,6 +46,6 @@
 	"bs-social-sort-button-tooltip": "Mostrar opciones de clasificación",
 	"bs-social-specialpagelisting-socialentities-show": "Mostrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
-	"bs-social-entitytext-header": "[[User:$1|$2]] escribió:",
-	"bs-socialactionsmw-autoeditsummary": "(Sin resumen)"
+	"bs-socialactionsmw-autoeditsummary": "(Sin resumen)",
+	"bs-social-wikipage-attachments-section-heading": "Archivos adjuntos"
 }

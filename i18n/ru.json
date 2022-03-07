@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"DDPAT",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Ice bulldog",
+			"Tanzun"
 		]
 	},
 	"bs-social-prof-datedisplaymode": "Режим отображения даты",
@@ -38,5 +40,6 @@
 	"bs-social-entityspawner-button-tooltip": "Создать новый",
 	"bs-social-specialpagelisting-socialentities-show": "Показать",
 	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
-	"bs-socialactionsmw-autoeditsummary": "(без описания)"
+	"bs-socialactionsmw-autoeditsummary": "(без описания)",
+	"bs-social-wikipage-attachments-section-heading": "Вложения"
 }
