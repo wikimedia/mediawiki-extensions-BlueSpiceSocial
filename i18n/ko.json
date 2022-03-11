@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Yunbj"
 		]
 	},
 	"bs-social-pref-datedisplaymode-mode-mw": "날짜로 표시",
@@ -41,5 +42,12 @@
 	"bs-social-special-activities-heading": "활동",
 	"bs-social-specialpagelisting-socialentities-show": "보이기",
 	"bs-social-specialpagelisting-socialentities-hide": "숨기기",
-	"bs-socialactionsmw-autoeditsummary": "(요약 없음)"
+	"bs-socialactionsmw-autoeditsummary": "(요약 없음)",
+	"bs-social-var-id": "식별",
+	"bs-social-var-text": "내용",
+	"bs-social-select2-overwrites-inputtooshort": "검색은 첫 문자로 시작합니다",
+	"bs-extendedsearch-source-label-socialentity": "타임라인-엔티티",
+	"bs-social-renderer-timestampprefix-created": "생성됨",
+	"bs-social-renderer-timestampprefix-touched": "편집됨",
+	"bs-social-wikipage-attachments-section-heading": "첨부"
 }

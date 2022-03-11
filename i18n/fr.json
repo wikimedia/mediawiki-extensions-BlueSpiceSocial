@@ -87,11 +87,12 @@
 	"bs-social-pref-warnonleave": "M’avertir quand je quitte une modification d’une entrée avec des modifications non enregistrées.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Effectuer cette action peut vous exposer à perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
 	"bs-social-editwarnonleave-confirmtext": "Quitter cette page peut vous faire perdre les modifications que vous avez faites. Voulez-vous abandonner ces modifications et continuer ?",
-	"bs-social-entitylistmore-linklabel": "…",
+	"bs-social-entitylistmore-linklabel": "...",
 	"bs-social-specialpagelisting-socialentities": "$1 les entités sociales",
 	"bs-social-specialpagelisting-socialentities-show": "Afficher",
 	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
 	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)",
 	"bs-social-config-mainlinks-timeline-label": "Afficher le point d’entrée « Chronologie »",
-	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans la navigation à gauche"
+	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche",
+	"bs-social-wikipage-attachments-section-heading": "Pièces jointes"
 }

@@ -6,6 +6,7 @@
 			"PonkoSasuke",
 			"RadioAzureus",
 			"Romaine",
+			"Rots61",
 			"Siebrand"
 		]
 	},
@@ -73,5 +74,6 @@
 	"bs-social-filter-date-label-from": "$1 van",
 	"bs-social-filter-date-label-to": "$1 naar",
 	"bs-extendedsearch-source-type-socialentity-label": "Sociale entiteit",
-	"bs-social-sourcetitle-lockdown-reason-reason": "De actie $1 mag alleen worden uitgevoerd door beheerders, omdat deze items niet direct bewerkt zouden moeten worden."
+	"bs-social-sourcetitle-lockdown-reason-reason": "De actie $1 mag alleen worden uitgevoerd door beheerders, omdat deze items niet direct bewerkt zouden moeten worden.",
+	"bs-social-wikipage-attachments-section-heading": "Bijlagen"
 }
