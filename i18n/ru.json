@@ -2,6 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"DDPAT",
+			"Ice bulldog",
+			"Tanzun",
 			"Александр Сигачёв"
 		]
 	},
@@ -38,5 +40,6 @@
 	"bs-social-entityspawner-button-tooltip": "Создать новый",
 	"bs-social-specialpagelisting-socialentities-show": "Показать",
 	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
-	"bs-socialactionsmw-autoeditsummary": "(без описания)"
+	"bs-socialactionsmw-autoeditsummary": "(без описания)",
+	"bs-social-wikipage-attachments-section-heading": "Вложения"
 }

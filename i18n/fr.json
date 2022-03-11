@@ -61,7 +61,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Tout ajouter",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Tout supprimer",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Aujourd’hui",
-	"bs-social-entitylistmore-linklabel": "…",
+	"bs-social-entitylistmore-linklabel": "...",
 	"bs-social-filter-owner-val-all": "Tout",
 	"bs-social-filter-owner-val-mine": "Les miennes",
 	"bs-social-filter-date-label-from": "$1 (depuis)",
@@ -93,5 +93,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Masquer",
 	"bs-socialactionsmw-autoeditsummary": "(aucun résumé)",
 	"bs-social-config-mainlinks-timeline-label": "Afficher le point d’entrée « Chronologie »",
-	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche"
+	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche",
+	"bs-social-wikipage-attachments-section-heading": "Pièces jointes"
 }
