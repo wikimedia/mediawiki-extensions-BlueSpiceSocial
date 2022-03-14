@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Veeven"
+			"Veeven",
+			"Chaduvari"
 		]
 	},
 	"activities": "కార్యకలాపాలు",
@@ -22,5 +23,6 @@
 	"bs-social-filter-owner-val-mine": "నావి",
 	"bs-social-specialpagelisting-socialentities-show": "చూపించు",
 	"bs-social-specialpagelisting-socialentities-hide": "దాచు",
-	"bs-socialactionsmw-autoeditsummary": "(సారాంశం లేదు)"
+	"bs-socialactionsmw-autoeditsummary": "(సారాంశం లేదు)",
+	"bs-social-wikipage-attachments-section-heading": "జోడింపులు"
 }
