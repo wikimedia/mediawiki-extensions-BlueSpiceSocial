@@ -4,7 +4,6 @@
 			"McDutchie"
 		]
 	},
-	"bs-socialactionsmw-autoeditsummary": "(Sin summario)",
 	"bs-social-desc": "Extension de base pro extensiones social",
 	"activities": "Activitates",
 	"bs-social-prof-datedisplaymode": "Modo de presentation de datas",
@@ -85,6 +84,8 @@
 	"bs-social-specialpagelisting-socialentities": "$1 entitates social",
 	"bs-social-specialpagelisting-socialentities-show": "Monstrar",
 	"bs-social-specialpagelisting-socialentities-hide": "Celar",
+	"bs-socialactionsmw-autoeditsummary": "(Sin summario)",
 	"bs-social-config-mainlinks-timeline-label": "Monstrar le puncto de entrata \"Chronologia\"",
-	"bs-social-config-mainlinks-timeline-help": "Monstrar le ligamine del puncto de entrata \"Chronologia\" in le navigation al sinistra"
+	"bs-social-config-mainlinks-timeline-help": "Monstrar le ligamine del puncto de entrata \"Chronologia\" in le navigation al sinistra",
+	"bs-social-wikipage-attachments-section-heading": "Annexos"
 }
