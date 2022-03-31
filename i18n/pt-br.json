@@ -3,7 +3,8 @@
 		"authors": [
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
-			"Juan90264"
+			"Juan90264",
+			"YuriNikolai"
 		]
 	},
 	"bs-social-desc": "Extensão de base para extensões sociais",
@@ -88,5 +89,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Ocultar",
 	"bs-socialactionsmw-autoeditsummary": "(Sem sumário)",
 	"bs-social-config-mainlinks-timeline-label": "Mostrar ponto de entrada \"Linha do tempo\"",
-	"bs-social-config-mainlinks-timeline-help": "Mostrar o link \"Linha do tempo\" do ponto de entrada na navegação à esquerda"
+	"bs-social-config-mainlinks-timeline-help": "Mostrar o link \"Linha do tempo\" do ponto de entrada na navegação à esquerda",
+	"bs-social-wikipage-attachments-section-heading": "Anexos"
 }
