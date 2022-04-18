@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fulup"
+			"Fulup",
+			"Huñvreüs"
 		]
 	},
+	"bs-social-editor-advanced": "Araokaet",
 	"bs-social-specialpagelisting-socialentities": "$1 frammoù sokial",
 	"bs-social-specialpagelisting-socialentities-show": "Diskouez",
 	"bs-social-specialpagelisting-socialentities-hide": "Kuzhat"
