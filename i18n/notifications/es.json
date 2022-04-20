@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"DiegoAmbrocio"
+		]
+	},
+	"echo-category-title-bs-social-entity-cat": "Acciones de las entidades en las páginas vigiladas",
+	"bs-social-notifications-entity-create": "Entidad social de tipo \"$1\" creada",
+	"bs-social-notifications-email-entity-create-subject": "Entidad social de tipo \"$1\" creada",
+	"bs-social-notifications-entity-edit": "La entidad social de tipo \"$1\" fue editada",
+	"bs-social-notifications-email-entity-edit-subject": "La entidad social de tipo \"$1\" fue editada",
+	"bs-social-notifications-entity-delete": "Se ha eliminado la entidad social de tipo \"$1\".",
+	"bs-social-notifications-email-entity-delete-subject": "Se ha eliminado la entidad social de tipo \"$1\".",
+	"bs-social-notification-primary-link-label": "Ver entidad"
+}
