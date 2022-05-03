@@ -152,7 +152,7 @@ bs.social.EntityListMenu.Button.EntitySpawner.prototype.onSpawnerActionClick = f
 
 		bs.social.init( $(li).find('.bs-social-entity') );
 
-		//sometimes teh button gets lost... especially in IE
+		//sometimes the button gets lost... especially in IE
 		if( me.$button ) {
 			me.$button.find( '.bs-social-entityspawner-actions-content' ).first().hide();
 		}
