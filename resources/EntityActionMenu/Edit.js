@@ -15,7 +15,7 @@ bs.social.EntityActionMenu.Edit = function ( entityActionMenu ) {
 	me.entityActionMenu = entityActionMenu;
 	me.$element = null;
 	me.priority = 20;
-	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-edit">'
+	me.$element = $( '<li class="dropdown-item"><a class="bs-social-entity-action-edit">'
 		+ '<span>' + mw.message( "bs-social-entityaction-edit" ).plain() + '</span>'
 		+ '</a></li>'
 	);

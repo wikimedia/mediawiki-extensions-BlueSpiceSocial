@@ -17,7 +17,7 @@ bs.social.EntityActionMenu.Delete = function ( entityActionMenu ) {
 	var key = me.entityActionMenu.entity.data.get( 'archived' )
 		? 'bs-social-entityaction-undelete'
 		: 'bs-social-entityaction-delete';
-	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-delete">'
+	me.$element = $( '<li class="dropdown-item"><a class="bs-social-entity-action-delete">'
 		+ '<span>' + mw.message( key ).plain() + '</span>'
 		+ '</a></li>'
 	);
