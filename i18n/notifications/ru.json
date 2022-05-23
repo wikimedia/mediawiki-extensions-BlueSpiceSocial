@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"DDPAT"
+			"DDPAT",
+			"Ice bulldog",
+			"Pacha Tchernof"
 		]
 	},
-	"bs-social-notification-primary-link-label": "Просмотр объекта"
+	"bs-social-notification-primary-link-label": "Посмотреть объект"
 }
