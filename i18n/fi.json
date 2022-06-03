@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Silvonen",
-			"MITO"
+			"MITO",
+			"Silvonen"
 		]
 	},
 	"bs-social-entitytext-header": "[[User:$1|$2]] kirjoitti:",
