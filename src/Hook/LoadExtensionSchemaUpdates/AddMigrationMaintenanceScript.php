@@ -6,9 +6,7 @@ use BlueSpice\Hook\LoadExtensionSchemaUpdates;
 
 class AddMigrationMaintenanceScript extends LoadExtensionSchemaUpdates {
 	protected function doProcess() {
-		$this->updater->addPostDatabaseUpdateMaintenance(
-			'BSSocialMigrateStash'
-		);
+		$this->updater->addPostDatabaseUpdateMaintenance( \BSSocialMigrateStash::class );
 		return true;
 	}
 }
