@@ -6,6 +6,7 @@ use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\DocumentProvider\WikiPage;
+use MediaWiki\MediaWikiServices;
 
 class Entity extends WikiPage {
 
@@ -16,7 +17,7 @@ class Entity extends WikiPage {
 	 * @return array
 	 */
 	public function getDataConfig( $sUri, $oEntity ) {
-		$oWikiPage = \WikiPage::factory( $oEntity->getTitle() );
+		$oWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $oEntity->getTitle() );
 		$aDC = parent::getDataConfig( $sUri, $oWikiPage );
 		$aDC['entitydata'] = $this->normalizeEntityData( $oEntity );
 		return $aDC;

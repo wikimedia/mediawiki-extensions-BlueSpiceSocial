@@ -78,7 +78,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 			return null;
 		}
 
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		if ( !$wikiPage ) {
 			return null;
 		}
@@ -230,7 +230,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 	 * @return Status
 	 */
 	private function ammendAttachments( Title $title, array $attachments ): Status {
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		if ( !$wikiPage ) {
 			return Status::newFatal( 'Invalid WikiPage' );
 		}
@@ -299,7 +299,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 		if ( $title->exists() ) {
 			return Status::newFatal( 'Already exists' );
 		}
-		$wikiPage = WikiPage::factory( $title );
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		if ( !$wikiPage ) {
 			return Status::newFatal( 'Invalid WikiPage' );
 		}
