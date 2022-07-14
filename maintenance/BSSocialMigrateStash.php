@@ -27,9 +27,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 			define( 'NS_SOCIALENTITY_TALK', 1507 );
 			$wgExtraNamespaces[NS_SOCIALENTITY_TALK] = 'SocialEntity_talk';
 		}
-		$this->output( "   Add Templates(2): " );
-		$this->addPageTemplates();
-		$this->output( " OK\n" );
+
 		$data = $this->getStashData();
 		$count = count( $data );
 		$this->output( "   Migrate Stash($count): " );
@@ -248,62 +246,27 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 	 * @return string
 	 */
 	private function ammendContent( string $text, array $attachments ): string {
+		$msg = Message::newFromKey( 'bs-social-wikipage-attachments-section-heading' );
 		$text .= "\n\n";
-		$text .= "{{AttachmentsList}}\n";
+		$text .= "== {$msg->inContentLanguage()->plain()} ==\n";
+		$text .= "<!--\n";
 		foreach ( $attachments as $attachment ) {
-			$text .= "* [[{$attachment['link']}|{$attachment['name']}]]";
+			$text .= "* {$attachment['link']}|{$attachment['name']}";
 			if ( !empty( $attachment['user'] ) ) {
-				$text .= " -- [[{$attachment['user']}]]";
+				$text .= " -- {$attachment['user']}";
 			}
 			if ( !empty( $attachment['date'] ) ) {
 				$text .= ", {$attachment['date']}, {$attachment['time']}";
 			}
 			$text .= "\n";
 		}
-		$text .= "{{AttachmentsList/End}}\n";
+		$text .= "-->\n";
+		$text .= "<attachments>\n";
+		foreach ( $attachments as $attachment ) {
+			$text .= "* [[{$attachment['link']}]]\n";
+		}
+		$text .= "</attachments>\n";
 		return $text;
-	}
-
-	private function addPageTemplates() {
-		$lang = MediaWikiServices::getInstance()->getContentLanguage();
-		$msg = new Message( 'bs-social-wikipage-attachments-section-heading', [], $lang );
-		$start = $this->addTemplate(
-			"=={$msg->plain()}==",
-			Title::makeTitle( NS_TEMPLATE, 'AttachmentsList' )
-		);
-		if ( !$start->isOK() ) {
-			$this->output( 'f' );
-		} else {
-			$this->output( '.' );
-		}
-		$end = $this->addTemplate(
-			" ",
-			Title::makeTitle( NS_TEMPLATE, 'AttachmentsList/End' )
-		);
-		if ( !$end->isOK() ) {
-			$this->output( 'f' );
-		} else {
-			$this->output( '.' );
-		}
-	}
-
-	/**
-	 * @param string $text
-	 * @param Title|null $title
-	 * @return Status
-	 */
-	private function addTemplate( string $text, ?Title $title = null ): Status {
-		if ( !$title ) {
-			return Status::newFatal( 'Invalid Title' );
-		}
-		if ( $title->exists() ) {
-			return Status::newFatal( 'Already exists' );
-		}
-		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-		if ( !$wikiPage ) {
-			return Status::newFatal( 'Invalid WikiPage' );
-		}
-		return $this->savePage( $wikiPage, new WikitextContent( $text ) );
 	}
 
 	/**
