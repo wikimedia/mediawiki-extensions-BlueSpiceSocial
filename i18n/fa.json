@@ -47,5 +47,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "پنهان کن",
 	"bs-social-prof-datedisplaymode": "حالت نمایش تاریخ",
 	"bs-social-entityaction-delete-confirmtext": "حذف مدخل؟",
-	"bs-social-entityaction-undelete-confirmtext": "احیای مدخل؟"
+	"bs-social-entityaction-undelete-confirmtext": "احیای مدخل؟",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "عمل ناشناختهٔ «$1»"
 }
