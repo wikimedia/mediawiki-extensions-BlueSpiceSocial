@@ -31,6 +31,7 @@
 	"bs-social-entityaction-delete-confirmtext": "حذف مدخل؟",
 	"bs-social-entityaction-undelete": "بازیابی",
 	"bs-social-entityaction-undelete-confirmtext": "احیای مدخل؟",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "عمل ناشناختهٔ «$1»",
 	"bs-social-select2-overwrites-noresults": "بدون نتیجه",
 	"bs-social-select2-overwrites-searching": "در حال جستجو...",
 	"bs-extendedsearch-search-center-result-owner-label": "مالک:",
