@@ -6,7 +6,9 @@
 	},
 	"bs-social-entityaction-delete": "Jaukkâd",
 	"bs-social-renderer-timestampprefix-created": "Rajjum",
-	"action-social-source": "čuäʹjted käivvseeid",
+	"action-social-source": "käivvseeid čuäʹjted",
+	"right-social-source": "Käivvseeid čuäʹjted",
 	"bs-social-specialpagelisting-socialentities-show": "Čuäʹjet",
-	"bs-social-specialpagelisting-socialentities-hide": "Čiõǥǥ"
+	"bs-social-specialpagelisting-socialentities-hide": "Čiõǥǥ",
+	"bs-social-wikipage-attachments-section-heading": "Meâlddõõzz"
 }
