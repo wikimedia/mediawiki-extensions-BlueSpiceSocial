@@ -261,6 +261,9 @@
 			],
 			"scripts": [
 				"ui/EntityEditorText.js"
+			],
+			"styles": [
+				"bluespice.social.editor.less"
 			]
 		},
 		"ext.bluespice.social.entity.action": {
