@@ -162,7 +162,7 @@ class WikiText extends \Parser {
 	 *
 	 * @return ILanguageConverter
 	 */
-	protected function getTargetLanguageConverter() {
+	public function getTargetLanguageConverter() {
 		return MediaWikiServices::getInstance()->getLanguageConverterFactory()
 			->getLanguageConverter( $this->getTargetLanguage() );
 	}
