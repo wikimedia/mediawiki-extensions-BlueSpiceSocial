@@ -232,7 +232,12 @@ bs.social.EntityEditor.prototype.getData = function() {
 				dfds.push( maybeDfd );
 				var fieldIndex = i;
 				maybeDfd.done( function( value ) {
-					data[fieldIndex] = value;
+					var strLength = value.trim().length;
+					if( strLength === 0 ) {
+						return;
+					} else {
+						data[fieldIndex] = value;
+					}
 				} );
 			}
 			else {
