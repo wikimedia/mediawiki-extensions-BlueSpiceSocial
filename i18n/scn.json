@@ -14,6 +14,8 @@
 	"bs-social-entityactions-label": "Azzioni",
 	"bs-social-entityaction-edit": "Cancia",
 	"bs-social-entityaction-delete": "Cancella",
+	"bs-social-entity-fatalstatus-save-notype": "Lu tipu d'entitati è vacanti",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Lu campu \"$1\" è vacanti",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Agghiunci tuttu",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Oi",
 	"bs-social-filter-owner-val-all": "Tutti",
