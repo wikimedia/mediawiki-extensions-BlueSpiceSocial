@@ -22,5 +22,7 @@
 	"bs-social-specialpagelisting-socialentities-show": "Ammustra",
 	"bs-social-specialpagelisting-socialentities-hide": "Ammuccia",
 	"bs-socialactionsmw-autoeditsummary": "(Nuddu uggettu)",
-	"bs-social-var-archived": "Archiviatu"
+	"bs-social-var-archived": "Archiviatu",
+	"bs-social-entity-fatalstatus-save-notype": "Lu tipu d'entitati è vacanti",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Lu campu \"$1\" è vacanti"
 }
