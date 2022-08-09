@@ -1,9 +1,6 @@
 <?php
 namespace BlueSpice\Social\Content;
 
-use BlueSpice\Social\Entity as SocialEntity;
-use MediaWiki\MediaWikiServices;
-
 class Entity extends \BlueSpice\Content\Entity {
 
 	/**
@@ -52,34 +49,6 @@ class Entity extends \BlueSpice\Content\Entity {
 	 */
 	public function preSaveTransform( \Title $title, \User $user, \ParserOptions $popts ) {
 		return new static( $this->beautifyJSON() );
-	}
-
-	/**
-	 * Set the HTML and add the appropriate styles
-	 *
-	 *
-	 * @param Title $title
-	 * @param int $revId
-	 * @param ParserOptions $options
-	 * @param bool $generateHtml
-	 * @param ParserOutput &$output
-	 */
-	protected function fillParserOutput( \Title $title, $revId,
-		\ParserOptions $options, $generateHtml, \ParserOutput &$output ) {
-		$oEntity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-			->newFromSourceTitle( $title );
-		if ( !$oEntity instanceof SocialEntity ) {
-			return;
-		}
-		$output->setDisplayTitle( strip_tags(
-			$oEntity->getHeader()->parse()
-		) );
-		if ( $generateHtml ) {
-			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
-			$output->addModuleStyles( [ 'mediawiki.content.json' ] );
-		} else {
-			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
-		}
 	}
 
 	/**

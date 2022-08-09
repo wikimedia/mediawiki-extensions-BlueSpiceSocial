@@ -3,6 +3,12 @@
 namespace BlueSpice\Social\Content;
 
 use BlueSpice\Content\EntityHandler as EntityHanderBase;
+use BlueSpice\Social\Entity;
+use Content;
+use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\MediaWikiServices;
+use ParserOutput;
+use Title;
 
 class EntityHandler extends EntityHanderBase {
 
@@ -19,5 +25,34 @@ class EntityHandler extends EntityHanderBase {
 	 */
 	protected function getContentClass() {
 		return "BlueSpice\\Social\\Content\\Entity";
+	}
+
+	/**
+	 * @param Content $content
+	 * @param ContentParseParams $cpoParams
+	 * @param ParserOutput &$output The output object to fill (reference).
+	 */
+	protected function fillParserOutput(
+		Content $content,
+		ContentParseParams $cpoParams,
+		ParserOutput &$output
+	) {
+		$dbKey = $cpoParams->getPage()->getDBkey();
+		$title = Title::newFromDBkey( $dbKey );
+
+		$oEntity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
+			->newFromSourceTitle( $title );
+		if ( !$oEntity instanceof Entity ) {
+			return;
+		}
+		$output->setDisplayTitle( strip_tags(
+			$oEntity->getHeader()->parse()
+		) );
+		if ( $cpoParams->getGenerateHtml() ) {
+			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
+			$output->addModuleStyles( [ 'mediawiki.content.json' ] );
+		} else {
+			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
+		}
 	}
 }
