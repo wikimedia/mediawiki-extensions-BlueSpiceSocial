@@ -7,7 +7,6 @@ use MediaWiki\MediaWikiServices;
 class Entity extends \BlueSpice\Content\Entity {
 
 	/**
-	 *
 	 * @param string $text
 	 * @param string $modelId
 	 */
@@ -17,10 +16,11 @@ class Entity extends \BlueSpice\Content\Entity {
 
 	/**
 	 * Decodes the JSON into a PHP associative array.
+	 *
 	 * @return array
 	 */
 	public function getJsonData() {
-		return \FormatJson::decode( $this->getNativeData(), true );
+		return \FormatJson::decode( $this->getText(), true );
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Entity extends \BlueSpice\Content\Entity {
 	 * @return bool|null|string
 	 */
 	public function beautifyJSON() {
-		$decoded = \FormatJson::decode( $this->getNativeData(), true );
+		$decoded = \FormatJson::decode( $this->getText(), true );
 		if ( !is_array( $decoded ) ) {
 			return null;
 		}
@@ -45,6 +45,7 @@ class Entity extends \BlueSpice\Content\Entity {
 
 	/**
 	 * Beautifies JSON prior to save.
+	 *
 	 * @param Title $title Title
 	 * @param User $user User
 	 * @param ParserOptions $popts
@@ -56,7 +57,6 @@ class Entity extends \BlueSpice\Content\Entity {
 
 	/**
 	 * Set the HTML and add the appropriate styles
-	 *
 	 *
 	 * @param Title $title
 	 * @param int $revId
@@ -84,6 +84,7 @@ class Entity extends \BlueSpice\Content\Entity {
 
 	/**
 	 * Constructs an HTML representation of a JSON object.
+	 *
 	 * @param array $mapping
 	 * @return string HTML
 	 */
@@ -100,6 +101,7 @@ class Entity extends \BlueSpice\Content\Entity {
 
 	/**
 	 * Constructs HTML representation of a single key-value pair.
+	 *
 	 * @param string $key
 	 * @param mixed $val
 	 * @return string HTML.

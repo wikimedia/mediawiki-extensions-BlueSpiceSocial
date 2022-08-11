@@ -84,7 +84,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 		if ( !$content ) {
 			return null;
 		}
-		$text = $content->getNativeData();
+		$text = ( $content instanceof TextContent ) ? $content->getText() : '';
 
 		$content = new EntityContent( $text );
 		$data = (object)$content->getData()->getValue();
