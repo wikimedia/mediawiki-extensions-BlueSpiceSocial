@@ -48,5 +48,16 @@
 	"bs-social-prof-datedisplaymode": "حالت نمایش تاریخ",
 	"bs-social-entityaction-delete-confirmtext": "حذف مدخل؟",
 	"bs-social-entityaction-undelete-confirmtext": "احیای مدخل؟",
-	"bs-social-entity-fatalstatus-permission-unknownaction": "عمل ناشناختهٔ «$1»"
+	"bs-social-entity-fatalstatus-permission-unknownaction": "عمل ناشناختهٔ «$1»",
+	"bs-social-filter-button-tooltip": "نمایش گزینه‌های پالایش",
+	"bs-social-sort-button-tooltip": "نمایش گزینه‌های مرتب‌سازی",
+	"action-social-deleteothers": "حذف سایر مدخل‌ها",
+	"action-social-editothers": "ویرایش سایر مدخل‌ها",
+	"action-social-source": "مشاهدهٔ صفحهٔ مبدأ",
+	"right-social-deleteothers": "حذف مدخل‌های دیگران",
+	"right-social-editothers": "ویرایش مدخل‌های دیگران",
+	"right-social-source": "مشاهدهٔ صفحهٔ مبدأ",
+	"bs-social-pref-warnonleave": "هنگامی که ویرایش یک مدخل را بدون ذخیره‌سازی تغییرات ترک کردم، به من هشدار بده.",
+	"bs-socialactionsmw-autoeditsummary": "(بدون خلاصه)",
+	"bs-social-wikipage-attachments-section-heading": "پیوست‌ها"
 }
