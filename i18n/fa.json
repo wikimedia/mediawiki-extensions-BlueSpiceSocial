@@ -45,8 +45,19 @@
 	"bs-social-filter-date-label-to": "$1 به",
 	"bs-social-renderer-timestampprefix-created": "ایجاد شده",
 	"bs-social-renderer-timestampprefix-touched": "ویرایش شده",
+	"bs-social-filter-button-tooltip": "نمایش گزینه‌های پالایش",
+	"bs-social-sort-button-tooltip": "نمایش گزینه‌های مرتب‌سازی",
 	"bs-social-entityspawner-button-tooltip": "ایجاد جدید",
+	"action-social-deleteothers": "حذف سایر مدخل‌ها",
+	"action-social-editothers": "ویرایش سایر مدخل‌ها",
+	"action-social-source": "مشاهدهٔ صفحهٔ مبدأ",
+	"right-social-deleteothers": "حذف مدخل‌های دیگران",
+	"right-social-editothers": "ویرایش مدخل‌های دیگران",
+	"right-social-source": "مشاهدهٔ صفحهٔ مبدأ",
 	"prefs-social": "خط زمان",
+	"bs-social-pref-warnonleave": "هنگامی که ویرایش یک مدخل را بدون ذخیره‌سازی تغییرات ترک کردم، به من هشدار بده.",
 	"bs-social-specialpagelisting-socialentities-show": "نشان بده",
-	"bs-social-specialpagelisting-socialentities-hide": "پنهان کن"
+	"bs-social-specialpagelisting-socialentities-hide": "پنهان کن",
+	"bs-socialactionsmw-autoeditsummary": "(بدون خلاصه)",
+	"bs-social-wikipage-attachments-section-heading": "پیوست‌ها"
 }

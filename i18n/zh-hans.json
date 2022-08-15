@@ -7,6 +7,7 @@
 			"Ken418",
 			"Lakejason0",
 			"VulpesVulpes825",
+			"Wzl19371",
 			"予弦"
 		]
 	},
@@ -46,6 +47,8 @@
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "今日",
 	"bs-social-filter-owner-val-all": "全部",
 	"bs-social-filter-owner-val-mine": "线形图",
+	"bs-social-filter-date-label-from": "$1起",
+	"bs-social-filter-date-label-to": "$1到",
 	"bs-social-renderer-timestampprefix-created": "已创建",
 	"bs-social-renderer-timestampprefix-touched": "已编辑",
 	"bs-social-entityspawner-button-tooltip": "创建新的",
