@@ -104,6 +104,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 			[ 'page_namespace' => NS_SOCIALENTITY, 'page_content_model' => 'BSSocial' ],
 			__METHOD__
 		);
+		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		foreach ( $res as $row ) {
 			$title = Title::newFromID( $row->page_id );
 			$data = $this->resolveNativeDataFromTitle( $title );
@@ -119,7 +120,9 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 				$this->output( 's' );
 				continue;
 			}
-			$data->{Entity::ATTR_TIMESTAMP_CREATED} = $title->getEarliestRevTime();
+			$pageIdentity = $title->toPageIdentity();
+			$revisionRecord = $revisionLookup->getFirstRevision( $pageIdentity );
+			$data->{Entity::ATTR_TIMESTAMP_CREATED} = $revisionRecord->getTimestamp();
 			$return[$data->{Entity::ATTR_ID}] = $data;
 		}
 		return $return;
