@@ -43,6 +43,8 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected $renderType = 'Default';
 	/** @var bool */
 	protected $noCache = false;
+	/** @var MediaWikiServices */
+	private $services = null;
 
 	/**
 	 * Constructor
@@ -75,8 +77,9 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		$this->args[static::PARAM_ID] = false;
 		$this->args[static::CHILDREN] = '';
 		$this->args[static::ACTIONS] = '';
+		$this->services = $this->getServices();
 		$owner = $this->getEntity()->getOwner();
-		$userHelper = $this->getServices()->getService( 'BSUtilityFactory' )
+		$userHelper = $this->services->getService( 'BSUtilityFactory' )
 			->getUserHelper( $owner );
 		$this->args[static::AUTHOR] = $userHelper->getDisplayName();
 		// TODO: Use linker - needs change in all mustache templates!
@@ -231,7 +234,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return string
 	 */
 	protected function render_userimage( $val ) {
-		$factory = $this->getServices()->getService( 'BSRendererFactory' );
+		$factory = $this->services->getService( 'BSRendererFactory' );
 		$user = User::newFromId( $this->getEntity()->get(
 			SocialEntity::ATTR_OWNER_ID,
 			0
@@ -256,7 +259,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		}
 		$renderer = [];
 		$out = '';
-		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+		$b = $this->services->getHookContainer()->run(
 			'BSSocialEntityOutputRenderBeforeContent',
 			[
 				$this,
@@ -283,7 +286,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		}
 		$renderer = [];
 		$out = '';
-		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+		$b = $this->services->getHookContainer()->run(
 			'BSSocialEntityOutputRenderAfterContent',
 			[
 				$this,
@@ -316,9 +319,8 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			$mwTS = new Timestamp();
 		}
 
-		$dateMode = $this->getContext()->getUser()->getOption(
-			'bs-social-datedisplaymode'
-		);
+		$dateMode = $this->services->getUserOptionsLookup()
+			->getOption( $this->getContext()->getUser(), 'bs-social-datedisplaymode' );
 
 		if ( $dateMode === 'age' ) {
 			return Html::element(
@@ -356,9 +358,8 @@ class Entity extends \BlueSpice\Renderer\Entity {
 			$mwTS = new Timestamp();
 		}
 
-		$dateMode = $this->getContext()->getUser()->getOption(
-			'bs-social-datedisplaymode'
-		);
+		$dateMode = $this->services->getUserOptionsLookup()
+			->getOption( $this->getContext()->getUser(), 'bs-social-datedisplaymode' );
 
 		$prefix = $this->msg( 'bs-social-renderer-timestampprefix-touched' )->plain();
 		if ( $dateMode === 'age' ) {
@@ -401,7 +402,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return EntityList
 	 */
 	protected function getChildListRenderer() {
-		return $this->getServices()->getService( 'BSRendererFactory' )->get(
+		return $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [
 				EntityList::PARAM_CONTEXT => $this->getChildListContext(),
@@ -457,7 +458,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected function render_beforechildren( $val ) {
 		$renderer = [];
 		$out = '';
-		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+		$b = $this->services->getHookContainer()->run(
 			'BSSocialEntityOutputRenderBeforeChildren',
 			[
 				$this,
@@ -481,7 +482,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected function render_afterchildren( $val ) {
 		$renderer = [];
 		$out = '';
-		$b = MediaWikiServices::getInstance()->getHookContainer()->run(
+		$b = $this->services->getHookContainer()->run(
 			'BSSocialEntityOutputRenderAfterChildren',
 			[
 				$this,
@@ -512,7 +513,7 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return EntityActions
 	 */
 	protected function getActionsRenderer() {
-		return $this->getServices()->getService( 'BSRendererFactory' )->get(
+		return $this->services->getService( 'BSRendererFactory' )->get(
 			'entityactions',
 			new Params( [
 				EntityActions::PARAM_ENTITY => $this->getEntity(),
