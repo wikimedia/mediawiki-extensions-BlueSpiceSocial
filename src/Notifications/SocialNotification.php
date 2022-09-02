@@ -155,15 +155,16 @@ class SocialNotification extends BaseNotification {
 
 		$res = $this->runQuery( $title );
 
+		$services = MediaWikiServices::getInstance();
+		$userFactory = $services->getUserFactory();
 		foreach ( $res as $row ) {
-			$user = \User::newFromId( $row->$userIdProperty );
+			$user = $userFactory->newFromId( $row->$userIdProperty );
 			if ( $user instanceof \User ) {
 				if ( in_array( $user->getId(), $this->getUserIdsToSkip() ) ) {
 					continue;
 				}
 
-				if ( MediaWikiServices::getInstance()
-					->getPermissionManager()
+				if ( $services->getPermissionManager()
 					->userCan( 'read', $user, $title ) == false
 				) {
 					continue;
