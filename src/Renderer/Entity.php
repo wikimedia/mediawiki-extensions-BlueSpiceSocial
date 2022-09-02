@@ -17,7 +17,6 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MWException;
 use RequestContext;
-use User;
 
 class Entity extends \BlueSpice\Renderer\Entity {
 	public const NO_TEMPLATE_CACHE = 'notemplatecache';
@@ -231,10 +230,9 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	 * @return string
 	 */
 	protected function render_userimage( $val ) {
-		$factory = $this->getServices()->getService( 'BSRendererFactory' );
-		$user = User::newFromId( $this->getEntity()->get(
-			SocialEntity::ATTR_OWNER_ID,
-			0
+		$factory = $this->services->getService( 'BSRendererFactory' );
+		$user = $this->services->getUserFactory()->newFromId(
+			$this->getEntity()->get( SocialEntity::ATTR_OWNER_ID, 0
 		) );
 		$image = $factory->get( 'userimage', new Params( [
 			UserImage::PARAM_USER => $user,

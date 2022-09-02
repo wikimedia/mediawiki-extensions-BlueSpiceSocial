@@ -161,7 +161,9 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 	 */
 	private function extractAttachmentData( Title $title, array $stash ): array {
 		$attachments = [];
-		$lang = MediaWikiServices::getInstance()->getContentLanguage();
+		$services = MediaWikiServices::getInstance();
+		$lang = $services->getContentLanguage();
+		$userFactory = $services->getUserFactory();
 		foreach ( $stash as $entry ) {
 			if ( empty( $entry->{Text::ATTR_TEXT} ) ) {
 				continue;
@@ -172,7 +174,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 				continue;
 			}
 			$date = $time = $userLink = '';
-			$user = User::newFromId( $entry->{Text::ATTR_OWNER_ID} );
+			$user = $userFactory->newFromId( $entry->{Text::ATTR_OWNER_ID} );
 			if ( $user && !$user->isAnon() ) {
 				$userLink = $user->getUserPage()->getFullText();
 			}

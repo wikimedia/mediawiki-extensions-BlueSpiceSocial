@@ -122,7 +122,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 		if ( isset( static::$ownerLookup[$id] ) ) {
 			return static::$ownerLookup[$id];
 		}
-		$user = User::newFromId( $id );
+		$user = $this->services->getUserFactory()->newFromId( $id );
 		if ( $user && !$user->isAnon() ) {
 			static::$ownerLookup[$id] = $user;
 		}
@@ -205,7 +205,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function delete( User $oUser = null ) {
 		if ( !$oUser instanceof User ) {
-			$oUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
+			$oUser = $this->services->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		$status = parent::delete( $oUser );
@@ -224,7 +224,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	public function undelete( User $user = null ) {
 		if ( !$user instanceof User ) {
-			$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
+			$user = $this->services->getService( 'BSUtilityFactory' )
 				->getMaintenanceUser()->getUser();
 		}
 		return parent::undelete( $user );
@@ -290,7 +290,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			RequestContext::getMain(),
 			$this->getConfig()
 		);
-		$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
+		$user = $this->services->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\Children(
@@ -411,7 +411,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			) );
 		}
 		$oStatus = Status::newGood( $this );
-		$b = MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialEntityUserCan', [
+		$b = $this->services->getHookContainer()->run( 'BSSocialEntityUserCan', [
 			$this,
 			$oUser,
 			$sPermission,
@@ -428,8 +428,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 					'bs-social-entity-fatalstatus-permission-recursion'
 				) );
 			}
-			if ( !MediaWikiServices::getInstance()
-				->getPermissionManager()
+			if ( !$this->services->getPermissionManager()
 				->userCan( $sPermission, $oUser, $oTitle )
 			) {
 				return Status::newFatal( wfMessage(
@@ -441,10 +440,8 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			return $oStatus;
 		}
 
-		$isAllowed = MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
-			$oUser,
-			$sPermission
-		);
+		$isAllowed = $this->services->getPermissionManager()
+			->userHasRight( $oUser, $sPermission );
 		if ( !$isAllowed ) {
 			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed',
@@ -533,7 +530,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			}
 		}
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialEntityGetActions', [
+		$this->services->getHookContainer()->run( 'BSSocialEntityGetActions', [
 			$this,
 			&$aActions
 		] );
@@ -571,7 +568,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 * @param Title $title
 	 */
 	private function runSecondaryDataUpdates( Title $title ) {
-		$dataUpdater = MediaWikiServices::getInstance()->getService( 'BSSecondaryDataUpdater' );
+		$dataUpdater = $this->services->getService( 'BSSecondaryDataUpdater' );
 		$dataUpdater->run( $title );
 		if ( !$this->getRelatedTitle() ) {
 			return;
