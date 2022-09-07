@@ -77,20 +77,6 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 	 */
 	protected static $ownerLookup = [];
 
-	/** @var MediaWikiServices */
-	private $services = null;
-
-	/**
-	 * @param \stdClass $stdClass
-	 * @param EntityConfig $config
-	 * @param \BlueSpice\EntityFactory $entityFactory
-	 * @param \BlueSpice\Data\Entity\IStore $store
-	 */
-	public function __construct( $stdClass, $config, $entityFactory, $store ) {
-		parent::__construct( $stdClass, $config, $entityFactory, $store );
-		$this->services = MediaWikiServices::getInstance();
-	}
-
 	/**
 	 * Returns an entity's attributes or the given default, if not set
 	 * @param string $attrName

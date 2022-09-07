@@ -32,7 +32,6 @@
 namespace BlueSpice\Social\Entity;
 
 use BlueSpice\Social\Entity;
-use MediaWiki\MediaWikiServices;
 use Status;
 use User;
 
@@ -83,7 +82,7 @@ abstract class Action extends Entity {
 	public function save( User $user = null, $options = [] ) {
 		// always use the maintenance user for auto-created entities to prevent
 		// unrealistic edit statistics for users
-		$user = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
+		$user = $this->services->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 		if ( empty( $this->get( static::ATTR_ACTION ) ) ) {
 			return Status::newFatal( wfMessage(

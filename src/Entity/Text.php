@@ -98,7 +98,7 @@ class Text extends Entity {
 				return parent::get( $attrName, '' );
 			}
 
-			$pm = \MediaWiki\MediaWikiServices::getInstance()->getPermissionManager();
+			$pm = $this->services->getPermissionManager();
 			$user = RequestContext::getMain()->getUser();
 			if ( !$pm->userCan( 'read', $user, $title ) ) {
 				return parent::get( $attrName, '' );
