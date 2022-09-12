@@ -5,7 +5,6 @@ namespace BlueSpice\Social\Special;
 use BlueSpice\Context;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\EntityListContext\SpecialActivities;
-use MediaWiki\MediaWikiServices;
 
 /**
  * Activities SpecialPage
@@ -37,7 +36,7 @@ class Activities extends \BlueSpice\SpecialPage {
 			$this->getConfig(),
 			$this->getContext()->getUser()
 		);
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [ 'context' => $context ] )
 		);
