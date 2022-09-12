@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"EdoAug",
 			"Jon Harald Søby"
 		]
 	},
@@ -84,5 +85,6 @@
 	"bs-social-specialpagelisting-socialentities": "$1 sosiale entiteter",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
 	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
-	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)"
+	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)",
+	"bs-social-wikipage-attachments-section-heading": "Vedlegg"
 }
