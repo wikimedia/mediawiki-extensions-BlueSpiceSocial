@@ -7,7 +7,6 @@ use BlueSpice\Renderer\Params;
 use BlueSpice\Social\EntityListContext\SpecialTimeline;
 use BlueSpice\Social\Renderer\EntityList;
 use FormatJson;
-use MediaWiki\MediaWikiServices;
 
 /**
  * Timeline SpecialPage
@@ -31,9 +30,7 @@ class Timeline extends \BlueSpice\SpecialPage {
 			wfMessage( 'bs-social-special-timeline-heading' )->plain()
 		);
 
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig(
-			'bsg'
-		);
+		$config = $this->services->getConfigFactory()->makeConfig( 'bsg' );
 
 		$context = new SpecialTimeline(
 			new Context(
@@ -63,7 +60,7 @@ class Timeline extends \BlueSpice\SpecialPage {
 			}
 		}
 
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( $rendererParams )
 		);
