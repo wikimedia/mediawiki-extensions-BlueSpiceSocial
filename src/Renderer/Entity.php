@@ -42,8 +42,6 @@ class Entity extends \BlueSpice\Renderer\Entity {
 	protected $renderType = 'Default';
 	/** @var bool */
 	protected $noCache = false;
-	/** @var MediaWikiServices */
-	private $services = null;
 
 	/**
 	 * Constructor
@@ -76,7 +74,6 @@ class Entity extends \BlueSpice\Renderer\Entity {
 		$this->args[static::PARAM_ID] = false;
 		$this->args[static::CHILDREN] = '';
 		$this->args[static::ACTIONS] = '';
-		$this->services = $this->getServices();
 		$owner = $this->getEntity()->getOwner();
 		$userHelper = $this->services->getService( 'BSUtilityFactory' )
 			->getUserHelper( $owner );
