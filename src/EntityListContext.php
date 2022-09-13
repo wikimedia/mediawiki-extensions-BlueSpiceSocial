@@ -10,7 +10,6 @@ use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Social\Data\Entity\Schema;
 use Config;
 use IContextSource;
-use MediaWiki\MediaWikiServices;
 use User;
 
 class EntityListContext extends \BlueSpice\Context implements IEntityListContext {
@@ -72,6 +71,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 */
 	public function __construct( IContextSource $context, Config $config,
 		User $user = null, Entity $entity = null ) {
+		parent::__construct( $context, $config );
 		$this->context = $context;
 		$this->config = $config;
 		$this->user = $user;
@@ -91,7 +91,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 * @return \BlueSpice\EntityConfigFactory
 	 */
 	protected function getEntityConfigFactory() {
-		return MediaWikiServices::getInstance()->getService( 'BSEntityConfigFactory' );
+		return $this->services->getService( 'BSEntityConfigFactory' );
 	}
 
 	/**
@@ -372,7 +372,7 @@ class EntityListContext extends \BlueSpice\Context implements IEntityListContext
 	 * @return string
 	 */
 	public function getMoreLink() {
-		return MediaWikiServices::getInstance()->getLinkRenderer()->makeKnownLink(
+		return $this->services->getLinkRenderer()->makeKnownLink(
 			\SpecialPage::getTitleFor( 'Timeline' ),
 			new \HtmlArmor( $this->getMoreLinkMessage()->text() )
 		);
