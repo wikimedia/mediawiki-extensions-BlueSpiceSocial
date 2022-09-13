@@ -16,7 +16,6 @@ use Html;
 use HtmlArmor;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Sanitizer;
 use Title;
@@ -195,8 +194,8 @@ class EntityList extends Renderer implements IParamProvider {
 		$linkTarget = Title::newFromText( $moreLink );
 		if ( $linkTarget ) {
 			$msg = $this->msg( 'bs-social-entitylistmore-linklabel' );
-			$this->args[ static::PARAM_MORE_LINK ] = MediaWikiServices::getInstance()
-				->getLinkRenderer()->makeLink(
+			$this->args[ static::PARAM_MORE_LINK ] = $this->services->getLinkRenderer()
+				->makeLink(
 					$linkTarget,
 					new HtmlArmor( $msg->text() )
 			);
@@ -300,7 +299,7 @@ class EntityList extends Renderer implements IParamProvider {
 			$this->context->getPreloadedEntities()
 		);
 
-		MediaWikiServices::getInstance()->getHookContainer()->run(
+		$this->services->getHookContainer()->run(
 			'BSSocialEntityListInitialized',
 			[
 				$this,
@@ -336,7 +335,7 @@ class EntityList extends Renderer implements IParamProvider {
 		}
 		$readerParams = $this->makeStoreReaderParams();
 		$res = $this->store->getReader( $this->context )->read( $readerParams );
-		$factory = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' );
+		$factory = $this->services->getService( 'BSEntityFactory' );
 
 		$this->entities = [];
 		foreach ( $res->getRecords() as $record ) {
@@ -383,7 +382,7 @@ class EntityList extends Renderer implements IParamProvider {
 	}
 
 	protected function renderEntityListMenu() {
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylistmenu',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -391,7 +390,7 @@ class EntityList extends Renderer implements IParamProvider {
 	}
 
 	protected function renderEntityListHeadline() {
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylistheadline',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -404,7 +403,7 @@ class EntityList extends Renderer implements IParamProvider {
 		if ( $limitReached && $this->args[static::PARAM_USE_MORE_SCROLL] ) {
 			return '';
 		}
-		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = $this->services->getService( 'BSRendererFactory' )->get(
 			'entitylistmore',
 			new Params( [ EntityList\Menu::PARAM_ENTITY_LIST => $this ] )
 		);
@@ -434,7 +433,7 @@ class EntityList extends Renderer implements IParamProvider {
 
 		$out .= Html::openElement( 'li' );
 		$renderer = $entity->getRenderer( $this->getContext() );
-		MediaWikiServices::getInstance()->getHookContainer()->run(
+		$this->services->getHookContainer()->run(
 			'BSSocialEntityListRenderEntity',
 			[
 				$this,
@@ -459,7 +458,7 @@ class EntityList extends Renderer implements IParamProvider {
 			return $out;
 		}
 
-		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
+		$entity = $this->services->getService( 'BSEntityFactory' )->newFromObject(
 			(object)$rawEntity
 		);
 		if ( !$entity instanceof Entity ) {
