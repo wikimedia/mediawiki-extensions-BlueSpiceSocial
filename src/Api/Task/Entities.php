@@ -169,7 +169,7 @@ class Entities extends \BSApiTasksBase {
 			[ 'context' => $context ]
 		);
 
-		$entityListRenderer = $this->getServices()->getService( 'BSRendererFactory' )->get(
+		$entityListRenderer = $this->services->getService( 'BSRendererFactory' )->get(
 			$context->getRendererName(),
 			new Params( $params )
 		);
@@ -194,7 +194,7 @@ class Entities extends \BSApiTasksBase {
 					$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 				}
 				$renderer = $entity->getRenderer( $context );
-				$this->getServices()->getHookContainer()->run(
+				$this->services->getHookContainer()->run(
 					'BSSocialEntityListRenderEntity',
 					[
 						$entityListRenderer,
@@ -219,7 +219,7 @@ class Entities extends \BSApiTasksBase {
 				$renderType = $renderTypes[$entity->get( Entity::ATTR_TYPE )];
 			}
 			$renderer = $entity->getRenderer( $context );
-			$this->getServices()->getHookContainer()->run(
+			$this->services->getHookContainer()->run(
 				'BSSocialEntityListRenderEntity',
 				[
 					$entityListRenderer,
@@ -371,6 +371,6 @@ class Entities extends \BSApiTasksBase {
 	 * @return \BlueSpice\EntityFactory
 	 */
 	protected function getEntityFactory() {
-		return $this->getServices()->getService( 'BSEntityFactory' );
+		return $this->services->getService( 'BSEntityFactory' );
 	}
 }
