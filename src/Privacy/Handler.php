@@ -22,12 +22,16 @@ class Handler implements IPrivacyHandler {
 	 */
 	protected $user;
 
+	/** @var MediaWikiServices */
+	protected $services = null;
+
 	/**
 	 *
 	 * @param \IDatabase $db
 	 */
 	public function __construct( \IDatabase $db ) {
 		$this->language = \RequestContext::getMain()->getLanguage();
+		$this->services = MediaWikiServices::getInstance();
 	}
 
 	/**
@@ -36,14 +40,13 @@ class Handler implements IPrivacyHandler {
 	 * @return \Status
 	 */
 	public function anonymize( $oldUsername, $newUsername ) {
-		$this->user = \User::newFromName( $oldUsername );
+		$this->user = $this->services->getUserFactory()->newFromName( $oldUsername );
 		$entityRecords = $this->getAllEntities();
 
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-				->newFromObject( $data );
+			$entity = $this->services->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -72,8 +75,7 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-				->newFromObject( $data );
+			$entity = $this->services->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity ) {
 				continue;
 			}
@@ -109,8 +111,7 @@ class Handler implements IPrivacyHandler {
 		foreach ( $entityRecords as $record ) {
 			$data = $record->getData();
 
-			$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-				->newFromObject( $data );
+			$entity = $this->services->getService( 'BSEntityFactory' )->newFromObject( $data );
 			if ( !$entity instanceof Entity\Text ) {
 				continue;
 			}
@@ -134,9 +135,9 @@ class Handler implements IPrivacyHandler {
 	protected function getAllEntities() {
 		$context = new \BlueSpice\Context(
 			\RequestContext::getMain(),
-			MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'bsg' )
+			$this->services->getConfigFactory()->makeConfig( 'bsg' )
 		);
-		$serviceUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
+		$serviceUser = $this->services->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new EntityListContext\PrivacyHandler(
