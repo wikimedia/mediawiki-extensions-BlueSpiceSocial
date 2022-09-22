@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"EdoAug"
 		]
 	},
 	"bs-social-desc": "Grunnutvidelse for sosiale utvidelser",
@@ -84,5 +85,6 @@
 	"bs-social-specialpagelisting-socialentities": "$1 sosiale entiteter",
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
 	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
-	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)"
+	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)",
+	"bs-social-wikipage-attachments-section-heading": "Vedlegg"
 }
