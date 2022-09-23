@@ -120,9 +120,8 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 				$this->output( 's' );
 				continue;
 			}
-			$pageIdentity = $title->toPageIdentity();
-			$revisionRecord = $revisionLookup->getFirstRevision( $pageIdentity );
-			$data->{Entity::ATTR_TIMESTAMP_CREATED} = $revisionRecord->getTimestamp();
+			$firstRev = $revisionLookup->getFirstRevision( $title->toPageIdentity() );
+			$data->{Entity::ATTR_TIMESTAMP_CREATED} = $firstRev->getTimestamp();
 			$return[$data->{Entity::ATTR_ID}] = $data;
 		}
 		return $return;
