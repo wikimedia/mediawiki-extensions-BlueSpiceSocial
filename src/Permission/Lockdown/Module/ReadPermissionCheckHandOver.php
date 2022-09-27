@@ -91,6 +91,7 @@ class ReadPermissionCheckHandOver extends \BlueSpice\Permission\Lockdown\Module 
 	 * @return Message
 	 */
 	public function getLockdownReason( Title $title, User $user, $action ) {
+		/** @var Entity $entity */
 		$entity = $this->entityFactory->newFromSourceTitle( $title );
 		return $entity->userCan()->getMessage();
 	}
