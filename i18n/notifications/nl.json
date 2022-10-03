@@ -1,10 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Rots61"
 		]
 	},
+	"echo-category-title-bs-social-entity-cat": "Entiteitshandelingen op gevolgde pagina's",
+	"bs-social-notifications-entity-create": "Sociale entiteit van het type \"$1\" aangemaakt",
+	"bs-social-notifications-email-entity-create-subject": "Sociale entiteit van het type \"$1\" aangemaakt",
 	"bs-social-notifications-email-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\"",
 	"bs-social-notifications-email-entity-create-text-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\" met de volgende tekst:\n$4",
-	"bs-social-notifications-web-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\""
+	"bs-social-notifications-web-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\"",
+	"bs-social-notifications-entity-edit": "Sociale entiteit van het type \"$1\" is bewerkt",
+	"bs-social-notifications-email-entity-edit-subject": "Sociale entiteit van het type \"$1\" is bewerkt"
 }
