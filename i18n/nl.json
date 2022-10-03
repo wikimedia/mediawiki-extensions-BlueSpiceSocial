@@ -3,6 +3,7 @@
 		"authors": [
 			"DiGro",
 			"Mainframe98",
+			"McDutchie",
 			"PonkoSasuke",
 			"RadioAzureus",
 			"Romaine",
@@ -75,5 +76,23 @@
 	"bs-social-specialpagelisting-socialentities-show": "Weergeven",
 	"bs-social-specialpagelisting-socialentities-hide": "Verbergen",
 	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
-	"bs-social-wikipage-attachments-section-heading": "Bijlagen"
+	"bs-social-wikipage-attachments-section-heading": "Bijlagen",
+	"bs-social-entity-fatalstatus-save-nouser": "Het item kan niet worden opgeslagen zonder dat een eigenaar is opgegeven.",
+	"bs-social-entity-fatalstatus-save-noidgenerated": "Een ID kon niet automatisch worden gegenereerd.",
+	"bs-social-entity-fatalstatus-save-notype": "Het entiteitstype is leeg.",
+	"bs-social-entity-fatalstatus-permission-recursion": "Mogelijke recursie, want de gegeven \"Title\" staat in de naamruimte \"NS_SOCIALENTITY\"!",
+	"bs-social-select2-overwrites-inputtooshort": "Het zoeken begint met het eerste teken.",
+	"bs-extendedsearch-source-label-socialentity": "Tijdlijn-entiteit",
+	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Zoeken in Social",
+	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Zoeken in Social:",
+	"apihelp-bs-social-tasks-summary": "Voorziet in taken zoals het bewerken of verwijderen van entiteiten",
+	"apihelp-bs-socialtitlequery-store-summary": "Biedt gegevens voor titels, die binnen een entiteit kunnen worden gekoppeld",
+	"apihelp-bs-socialentity-store-summary": "Voorziet in een doorzoekbare opslag voor entiteiten en maakt het mogelijk deze op te vragen",
+	"action-social-editothers": "items van anderen te bewerken",
+	"right-social-deleteothers": "Items van anderen verwijderen",
+	"right-social-editothers": "Items van anderen bewerken",
+	"bs-social-pref-warnonleave": "Mij waarschuwen wanneer ik een bewerking van een item met niet-opgeslagen wijzigingen sluit.",
+	"bs-social-specialpagelisting-socialentities": "Sociale entiteiten $1",
+	"bs-social-config-mainlinks-timeline-label": "Toegangspunt \"Tijdlijn\" tonen",
+	"bs-social-config-mainlinks-timeline-help": "De koppeling naar het toegangspunt \"Tijdlijn\" tonen in de navigatie aan de linkerkant"
 }
