@@ -246,7 +246,7 @@ class WikiText extends \Parser {
 	 * @return string
 	 */
 	protected function internalParseHalfParsed( $text, $isMain = true, $linestart = true ) {
-		$text = $this->mStripState->unstripGeneral( $text );
+		$text = $this->getStripState()->unstripGeneral( $text );
 
 		$text = BlockLevelPass::doBlockLevels( $text, $linestart );
 
@@ -269,9 +269,9 @@ class WikiText extends \Parser {
 			$text = $this->getTargetLanguageConverter()->convert( $text );
 		}
 
-		$text = $this->mStripState->unstripNoWiki( $text );
+		$text = $this->getStripState()->unstripNoWiki( $text );
 
-		$text = $this->mStripState->unstripGeneral( $text );
+		$text = $this->getStripState()->unstripGeneral( $text );
 
 		# Clean up special characters, only run once, after doBlockLevels
 		$text = Sanitizer::armorFrenchSpaces( $text );
