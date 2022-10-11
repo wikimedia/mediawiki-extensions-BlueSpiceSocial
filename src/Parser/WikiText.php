@@ -32,7 +32,7 @@ class WikiText extends \Parser {
 		}*/
 
 		$this->setTitle( $title );
-		$this->mOptions = $options;
+		$this->setOptions( $options );
 		$this->setOutputType( self::OT_HTML );
 		if ( $clearState ) {
 			$this->clearState();
@@ -41,7 +41,7 @@ class WikiText extends \Parser {
 		// $this->startParse( $title, $options, self::OT_HTML, $clearState );
 
 		$this->mInputSize = strlen( $text );
-		if ( $this->mOptions->getEnableLimitReport() ) {
+		if ( $this->getOptions()->getEnableLimitReport() ) {
 			$this->getOutput()->resetParseStartTime();
 		}
 
@@ -259,9 +259,9 @@ class WikiText extends \Parser {
 		 * c) It's a conversion table
 		 * d) it is an interface message (which is in the user language)
 		 */
-		if ( !( $this->mOptions->getDisableContentConversion()
+		if ( !( $this->getOptions()->getDisableContentConversion()
 			|| isset( $this->mDoubleUnderscores['nocontentconvert'] ) )
-			&& !$this->mOptions->getInterfaceMessage()
+			&& !$this->getOptions()->getInterfaceMessage()
 		) {
 			# The position of the convert() call should not be changed. it
 			# assumes that the links are all replaced and the only thing left
