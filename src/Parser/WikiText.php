@@ -37,7 +37,7 @@ class WikiText extends \Parser {
 
 		$this->mInputSize = strlen( $text );
 		if ( $this->mOptions->getEnableLimitReport() ) {
-			$this->mOutput->resetParseStartTime();
+			$this->getOutput()->resetParseStartTime();
 		}
 
 		# Remove the strip marker tag prefix from the input, if present.
@@ -85,7 +85,80 @@ class WikiText extends \Parser {
 
 		$text = MWTidy::tidy( $text );
 
-		$this->mOutput->setText( $text );
+		/*if ( $this->mExpensiveFunctionCount > $this->mOptions->getExpensiveParserFunctionLimit() ) {
+			$this->limitationWarn( 'expensive-parserfunction',
+				$this->mExpensiveFunctionCount,
+				$this->mOptions->getExpensiveParserFunctionLimit()
+			);
+		}
+
+		Hooks::run( 'ParserAfterTidy', array( &$this, &$text ) );
+*/
+		# Information on include size limits, for the benefit of users who try to skirt them
+		/*if ( $this->mOptions->getEnableLimitReport() ) {
+			$max = $this->mOptions->getMaxIncludeSize();
+
+			$cpuTime = $this->mOutput->getTimeSinceStart( 'cpu' );
+			if ( $cpuTime !== null ) {
+				$this->mOutput->setLimitReportData( 'limitreport-cputime',
+					sprintf( "%.3f", $cpuTime )
+				);
+			}
+
+			$wallTime = $this->mOutput->getTimeSinceStart( 'wall' );
+			$this->mOutput->setLimitReportData( 'limitreport-walltime',
+				sprintf( "%.3f", $wallTime )
+			);
+
+			$this->mOutput->setLimitReportData( 'limitreport-ppvisitednodes',
+				array( $this->mPPNodeCount, $this->mOptions->getMaxPPNodeCount() )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-postexpandincludesize',
+				array( $this->mIncludeSizes['post-expand'], $max )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-templateargumentsize',
+				array( $this->mIncludeSizes['arg'], $max )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-expansiondepth',
+				array( $this->mHighestExpansionDepth, $this->mOptions->getMaxPPExpandDepth() )
+			);
+			$this->mOutput->setLimitReportData( 'limitreport-expensivefunctioncount',
+				array( $this->mExpensiveFunctionCount, $this->mOptions->getExpensiveParserFunctionLimit() )
+			);
+			Hooks::run( 'ParserLimitReportPrepare', array( $this, $this->mOutput ) );
+
+			$limitReport = "NewPP limit report\n";
+			if ( $wgShowHostnames ) {
+				$limitReport .= 'Parsed by ' . wfHostname() . "\n";
+			}
+			foreach ( $this->mOutput->getLimitReportData() as $key => $value ) {
+				if ( Hooks::run( 'ParserLimitReportFormat',
+					array( $key, &$value, &$limitReport, false, false )
+				) ) {
+					$keyMsg = wfMessage( $key )->inLanguage( 'en' )->useDatabase( false );
+					$valueMsg = wfMessage( array( "$key-value-text", "$key-value" ) )
+						->inLanguage( 'en' )->useDatabase( false );
+					if ( !$valueMsg->exists() ) {
+						$valueMsg = new RawMessage( '$1' );
+					}
+					if ( !$keyMsg->isDisabled() && !$valueMsg->isDisabled() ) {
+						$valueMsg->params( $value );
+						$limitReport .= "{$keyMsg->text()}: {$valueMsg->text()}\n";
+					}
+				}
+			}
+			// Since we're not really outputting HTML, decode the entities and
+			// then re-encode the things that need hiding inside HTML comments.
+			$limitReport = htmlspecialchars_decode( $limitReport );
+			Hooks::run( 'ParserLimitReport', array( $this, &$limitReport ) );
+
+			// Sanitize for comment. Note '‐' in the replacement is U+2010,
+			// which looks much like the problematic '-'.
+			$limitReport = str_replace( array( '-', '&' ), array( '‐', '&amp;' ), $limitReport );
+			$text .= "\n<!-- \n$limitReport-->\n";
+
+		}*/
+		$this->getOutput()->setText( $text );
 
 		$this->mRevisionId = $oldRevisionId;
 		$this->mRevisionObject = $oldRevisionObject;
@@ -94,7 +167,7 @@ class WikiText extends \Parser {
 		$this->mRevisionSize = $oldRevisionSize;
 		$this->mInputSize = false;
 
-		return $this->mOutput;
+		return $this->getOutput();
 	}
 
 	/**
