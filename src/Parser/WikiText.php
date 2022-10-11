@@ -42,7 +42,7 @@ class WikiText extends \Parser {
 
 		$this->mInputSize = strlen( $text );
 		if ( $this->mOptions->getEnableLimitReport() ) {
-			$this->mOutput->resetParseStartTime();
+			$this->getOutput()->resetParseStartTime();
 		}
 
 		# Remove the strip marker tag prefix from the input, if present.
@@ -211,7 +211,7 @@ class WikiText extends \Parser {
 			$text .= "\n<!-- \n$limitReport-->\n";
 
 		}*/
-		$this->mOutput->setText( $text );
+		$this->getOutput()->setText( $text );
 
 		$this->mRevisionId = $oldRevisionId;
 		$this->mRevisionObject = $oldRevisionObject;
@@ -220,7 +220,7 @@ class WikiText extends \Parser {
 		$this->mRevisionSize = $oldRevisionSize;
 		$this->mInputSize = false;
 
-		return $this->mOutput;
+		return $this->getOutput();
 	}
 
 	/**
