@@ -47,9 +47,9 @@ class WikiText extends \Parser {
 
 		$oldRevisionId = $this->getRevisionId();
 		$oldRevisionObject = $this->getRevisionRecordObject();
-		$oldRevisionTimestamp = $this->mRevisionTimestamp;
-		$oldRevisionUser = $this->mRevisionUser;
-		$oldRevisionSize = $this->mRevisionSize;
+		$oldRevisionTimestamp = $this->getRevisionTimestamp();
+		$oldRevisionUser = $this->getRevisionUser();
+		$oldRevisionSize = $this->getRevisionSize();
 		if ( $revid !== null ) {
 			$this->mRevisionId = $revid;
 			$this->mRevisionObject = null;
