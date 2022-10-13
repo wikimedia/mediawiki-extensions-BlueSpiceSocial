@@ -28,7 +28,7 @@ class WikiText extends \Parser {
 	public function parse( $text, \MediaWiki\Page\PageReference $title, \ParserOptions $options, $linestart = true,
 		$clearState = true, $revid = null
 	) {
-		$this->setTitle( $title );
+		$this->setPage( $title );
 		$this->setOptions( $options );
 		$this->setOutputType( self::OT_HTML );
 		if ( $clearState ) {
