@@ -50,7 +50,7 @@ class WikiText extends \Parser {
 			$text = strtr( $text, "\x7f", "?" );
 		}
 
-		$oldRevisionId = $this->mRevisionId;
+		$oldRevisionId = $this->getRevisionId();
 		$oldRevisionObject = $this->getRevisionRecordObject();
 		$oldRevisionTimestamp = $this->mRevisionTimestamp;
 		$oldRevisionUser = $this->mRevisionUser;
