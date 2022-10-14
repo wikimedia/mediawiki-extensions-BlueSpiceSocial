@@ -3,6 +3,8 @@
 namespace BlueSpice\Social\Content;
 
 use BlueSpice\Content\EntityHandler as EntityHanderBase;
+use Content;
+use MediaWiki\Content\Transform\PreSaveTransformParams;
 
 class EntityHandler extends EntityHanderBase {
 
@@ -19,5 +21,20 @@ class EntityHandler extends EntityHanderBase {
 	 */
 	protected function getContentClass() {
 		return "BlueSpice\\Social\\Content\\Entity";
+	}
+
+	/**
+	 * Beautifies JSON prior to save.
+	 *
+	 * @param Content $content
+	 * @param PreSaveTransformParams $pstParams
+	 * @return JsonContent
+	 */
+	public function preSaveTransform(
+		Content $content,
+		PreSaveTransformParams $pstParams
+	): Content {
+		$contentClass = $this->getContentClass();
+		return new $contentClass( $content->beautifyJSON() );
 	}
 }

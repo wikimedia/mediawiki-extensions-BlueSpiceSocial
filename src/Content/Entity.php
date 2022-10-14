@@ -44,18 +44,6 @@ class Entity extends \BlueSpice\Content\Entity {
 	}
 
 	/**
-	 * Beautifies JSON prior to save.
-	 *
-	 * @param Title $title Title
-	 * @param User $user User
-	 * @param ParserOptions $popts
-	 * @return JsonContent
-	 */
-	public function preSaveTransform( \Title $title, \User $user, \ParserOptions $popts ) {
-		return new static( $this->beautifyJSON() );
-	}
-
-	/**
 	 * Set the HTML and add the appropriate styles
 	 *
 	 * @param Title $title
