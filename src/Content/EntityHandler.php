@@ -6,6 +6,7 @@ use BlueSpice\Content\EntityHandler as EntityHanderBase;
 use BlueSpice\Social\Entity;
 use Content;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Content\Transform\PreSaveTransformParams;
 use MediaWiki\MediaWikiServices;
 use ParserOutput;
 use Title;
@@ -54,5 +55,20 @@ class EntityHandler extends EntityHanderBase {
 		} else {
 			$output->setText( $oEntity->getRenderer()->render( 'Page' ) );
 		}
+	}
+
+	/**
+	 * Beautifies JSON prior to save.
+	 *
+	 * @param Content $content
+	 * @param PreSaveTransformParams $pstParams
+	 * @return JsonContent
+	 */
+	public function preSaveTransform(
+		Content $content,
+		PreSaveTransformParams $pstParams
+	): Content {
+		$contentClass = $this->getContentClass();
+		return new $contentClass( $content->beautifyJSON() );
 	}
 }
