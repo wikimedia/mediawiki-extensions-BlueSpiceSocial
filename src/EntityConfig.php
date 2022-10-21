@@ -30,9 +30,9 @@
  */
 namespace BlueSpice\Social;
 
-use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
 
 /**
  * EntityConfig class for BlueSpiceSocial extension

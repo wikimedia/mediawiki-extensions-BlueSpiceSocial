@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\EntityListContext;
 
-use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Social\Entity;
 use Config;
 use IContextSource;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
 use User;
 
 class Children extends \BlueSpice\Social\EntityListContext {

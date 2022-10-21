@@ -32,12 +32,12 @@
 namespace BlueSpice\Social;
 
 use BlueSpice\Context;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Job\Archive;
 use BsNamespaceHelper;
 use Exception;
 use MediaWiki\MediaWikiServices;
 use Message;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 use RequestContext;
 use Status;
 use Title;

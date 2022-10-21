@@ -2,7 +2,8 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use BlueSpice\Data\RecordSet;
+use Exception;
+use MWStake\MediaWiki\Component\DataStore\RecordSet;
 
 class Writer extends \BlueSpice\Data\Entity\Writer\Content {
 

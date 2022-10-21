@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use BlueSpice\Data\ISecondaryDataProvider;
-use BlueSpice\Data\ReaderParams;
-use BlueSpice\Data\ResultSet;
 use BlueSpice\EntityFactory;
 use BS\ExtendedSearch\Backend;
 use Config;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
+use MWStake\MediaWiki\Component\DataStore\ResultSet;
 
 class Reader extends \BlueSpice\Data\Entity\Reader\Content {
 
