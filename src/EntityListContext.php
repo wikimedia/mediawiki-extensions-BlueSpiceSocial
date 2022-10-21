@@ -2,14 +2,14 @@
 
 namespace BlueSpice\Social;
 
-use BlueSpice\Data\FieldType;
-use BlueSpice\Data\Filter\Date;
-use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Data\Sort;
 use BlueSpice\ExtensionAttributeBasedRegistry;
 use BlueSpice\Social\Data\Entity\Schema;
 use Config;
 use IContextSource;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\Date;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
+use MWStake\MediaWiki\Component\DataStore\Sort;
 use User;
 
 class EntityListContext extends \BlueSpice\Context implements IEntityListContext {

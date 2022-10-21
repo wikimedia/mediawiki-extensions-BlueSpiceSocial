@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Data\Entity;
 
-use BlueSpice\Data\ISecondaryDataProvider;
 use MediaWiki\Linker\LinkRenderer;
+use MWStake\MediaWiki\Component\DataStore\ISecondaryDataProvider;
 
 class SecondaryDataProvider implements ISecondaryDataProvider {
 

@@ -3,8 +3,6 @@
 namespace BlueSpice\Social\Hook\MergeAccountFromTo;
 
 use BlueSpice\Context;
-use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\DistributionConnector\Hook\MergeAccountFromTo;
 use BlueSpice\Social\Data\Entity\Store;
 use BlueSpice\Social\Entity;
@@ -12,6 +10,8 @@ use BlueSpice\Social\EntityListContext\SpecialTimeline;
 use BlueSpice\Social\Job\ChangeOwner;
 use IContextSource;
 use JobQueueGroup;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 
 class ChangeEntityOwner extends MergeAccountFromTo {
 

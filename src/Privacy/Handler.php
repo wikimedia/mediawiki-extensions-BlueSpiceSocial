@@ -2,14 +2,15 @@
 
 namespace BlueSpice\Social\Privacy;
 
-use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Privacy\IPrivacyHandler;
 use BlueSpice\Privacy\Module\Transparency;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\Privacy\Job\DeleteEntity;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
+use MWStake\MediaWiki\Component\DataStore\Record;
 
 class Handler implements IPrivacyHandler {
 	/**
@@ -130,7 +131,7 @@ class Handler implements IPrivacyHandler {
 
 	/**
 	 *
-	 * @return \BlueSpice\Data\Record[]
+	 * @return Record[]
 	 */
 	protected function getAllEntities() {
 		$context = new \BlueSpice\Context(
