@@ -31,9 +31,9 @@
  */
 namespace BlueSpice\Social\EntityConfig;
 
-use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\Entity\ActionWikiPage as Entity;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
 
 /**
  *  class for BlueSpiceSocial extension

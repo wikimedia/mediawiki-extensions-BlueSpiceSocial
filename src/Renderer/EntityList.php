@@ -1,7 +1,6 @@
 <?php
 namespace BlueSpice\Social\Renderer;
 
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\IParamProvider;
 use BlueSpice\ParamProcessor\ParamDefinition;
 use BlueSpice\ParamProcessor\ParamType;
@@ -16,6 +15,7 @@ use Html;
 use HtmlArmor;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 use RequestContext;
 use Sanitizer;
 use Title;

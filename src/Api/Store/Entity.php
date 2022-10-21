@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\Api\Store;
 
-use BlueSpice\Data\Filter;
-use BlueSpice\Data\Filter\Date;
-use BlueSpice\Data\FilterFactory;
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Social\Entity as SocialEntity;
 use BlueSpice\Timestamp;
+use MWStake\MediaWiki\Component\DataStore\Filter;
+use MWStake\MediaWiki\Component\DataStore\Filter\Date;
+use MWStake\MediaWiki\Component\DataStore\FilterFactory;
+use MWStake\MediaWiki\Component\DataStore\ReaderParams;
 
 class Entity extends \BlueSpice\Api\Store {
 
