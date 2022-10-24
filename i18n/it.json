@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
+			"GpieroMW",
 			"Stefano"
 		]
 	},
@@ -20,6 +21,7 @@
 	"bs-social-entityactions-label": "Azioni",
 	"bs-social-entityaction-edit": "Modifica",
 	"bs-social-entityaction-delete": "Cancella",
+	"bs-social-entityaction-delete-confirmtext": "Cancellare l'immissione?",
 	"bs-social-entityaction-undelete": "Ripristina",
 	"bs-social-entity-fatalstatus-save-emptyfield": "Il campo \"$1\" è vuoto",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Valore per il campo \"$1\" non valido",
@@ -39,5 +41,6 @@
 	"prefs-social": "Barra del tempo",
 	"bs-social-specialpagelisting-socialentities-show": "Mostra",
 	"bs-social-specialpagelisting-socialentities-hide": "Nascondi",
-	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)"
+	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)",
+	"bs-social-wikipage-attachments-section-heading": "Allegati"
 }
