@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
+			"GpieroMW",
 			"Stefano"
 		]
 	},
@@ -39,5 +40,7 @@
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Aggiungi tutto",
 	"bs-social-filter-date-label-from": "$1 da",
 	"bs-social-renderer-timestampprefix-created": "Creato",
-	"prefs-social": "Barra del tempo"
+	"prefs-social": "Barra del tempo",
+	"bs-social-entityaction-delete-confirmtext": "Cancellare l'immissione?",
+	"bs-social-wikipage-attachments-section-heading": "Allegati"
 }
