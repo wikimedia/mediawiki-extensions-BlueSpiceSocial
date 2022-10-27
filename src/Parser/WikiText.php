@@ -3,8 +3,6 @@
 namespace BlueSpice\Social\Parser;
 
 use BlockLevelPass;
-use ILanguageConverter;
-use MediaWiki\MediaWikiServices;
 use MWTidy;
 use Sanitizer;
 
@@ -228,16 +226,6 @@ class WikiText extends \Parser {
 		$text = MWTidy::tidy( $text );
 
 		return $text;
-	}
-
-	/**
-	 * Shorthand for getting a Language Converter for Target language
-	 *
-	 * @return ILanguageConverter
-	 */
-	public function getTargetLanguageConverter() {
-		return MediaWikiServices::getInstance()->getLanguageConverterFactory()
-			->getLanguageConverter( $this->getTargetLanguage() );
 	}
 
 }
