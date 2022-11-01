@@ -86,5 +86,8 @@
 	"bs-social-specialpagelisting-socialentities-show": "أظهر",
 	"bs-social-specialpagelisting-socialentities-hide": "أخف",
 	"bs-socialactionsmw-autoeditsummary": "(بدون ملخص)",
-	"bs-social-wikipage-attachments-section-heading": "المرفقات"
+	"bs-social-wikipage-attachments-section-heading": "المرفقات",
+	"bs-social-specialpagelisting-socialentities": "$1 للكيانات الاجتماعية",
+	"bs-social-config-mainlinks-timeline-label": "إظهار نقطة الدخول \"المخطط الزمني\"",
+	"bs-social-config-mainlinks-timeline-help": "إظهار ارتباط \"المخطط الزمني\" لنقطة الدخول في شريط التنقل الأيمن"
 }
