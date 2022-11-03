@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"पर्वत सुबेदी",
 			"हिमाल सुबेदी"
 		]
 	},
 	"bs-social-entityactions-label": "कार्यहरू",
-	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "आज"
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "आज",
+	"bs-social-entityaction-delete": "मेट्ने"
 }
