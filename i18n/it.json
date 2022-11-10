@@ -49,5 +49,15 @@
 	"bs-social-entity-fatalstatus-save-norelatedtitle": "Impossibile trovare la pagina wiki correlata",
 	"bs-social-filter-owner-val-all": "Tutto",
 	"bs-social-filter-archived-val-archived": "Solo archiviato",
-	"bs-social-filter-archived-val-notarchived": "Solo non archiviato"
+	"bs-social-filter-archived-val-notarchived": "Solo non archiviato",
+	"bs-social-editor-advanced": "Avanzate",
+	"bs-social-filter-button-tooltip": "Mostra le opzioni di filtro",
+	"bs-social-sort-button-tooltip": "Mostra le opzioni di ordinamento",
+	"bs-social-sourcetitle-lockdown-reason-reason": "L'azione $1 può essere eseguita solo dagli amministratori, poiché queste voci non devono essere modificate direttamente.",
+	"action-social-deleteothers": "cancellare le altre voci",
+	"action-social-editothers": "modificare le altre voci",
+	"action-social-source": "vedere la pagina di origine",
+	"right-social-deleteothers": "Cancella le altre voci",
+	"right-social-editothers": "Modifica le altre voci",
+	"bs-social-pref-warnonleave": "Avvisami quando lascio una modifica di una voce con modifiche non salvate."
 }
