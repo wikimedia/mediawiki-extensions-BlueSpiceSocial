@@ -39,7 +39,7 @@
 	"bs-social-entityaction-undelete": "Rétablir",
 	"bs-social-entityaction-undelete-confirmtext": "Rétablir l’entrée ?",
 	"bs-social-entity-fatalstatus-save-nouser": "L’entrée ne peut pas être enregistrée sans un propriétaire spécifié",
-	"bs-social-entity-fatalstatus-save-noidgenerated": "Un ID n’a pas pu être généré automatiquement",
+	"bs-social-entity-fatalstatus-save-noidgenerated": "Un identifiant n’a pas pu être généré automatiquement",
 	"bs-social-entity-fatalstatus-save-notype": "Le type d’entité est vide",
 	"bs-social-entity-fatalstatus-save-norelatedtitle": "La page wiki associée est introuvable",
 	"bs-social-entity-fatalstatus-save-emptyfield": "Le champ « $1 » est vide",
