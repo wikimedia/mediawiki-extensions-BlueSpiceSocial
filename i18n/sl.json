@@ -10,5 +10,6 @@
 	"bs-social-entityaction-edit": "Uredi",
 	"bs-social-entity-fatalstatus-permission-notitle": "Potreben je objekt »Title«",
 	"bs-extendedsearch-search-center-filter-entitydata-type-label": "Iskanje v Social",
-	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Išči v Social:"
+	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "Išči v Social:",
+	"bs-social-entityspawner-button-tooltip": "Ustvari novo"
 }
