@@ -4,5 +4,20 @@
 			"Eleassar"
 		]
 	},
+	"echo-category-title-bs-social-entity-cat": "Dejanja entitete na opazovanih straneh",
+	"bs-social-notifications-entity-create": "Socialna entiteta vrste »$1« ustvarjena",
+	"bs-social-notifications-email-entity-create-subject": "Socialna entiteta vrste »$1« ustvarjena",
+	"bs-social-notifications-email-entity-create-body": "{{GENDER:$1|Uporabnik $2 je ustvaril|Uporabnica $2 je ustvarila|Uporabnik_ca $2 je ustvaril_a}} novo »$3«",
+	"bs-social-notifications-email-entity-create-text-body": "{{GENDER:$1|Uporabnik $2 je ustvaril|Uporabnica $2 je ustvarila|Uporabnik_ca $2 je ustvaril_a}} novo »$3« z naslednjim besedilom:\n$4",
+	"bs-social-notifications-web-entity-create-body": "{{GENDER:$1|Uporabnik $2 je ustvaril|Uporabnica $2 je ustvarila|Uporabnik_ca $2 je ustvaril_a}} novo »$3«",
+	"bs-social-notifications-entity-edit": "Socialna entiteta vrste »$1« je bila urejena",
+	"bs-social-notifications-email-entity-edit-subject": "Socialna entiteta vrste »$1« je bila urejena",
+	"bs-social-notifications-email-entity-edit-body": "{{GENDER:$1|Uporabnik $2 je uredil|Uporabnica $2 je uredila|Uporabnik_ca $2 je uredil_a}} socialno entiteto vrste »$3«",
+	"bs-social-notifications-email-entity-edit-text-body": "{{GENDER:$1|Uporabnik $2 je uredil|Uporabnica $2 je uredila|Uporabnik_ca $2 je uredil_a}} socialno entiteto vrste »$3« z naslednjim besedilom:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "{{GENDER:$1|Uporabnik $2 je uredil|Uporabnica $2 je uredila|Uporabnik_ca $2 je uredil_a}} socialno entiteto vrste »$3«",
+	"bs-social-notifications-entity-delete": "Socialna entiteta vrste »$1« je bila izbrisana",
+	"bs-social-notifications-email-entity-delete-subject": "Socialna entiteta vrste »$1« je bila izbrisana",
+	"bs-social-notifications-email-entity-delete-body": "{{GENDER:$1|Uporabnik $2 je izbrisal|Uporabnica $2 je izbrisala|Uporabnik_ca $2 je izbrisal_a}} socialno entiteto vrste »$3«",
+	"bs-social-notifications-web-entity-delete-body": "{{GENDER:$1|Uporabnik $2 je izbrisal|Uporabnica $2 je izbrisala|Uporabnik_ca $2 je izbrisal_a}} socialno entiteto vrste »$3«",
 	"bs-social-notification-primary-link-label": "Ogled entitete"
 }
