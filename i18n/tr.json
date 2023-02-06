@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Rapsar",
 			"Suvarioglu"
 		]
 	},
@@ -28,7 +29,7 @@
 	"bs-social-editor-ok": "Gönder",
 	"bs-social-editor-cancel": "İptal",
 	"bs-social-entityactions-label": "Eylemler",
-	"bs-social-entityaction-edit": "Düzenle",
+	"bs-social-entityaction-edit": "Değiştir",
 	"bs-social-entityaction-delete": "Sil",
 	"bs-social-entityaction-delete-confirmtext": "Girişi silin mi?",
 	"bs-social-entityaction-undelete": "Geri getir",
