@@ -49,5 +49,11 @@
 	"bs-social-specialpagelisting-socialentities-show": "הצגה",
 	"bs-social-specialpagelisting-socialentities-hide": "הסתרה",
 	"bs-social-editor-ok": "פרסום",
-	"bs-socialactionsmw-autoeditsummary": "(ללא תקציר)"
+	"bs-socialactionsmw-autoeditsummary": "(ללא תקציר)",
+	"bs-social-var-ownerid": "בעלים",
+	"bs-social-var-archived": "מאורכב",
+	"bs-social-option-orderby-label": "מיון",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "להוסיף הכול",
+	"bs-social-renderer-timestampprefix-created": "נוצרה",
+	"bs-social-wikipage-attachments-section-heading": "צרופות"
 }
