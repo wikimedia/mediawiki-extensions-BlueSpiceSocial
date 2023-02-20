@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
+	"bs-social-entityactions-label": "Գործողություններ",
 	"bs-social-entityaction-delete": "Ջնջել",
 	"bs-social-filter-owner-val-all": "Բոլորը",
 	"bs-social-specialpagelisting-socialentities-show": "Ցուցադրել",
