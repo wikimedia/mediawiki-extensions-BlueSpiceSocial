@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
 			"Yupik"
 		]
 	},
+	"bs-social-editor-cancel": "Šluhtte",
 	"bs-social-entityaction-edit": "Rievdat",
 	"bs-social-entityaction-delete": "Sihko",
 	"bs-social-specialpagelisting-socialentities-hide": "Čiega"
