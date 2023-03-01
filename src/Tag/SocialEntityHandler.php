@@ -41,7 +41,9 @@ class SocialEntityHandler extends Handler {
 	 * @return string
 	 */
 	public function handle() {
-		if ( !$this->entity->userCan( 'read', $this->parser->getUser() ) ) {
+		$user = MediaWikiServices::getInstance()->getUserFactory()
+			->newFromUserIdentity( $this->parser->getUserIdentity() );
+		if ( !$this->entity->userCan( 'read', $user ) ) {
 			return "";
 		}
 		return $this->entity->getRenderer()->render(
