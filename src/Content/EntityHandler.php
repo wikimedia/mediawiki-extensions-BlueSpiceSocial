@@ -44,6 +44,11 @@ class EntityHandler extends EntityHanderBase {
 		$oEntity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
 			->newFromSourceTitle( $title );
 		if ( !$oEntity instanceof Entity ) {
+			// Avoid error:
+			// > "HTML generation was requested, but BlueSpice\\Social\\Content\\Entity
+			// > that passed to ContentRenderer::getParserOutput() returns a ParserOutput
+			// > with no text set."
+			$output->setText( '' );
 			return;
 		}
 		$output->setDisplayTitle( strip_tags(
