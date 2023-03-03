@@ -2,7 +2,7 @@
 	"name": "BlueSpiceSocial",
 	"version": "4.2.6",
 	"license-name": "GPL-3.0-only",
-	"url": "https://en.wiki.bluespice.com/wiki/Reference:Social",
+	"url": "https://en.wiki.bluespice.com/wiki/Reference:BlueSpiceSocial",
 	"author": "Patric Wirth",
 	"descriptionmsg": "bs-social-desc",
 	"requires": {
