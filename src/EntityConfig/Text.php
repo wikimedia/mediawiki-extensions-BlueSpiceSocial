@@ -55,14 +55,6 @@ abstract class Text extends EntityConfig {
 	 *
 	 * @return string
 	 */
-	protected function get_ParserClass() {
-		return '\\BlueSpice\\Social\\Parser\\WikiText';
-	}
-
-	/**
-	 *
-	 * @return string
-	 */
 	protected function get_Renderer() {
 		return 'socialentitytext';
 	}

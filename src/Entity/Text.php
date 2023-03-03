@@ -31,8 +31,13 @@
  */
 namespace BlueSpice\Social\Entity;
 
+use BlueSpice\Data\Entity\IStore;
+use BlueSpice\EntityConfig;
+use BlueSpice\EntityFactory;
 use BlueSpice\Social\Entity;
 use BsPageContentProvider;
+use MediaWiki\MediaWikiServices;
+use ParserFactory;
 use ParserOptions;
 use ParserOutput;
 use RequestContext;
@@ -54,6 +59,40 @@ class Text extends Entity {
 
 	/** @var ParserOutput|null */
 	protected $oParserOutput = null;
+
+	/** @var ParserFactory */
+	protected $parserFactory = null;
+
+	/**
+	 * @param \stdClass $stdClass
+	 * @param EntityConfig $config
+	 * @param EntityFactory $entityFactory
+	 * @param IStore $store
+	 * @param ParserFactory $parserFactory
+	 */
+	protected function __construct( \stdClass $stdClass, EntityConfig $config,
+		EntityFactory $entityFactory, IStore $store, ParserFactory $parserFactory ) {
+		parent::__construct( $stdClass, $config, $entityFactory, $store );
+		$this->parserFactory = $parserFactory;
+	}
+
+	/**
+	 * @param \stdClass $data
+	 * @param EntityConfig $config
+	 * @param IStore $store
+	 * @param EntityFactory|null $entityFactory
+	 * @return void
+	 */
+	public static function newFromFactory( \stdClass $data, EntityConfig $config,
+		IStore $store, EntityFactory $entityFactory = null ) {
+		if ( !$entityFactory ) {
+			$entityFactory = MediaWikiServices::getInstance()->getService(
+				'BSEntityFactory'
+			);
+		}
+		$parserFactory = MediaWikiServices::getInstance()->getParserFactory();
+		return new static( $data, $config, $entityFactory, $store, $parserFactory );
+	}
 
 	/**
 	 * Gets the BSSociaEntityText attributes formated for the api
@@ -180,8 +219,7 @@ class Text extends Entity {
 			return $this->oParserOutput;
 		}
 
-		$sClass = $this->getConfig()->get( 'ParserClass' );
-		$oParser = new $sClass();
+		$oParser = $this->parserFactory->create();
 		$this->oParserOutput = $oParser->parse(
 			html_entity_decode( $this->get( static::ATTR_TEXT, '' ) ),
 			$this->getTitle(),
