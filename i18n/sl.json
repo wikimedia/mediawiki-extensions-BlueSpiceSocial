@@ -39,7 +39,7 @@
 	"bs-social-entity-fatalstatus-save-emptyfield": "Polje »$1« je prazno",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Neveljavna vrednost za polje »$1«",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Neznano dejanje »$1«",
-	"bs-social-entity-fatalstatus-permission-recursion": "Možna rekurzija, ker je podani »Naslov« v imenskem prostoru »NS_SOCIALENTITY«!",
+	"bs-social-entity-fatalstatus-permission-recursion": "Možna rekurzija, ker je predloženi »Naslov« v imenskem prostoru »NS_SOCIALENTITY«!",
 	"bs-social-entity-fatalstatus-permission-permissiondeniedusercan": "Uporabniku ni dovoljeno izvesti dejanja »$1« v »$2«",
 	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "Uporabniku ni dovoljeno izvesti dejanja »$1«",
 	"bs-social-entity-fatalstatus-permission-notitle": "Potreben je objekt »Title«",
