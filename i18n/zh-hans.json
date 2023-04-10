@@ -5,6 +5,7 @@
 			"A Chinese Wikipedian",
 			"A Retired User",
 			"Ken418",
+			"Kishinsagi",
 			"Lakejason0",
 			"VulpesVulpes825",
 			"Wzl19371",
@@ -58,5 +59,7 @@
 	"bs-social-specialpagelisting-socialentities-show": "显示",
 	"bs-social-specialpagelisting-socialentities-hide": "隐藏",
 	"bs-social-filter-date-label-from": "$1起",
-	"bs-social-filter-date-label-to": "$1到"
+	"bs-social-filter-date-label-to": "$1到",
+	"bs-social-pref-datedisplaymode-mode-age": "显示为年龄",
+	"bs-social-pref-datedisplaymode-mode-mw": "显示为日期"
 }
