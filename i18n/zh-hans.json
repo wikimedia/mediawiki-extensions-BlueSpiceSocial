@@ -8,11 +8,14 @@
 			"Lakejason0",
 			"VulpesVulpes825",
 			"Wzl19371",
-			"予弦"
+			"予弦",
+			"Kishinsagi"
 		]
 	},
 	"activities": "活动",
 	"bs-social-prof-datedisplaymode": "日期显示模式",
+	"bs-social-pref-datedisplaymode-mode-age": "显示为年龄",
+	"bs-social-pref-datedisplaymode-mode-mw": "显示为日期",
 	"bs-social-entitytext-header-create": "新条目",
 	"bs-social-var-id": "身份证明",
 	"bs-social-var-ownerid": "所有者",
