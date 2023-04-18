@@ -126,6 +126,9 @@
 	"AutoloadNamespaces": {
 		"BlueSpice\\Social\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+		"BlueSpice\\Social\\Tests\\": "tests/phpunit/"
+	},
 	"APIModules": {
 		"bs-social-tasks": "\\BlueSpice\\Social\\Api\\Task\\Entities",
 		"bs-socialtitlequery-store": "\\BlueSpice\\Social\\Api\\Store\\TitleQuery",
