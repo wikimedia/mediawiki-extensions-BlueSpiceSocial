@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bangrapip"
+		]
+	},
+	"bs-social-filter-archived-val-archived": "Cuman nyang kearsip",
+	"bs-social-filter-archived-val-notarchived": "Cuman nyang kaga' kearsip",
+	"bs-extendedsearch-source-type-socialentity-label": "Èntitèt sosial",
+	"bs-social-renderer-timestampprefix-created": "Dikeja",
+	"bs-social-renderer-timestampprefix-touched": "Dipermak",
+	"bs-social-filter-button-tooltip": "Kasi unjuk pilihan pilter",
+	"bs-social-sort-button-tooltip": "Kasi unjuk pilihan sortir",
+	"bs-social-entityspawner-button-tooltip": "Keja baru",
+	"bs-social-sourcetitle-lockdown-reason-reason": "Tindakan $1 cuman bisa dilakonin sama merbot, sebab lantaran ini masupan kaga' bolé langsung dipermak.",
+	"apihelp-bs-social-tasks-summary": "Nyediain gawéan kaya' èntitèt pemermakan atawa pengapusan",
+	"apihelp-bs-socialtitlequery-store-summary": "Nyediain data bakal judul, nyang kena disènggèt di dalem èntitèt",
+	"action-social-deleteothers": "apus laèn masupan",
+	"action-social-editothers": "permak laèn èntri",
+	"action-social-source": "deleng halaman sumber",
+	"right-social-deleteothers": "Apus laèn masupan",
+	"right-social-editothers": "Permak laèn masupan",
+	"right-social-source": "Deleng halaman sumber",
+	"prefs-social": "Rentang wayah",
+	"bs-social-pref-warnonleave": "Wantiin gua kapan gua ninggalin halaman permak, cuman masing belon nyimpen perobahannya",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Ngelakonin ini tindakan kena ngeja lu keilangan perobahan lu punya bikin. Apa lu yakin pèngèn ngebuang perobahannya èn terus lanjut?",
+	"bs-social-editwarnonleave-confirmtext": "Ninggalin ni halaman kena ngeja lu keilangan perobahan lu punya bikin. Apa lu yakin pèngèn ngebuang perobahannya èn terus lanjut?",
+	"bs-social-specialpagelisting-socialentities": "$1 èntitèt sosial",
+	"bs-social-specialpagelisting-socialentities-show": "Kasi unjuk",
+	"bs-social-specialpagelisting-socialentities-hide": "Umpetin",
+	"bs-socialactionsmw-autoeditsummary": "(Kaga' ada rangkuman)",
+	"bs-social-config-mainlinks-timeline-label": "Kasi unjuk poin masupan \"Rentang wayah\"",
+	"bs-social-config-mainlinks-timeline-help": "Kasi unjuk poin èntri sènggètan \"Rentang wayah\" di belah kèbotnya napigasi",
+	"bs-social-wikipage-attachments-section-heading": "Lampiran"
+}
