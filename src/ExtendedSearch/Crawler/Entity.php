@@ -53,14 +53,19 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 		// somewhere else (a table), and only the actual content in wikipages
 		$services = MediaWikiServices::getInstance();
 		foreach ( $titles as $title ) {
-			$entity = $services->getService( 'BSEntityFactory' )
-				->newFromSourceTitle( $title );
-			if ( !$entity instanceof \BlueSpice\Social\Entity || !$entity->exists() ) {
-				continue;
+			try {
+				$entity = $services->getService( 'BSEntityFactory' )
+					->newFromSourceTitle( $title );
+				if ( !$entity instanceof \BlueSpice\Social\Entity || !$entity->exists() ) {
+					continue;
+				}
+				$id = $entity->get( \BlueSpice\Social\Entity::ATTR_ID );
+				$this->entities[$id] = $entity->get( \BlueSpice\Social\Entity::ATTR_PARENT_ID, 0 );
+				$this->titles[$id] = $title;
+			} catch ( \Throwable $ex ) {
+				// Do nothing
 			}
-			$id = $entity->get( \BlueSpice\Social\Entity::ATTR_ID );
-			$this->entities[$id] = $entity->get( \BlueSpice\Social\Entity::ATTR_PARENT_ID, 0 );
-			$this->titles[$id] = $title;
+
 		}
 	}
 
