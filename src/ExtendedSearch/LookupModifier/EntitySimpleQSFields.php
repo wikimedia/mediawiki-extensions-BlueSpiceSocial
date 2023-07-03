@@ -2,11 +2,11 @@
 
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use BS\ExtendedSearch\Source\LookupModifier\LookupModifier;
 
-class EntitySimpleQSFields extends LookupModifierBase {
+class EntitySimpleQSFields extends LookupModifier {
 	public function apply() {
-		$queryString = $this->oLookup->getQueryString();
+		$queryString = $this->lookup->getQueryString();
 
 		$fields = [ 'entitydata.header^2' ];
 		if ( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
@@ -15,18 +15,22 @@ class EntitySimpleQSFields extends LookupModifierBase {
 			$queryString['fields'] = $fields;
 		}
 
-		$this->oLookup->setQueryString( $queryString );
+		$this->lookup->setQueryString( $queryString );
+
+		$this->lookup->addSourceField( 'entitydata.header' );
 	}
 
 	public function undo() {
-		$queryString = $this->oLookup->getQueryString();
+		$queryString = $this->lookup->getQueryString();
 
 		if ( isset( $queryString['fields'] ) && is_array( $queryString['fields'] ) ) {
 			$queryString['fields'] = array_diff( $queryString['fields'],
 					[ 'entitydata.header^2' ] );
 		}
 
-		$this->oLookup->setQueryString( $queryString );
+		$this->lookup->setQueryString( $queryString );
+
+		$this->lookup->removeSourceField( 'entitydata.header' );
 	}
 
 }

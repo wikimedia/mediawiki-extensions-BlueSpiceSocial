@@ -5,6 +5,7 @@ namespace BlueSpice\Social\ExtendedSearch\Job;
 use BlueSpice\Social\Entity as SocialEntity;
 use BS\ExtendedSearch\Source\Job\UpdateTitleBase;
 use MediaWiki\MediaWikiServices;
+use Title;
 
 class Entity extends UpdateTitleBase {
 
@@ -15,20 +16,22 @@ class Entity extends UpdateTitleBase {
 		$oDP = $this->getSource()->getDocumentProvider();
 
 		if ( !$this->getTitle()->exists() ) {
-			$this->getSource()->deleteDocumentsFromIndex(
-				[ $oDP->getDocumentId( $this->getTitle()->getCanonicalURL() ) ]
+			$this->getSource()->deleteDocumentFromIndex(
+				$this->getDocumentId( $this->getTitle()->getCanonicalURL() )
 			);
-			return [ 'id' => $oDP->getDocumentId( $this->getDocumentProviderUri() ) ];
+			return [ 'id' => $this->getDocumentId( $this->getDocumentProviderUri() ) ];
 		}
 
 		$oDocumentProviderSource = $this->getDocumentProviderSource();
 		if ( !$oDocumentProviderSource instanceof SocialEntity ) {
-			return [ 'id' => $oDP->getDocumentId( $this->getDocumentProviderUri() ) ];
+			return [ 'id' => $this->getDocumentId( $this->getDocumentProviderUri() ) ];
 		}
-		$aDC = $oDP->getDataConfig(
-			$this->getDocumentProviderUri(), $oDocumentProviderSource
+		$aDC = $oDP->getDocumentData(
+			$this->getDocumentProviderUri(),
+			$this->getDocumentId( $this->getDocumentProviderUri() ),
+			$oDocumentProviderSource
 		);
-		$this->getSource()->addDocumentsToIndex( [ $aDC ] );
+		$this->getSource()->addDocumentToIndex( $aDC );
 		return $aDC;
 	}
 

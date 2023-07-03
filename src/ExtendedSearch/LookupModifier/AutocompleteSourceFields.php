@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use BS\ExtendedSearch\Source\LookupModifier\LookupModifier;
 
-class AutocompleteSourceFields extends LookupModifierBase {
+class AutocompleteSourceFields extends LookupModifier {
 
 	public function apply() {
-		$this->oLookup->addSourceField( [
+		$this->lookup->addSourceField( [
 			'entitydata.id', 'entitydata.header', 'entitydata.type', 'prefixed_title'
 		] );
 	}

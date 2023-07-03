@@ -5,7 +5,7 @@ namespace BlueSpice\Social\ExtendedSearch\Formatter;
 use BlueSpice\EntityFactory;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\ExtendedSearch\Formatter\Internal\EntityFormatter as InternalEntityFormatter;
-use BS\ExtendedSearch\Source\Base as Source;
+use BS\ExtendedSearch\ISearchSource;
 use BS\ExtendedSearch\Source\Formatter\WikiPageFormatter;
 
 class EntityFormatter extends WikiPageFormatter {
@@ -13,7 +13,7 @@ class EntityFormatter extends WikiPageFormatter {
 	protected $entityFactory;
 
 	/**
-	 * @param Source $source
+	 * @param ISearchSource $source
 	 * @param EntityFactory $entityFactory
 	 */
 	public function __construct( $source, $entityFactory ) {
@@ -23,11 +23,9 @@ class EntityFormatter extends WikiPageFormatter {
 	}
 
 	/**
-	 *
-	 * @param array $defaultResultStructure
-	 * @return array
+	 * @inheritDoc
 	 */
-	public function getResultStructure( $defaultResultStructure = [] ) {
+	public function getResultStructure( $defaultResultStructure = [] ): array {
 		$resultStructure = $defaultResultStructure;
 		$resultStructure['headerText'] = 'entitydata.header';
 		$resultStructure['page_anchor'] = 'page_anchor';
@@ -46,37 +44,32 @@ class EntityFormatter extends WikiPageFormatter {
 	}
 
 	/**
-	 *
-	 * @param array &$result
-	 * @param \Elastica\Result $resultObject
-	 * @return bool
+	 * @inheritDoc
 	 */
-	public function format( &$result, $resultObject ) {
+	public function format( &$resultData, $resultObject ): void {
 		if ( $this->source->getTypeKey() !== $resultObject->getType() ) {
-			return true;
+			return;
 		}
 
-		parent::format( $result, $resultObject );
+		parent::format( $resultData, $resultObject );
 
-		$entity = $this->getEntityFromResult( $result );
+		$entity = $this->getEntityFromResult( $resultData );
 		if ( !$entity ) {
-			return true;
+			return;
 		}
 
 		// Transfer formatting to internal formatter - different depending on the Entity type
 		$internalFormatterClass = $entity->getConfig()->get( 'ExtendedSearchResultFormatter' );
 		/** @var InternalEntityFormatter $internalFormatter */
-		$internalFormatter = new $internalFormatterClass( $entity, $result, $resultObject );
+		$internalFormatter = new $internalFormatterClass();
 		$internalFormatter->setLinkRenderer( $this->linkRenderer );
-		$internalFormatter->format();
+		$internalFormatter->format( $entity, $resultData, $resultObject );
 	}
 
 	/**
-	 *
-	 * @param array &$results
-	 * @param array $searchData
+	 * @inheritDoc
 	 */
-	public function formatAutocompleteResults( &$results, $searchData ) {
+	public function formatAutocompleteResults( &$results, $searchData ): void {
 		parent::formatAutocompleteResults( $results, $searchData );
 		foreach ( $results as &$result ) {
 			if ( $result['type'] !== $this->source->getTypeKey()
@@ -105,11 +98,9 @@ class EntityFormatter extends WikiPageFormatter {
 	}
 
 	/**
-	 *
-	 * @param array &$results
-	 * @param array $searchData
+	 * @inheritDoc
 	 */
-	public function rankAutocompleteResults( &$results, $searchData ) {
+	public function rankAutocompleteResults( &$results, $searchData ): void {
 		foreach ( $results as &$result ) {
 			if ( $result['type'] !== $this->source->getTypeKey() ) {
 				parent::rankAutocompleteResults( $results, $searchData );

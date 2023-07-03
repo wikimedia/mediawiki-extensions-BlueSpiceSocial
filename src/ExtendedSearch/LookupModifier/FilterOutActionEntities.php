@@ -4,10 +4,10 @@ namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
 use BS\ExtendedSearch\Backend;
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use BS\ExtendedSearch\Source\LookupModifier\LookupModifier;
 use MediaWiki\MediaWikiServices;
 
-class FilterOutActionEntities extends LookupModifierBase {
+class FilterOutActionEntities extends LookupModifier {
 
 	public function apply() {
 		$entityConfigFactory = MediaWikiServices::getInstance()->getService(
@@ -23,13 +23,13 @@ class FilterOutActionEntities extends LookupModifierBase {
 				continue;
 			}
 			if ( $typeConfig->get( 'ExtendedSearchListable' ) == false ) {
-				$this->oLookup->addBoolMustNotTerms( 'entitydata.type', $type );
+				$this->lookup->addBoolMustNotTerms( 'entitydata.type', $type );
 			}
 		}
 	}
 
 	public function undo() {
-		$this->oLookup->removeBoolMustNot( 'entitydata.type' );
+		$this->lookup->removeBoolMustNot( 'entitydata.type' );
 	}
 
 	/**
