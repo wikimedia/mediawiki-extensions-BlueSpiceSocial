@@ -18,10 +18,9 @@ class Entity extends \BS\ExtendedSearch\Source\MappingProvider\WikiPage {
 	public const FLOAT = 'float';
 
 	/**
-	 *
 	 * @return array
 	 */
-	public function getPropertyConfig() {
+	public function getPropertyConfig(): array {
 		$aPC = parent::getPropertyConfig();
 
 		$store = new Store();

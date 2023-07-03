@@ -2,19 +2,19 @@
 
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use BS\ExtendedSearch\Source\LookupModifier\LookupModifier;
 
-class AddHighlighters extends LookupModifierBase {
+class AddHighlighters extends LookupModifier {
 	public function apply() {
-		$this->oLookup->addHighlighter( 'entitydata.renderedtext' );
-		$this->oLookup->addHighlighter( 'entitydata.text' );
-		$this->oLookup->addHighlighter( 'entitydata.teaser' );
+		$this->lookup->addHighlighter( 'entitydata.renderedtext' );
+		$this->lookup->addHighlighter( 'entitydata.text' );
+		$this->lookup->addHighlighter( 'entitydata.teaser' );
 	}
 
 	public function undo() {
-		$this->oLookup->removeHighlighter( 'entitydata.renderedtext' );
-		$this->oLookup->removeHighlighter( 'entitydata.text' );
-		$this->oLookup->removeHighlighter( 'entitydata.teaser' );
+		$this->lookup->removeHighlighter( 'entitydata.renderedtext' );
+		$this->lookup->removeHighlighter( 'entitydata.text' );
+		$this->lookup->removeHighlighter( 'entitydata.teaser' );
 	}
 
 }

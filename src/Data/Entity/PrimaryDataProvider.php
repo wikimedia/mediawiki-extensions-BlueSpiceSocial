@@ -6,6 +6,7 @@ use BlueSpice\EntityFactory;
 use BlueSpice\Social\Entity;
 use BS\ExtendedSearch\Backend;
 use BS\ExtendedSearch\Data\PrimaryDataProvider as SearchPrimaryDataProvider;
+use BS\ExtendedSearch\SearchResult;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
 use User;
@@ -41,9 +42,9 @@ class PrimaryDataProvider extends SearchPrimaryDataProvider {
 
 	/**
 	 *
-	 * @param \Elastica\Result $row
+	 * @param SearchResult $row
 	 */
-	protected function appendRowToData( \Elastica\Result $row ) {
+	protected function appendRowToData( SearchResult $row ) {
 		$record = new Record( $row );
 		$entity = $this->factory->newFromObject( $record->getData() );
 		if ( !$entity instanceof Entity ) {

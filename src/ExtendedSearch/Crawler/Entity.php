@@ -44,7 +44,7 @@ class Entity extends \BS\ExtendedSearch\Source\Crawler\Base {
 
 	/**
 	 *
-	 * @param \Title[] $titles
+	 * @param \TitleArrayFromResult $titles
 	 */
 	protected function makeEntities( $titles ) {
 		// It can be a very lengthy process since we are reading out

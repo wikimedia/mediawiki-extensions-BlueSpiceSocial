@@ -11,14 +11,11 @@ use MWStake\MediaWiki\Component\DataStore\FieldType;
 class Entity extends WikiPage {
 
 	/**
-	 *
-	 * @param string $sUri
-	 * @param SocialEntity $oEntity
-	 * @return array
+	 * @inheritDoc
 	 */
-	public function getDataConfig( $sUri, $oEntity ) {
+	public function getDocumentData( $sUri, string $documentId, $oEntity ): array {
 		$oWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $oEntity->getTitle() );
-		$aDC = parent::getDataConfig( $sUri, $oWikiPage );
+		$aDC = parent::getDocumentData( $sUri, $documentId, $oWikiPage );
 		$aDC['entitydata'] = $this->normalizeEntityData( $oEntity );
 		return $aDC;
 	}

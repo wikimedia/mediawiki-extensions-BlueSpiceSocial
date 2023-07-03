@@ -3,31 +3,14 @@
 namespace BlueSpice\Social\ExtendedSearch\Formatter\Internal;
 
 use BlueSpice\Social\Entity;
+use BS\ExtendedSearch\SearchResult;
 use MediaWiki\Linker\LinkRenderer;
 use RequestContext;
 
 class EntityFormatter {
-	/** @var Entity */
-	protected $entity;
-	/** @var array */
-	protected $result;
-	/** @var \Elastica\Result */
-	protected $resultObject;
 
 	/** @var LinkRenderer */
 	protected $linkRenderer;
-
-	/**
-	 *
-	 * @param Entity $entity
-	 * @param array &$result
-	 * @param \Elastica\Result $resultObject
-	 */
-	public function __construct( $entity, array &$result, $resultObject ) {
-		$this->entity = $entity;
-		$this->result = &$result;
-		$this->resultObject = $resultObject;
-	}
 
 	/**
 	 *
@@ -38,25 +21,29 @@ class EntityFormatter {
 	}
 
 	/**
+	 * @param Entity $entity
+	 * @param array &$resultData
+	 * @param SearchResult $resultObject
 	 *
+	 * @return void
 	 */
-	public function format() {
+	public function format( $entity, array &$resultData, SearchResult $resultObject ) {
 		// can these timestamps be different than indexed ones?
-		$this->result['ctime'] = RequestContext::getMain()->getLanguage()->date(
-			$this->entity->getTimestampCreated()
+		$resultData['ctime'] = RequestContext::getMain()->getLanguage()->date(
+			$entity->getTimestampCreated()
 		);
-		$this->result['mtime'] = RequestContext::getMain()->getLanguage()->date(
-			$this->entity->getTimestampTouched()
+		$resultData['mtime'] = RequestContext::getMain()->getLanguage()->date(
+			$entity->getTimestampTouched()
 		);
 
-		$this->result['entity_type'] = $this->entity->get( Entity::ATTR_TYPE );
-		$owner = $this->entity->getOwner();
-		$this->result['page_anchor'] = $this->linkRenderer->makeLink( $this->entity->getTitle() );
-		$name = $this->entity->get( Entity::ATTR_OWNER_REAL_NAME );
+		$resultData['entity_type'] = $entity->get( Entity::ATTR_TYPE );
+		$owner = $entity->getOwner();
+		$resultData['page_anchor'] = $this->linkRenderer->makeLink( $entity->getTitle() );
+		$name = $entity->get( Entity::ATTR_OWNER_REAL_NAME );
 		if ( !$name ) {
 			$name = $owner->getName();
 		}
-		$this->result['owner'] = $this->linkRenderer->makeLink(
+		$resultData['owner'] = $this->linkRenderer->makeLink(
 			$owner->getUserpage(),
 			$name
 		);

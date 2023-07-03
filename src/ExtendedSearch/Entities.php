@@ -3,63 +3,80 @@
 namespace BlueSpice\Social\ExtendedSearch;
 
 use BlueSpice\EntityFactory;
-use Entity;
+use BlueSpice\Social\ExtendedSearch\Crawler\Entity as EntityCrawler;
+use BlueSpice\Social\ExtendedSearch\DocumentProvider\Entity as EntityDocumentProvider;
+use BlueSpice\Social\ExtendedSearch\Formatter\EntityFormatter;
+use BlueSpice\Social\ExtendedSearch\LookupModifier\AddHighlighters;
+use BlueSpice\Social\ExtendedSearch\LookupModifier\AutocompleteSourceFields;
+use BlueSpice\Social\ExtendedSearch\LookupModifier\EntitySimpleQSFields;
+use BlueSpice\Social\ExtendedSearch\LookupModifier\EntityTypeAggregation;
+use BlueSpice\Social\ExtendedSearch\LookupModifier\FilterOutActionEntities;
+use BlueSpice\Social\ExtendedSearch\MappingProvider\Entity as EntityMappingProvider;
+use BlueSpice\Social\ExtendedSearch\Updater\Entity as EntityUpdater;
+use BS\ExtendedSearch\ISearchCrawler;
+use BS\ExtendedSearch\ISearchDocumentProvider;
+use BS\ExtendedSearch\ISearchMappingProvider;
+use BS\ExtendedSearch\ISearchResultFormatter;
+use BS\ExtendedSearch\ISearchUpdater;
+use BS\ExtendedSearch\Lookup;
+use BS\ExtendedSearch\Source\WikiPages;
+use IContextSource;
 use MediaWiki\MediaWikiServices;
 
-class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
+class Entities extends WikiPages {
 
 	/**
-	 * @param \BS\ExtendedSearch\Source\Base $base
-	 * @return Entities
+	 *
+	 * @return ISearchCrawler
 	 */
-	public static function create( $base ) {
-		return new self( $base );
+	public function getCrawler(): ISearchCrawler {
+		return $this->makeObjectFromSpec( [
+			'class' => EntityCrawler::class,
+			'args' => [ $this->config ],
+			'services' => [ 'DBLoadBalancer', 'JobQueueGroup' ]
+		] );
 	}
 
 	/**
 	 *
-	 * @return Entity
+	 * @return ISearchDocumentProvider
 	 */
-	public function getCrawler() {
-		return new \BlueSpice\Social\ExtendedSearch\Crawler\Entity( $this->getConfig() );
+	public function getDocumentProvider(): ISearchDocumentProvider {
+		return $this->makeObjectFromSpec( [
+			'class' => EntityDocumentProvider::class,
+			'services' => [
+				'HookContainer', 'ContentRenderer', 'RevisionLookup', 'PageProps', 'Parser',
+				'RedirectLookup', 'UserFactory'
+			]
+		] );
 	}
 
 	/**
 	 *
-	 * @return Entity
+	 * @return \BS\ExtendedSearch\Source\MappingProvider\WikiPage
 	 */
-	public function getDocumentProvider() {
-		return new \BlueSpice\Social\ExtendedSearch\DocumentProvider\Entity(
-			$this->oDecoratedSource->getDocumentProvider()
-		);
+	public function getMappingProvider(): ISearchMappingProvider {
+		return new EntityMappingProvider();
 	}
 
 	/**
 	 *
-	 * @return Entity
+	 * @return ISearchUpdater
 	 */
-	public function getMappingProvider() {
-		return new \BlueSpice\Social\ExtendedSearch\MappingProvider\Entity(
-			$this->oDecoratedSource->getMappingProvider()
-		);
+	public function getUpdater(): ISearchUpdater {
+		return new EntityUpdater( $this );
 	}
 
 	/**
 	 *
-	 * @return Entity
+	 * @return ISearchResultFormatter
 	 */
-	public function getUpdater() {
-		return new \BlueSpice\Social\ExtendedSearch\Updater\Entity( $this->oDecoratedSource );
-	}
-
-	/**
-	 *
-	 * @return Formatter\EntityFormatter
-	 */
-	public function getFormatter() {
+	public function getFormatter(): ISearchResultFormatter {
 		/** @var EntityFactory $entityFactory */
 		$entityFactory = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' );
-		return new Formatter\EntityFormatter( $this, $entityFactory );
+
+		return new EntityFormatter( $this,
+			$entityFactory );
 	}
 
 	/**
@@ -67,5 +84,18 @@ class Entities extends \BS\ExtendedSearch\Source\DecoratorBase {
 	 */
 	public function isSortable() {
 		return false;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getLookupModifiers( Lookup $lookup, IContextSource $context ): array {
+		return [
+			new AddHighlighters( $lookup, $context ),
+			new AutocompleteSourceFields( $lookup, $context ),
+			new EntitySimpleQSFields( $lookup, $context ),
+			new EntityTypeAggregation( $lookup, $context ),
+			new FilterOutActionEntities( $lookup, $context ),
+		];
 	}
 }

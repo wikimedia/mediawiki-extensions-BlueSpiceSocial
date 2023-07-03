@@ -2,19 +2,19 @@
 
 namespace BlueSpice\Social\ExtendedSearch\LookupModifier;
 
-use BS\ExtendedSearch\Source\LookupModifier\Base as LookupModifierBase;
+use BS\ExtendedSearch\Source\LookupModifier\LookupModifier;
 
 /**
  * This class adds a field to the filterable fields, by adding aggregation
  * on which filters are based
  */
-class EntityTypeAggregation extends LookupModifierBase {
+class EntityTypeAggregation extends LookupModifier {
 	public function apply() {
-		$this->oLookup->setBucketTermsAggregation( 'entitydata.type' );
+		$this->lookup->setBucketTermsAggregation( 'entitydata.type' );
 	}
 
 	public function undo() {
-		$this->oLookup->removeBucketTermsAggregation( 'entitydata.type' );
+		$this->lookup->removeBucketTermsAggregation( 'entitydata.type' );
 	}
 
 }
