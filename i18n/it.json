@@ -54,10 +54,10 @@
 	"bs-social-filter-button-tooltip": "Mostra le opzioni di filtro",
 	"bs-social-sort-button-tooltip": "Mostra le opzioni di ordinamento",
 	"bs-social-sourcetitle-lockdown-reason-reason": "L'azione $1 può essere eseguita solo dagli amministratori, poiché queste voci non devono essere modificate direttamente.",
-	"action-social-deleteothers": "cancellare le altre voci",
+	"action-social-deleteothers": "cancellare le voci altrui",
 	"action-social-editothers": "modificare le altre voci",
 	"action-social-source": "vedere la pagina di origine",
-	"right-social-deleteothers": "Cancella le altre voci",
+	"right-social-deleteothers": "Cancella le voci altrui",
 	"right-social-editothers": "Modifica le altre voci",
 	"bs-social-pref-warnonleave": "Avvisami quando lascio una modifica di una voce con modifiche non salvate."
 }
