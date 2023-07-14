@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"bs-social-entity-fatalstatus-save-emptyfield": "Field '$1' is empty",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Invalid value for field '$1'",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Unknown action '$1'",
+	"bs-social-entity-fatalstatus-permission-recursion": "Possible recursion, because the given 'Title' is in the namespace 'NS_SOCIALENTITY'!",
+	"bs-social-entity-fatalstatus-permission-permissiondeniedusercan": "User is not allowed to perform action '$1' on '$2'",
+	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "User is not allowed to perform action '$1'",
+	"bs-social-entity-fatalstatus-permission-notitle": "'Title' object Required",
+	"bs-social-config-mainlinks-timeline-label": "Show entrypoint 'Timeline'",
+	"bs-social-config-mainlinks-timeline-help": "Show entrypoint 'Timeline' link in the left navigation"
+}
