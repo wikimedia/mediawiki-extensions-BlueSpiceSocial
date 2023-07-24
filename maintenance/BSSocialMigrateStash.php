@@ -205,7 +205,7 @@ class BSSocialMigrateStash extends LoggedUpdateMaintenance {
 	 * @return ParserOutput|null
 	 */
 	private function getParserOutput( Title $title, string $text ): ?ParserOutput {
-		$parser = new Parser();
+		$parser = MediaWikiServices::getInstance()->getParser();
 		$return = null;
 		try {
 			$return = $parser->parse(
