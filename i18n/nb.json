@@ -86,5 +86,7 @@
 	"bs-social-specialpagelisting-socialentities-show": "Vis",
 	"bs-social-specialpagelisting-socialentities-hide": "Skjul",
 	"bs-socialactionsmw-autoeditsummary": "(Intet sammendrag)",
-	"bs-social-wikipage-attachments-section-heading": "Vedlegg"
+	"bs-social-wikipage-attachments-section-heading": "Vedlegg",
+	"bs-social-config-mainlinks-timeline-label": "Vis inngangspunktet «Tidslinje»",
+	"bs-social-config-mainlinks-timeline-help": "Vis lenke til inngangspunktet «Tidslinje» i venstremenyen"
 }
