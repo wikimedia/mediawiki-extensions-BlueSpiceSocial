@@ -4,6 +4,27 @@
 			"Умар"
 		]
 	},
+	"bs-social-var-type": "Тайпа",
+	"bs-social-var-archived": "Архивйина",
+	"bs-social-var-text": "Чулацам",
+	"bs-social-var-timestampcreated": "Кхоьллина терахь",
 	"bs-social-editor-advanced": "Кхин тӀе",
-	"bs-social-entityactions-label": "Ардамаш"
+	"bs-social-editor-ok": "Хаам",
+	"bs-social-editor-cancel": "Йухайаккха",
+	"bs-social-entityactions-label": "Ардамаш",
+	"bs-social-entityaction-edit": "Нисйе",
+	"bs-social-entityaction-delete": "ДӀайаккха",
+	"bs-social-entityaction-delete-confirmtext": "ДӀадаккха дӀайаздар?",
+	"bs-social-entityaction-undelete": "МеттахӀоттайе",
+	"bs-social-entityaction-undelete-confirmtext": "МеттахӀоттаде дӀайаздар?",
+	"bs-social-select2-overwrites-searching": "Лахар…",
+	"bs-social-entitylistmenufilter-quickfilter-addall": "ТӀетоха массо",
+	"bs-social-entitylistmenufilter-quickfilter-removeall": "ДӀайаха йерриге",
+	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Тахана",
+	"bs-social-filter-owner-val-all": "Йерриге",
+	"bs-social-renderer-timestampprefix-touched": "Хийцам бина",
+	"bs-social-entityspawner-button-tooltip": "Кхоьллина керланиг",
+	"bs-social-specialpagelisting-socialentities-show": "Гайта",
+	"bs-social-specialpagelisting-socialentities-hide": "Къайлайаккха",
+	"bs-socialactionsmw-autoeditsummary": "(хаам боцуш)"
 }
