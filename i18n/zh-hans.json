@@ -9,6 +9,7 @@
 			"Lakejason0",
 			"VulpesVulpes825",
 			"Wzl19371",
+			"Xyb",
 			"予弦"
 		]
 	},
@@ -61,5 +62,7 @@
 	"bs-social-filter-date-label-from": "$1起",
 	"bs-social-filter-date-label-to": "$1到",
 	"bs-social-pref-datedisplaymode-mode-age": "显示为年龄",
-	"bs-social-pref-datedisplaymode-mode-mw": "显示为日期"
+	"bs-social-pref-datedisplaymode-mode-mw": "显示为日期",
+	"bs-social-filter-archived-val-archived": "仅存档",
+	"bs-social-filter-archived-val-notarchived": "非仅存档"
 }
