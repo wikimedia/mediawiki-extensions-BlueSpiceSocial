@@ -9,6 +9,7 @@
 			"Lakejason0",
 			"VulpesVulpes825",
 			"Wzl19371",
+			"Xyb",
 			"予弦"
 		]
 	},
@@ -52,6 +53,8 @@
 	"bs-social-filter-owner-val-mine": "线形图",
 	"bs-social-filter-date-label-from": "$1起",
 	"bs-social-filter-date-label-to": "$1到",
+	"bs-social-filter-archived-val-archived": "仅存档",
+	"bs-social-filter-archived-val-notarchived": "非仅存档",
 	"bs-social-renderer-timestampprefix-created": "已创建",
 	"bs-social-renderer-timestampprefix-touched": "已编辑",
 	"bs-social-entityspawner-button-tooltip": "创建新的",
