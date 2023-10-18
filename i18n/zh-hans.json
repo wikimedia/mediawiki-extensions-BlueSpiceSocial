@@ -10,7 +10,8 @@
 			"VulpesVulpes825",
 			"Wzl19371",
 			"Xyb",
-			"予弦"
+			"予弦",
+			"LittlePaw365"
 		]
 	},
 	"activities": "活动",
@@ -59,7 +60,7 @@
 	"bs-social-renderer-timestampprefix-touched": "已编辑",
 	"bs-social-entityspawner-button-tooltip": "创建新的",
 	"prefs-social": "时间轴",
-	"bs-social-pref-warnonleave": "当我离开编辑页面时，如果有尚未保存的更改，请提醒我",
+	"bs-social-pref-warnonleave": "当我离开有未保存更改的条目编辑界面时警告我。",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "执行操作，可能导致您失去所做的任何更改。继续吗？",
 	"bs-social-editwarnonleave-confirmtext": "离开此页面可能会导致您丢失所做的任何更改。您要放弃更改并继续吗？",
 	"bs-social-specialpagelisting-socialentities-show": "显示",
