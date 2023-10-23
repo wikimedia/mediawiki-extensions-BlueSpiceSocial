@@ -374,7 +374,7 @@
 			"value": []
 		},
 		"SocialMainLinksTimeline": {
-			"value": true,
+			"value": false,
 			"public": true,
 			"descriptionmsg": "bs-social-config-mainlinks-timeline-label"
 		}
