@@ -12,7 +12,7 @@
 	"bs-social-filter-button-tooltip": "Kasi unjuk pilihan pilter",
 	"bs-social-sort-button-tooltip": "Kasi unjuk pilihan sortir",
 	"bs-social-entityspawner-button-tooltip": "Keja baru",
-	"bs-social-sourcetitle-lockdown-reason-reason": "Tindakan $1 cuman bisa dilakonin sama merbot, sebab lantaran ini masupan kaga' bolé langsung dipermak.",
+	"bs-social-sourcetitle-lockdown-reason-reason": "Tindakan $1 cuman bisa dilakonin sama merbot, sebab lantaran ini pepasupan kaga' bolé langsung dipermak.",
 	"apihelp-bs-social-tasks-summary": "Nyediain gawéan kaya' èntitèt pemermakan atawa pengapusan",
 	"apihelp-bs-socialtitlequery-store-summary": "Nyediain data bakal judul, nyang kena disènggèt di dalem èntitèt",
 	"action-social-deleteothers": "apus laèn masupan",
@@ -29,7 +29,7 @@
 	"bs-social-specialpagelisting-socialentities-show": "Kasi unjuk",
 	"bs-social-specialpagelisting-socialentities-hide": "Umpetin",
 	"bs-socialactionsmw-autoeditsummary": "(Kaga' ada rangkuman)",
-	"bs-social-config-mainlinks-timeline-label": "Kasi unjuk poin masupan \"Tawarih\"",
+	"bs-social-config-mainlinks-timeline-label": "Kasi unjuk titik masup \"Tawarih\"",
 	"bs-social-config-mainlinks-timeline-help": "Kasi unjuk poin èntri sènggètan \"Tawarih\" di belah kèbotnya napigasi",
 	"bs-social-wikipage-attachments-section-heading": "Lampiran"
 }
