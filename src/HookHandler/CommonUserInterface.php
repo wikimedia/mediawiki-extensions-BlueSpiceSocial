@@ -33,7 +33,7 @@ class CommonUserInterface implements MWStakeCommonUIRegisterSkinSlotComponents {
 						'factory' => static function () {
 							return new MainLinkPanel();
 						},
-						'position' => 50
+						'position' => 70
 					]
 				]
 			);
