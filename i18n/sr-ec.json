@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01",
-			"Kizule"
+			"Kizule",
+			"Milicevic01"
 		]
 	},
 	"activities": "Активности",
@@ -64,5 +64,6 @@
 	"bs-social-specialpagelisting-socialentities-show": "Прикажи",
 	"bs-social-specialpagelisting-socialentities-hide": "Сакриј",
 	"bs-socialactionsmw-autoeditsummary": "(Нема описа)",
-	"bs-social-wikipage-attachments-section-heading": "Прилози"
+	"bs-social-wikipage-attachments-section-heading": "Прилози",
+	"action-social-deleteothers": "бришете туђе уносе"
 }

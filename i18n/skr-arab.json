@@ -23,5 +23,7 @@
 	"bs-social-filter-owner-val-all": "یکے",
 	"bs-social-renderer-timestampprefix-created": "بݨ ڳیا",
 	"bs-social-specialpagelisting-socialentities-show": "ݙِکھاؤ",
-	"bs-social-specialpagelisting-socialentities-hide": "لُکاؤ"
+	"bs-social-specialpagelisting-socialentities-hide": "لُکاؤ",
+	"action-social-deleteothers": "ٻیاں دے اندراج مٹاؤ",
+	"right-social-deleteothers": "ٻیاں دے اندراج مٹاؤ"
 }
