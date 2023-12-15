@@ -78,7 +78,7 @@ class Extension extends \BlueSpice\Extension {
 		$GLOBALS['wgNamespaceRobotPolicies'][NS_SOCIALENTITY_TALK] = 'noindex,nofollow';
 
 		$lessVars = LessVars::getInstance();
-		$lessVars->setVar( 'bs-primary-light-background', '#98A7C4' );
+		$lessVars->setVar( 'bs-primary-light-background', '#6E7B96' );
 		$lessVars->setVar( 'bs-light-background', 'lighten(@bs-color-neutral, 38.43%)' );
 		$lessVars->setVar( 'bs-primary-light-subelement-background', 'lighten(@bs-primary-light-background, 24.3%)' );
 		$lessVars->setVar( 'bs-tertiary-light-background', 'lighten(@bs-color-tertiary, 45%)' );
