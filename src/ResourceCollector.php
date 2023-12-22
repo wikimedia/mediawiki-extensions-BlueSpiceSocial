@@ -31,6 +31,8 @@ namespace BlueSpice\Social;
 
 use BlueSpice\ExtensionAttributeBasedRegistry;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
+use MediaWiki\ResourceLoader\ResourceLoader;
 
 /**
  * ResourceCollector class for BlueSpiceSocial extension
@@ -43,7 +45,7 @@ class ResourceCollector {
 	/** @var \RequestContext|null */
 	protected static $oContext = null;
 
-	/** @var \ResourceLoaderContext|null */
+	/** @var ResourceLoaderContext|null */
 	protected $oResourceLoaderContext = null;
 
 	/** @var array */
@@ -172,20 +174,19 @@ class ResourceCollector {
 	}
 
 	/**
-	 *
-	 * @return \ResourceLoaderContext
+	 * @return ResourceLoaderContext
 	 */
 	protected function getResourceLoaderContext() {
 		if ( $this->oResourceLoaderContext ) {
 			return $this->oResourceLoaderContext;
 		}
 
-		$aQuery = \ResourceLoader::makeLoaderQuery(
+		$aQuery = ResourceLoader::makeLoaderQuery(
 			[],
 			$this->getContext()->getOutput()->getLanguage()->getCode(),
 			$this->getContext()->getOutput()->getSkin()->getSkinName()
 		);
-		$this->oResourceLoaderContext = new \ResourceLoaderContext(
+		$this->oResourceLoaderContext = new ResourceLoaderContext(
 			$this->getContext()->getOutput()->getResourceLoader(),
 			new \FauxRequest( $aQuery )
 		);
