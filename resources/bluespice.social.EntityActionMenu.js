@@ -38,7 +38,7 @@ bs.social.EntityActionMenu = function( $el, entity ) {
 	}
 
 	priorityActions.sort( function( a, b ) {
-		return a.priority < b.priority;
+		return a.priority - b.priority;
 	});
 
 	var first = true;
