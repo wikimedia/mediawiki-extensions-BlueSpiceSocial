@@ -3,6 +3,7 @@
 		"authors": [
 			"DDPAT",
 			"Ice bulldog",
+			"Mitte27",
 			"Tanzun",
 			"Александр Сигачёв"
 		]
@@ -18,6 +19,7 @@
 	"bs-social-var-archived": "Архивировано",
 	"bs-social-var-text": "Содержимое",
 	"bs-social-var-timestampcreated": "Дата создания",
+	"bs-social-option-orderby-label": "Сортировка",
 	"bs-social-editor-ok": "Сообщение",
 	"bs-social-editor-cancel": "Отмена",
 	"bs-social-entityactions-label": "Действия",
