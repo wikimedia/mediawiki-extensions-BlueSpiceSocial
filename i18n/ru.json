@@ -3,6 +3,7 @@
 		"authors": [
 			"DDPAT",
 			"Ice bulldog",
+			"Mitte27",
 			"Tanzun",
 			"Александр Сигачёв"
 		]
@@ -41,5 +42,6 @@
 	"bs-social-specialpagelisting-socialentities-show": "Показать",
 	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
 	"bs-socialactionsmw-autoeditsummary": "(без описания)",
-	"bs-social-wikipage-attachments-section-heading": "Вложения"
+	"bs-social-wikipage-attachments-section-heading": "Вложения",
+	"bs-social-option-orderby-label": "Сортировка"
 }
