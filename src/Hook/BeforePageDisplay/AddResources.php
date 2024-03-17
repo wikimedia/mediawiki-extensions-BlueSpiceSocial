@@ -15,7 +15,7 @@ class AddResources extends BeforePageDisplay {
 			return true;
 		}
 
-		try{
+		try {
 			$oCollector = ResourceCollector::getMain();
 		} catch ( \Exception $ex ) {
 			return true;

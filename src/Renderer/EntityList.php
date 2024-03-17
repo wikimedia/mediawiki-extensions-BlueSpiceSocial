@@ -475,7 +475,7 @@ class EntityList extends Renderer implements IParamProvider {
 		// store, so the given limit fits ;)
 		// this may be cool for pined items in the future.
 		if ( $entity->exists() && $this->args[static::PARAM_LIMIT] > 1 ) {
-			$this->args[static::PARAM_LIMIT] --;
+			$this->args[static::PARAM_LIMIT]--;
 		}
 
 		return $this->renderEntitiy( $entity, $out );
