@@ -6,6 +6,8 @@
 	},
 	"bs-social-entityactions-label": "عمل",
 	"bs-social-filter-owner-val-all": "سڀ",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "هن عمل کي انجام ڏيڻ سبب ٿي سگهي ٿو تہ توهان جو ڪيل تبديليون وڃائجي وڃن. ڇا توھان تبديلين کي رد ڪري اڳتي وڌڻ چاھيو ٿا؟",
+	"bs-social-editwarnonleave-confirmtext": "هن عمل کي انجام ڏيڻ سبب ٿي سگهي ٿو تہ توهان جو ڪيل تبديليون وڃائجي وڃن. ڇا توھان تبديلين کي رد ڪري اڳتي وڌڻ چاھيو ٿا؟",
 	"bs-social-specialpagelisting-socialentities-show": "ڏيکاريو",
 	"bs-social-specialpagelisting-socialentities-hide": "لڪايو",
 	"bs-socialactionsmw-autoeditsummary": "(تَتُ ڪونهي)"
