@@ -170,7 +170,7 @@ abstract class Entity extends \BlueSpice\Entity\Content {
 			$oMsg = Message::newFromKey( $this->getHeaderMessageKey() );
 		}
 
-		return $oMsg->title( $this->getTitle() )->params( [
+		return $oMsg->page( $this->getTitle() )->params( [
 			$this->getOwner()->getName(),
 			$this->getOwnerRealName(),
 			$this->getTitle()->getText(),
