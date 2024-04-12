@@ -423,7 +423,7 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 * @return string
 	 */
 	protected function get_NotificationObjectClass() {
-		return \BlueSpice\Social\Notifications\SocialNotification::class;
+		return '';
 	}
 
 	/**
@@ -431,7 +431,7 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 * @return bool
 	 */
 	protected function get_HasNotifications() {
-		return true;
+		return false;
 	}
 
 	/**
@@ -439,7 +439,7 @@ abstract class EntityConfig extends \BlueSpice\EntityConfig\Content {
 	 * @return string
 	 */
 	protected function get_NotificationTypePrefix() {
-		return 'bs-social-entity';
+		return '';
 	}
 
 	/**

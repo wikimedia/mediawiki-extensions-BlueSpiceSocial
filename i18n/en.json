@@ -92,5 +92,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(No summary)",
 	"bs-social-config-mainlinks-timeline-label": "Show entrypoint \"Timeline\"",
 	"bs-social-config-mainlinks-timeline-help": "Show entrypoint \"Timeline\" link in the left navigation",
-	"bs-social-wikipage-attachments-section-heading": "Attachments"
+	"bs-social-wikipage-attachments-section-heading": "Attachments",
+	"bs-social-notification-primary-link-label": "View entity"
 }
