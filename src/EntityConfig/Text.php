@@ -154,7 +154,7 @@ abstract class Text extends EntityConfig {
 	 * @return string
 	 */
 	protected function get_NotificationObjectClass() {
-		return \BlueSpice\Social\Notifications\SocialTextNotification::class;
+		return '';
 	}
 
 	/**
