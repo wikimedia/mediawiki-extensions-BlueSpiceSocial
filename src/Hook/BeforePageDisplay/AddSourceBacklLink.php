@@ -12,14 +12,15 @@ class AddSourceBacklLink extends BeforePageDisplay {
 		if ( $this->out->getRequest()->getVal( 'action', 'view' ) !== 'view' ) {
 			return true;
 		}
-		if ( $this->out->getTitle()->getNamespace() != NS_SOCIALENTITY ) {
+		$title = $this->out->getTitle();
+		if ( $title && !$title->exists() ) {
 			return true;
 		}
-		if ( !$this->out->getTitle()->exists() ) {
+		if ( $title->getNamespace() != NS_SOCIALENTITY ) {
 			return true;
 		}
 		$entity = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )
-			->newFromSourceTitle( $this->out->getTitle() );
+			->newFromSourceTitle( $title );
 		if ( !$entity instanceof Entity || !$entity->exists() ) {
 			return true;
 		}
