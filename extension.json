@@ -48,9 +48,6 @@
 					]
 				}
 			},
-			"NotificationRegistrationFunctions": [
-				"\\BlueSpice\\Social\\Notifications\\Registrator::registerNotifications"
-			],
 			"RendererRegistry": {
 				"entitylist": "\\BlueSpice\\Social\\Renderer\\EntityList::factory",
 				"entitylistmenu": "\\BlueSpice\\Social\\Renderer\\EntityList\\Menu::factory",
@@ -88,6 +85,24 @@
 			"Handlers": [
 				"\\BlueSpice\\Social\\Privacy\\Handler"
 			]
+		},
+		"Notifications": {
+			"Events": {
+				"bs-social-event": {
+					"spec": {
+						"class": "\\BlueSpice\\Social\\Event\\SocialEvent",
+						"services": [ "DBLoadBalancer", "UserFactory", "GroupPermissionsLookup", "BSEntityFactory" ]
+					},
+					"buckets": [ "content-high-freq" ]
+				},
+				"bs-social-text-event": {
+					"spec": {
+						"class": "\\BlueSpice\\Social\\Event\\SocialTextEvent",
+						"services": [ "DBLoadBalancer", "UserFactory", "GroupPermissionsLookup", "BSEntityFactory" ]
+					},
+					"buckets": [ "content-high-freq" ]
+				}
+			}
 		}
 	},
 	"callback": "\\BlueSpice\\Social\\Extension::onRegistration",
@@ -139,7 +154,7 @@
 	},
 	"MessagesDirs": {
 		"BlueSpiceSocial": [
-			"i18n", "i18n/notifications"
+			"i18n"
 		]
 	},
 	"JobClasses": {

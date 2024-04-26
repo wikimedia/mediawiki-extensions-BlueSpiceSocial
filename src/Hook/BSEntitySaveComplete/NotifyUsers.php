@@ -3,8 +3,10 @@
 namespace BlueSpice\Social\Hook\BSEntitySaveComplete;
 
 use BlueSpice\Hook\BSEntitySaveComplete;
-use BlueSpice\Social\Notifications\SocialNotification;
+use BlueSpice\Social\Event\SocialEvent;
+use MediaWiki\Extension\Notifications\EventFactory;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\Events\Notifier;
 
 class NotifyUsers extends BSEntitySaveComplete {
 	/**
@@ -25,11 +27,12 @@ class NotifyUsers extends BSEntitySaveComplete {
 
 	/**
 	 * @return bool
+	 * @throws \Exception
 	 */
 	protected function doProcess() {
-		$action = SocialNotification::ACTION_EDIT;
+		$action = SocialEvent::ACTION_EDIT;
 		if ( $this->entity->getTitle()->isNewPage() ) {
-			$action = SocialNotification::ACTION_CREATE;
+			$action = SocialEvent::ACTION_CREATE;
 		}
 
 		$notifyAll = false;
@@ -45,29 +48,28 @@ class NotifyUsers extends BSEntitySaveComplete {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = MediaWikiServices::getInstance()->getService(
-			'BSNotificationManager'
-		);
-
-		$notifier = $notificationsManager->getNotifier();
-
-		$notificationClasses = $this->entity->getConfig()->get( 'NotificationObjectClass' );
-		if ( !is_array( $notificationClasses ) ) {
-			$notificationClasses = [ $notificationClasses ];
+		$eventKeys = $this->entity->getConfig()->get( 'NotificationObjectClass' );
+		if ( !is_array( $eventKeys ) ) {
+			$eventKeys = [ $eventKeys ];
 		}
-		$notificationTypePrefix = $this->entity->getConfig()->get( 'NotificationTypePrefix' );
-
-		foreach ( $notificationClasses as $notificationClass ) {
-			$notification = new $notificationClass(
-				$notificationTypePrefix,
-				$this->entity,
+		/** @var EventFactory $eventFactory */
+		$eventFactory = MediaWikiServices::getInstance()->getService( 'Notifications.EventFactory' );
+		/** @var Notifier $notifier */
+		$notifier = MediaWikiServices::getInstance()->getService( 'MWStake.Notifier' );
+		foreach ( $eventKeys as $eventKey ) {
+			if ( !$eventKey ) {
+				continue;
+			}
+			$event = $eventFactory->create( $eventKey, [
 				$this->user,
+				$this->entity->jsonSerialize(),
 				$action
-			);
-			$notification->setNotifyAll( $notifyAll );
+			] );
+			$event->setNotifyAll( $notifyAll );
 
-			$notifier->notify( $notification );
+			$notifier->emit( $event );
 		}
+
 		return true;
 	}
 }

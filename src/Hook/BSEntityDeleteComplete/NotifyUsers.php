@@ -3,8 +3,10 @@
 namespace BlueSpice\Social\Hook\BSEntityDeleteComplete;
 
 use BlueSpice\Hook\BSEntityDeleteComplete;
-use BlueSpice\Social\Notifications\SocialNotification;
+use BlueSpice\Social\Event\SocialEvent;
+use MediaWiki\Extension\Notifications\EventFactory;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\Events\Notifier;
 
 class NotifyUsers extends BSEntityDeleteComplete {
 	protected function skipProcessing() {
@@ -28,28 +30,27 @@ class NotifyUsers extends BSEntityDeleteComplete {
 			$notifyAll = true;
 		}
 
-		$notificationsManager = MediaWikiServices::getInstance()->getService(
-			'BSNotificationManager'
-		);
-
-		$notifier = $notificationsManager->getNotifier();
-
 		$notificationClasses = $this->entity->getConfig()->get( 'NotificationObjectClass' );
 		if ( !is_array( $notificationClasses ) ) {
 			$notificationClasses = [ $notificationClasses ];
 		}
-		$notificationTypePrefix = $this->entity->getConfig()->get( 'NotificationTypePrefix' );
 
+		/** @var EventFactory $eventFactory */
+		$eventFactory = MediaWikiServices::getInstance()->getService( 'Notifications.EventFactory' );
+		/** @var Notifier $notifier */
+		$notifier = MediaWikiServices::getInstance()->getService( 'MWStake.Notifier' );
 		foreach ( $notificationClasses as $notificationClass ) {
-			$notification = new $notificationClass(
-				$notificationTypePrefix,
-				$this->entity,
+			if ( !$notificationClass ) {
+				continue;
+			}
+			$event = $eventFactory->create( $notificationClass, [
 				$this->user,
-				SocialNotification::ACTION_DELETE
-			);
-			$notification->setNotifyAll( $notifyAll );
+				$this->entity,
+				SocialEvent::ACTION_DELETE
+			] );
+			$event->setNotifyAll( $notifyAll );
 
-			$notifier->notify( $notification );
+			$notifier->emit( $event );
 		}
 	}
 
