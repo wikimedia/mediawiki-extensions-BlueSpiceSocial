@@ -87,5 +87,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(ni povzetka)",
 	"bs-social-config-mainlinks-timeline-label": "Prikaži vstopno točko »Časovnica«",
 	"bs-social-config-mainlinks-timeline-help": "Prikaži povezavo na časovno točko »Časovnica« v levi navigaciji",
-	"bs-social-wikipage-attachments-section-heading": "Priponke"
+	"bs-social-wikipage-attachments-section-heading": "Priponke",
+	"bs-social-notification-primary-link-label": "Ogled entitete"
 }

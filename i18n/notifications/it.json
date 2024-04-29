@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16",
+			"GpieroMW"
+		]
+	},
+	"bs-social-notifications-email-entity-create-body": "L'utente {{GENDER:$1|$2 ha creato}} un nuovo \"$3\"",
+	"bs-social-notifications-email-entity-create-text-body": "L'utente {{GENDER:$1|$2 ha creato}} un nuovo \"$3\" con il seguente testo:\n$4",
+	"bs-social-notifications-web-entity-create-body": "L'utente {{GENDER:$1|$2 ha creato}} un nuovo \"$3\"",
+	"bs-social-notifications-email-entity-edit-body": "Utente {{GENDER:$1|$2 ha modificato}} l'entità social di tipo \"$3\"",
+	"bs-social-notifications-email-entity-edit-text-body": "Utente {{GENDER:$1| $2 ha modificato}} entità social di tipo \"$3\" con il seguente testo:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "Utente {{GENDER:$1|$2 ha modificato}} entità social di tipo \"$3\"",
+	"bs-social-notification-primary-link-label": "Visualizza entità"
+}

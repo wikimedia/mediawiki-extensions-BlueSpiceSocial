@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie",
+			"Rots61"
+		]
+	},
+	"echo-category-title-bs-social-entity-cat": "Entiteitshandelingen op gevolgde pagina's",
+	"bs-social-notifications-entity-create": "Sociale entiteit van het type \"$1\" aangemaakt",
+	"bs-social-notifications-email-entity-create-subject": "Sociale entiteit van het type \"$1\" aangemaakt",
+	"bs-social-notifications-email-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\"",
+	"bs-social-notifications-email-entity-create-text-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\" met de volgende tekst:\n$4",
+	"bs-social-notifications-web-entity-create-body": "Gebruiker {{GENDER:$1|$2 maakte}} \"$3\"",
+	"bs-social-notifications-entity-edit": "Sociale entiteit van het type \"$1\" is bewerkt",
+	"bs-social-notifications-email-entity-edit-subject": "Sociale entiteit van het type \"$1\" is bewerkt",
+	"bs-social-notifications-email-entity-edit-body": "De gebruiker {{GENDER:$1|$2}} heeft een sociale entiteit van het type \"$3\" bewerkt",
+	"bs-social-notifications-email-entity-edit-text-body": "De gebruiker {{GENDER:$1|$2}} heeft een sociale entiteit van het type \"$3\" bewerkt met de volgende tekst:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "De gebruiker {{GENDER:$1|$2}} heeft een sociale entiteit van het type \"$3\" bewerkt",
+	"bs-social-notifications-entity-delete": "Sociale entiteit van het type \"$1\" is verwijderd",
+	"bs-social-notifications-email-entity-delete-subject": "Sociale entiteit van het type \"$1\" is verwijderd",
+	"bs-social-notifications-email-entity-delete-body": "De gebruiker {{GENDER:$1|$2}} heeft een sociale entiteit van het type \"$3\" verwijderd",
+	"bs-social-notifications-web-entity-delete-body": "De gebruiker {{GENDER:$1|$2}} heeft een sociale entiteit van het type \"$3\" verwijderd",
+	"bs-social-notification-primary-link-label": "Entiteit bekijken"
+}

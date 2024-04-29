@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Steeve815",
+			"Xnet1234",
 			"YaronSh"
 		]
 	},
@@ -89,5 +90,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(ללא תקציר)",
 	"bs-social-config-mainlinks-timeline-label": "הצגת נקודת הכניסה \"ציר זמן\"",
 	"bs-social-config-mainlinks-timeline-help": "הצגת נקודת הכניסה \"ציר זמן\" בסרגל הניווט הימני",
-	"bs-social-wikipage-attachments-section-heading": "צרופות"
+	"bs-social-wikipage-attachments-section-heading": "צרופות",
+	"bs-social-notification-primary-link-label": "הצגת ישות"
 }

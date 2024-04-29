@@ -89,5 +89,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(بدون ملخص)",
 	"bs-social-config-mainlinks-timeline-label": "إظهار نقطة الدخول \"المخطط الزمني\"",
 	"bs-social-config-mainlinks-timeline-help": "إظهار ارتباط \"المخطط الزمني\" لنقطة الدخول في شريط التنقل الأيمن",
-	"bs-social-wikipage-attachments-section-heading": "المرفقات"
+	"bs-social-wikipage-attachments-section-heading": "المرفقات",
+	"bs-social-notification-primary-link-label": "عرض الكيان"
 }

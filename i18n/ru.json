@@ -4,6 +4,7 @@
 			"DDPAT",
 			"Ice bulldog",
 			"Mitte27",
+			"Pacha Tchernof",
 			"Tanzun",
 			"Александр Сигачёв"
 		]
@@ -43,5 +44,6 @@
 	"bs-social-specialpagelisting-socialentities-show": "Показать",
 	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
 	"bs-socialactionsmw-autoeditsummary": "(без описания)",
-	"bs-social-wikipage-attachments-section-heading": "Вложения"
+	"bs-social-wikipage-attachments-section-heading": "Вложения",
+	"bs-social-notification-primary-link-label": "Посмотреть объект"
 }
