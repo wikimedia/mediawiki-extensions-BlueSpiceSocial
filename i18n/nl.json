@@ -45,7 +45,7 @@
 	"bs-social-entity-fatalstatus-save-norelatedtitle": "De gerelateerde wikipagina kon niet worden gevonden",
 	"bs-social-entity-fatalstatus-save-emptyfield": "Veld \"$1\" is leeg",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Ongeldige waarde voor veld \"$1\".",
-	"bs-social-entity-fatalstatus-permission-unknownaction": "Onbekende handeling “$1”",
+	"bs-social-entity-fatalstatus-permission-unknownaction": "Onbekende handeling \u201c$1\u201d",
 	"bs-social-entity-fatalstatus-permission-recursion": "Mogelijke recursie, want de gegeven \"Title\" staat in de naamruimte \"NS_SOCIALENTITY\"!",
 	"bs-social-entity-fatalstatus-permission-permissiondeniedusercan": "De gebruiker mag de handeling \"$1\" niet op \"$2\" verrichten",
 	"bs-social-entity-fatalstatus-permission-permissiondenieduserisallowed": "De gebruiker mag de handeling \"$1\" niet verrichten",
@@ -94,5 +94,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(Geen samenvatting)",
 	"bs-social-config-mainlinks-timeline-label": "Toegangspunt \"Tijdlijn\" tonen",
 	"bs-social-config-mainlinks-timeline-help": "De koppeling naar het toegangspunt \"Tijdlijn\" tonen in de navigatie aan de linkerkant",
-	"bs-social-wikipage-attachments-section-heading": "Bijlagen"
+	"bs-social-wikipage-attachments-section-heading": "Bijlagen",
+	"bs-social-notification-primary-link-label": "Entiteit bekijken"
 }

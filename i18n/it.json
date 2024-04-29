@@ -6,7 +6,7 @@
 			"Stefano"
 		]
 	},
-	"activities": "Attività",
+	"activities": "Attivit\u00e0",
 	"bs-social-pref-datedisplaymode-mode-mw": "Mostra come data",
 	"bs-social-entitytext-header": "[[User:$1|$2]] ha scritto:",
 	"bs-social-var-ownerid": "Proprietario",
@@ -26,16 +26,16 @@
 	"bs-social-entityaction-delete": "Cancella",
 	"bs-social-entityaction-delete-confirmtext": "Cancellare l'immissione?",
 	"bs-social-entityaction-undelete": "Ripristina",
-	"bs-social-entity-fatalstatus-save-notype": "Il tipo di entità è vuoto",
+	"bs-social-entity-fatalstatus-save-notype": "Il tipo di entit\u00e0 \u00e8 vuoto",
 	"bs-social-entity-fatalstatus-save-norelatedtitle": "Impossibile trovare la pagina wiki correlata",
-	"bs-social-entity-fatalstatus-save-emptyfield": "Il campo \"$1\" è vuoto",
+	"bs-social-entity-fatalstatus-save-emptyfield": "Il campo \"$1\" \u00e8 vuoto",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Valore per il campo \"$1\" non valido",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Azione sconosciuta \"$1\"",
 	"bs-social-select2-overwrites-noresults": "Nessun risultato",
 	"bs-social-select2-overwrites-searching": "Ricerca...",
 	"bs-extendedsearch-search-center-result-owner-label": "Proprietario:",
-	"bs-extendedsearch-search-center-result-entity_type-label": "Tipo entità:",
-	"bs-social-special-activities-heading": "Attività",
+	"bs-extendedsearch-search-center-result-entity_type-label": "Tipo entit\u00e0:",
+	"bs-social-special-activities-heading": "Attivit\u00e0",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Aggiungi tutto",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Rimuovi tutto",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Oggi",
@@ -48,7 +48,7 @@
 	"bs-social-filter-button-tooltip": "Mostra le opzioni di filtro",
 	"bs-social-sort-button-tooltip": "Mostra le opzioni di ordinamento",
 	"bs-social-entityspawner-button-tooltip": "Crea nuovo",
-	"bs-social-sourcetitle-lockdown-reason-reason": "L'azione $1 può essere eseguita solo dagli amministratori, poiché queste voci non devono essere modificate direttamente.",
+	"bs-social-sourcetitle-lockdown-reason-reason": "L'azione $1 pu\u00f2 essere eseguita solo dagli amministratori, poich\u00e9 queste voci non devono essere modificate direttamente.",
 	"action-social-deleteothers": "cancellare le voci altrui",
 	"action-social-editothers": "modificare le altre voci",
 	"action-social-source": "vedere la pagina di origine",
@@ -59,5 +59,6 @@
 	"bs-social-specialpagelisting-socialentities-show": "Mostra",
 	"bs-social-specialpagelisting-socialentities-hide": "Nascondi",
 	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)",
-	"bs-social-wikipage-attachments-section-heading": "Allegati"
+	"bs-social-wikipage-attachments-section-heading": "Allegati",
+	"bs-social-notification-primary-link-label": "Visualizza entit\u00e0"
 }
