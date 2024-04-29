@@ -28,7 +28,7 @@
 	"bs-social-option-direction-label": "Label for order direction selection field.\n{{Identical|Direction}}",
 	"bs-social-option-direction-val-asc": "Label for ascending option in order direction selection field.\n{{Identical|Ascending}}",
 	"bs-social-option-direction-val-desc": "Label for descending option in order direction selection field.\n{{Identical|Descending}}",
-	"bs-social-editor-advanced": "Label for button, that shows/hides advanced option on entries.\n{{Identical|Advanced}}",
+	"bs-social-editor-advanced": "Label for button, that shows\/hides advanced option on entries.\n{{Identical|Advanced}}",
 	"bs-social-editor-ok": "Label for button, that saves the edit of the entry.\n{{Identical|Post}}",
 	"bs-social-editor-cancel": "Label for button, that cancels the edit of the entry.\n{{Identical|Cancel}}",
 	"bs-social-entityactions-label": "Label for the summary of actions that can be performed on the entry.",
@@ -90,11 +90,12 @@
 	"bs-social-pref-warnonleave": "Label for the checkbox field in user preferences that enables a warning whenever an entry was modified and the user leaves the page or changes the timeline filters.",
 	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Text in dialog, that informs the user, that the changes the user made may will be lost if the user performs this action. Must end in the question, if the user wants to discard the changes and continue",
 	"bs-social-editwarnonleave-confirmtext": "Text in dialog, that informs the user, that the changes the user made will be lost if the user leaves the current page. Must end in the question, if the user wants to discard the changes and continue",
-	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}",
+	"bs-social-specialpagelisting-socialentities": "Option text in [[Special:RecentChanges]]. Parameters:\n* $1 - the \"show\/hide\" command, with the text taken from either {{msg-mw|bs-social-specialpagelisting-socialentities-show}} or {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}",
 	"bs-social-specialpagelisting-socialentities-show": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-hide}}\n{{Identical|Show}}",
 	"bs-social-specialpagelisting-socialentities-hide": "{{doc-actionlink}}\nOption text in [[Special:RecentChanges]] in conjunction with {{msg-mw|bs-social-specialpagelisting-socialentities}}.\n\nSee also:\n* {{msg-mw|bs-social-specialpagelisting-socialentities-show}}\n{{Identical|Hide}}",
 	"bs-socialactionsmw-autoeditsummary": "Text that gets displayed instead of the edit summary, when it was left empty",
 	"bs-social-config-mainlinks-timeline-label": "Label for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
 	"bs-social-config-mainlinks-timeline-help": "Help message for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
-	"bs-social-wikipage-attachments-section-heading": "Heading for attachments section on pages{{Identical|Attachments}}"
+	"bs-social-wikipage-attachments-section-heading": "Heading for attachments section on pages{{Identical|Attachments}}",
+	"bs-social-notification-primary-link-label": "Label for primary link button"
 }

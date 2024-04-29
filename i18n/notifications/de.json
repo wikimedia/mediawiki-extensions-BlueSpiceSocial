@@ -2,24 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Mglaser",
-			"Patric Wirth",
 			"Umherirrender"
 		]
 	},
 	"echo-category-title-bs-social-entity-cat": "Beitragsaktionen auf beobachteten Seiten",
-	"bs-social-notifications-entity-create": "Beitrag vom Typ „$1“ wurde erstellt",
-	"bs-social-notifications-email-entity-create-subject": "Beitrag vom Typ „$1“ wurde erstellt",
-	"bs-social-notifications-email-entity-create-body": "Benutzer {{GENDER:$1|$2 hat}} ein neue „$3“ erstellt",
-	"bs-social-notifications-email-entity-create-text-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ „$3“ mit folgendem Text erstellt:\n$4",
-	"bs-social-notifications-web-entity-create-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ „$3“ erstellt",
-	"bs-social-notifications-entity-edit": "Beitrag vom Typ „$1“ wurde bearbeitet",
-	"bs-social-notifications-email-entity-edit-subject": "Beitrag vom Typ „$1“ wurde bearbeitet",
-	"bs-social-notifications-email-entity-edit-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ „$3“ bearbeitet",
-	"bs-social-notifications-email-entity-edit-text-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ „$3“ mit folgendem Text bearbeitet:\n$4",
-	"bs-social-notifications-web-entity-edit-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ „$3“ bearbeitet",
-	"bs-social-notifications-entity-delete": "Beitrag vom Typ „$1“ wurde gelöscht",
-	"bs-social-notifications-email-entity-delete-subject": "Beitrag vom Typ „$1“ wurde gelöscht",
-	"bs-social-notifications-email-entity-delete-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ „$3“ gelöscht",
-	"bs-social-notifications-web-entity-delete-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ „$3“ gelöscht",
+	"bs-social-notifications-entity-create": "Beitrag vom Typ \u201e$1\u201c wurde erstellt",
+	"bs-social-notifications-email-entity-create-subject": "Beitrag vom Typ \u201e$1\u201c wurde erstellt",
+	"bs-social-notifications-email-entity-create-body": "Benutzer {{GENDER:$1|$2 hat}} ein neue \u201e$3\u201c erstellt",
+	"bs-social-notifications-email-entity-create-text-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ \u201e$3\u201c mit folgendem Text erstellt:\n$4",
+	"bs-social-notifications-web-entity-create-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen neuen Beitrag vom Typ \u201e$3\u201c erstellt",
+	"bs-social-notifications-entity-edit": "Beitrag vom Typ \u201e$1\u201c wurde bearbeitet",
+	"bs-social-notifications-email-entity-edit-subject": "Beitrag vom Typ \u201e$1\u201c wurde bearbeitet",
+	"bs-social-notifications-email-entity-edit-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ \u201e$3\u201c bearbeitet",
+	"bs-social-notifications-email-entity-edit-text-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ \u201e$3\u201c mit folgendem Text bearbeitet:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ \u201e$3\u201c bearbeitet",
+	"bs-social-notifications-entity-delete": "Beitrag vom Typ \u201e$1\u201c wurde gel\u00f6scht",
+	"bs-social-notifications-email-entity-delete-subject": "Beitrag vom Typ \u201e$1\u201c wurde gel\u00f6scht",
+	"bs-social-notifications-email-entity-delete-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ \u201e$3\u201c gel\u00f6scht",
+	"bs-social-notifications-web-entity-delete-body": "{{GENDER:$1|Der Benutzer $2 hat|Die Benutzerin $2 hat}} einen Beitrag vom Typ \u201e$3\u201c gel\u00f6scht",
 	"bs-social-notification-primary-link-label": "Beitrag anzeigen"
 }

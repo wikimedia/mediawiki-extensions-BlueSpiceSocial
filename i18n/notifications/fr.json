@@ -2,24 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Thibaut120094",
 			"Verdy p"
 		]
 	},
-	"echo-category-title-bs-social-entity-cat": "Actions d’entité sur les pages suivies",
-	"bs-social-notifications-entity-create": "Entité sociale de type « $1 » créée",
-	"bs-social-notifications-email-entity-create-subject": "Entité sociale de type « $1 » créée",
-	"bs-social-notifications-email-entity-create-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a créé une nouvelle entité sociale de type « $3 »",
-	"bs-social-notifications-email-entity-create-text-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a créé une nouvelle entité sociale de type « $3 » avec le texte suivant :\n$4",
-	"bs-social-notifications-web-entity-create-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a créé une nouvelle entité sociale de type « $3 »",
-	"bs-social-notifications-entity-edit": "L’entité sociale de type « $1 » a été modifiée",
-	"bs-social-notifications-email-entity-edit-subject": "L’entité sociale de type « $1 » a été modifiée",
-	"bs-social-notifications-email-entity-edit-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a modifié l’entité sociale de type « $3 »",
-	"bs-social-notifications-email-entity-edit-text-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a modifié l’entité sociale de type « $3 » avec le texte suivant :\n$4",
-	"bs-social-notifications-web-entity-edit-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a modifié l’entité sociale de type « $3 »",
-	"bs-social-notifications-entity-delete": "L’entité sociale de type « $1 » a été supprimée",
-	"bs-social-notifications-email-entity-delete-subject": "L’entité sociale de type « $1 » a été supprimée",
-	"bs-social-notifications-email-entity-delete-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a supprimé l’entité sociale de type « $3 »",
-	"bs-social-notifications-web-entity-delete-body": "L’utilisat{{GENDER:$1|eur|rice}} $2 a supprimé l’entité sociale de type « $3 »",
-	"bs-social-notification-primary-link-label": "Afficher l’entité"
+	"echo-category-title-bs-social-entity-cat": "Actions d\u2019entit\u00e9 sur les pages suivies",
+	"bs-social-notifications-entity-create": "Entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb cr\u00e9\u00e9e",
+	"bs-social-notifications-email-entity-create-subject": "Entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb cr\u00e9\u00e9e",
+	"bs-social-notifications-email-entity-create-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a cr\u00e9\u00e9 une nouvelle entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notifications-email-entity-create-text-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a cr\u00e9\u00e9 une nouvelle entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb avec le texte suivant\u202f:\n$4",
+	"bs-social-notifications-web-entity-create-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a cr\u00e9\u00e9 une nouvelle entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notifications-entity-edit": "L\u2019entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb a \u00e9t\u00e9 modifi\u00e9e",
+	"bs-social-notifications-email-entity-edit-subject": "L\u2019entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb a \u00e9t\u00e9 modifi\u00e9e",
+	"bs-social-notifications-email-entity-edit-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a modifi\u00e9 l\u2019entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notifications-email-entity-edit-text-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a modifi\u00e9 l\u2019entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb avec le texte suivant\u202f:\n$4",
+	"bs-social-notifications-web-entity-edit-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a modifi\u00e9 l\u2019entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notifications-entity-delete": "L\u2019entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb a \u00e9t\u00e9 supprim\u00e9e",
+	"bs-social-notifications-email-entity-delete-subject": "L\u2019entit\u00e9 sociale de type \u00ab\u202f$1\u202f\u00bb a \u00e9t\u00e9 supprim\u00e9e",
+	"bs-social-notifications-email-entity-delete-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a supprim\u00e9 l\u2019entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notifications-web-entity-delete-body": "L\u2019utilisat{{GENDER:$1|eur|rice}} $2 a supprim\u00e9 l\u2019entit\u00e9 sociale de type \u00ab\u202f$3\u202f\u00bb",
+	"bs-social-notification-primary-link-label": "Afficher l\u2019entit\u00e9"
 }
