@@ -416,7 +416,6 @@
 			"\\BlueSpice\\Social\\Hook\\GetPreferences\\AddWarnOnLeave::callback"
 		],
 		"HtmlPageLinkRendererEnd": "\\BlueSpice\\Social\\Hook\\HtmlPageLinkRendererEnd\\MaskEntityLinks::callback",
-		"BeforeEchoEventInsert": "\\BlueSpice\\Social\\Hook\\BeforeEchoEventInsert\\DisableOtherNotificationsForEntityPages::callback",
 		"SendWatchlistEmailNotification": "\\BlueSpice\\Social\\Extension::onSendWatchlistEmailNotification",
 		"BSEntitySaveComplete": "\\BlueSpice\\Social\\Hook\\BSEntitySaveComplete\\NotifyUsers::callback",
 		"BSEntityDeleteComplete": "\\BlueSpice\\Social\\Hook\\BSEntityDeleteComplete\\NotifyUsers::callback",
