@@ -6,7 +6,8 @@
 			"Mitte27",
 			"Pacha Tchernof",
 			"Tanzun",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Yurina Tatiana"
 		]
 	},
 	"bs-social-prof-datedisplaymode": "Режим отображения даты",
@@ -20,6 +21,8 @@
 	"bs-social-var-archived": "Архивировано",
 	"bs-social-var-text": "Содержимое",
 	"bs-social-var-timestampcreated": "Дата создания",
+	"bs-social-var-timestamptouched": "Изменить дату",
+	"bs-social-option-orderby-label": "Сортировка",
 	"bs-social-editor-ok": "Сообщение",
 	"bs-social-editor-cancel": "Отмена",
 	"bs-social-entityactions-label": "Действия",
@@ -33,6 +36,7 @@
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Неизвестное действие «$1»",
 	"bs-social-select2-overwrites-noresults": "Ничего не найдено",
 	"bs-social-select2-overwrites-searching": "Поиск…",
+	"bs-extendedsearch-search-center-result-owner-label": "Владелец:",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Добавить всё",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Удалить все",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Сегодня",
@@ -40,10 +44,11 @@
 	"bs-social-renderer-timestampprefix-created": "Создано",
 	"bs-social-renderer-timestampprefix-touched": "Отредактировано",
 	"bs-social-entityspawner-button-tooltip": "Создать новый",
+	"prefs-social": "Хронология",
+	"bs-social-pref-warnonleave": "Предупреждать меня, когда я покидаю страницу с несохранёнными изменениями.",
 	"bs-social-specialpagelisting-socialentities-show": "Показать",
 	"bs-social-specialpagelisting-socialentities-hide": "Скрыть",
 	"bs-socialactionsmw-autoeditsummary": "(без описания)",
 	"bs-social-wikipage-attachments-section-heading": "Вложения",
-	"bs-social-option-orderby-label": "Сортировка",
 	"bs-social-notification-primary-link-label": "Посмотреть объект"
 }
