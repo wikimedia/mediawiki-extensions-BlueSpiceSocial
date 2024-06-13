@@ -121,9 +121,9 @@ class SocialEvent extends TitleEvent {
 			if ( in_array( $user->getId(), $this->getUserIdsToSkip() ) ) {
 				continue;
 			}
-			$users[] = $user;
+			$users[$user->getId()] = $user;
 		}
-		return $users;
+		return array_values( $users );
 	}
 
 	/**
@@ -141,12 +141,21 @@ class SocialEvent extends TitleEvent {
 	 */
 	protected function runQuery( $title ) {
 		$groups = $this->groupPermissionsLookup->getGroupsWithPermission( 'read' );
+		if ( in_array( '*', $groups ) || in_array( 'user', $groups ) ) {
+			$allowedGroups = null;
+		} else {
+			$allowedGroups = $groups;
+		}
 		if ( $this->notifyAll ) {
-			$tables = [ 'user', 'user_groups' ];
-			$conds = [
-				'user_id = ug_user',
-				'ug_group IN (' . $this->lb->getConnection( DB_REPLICA )->makeList( $groups ) . ')'
-			];
+			$tables = [ 'user' ];
+			$conds = [];
+			if ( $allowedGroups ) {
+				$tables[] = 'user_groups';
+				$conds = [
+					'user_id = ug_user',
+					'ug_group IN (' . $this->lb->getConnection( DB_REPLICA )->makeList( $allowedGroups ) . ')'
+				];
+			}
 			return $this->lb->getConnection( DB_REPLICA )->select(
 				$tables,
 				[ 'user_id' ],
@@ -154,13 +163,18 @@ class SocialEvent extends TitleEvent {
 				__METHOD__
 			);
 		} else {
-			$tables = [ 'user_groups', 'watchlist' ];
+			$tables = [ 'watchlist' ];
 			$conds = [
-				'wl_user = ug_user',
-				'ug_group IN (' . $this->lb->getConnection( DB_REPLICA )->makeList( $groups ) . ')',
 				'wl_namespace' => $title->getNamespace(),
 				'wl_title' => $title->getDBkey(),
 			];
+			if ( $allowedGroups ) {
+				$tables[] = 'user_groups';
+				$conds = array_merge( $conds, [
+					'wl_user = ug_user',
+					'ug_group IN (' . $this->lb->getConnection( DB_REPLICA )->makeList( $allowedGroups ) . ')'
+				] );
+			}
 			return $this->lb->getConnection( DB_REPLICA )->select(
 				$tables,
 				[ 'wl_user' ],
