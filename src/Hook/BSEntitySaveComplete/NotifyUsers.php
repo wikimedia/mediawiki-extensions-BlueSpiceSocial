@@ -17,7 +17,6 @@ class NotifyUsers extends BSEntitySaveComplete {
 		if ( !$this->entity instanceof \BlueSpice\Social\Entity ) {
 			return true;
 		}
-
 		if ( !$this->entity->getConfig()->get( 'HasNotifications' ) ) {
 			return true;
 		}
