@@ -48,7 +48,7 @@ class SocialEvent extends TitleEvent {
 		EntityFactory $entityFactory, UserIdentity $agent, stdClass $entityData, string $action = self::ACTION_EDIT
 	) {
 		$this->entity = $entityFactory->newFromObject( $entityData );
-		parent::__construct( $agent, $this->entity->getRelatedTitle() ?? $this->entity->getTitle() );
+		parent::__construct( $agent, $this->doGetRelevantTitle() );
 
 		$this->action = $action;
 		$this->lb = $lb;
@@ -62,6 +62,17 @@ class SocialEvent extends TitleEvent {
 	 */
 	protected function getWatchedTitle() {
 		return $this->entity->getRelatedTitle();
+	}
+
+	/**
+	 * @return Title
+	 */
+	protected function doGetRelevantTitle(): ?Title {
+		$title = $this->getWatchedTitle();
+		if ( $title->isTalkPage() ) {
+			$title = $title->getSubjectPage();
+		}
+		return $title;
 	}
 
 	/**
@@ -107,8 +118,7 @@ class SocialEvent extends TitleEvent {
 	public function getPresetSubscribers(): ?array {
 		$users = [];
 
-		$title = $this->getWatchedTitle();
-
+		$title = $this->doGetRelevantTitle();
 		if ( !( $title instanceof Title ) || !$title->exists() ) {
 			return $users;
 		}
