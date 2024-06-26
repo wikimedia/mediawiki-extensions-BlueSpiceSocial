@@ -48,9 +48,10 @@ class NotifyUsers extends BSEntityDeleteComplete {
 				$this->entity,
 				SocialEvent::ACTION_DELETE
 			] );
-			$event->setNotifyAll( $notifyAll );
-
-			$notifier->emit( $event );
+			if ( $event instanceof SocialEvent ) {
+				$event->setNotifyAll( $notifyAll );
+				$notifier->emit( $event );
+			}
 		}
 	}
 
