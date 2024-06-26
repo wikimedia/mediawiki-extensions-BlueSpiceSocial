@@ -64,9 +64,10 @@ class NotifyUsers extends BSEntitySaveComplete {
 				$this->entity->jsonSerialize(),
 				$action
 			] );
-			$event->setNotifyAll( $notifyAll );
-
-			$notifier->emit( $event );
+			if ( $event instanceof SocialEvent ) {
+				$event->setNotifyAll( $notifyAll );
+				$notifier->emit( $event );
+			}
 		}
 
 		return true;
