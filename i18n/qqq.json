@@ -97,5 +97,6 @@
 	"bs-social-config-mainlinks-timeline-label": "Label for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
 	"bs-social-config-mainlinks-timeline-help": "Help message for checkbox in config, that shows entrypoint \"Timeline\" in the left navigation",
 	"bs-social-wikipage-attachments-section-heading": "Heading for attachments section on pages{{Identical|Attachments}}",
-	"bs-social-notification-primary-link-label": "Label for primary link button"
+	"bs-social-notification-primary-link-label": "Label for primary link button",
+	"bs-social-notification-user-page-generic": "Label for the link leading to the user page"
 }
