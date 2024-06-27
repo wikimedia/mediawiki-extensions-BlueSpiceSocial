@@ -402,6 +402,9 @@
 		"common-user-interface": {
 			"class": "\\BlueSpice\\Social\\HookHandler\\CommonUserInterface",
 			"services": [ "ConfigFactory" ]
+		},
+		"notifyUsers": {
+			"class": "\\BlueSpice\\Social\\Hook\\NotifyUsers"
 		}
 	},
 	"Hooks": {
@@ -417,8 +420,8 @@
 		],
 		"HtmlPageLinkRendererEnd": "\\BlueSpice\\Social\\Hook\\HtmlPageLinkRendererEnd\\MaskEntityLinks::callback",
 		"SendWatchlistEmailNotification": "\\BlueSpice\\Social\\Extension::onSendWatchlistEmailNotification",
-		"BSEntitySaveComplete": "\\BlueSpice\\Social\\Hook\\BSEntitySaveComplete\\NotifyUsers::callback",
-		"BSEntityDeleteComplete": "\\BlueSpice\\Social\\Hook\\BSEntityDeleteComplete\\NotifyUsers::callback",
+		"BSEntitySaveComplete": "notifyUsers",
+		"BSEntityDelete": "notifyUsers",
 		"SkinBuildSidebar": "\\BlueSpice\\Social\\Hook\\SkinBuildSidebar\\AddTimelineNavigationItem::callback",
 		"BSRSSFeederBeforeGetRecentChanges": "\\BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial::callback",
 		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback",
