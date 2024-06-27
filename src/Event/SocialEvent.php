@@ -96,7 +96,7 @@ class SocialEvent extends TitleEvent {
 	 */
 	public function getMessage( IChannel $forChannel ): Message {
 		return Message::newFromKey( "bs-social-event-$this->action" )->params(
-			$this->getEntityTypeMessage()->text()
+			$this->getEntityTypeMessage()->text(), $this->getTitleAnchor( $this->doGetRelevantTitle(), $forChannel )
 		);
 	}
 
