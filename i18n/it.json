@@ -60,5 +60,6 @@
 	"bs-social-specialpagelisting-socialentities-hide": "Nascondi",
 	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)",
 	"bs-social-wikipage-attachments-section-heading": "Allegati",
-	"bs-social-notification-primary-link-label": "Visualizza entità"
+	"bs-social-notification-primary-link-label": "Visualizza entità",
+	"bs-social-notification-user-page-generic": "la {{GENDER:|tua}} pagina utente"
 }
