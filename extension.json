@@ -427,7 +427,8 @@
 		"ChangesListSpecialPageStructuredFilters": "\\BlueSpice\\Social\\Hook\\ChangesListSpecialPageStructuredFilters\\AddSocialEntityFilter::callback",
 		"MergeAccountFromTo": "\\BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner::callback",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface",
-		"LoadExtensionSchemaUpdates": "\\BlueSpice\\Social\\Hook\\LoadExtensionSchemaUpdates\\AddMigrationMaintenanceScript::callback"
+		"LoadExtensionSchemaUpdates": "\\BlueSpice\\Social\\Hook\\LoadExtensionSchemaUpdates\\AddMigrationMaintenanceScript::callback",
+		"MWStakeCommonUILessVarsInit": "common-user-interface"
 	},
 	"DefaultUserOptions": {
 		"bs-social-datedisplaymode": "age",
