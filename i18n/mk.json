@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vlad5250"
+			"Vlad5250",
+			"Bjankuloski06"
 		]
 	},
 	"activities": "Активности",
@@ -27,7 +28,7 @@
 	"bs-social-entityaction-undelete": "Поврати",
 	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Неважечка вредност за полето „$1“",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Непознато дејство „$1“",
-	"bs-social-select2-overwrites-noresults": "Нема исход",
+	"bs-social-select2-overwrites-noresults": "Не најдов ништо",
 	"bs-social-select2-overwrites-searching": "Пребарувам...",
 	"bs-extendedsearch-search-center-result-owner-label": "Сопственик:",
 	"bs-social-special-activities-heading": "Активности",
