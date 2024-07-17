@@ -6,6 +6,7 @@
 			"Mitte27",
 			"Pacha Tchernof",
 			"Tanzun",
+			"Yurina Tatiana",
 			"Александр Сигачёв"
 		]
 	},
@@ -45,5 +46,9 @@
 	"bs-socialactionsmw-autoeditsummary": "(без описания)",
 	"bs-social-wikipage-attachments-section-heading": "Вложения",
 	"bs-social-option-orderby-label": "Сортировка",
-	"bs-social-notification-primary-link-label": "Посмотреть объект"
+	"bs-social-notification-primary-link-label": "Посмотреть объект",
+	"bs-social-var-timestamptouched": "Изменить дату",
+	"bs-extendedsearch-search-center-result-owner-label": "Владелец:",
+	"prefs-social": "Хронология",
+	"bs-social-pref-warnonleave": "Предупреждать меня, когда я покидаю страницу с несохранёнными изменениями."
 }
