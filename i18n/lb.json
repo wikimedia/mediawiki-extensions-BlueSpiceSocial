@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"activities": "Aktivitéiten",
@@ -37,5 +38,6 @@
 	"prefs-social": "Chronologie",
 	"bs-social-specialpagelisting-socialentities-show": "Weisen",
 	"bs-social-specialpagelisting-socialentities-hide": "Verstoppen",
-	"bs-socialactionsmw-autoeditsummary": "(Kee Resumé)"
+	"bs-socialactionsmw-autoeditsummary": "(Kee Resumé)",
+	"bs-social-notification-user-page-generic": "Är Benotzersäit"
 }

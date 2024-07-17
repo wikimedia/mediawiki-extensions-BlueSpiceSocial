@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Исмаил Садуев",
 			"Умар"
 		]
 	},
@@ -12,7 +13,7 @@
 	"bs-social-editor-ok": "Хаам",
 	"bs-social-editor-cancel": "Йухайаккха",
 	"bs-social-entityactions-label": "Ардамаш",
-	"bs-social-entityaction-edit": "Нисйе",
+	"bs-social-entityaction-edit": "Нисйан",
 	"bs-social-entityaction-delete": "ДӀайаккха",
 	"bs-social-entityaction-delete-confirmtext": "ДӀадаккха дӀайаздар?",
 	"bs-social-entityaction-undelete": "МеттахӀоттайе",
