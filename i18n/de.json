@@ -4,7 +4,8 @@
 			"FF11",
 			"Mglaser",
 			"Patric Wirth",
-			"Umherirrender"
+			"Umherirrender",
+			"TomatoCake"
 		]
 	},
 	"bs-social-desc": "Basis-Erweiterung für BlueSpiceSocial-Erweiterungen",
@@ -91,5 +92,6 @@
 	"bs-social-config-mainlinks-timeline-label": "Einstiegspunkt \"Timeline\" anzeigen",
 	"bs-social-config-mainlinks-timeline-help": "Einstiegspunkt \"Timeline\" in der linken Navigation anzeigen",
 	"bs-social-wikipage-attachments-section-heading": "Anhänge",
-	"bs-social-notification-primary-link-label": "Beitrag anzeigen"
+	"bs-social-notification-primary-link-label": "Beitrag anzeigen",
+	"bs-social-notification-user-page-generic": "{{GENDER:|Deine Benutzer}}seite"
 }
