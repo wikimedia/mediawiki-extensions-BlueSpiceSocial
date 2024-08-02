@@ -11,6 +11,7 @@ use MWException;
 
 class Headline extends \BlueSpice\TemplateRenderer {
 	public const PARAM_ENTITY_LIST = 'entitylist';
+	public const PARAM_ENTITY_HEADLINE_ID = 'headlineid';
 
 	/**
 	 *
@@ -46,6 +47,10 @@ class Headline extends \BlueSpice\TemplateRenderer {
 			);
 		}
 		$args = $this->entityList->getArgs();
+
+		if ( isset( $args[EntityList::PARAM_ID] ) ) {
+			$this->args[static::PARAM_ENTITY_HEADLINE_ID] = $args[EntityList::PARAM_ID] . '-headline';
+		}
 
 		$this->args[static::PARAM_TAG] = 'div';
 		if ( empty( $this->args[static::PARAM_CLASS] ) ) {
