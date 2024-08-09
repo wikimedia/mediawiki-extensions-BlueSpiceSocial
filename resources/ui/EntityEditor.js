@@ -170,6 +170,8 @@ bs.social.EntityEditor.prototype.makeCancel = function() {
 bs.social.EntityEditor.prototype.makeSettings = function() {
 	return new OO.ui.ButtonWidget( {
 		icon: 'settings',
+		label: mw.message( 'bs-social-editor-settings' ).plain(),
+		invisibleLabel: true,
 		iconOnly: true,
 		disabled: true,
 		framed: false
