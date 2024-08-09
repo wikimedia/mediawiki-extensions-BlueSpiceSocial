@@ -9,6 +9,7 @@ use Exception;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use Message;
 
 class EntityActions extends \BlueSpice\Renderer {
 
@@ -58,7 +59,7 @@ class EntityActions extends \BlueSpice\Renderer {
 
 	protected function makeTagContent() {
 		$content = '';
-		$content .= Html::element( 'div', [
+		$content .= Html::element( 'ul', [
 			'class' => 'bs-social-entity-actions-menu-prio'
 		] );
 		$content .= Html::openElement( 'div', [
@@ -66,6 +67,7 @@ class EntityActions extends \BlueSpice\Renderer {
 		] );
 		$content .= Html::openElement( 'div', [ 'class' => 'dropdown' ] );
 
+		$ariaLabel = Message::newFromKey( 'bs-social-entity-actions-menu-button-aria-label' );
 		$content .= Html::openElement( 'button', [
 			'class' => 'btn btn-secondary dropdown-toggle',
 			'type' => 'button',
@@ -73,6 +75,7 @@ class EntityActions extends \BlueSpice\Renderer {
 			'data-bs-toggle' => 'dropdown',
 			'aria-haspopup' => 'true',
 			'aria-expanded' => 'false',
+			'aria-label' => $ariaLabel->plain(),
 		] );
 		$content .= Html::element( 'span', [
 			'class' => 'caret'

@@ -94,5 +94,6 @@
 	"bs-social-config-mainlinks-timeline-help": "Einstiegspunkt \"Timeline\" in der linken Navigation anzeigen",
 	"bs-social-wikipage-attachments-section-heading": "Anhänge",
 	"bs-social-notification-primary-link-label": "Beitrag anzeigen",
-	"bs-social-notification-user-page-generic": "{{GENDER:|Deine Benutzer}}seite"
+	"bs-social-notification-user-page-generic": "{{GENDER:|Deine Benutzer}}seite",
+	"bs-social-editor-settings": "Verlinkte Seiten anzeigen"
 }
