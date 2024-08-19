@@ -5,7 +5,8 @@
 			"Mglaser",
 			"Patric Wirth",
 			"Umherirrender",
-			"TomatoCake"
+			"TomatoCake",
+			"Justman10000"
 		]
 	},
 	"bs-social-desc": "Basis-Erweiterung für BlueSpiceSocial-Erweiterungen",
@@ -83,8 +84,8 @@
 	"right-social-source": "Quellseite anzeigen",
 	"prefs-social": "Timeline",
 	"bs-social-pref-warnonleave": "Warnen, wenn eine Bearbeitung eines Eintrags mit ungespeicherten Änderungen verlassen wird",
-	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Die Ausführung dieser Aktion kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
-	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der gemachten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
+	"bs-social-entitylistmenu-editwarnonchange-confirmtext": "Die Ausführung dieser Aktion kann zu einem Verlust der durchgeführten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
+	"bs-social-editwarnonleave-confirmtext": "Das Verlassen dieser Seite kann zu einem Verlust der durchgeführten Änderungen führen. Willst du die Änderungen verwerfen und fortfahren?",
 	"bs-social-specialpagelisting-socialentities": "Soziale Entitäten $1",
 	"bs-social-specialpagelisting-socialentities-show": "anzeigen",
 	"bs-social-specialpagelisting-socialentities-hide": "verstecken",
