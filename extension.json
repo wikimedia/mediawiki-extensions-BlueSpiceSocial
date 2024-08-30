@@ -86,7 +86,7 @@
 				"\\BlueSpice\\Social\\Privacy\\Handler"
 			]
 		},
-		"Notifications": {
+		"NotifyMe": {
 			"Events": {
 				"bs-social-event": {
 					"spec": {
