@@ -4,7 +4,7 @@ namespace BlueSpice\Social\Hook;
 
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\Event\SocialEvent;
-use MediaWiki\Extension\Notifications\EventFactory;
+use MediaWiki\Extension\NotifyMe\EventFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use MWStake\MediaWiki\Component\Events\Notifier;
@@ -75,7 +75,7 @@ class NotifyUsers {
 			$eventKeys = [ $eventKeys ];
 		}
 		/** @var EventFactory $eventFactory */
-		$eventFactory = MediaWikiServices::getInstance()->getService( 'Notifications.EventFactory' );
+		$eventFactory = MediaWikiServices::getInstance()->getService( 'NotifyMe.EventFactory' );
 		/** @var Notifier $notifier */
 		$notifier = MediaWikiServices::getInstance()->getService( 'MWStake.Notifier' );
 		foreach ( $eventKeys as $eventKey ) {
