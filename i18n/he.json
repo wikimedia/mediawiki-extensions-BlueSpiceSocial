@@ -92,5 +92,7 @@
 	"bs-social-config-mainlinks-timeline-help": "הצגת נקודת הכניסה \"ציר זמן\" בסרגל הניווט הימני",
 	"bs-social-wikipage-attachments-section-heading": "צרופות",
 	"bs-social-notification-primary-link-label": "הצגת ישות",
-	"bs-social-notification-user-page-generic": "דף המשתמש {{GENDER:|שלך}}"
+	"bs-social-notification-user-page-generic": "דף המשתמש {{GENDER:|שלך}}",
+	"bs-social-entity-actions-menu-button-aria-label": "פתיחת תפריט הפעולות",
+	"bs-social-editor-settings": "הצגת דפים קשורים"
 }
