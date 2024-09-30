@@ -93,6 +93,7 @@
 						"class": "\\BlueSpice\\Social\\Event\\SocialEvent",
 						"services": [ "DBLoadBalancer", "UserFactory", "GroupPermissionsLookup", "BSEntityFactory" ]
 					},
+					"testable": false,
 					"buckets": [ "content-high-freq" ]
 				},
 				"bs-social-text-event": {
@@ -100,6 +101,7 @@
 						"class": "\\BlueSpice\\Social\\Event\\SocialTextEvent",
 						"services": [ "DBLoadBalancer", "UserFactory", "GroupPermissionsLookup", "BSEntityFactory" ]
 					},
+					"testable": false,
 					"buckets": [ "content-high-freq" ]
 				}
 			}
