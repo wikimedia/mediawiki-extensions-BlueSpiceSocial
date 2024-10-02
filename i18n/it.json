@@ -61,5 +61,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(Nessun oggetto)",
 	"bs-social-wikipage-attachments-section-heading": "Allegati",
 	"bs-social-notification-primary-link-label": "Visualizza entità",
-	"bs-social-notification-user-page-generic": "la {{GENDER:|tua}} pagina utente"
+	"bs-social-notification-user-page-generic": "la {{GENDER:|tua}} pagina utente",
+	"bs-social-editor-settings": "Mostra pagine correlate"
 }

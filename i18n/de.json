@@ -4,6 +4,7 @@
 			"FF11",
 			"Justman10000",
 			"Mglaser",
+			"Mschlindwein",
 			"Patric Wirth",
 			"TomatoCake",
 			"Umherirrender"
@@ -95,5 +96,6 @@
 	"bs-social-wikipage-attachments-section-heading": "Anhänge",
 	"bs-social-notification-primary-link-label": "Beitrag anzeigen",
 	"bs-social-notification-user-page-generic": "{{GENDER:|Deine Benutzer}}seite",
-	"bs-social-editor-settings": "Verlinkte Seiten anzeigen"
+	"bs-social-editor-settings": "Verlinkte Seiten anzeigen",
+	"bs-social-entity-actions-menu-button-aria-label": "Aktionsmenü öffnen"
 }
