@@ -4,6 +4,7 @@
 			"Derugon",
 			"Gomoko",
 			"Grondin",
+			"Terio legale",
 			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
@@ -95,5 +96,7 @@
 	"bs-social-config-mainlinks-timeline-label": "Afficher le point d’entrée « Chronologie »",
 	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche",
 	"bs-social-wikipage-attachments-section-heading": "Pièces jointes",
-	"bs-social-notification-primary-link-label": "Afficher l’entité"
+	"bs-social-notification-primary-link-label": "Afficher l’entité",
+	"bs-social-entity-actions-menu-button-aria-label": "Ouvrir le menu des actions",
+	"bs-social-editor-settings": "Afficher les pages associées"
 }
