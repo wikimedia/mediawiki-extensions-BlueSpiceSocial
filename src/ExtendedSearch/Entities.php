@@ -46,7 +46,7 @@ class Entities extends WikiPages {
 			'class' => EntityDocumentProvider::class,
 			'services' => [
 				'HookContainer', 'ContentRenderer', 'RevisionLookup', 'PageProps', 'Parser',
-				'RedirectLookup', 'UserFactory'
+				'RedirectLookup', 'UserFactory', 'RevisionRenderer'
 			]
 		] );
 	}
