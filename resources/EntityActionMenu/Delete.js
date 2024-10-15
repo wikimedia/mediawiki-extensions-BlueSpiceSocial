@@ -17,10 +17,14 @@ bs.social.EntityActionMenu.Delete = function ( entityActionMenu ) {
 	var key = me.entityActionMenu.entity.data.get( 'archived' )
 		? 'bs-social-entityaction-undelete'
 		: 'bs-social-entityaction-delete';
-	me.$element = $( '<li><a class="dropdown-item bs-social-entity-action-delete" tabindex="0" role="button">'
-		+ '<span>' + mw.message( key ).plain() + '</span>'
-		+ '</a></li>'
-	);
+	me.$element = $( '<li>' );
+	var $a = $( '<a>' )
+		.addClass( 'dropdown-item bs-social-entity-action-delete' )
+		.attr( 'tabindex', 0 )
+		.attr( 'role', 'button' )
+		.attr( 'aria-label', mw.message( key ).plain() )
+		.text( mw.message( key ).plain() );
+	me.$element.append( $a );
 
 	me.$element.on( 'click', function( e ) { me.click( e ); } );
 	me.priority = 10;
