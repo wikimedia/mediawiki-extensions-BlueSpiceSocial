@@ -34,6 +34,11 @@ bs.social.EntityListMenu.Button.prototype.makeButton = function() {
 	var me = this;
 	this.$button = $(tpl.render( this.getTemplateVars() ));
 
+	this.$button.on( 'keydown', function( e ) {
+		if( e.keyCode === 13 ) {
+			me.onClick();
+		}
+	} );
 	this.$button.on(
 		'click',
 		me.onClick.bind( this )

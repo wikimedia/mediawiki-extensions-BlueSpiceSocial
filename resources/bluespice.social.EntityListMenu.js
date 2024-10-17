@@ -180,6 +180,7 @@ bs.social.EntityListMenu.prototype.makeOptionButton = function() {
 		classes: 'bs-entitylist-menu-item-options',
 		tooltip: mw.message( 'bs-social-sort-button-tooltip' ).plain()
 	}));
+	this.attachKeypressHandler( $button );
 	return $button;
 };
 
@@ -192,6 +193,7 @@ bs.social.EntityListMenu.prototype.makeFilterButton = function() {
 		classes: 'bs-entitylist-menu-item-filters',
 		tooltip: mw.message( 'bs-social-filter-button-tooltip' ).plain()
 	}));
+	this.attachKeypressHandler( $button );
 	return $button;
 };
 
@@ -341,4 +343,12 @@ bs.social.EntityListMenu.prototype.removeLoading = function() {
 		}
 		this.options[i].activate();
 	}
+};
+
+bs.social.EntityListMenu.prototype.attachKeypressHandler = function( $button ) {
+	$button.on( 'keydown', function( e ) {
+		if( e.keyCode === 13 ) {
+			$(this).trigger( 'click' );
+		}
+	} );
 };
