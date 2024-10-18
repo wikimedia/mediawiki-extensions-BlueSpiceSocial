@@ -89,5 +89,7 @@
 	"bs-social-config-mainlinks-timeline-help": "Monstrar le ligamine del puncto de entrata \"Chronologia\" in le navigation al sinistra",
 	"bs-social-wikipage-attachments-section-heading": "Annexos",
 	"bs-social-notification-primary-link-label": "Vider entitate",
-	"bs-social-notification-user-page-generic": "tu pagina de usator"
+	"bs-social-notification-user-page-generic": "tu pagina de usator",
+	"bs-social-entity-actions-menu-button-aria-label": "Aperir le menu de actiones",
+	"bs-social-editor-settings": "Monstrar paginas associate"
 }
