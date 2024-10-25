@@ -219,4 +219,23 @@ class SocialEvent extends TitleEvent {
 	protected function getUserIdsToSkip() {
 		return [ $this->agent->getId() ];
 	}
+
+	/**
+	 * @param Entity $entity
+	 * @return Title|null
+	 */
+	protected function getRelatedTitleFromTags( Entity $entity ): ?Title {
+		$data = $entity->getFullData();
+		if ( isset( $data['tags'] ) && count( $data['tags'] ) ) {
+			foreach ( $data['tags'] as $tag ) {
+				$title = Title::newFromText( $tag );
+				if ( $title && !$title->isMainPage() ) {
+					// Try to return any page but the main page, as its always assigned, mostly wrongly
+					// If no other page is found, return the main page (as it will be related title)
+					return $title;
+				}
+			}
+		}
+		return null;
+	}
 }
