@@ -61,9 +61,9 @@
 	"bs-social-filter-button-tooltip": "Прикажи опције филтера",
 	"bs-social-sort-button-tooltip": "Прикажи опције за сортирање",
 	"bs-social-entityspawner-button-tooltip": "Направи нови",
+	"action-social-deleteothers": "бришете туђе уносе",
 	"bs-social-specialpagelisting-socialentities-show": "Прикажи",
 	"bs-social-specialpagelisting-socialentities-hide": "Сакриј",
 	"bs-socialactionsmw-autoeditsummary": "(Нема описа)",
-	"bs-social-wikipage-attachments-section-heading": "Прилози",
-	"action-social-deleteothers": "бришете туђе уносе"
+	"bs-social-wikipage-attachments-section-heading": "Прилози"
 }

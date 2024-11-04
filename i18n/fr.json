@@ -8,7 +8,8 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Mahabarata"
 		]
 	},
 	"bs-social-desc": "Extension de base pour les extensions sociales",
@@ -97,6 +98,7 @@
 	"bs-social-config-mainlinks-timeline-help": "Afficher le lien du point d’entrée « Chronologie » dans le panneau de navigation à gauche",
 	"bs-social-wikipage-attachments-section-heading": "Pièces jointes",
 	"bs-social-notification-primary-link-label": "Afficher l’entité",
+	"bs-social-notification-user-page-generic": "{{GENDER:|}}Votre page personnelle",
 	"bs-social-entity-actions-menu-button-aria-label": "Ouvrir le menu des actions",
 	"bs-social-editor-settings": "Afficher les pages associées"
 }
