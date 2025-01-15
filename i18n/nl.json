@@ -95,5 +95,8 @@
 	"bs-social-config-mainlinks-timeline-label": "Toegangspunt \"Tijdlijn\" weergeven",
 	"bs-social-config-mainlinks-timeline-help": "De koppeling naar het toegangspunt \"Tijdlijn\" weergeven in de navigatie aan de linkerkant",
 	"bs-social-wikipage-attachments-section-heading": "Bijlagen",
-	"bs-social-notification-primary-link-label": "Entiteit bekijken"
+	"bs-social-notification-primary-link-label": "Entiteit bekijken",
+	"bs-social-notification-user-page-generic": "uw gebruikerspagina",
+	"bs-social-entity-actions-menu-button-aria-label": "Handelingenmenu openen",
+	"bs-social-editor-settings": "Gerelateerde pagina’s weergeven"
 }
