@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ján Kepler"
+			"Ján Kepler",
+			"Jrobicek"
 		]
 	},
-	"bs-social-specialpagelisting-socialentities-hide": "Skrýt"
+	"bs-social-editor-cancel": "Storno",
+	"bs-social-entityaction-edit": "Upravit",
+	"bs-social-renderer-timestampprefix-touched": "Upraveno",
+	"bs-social-specialpagelisting-socialentities-hide": "Skrýt",
+	"bs-social-editor-settings": "Zobrazit související stránky"
 }
