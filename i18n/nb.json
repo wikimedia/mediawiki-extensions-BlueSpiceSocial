@@ -89,5 +89,8 @@
 	"bs-social-config-mainlinks-timeline-label": "Vis inngangspunktet «Tidslinje»",
 	"bs-social-config-mainlinks-timeline-help": "Vis lenke til inngangspunktet «Tidslinje» i venstremenyen",
 	"bs-social-wikipage-attachments-section-heading": "Vedlegg",
-	"bs-social-notification-primary-link-label": "Vis entitet"
+	"bs-social-notification-primary-link-label": "Vis entitet",
+	"bs-social-notification-user-page-generic": "brukersiden {{GENDER:|din}}",
+	"bs-social-entity-actions-menu-button-aria-label": "Åpne handlingsmenyen",
+	"bs-social-editor-settings": "Vis relaterte side"
 }
