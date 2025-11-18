@@ -3,6 +3,7 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Rapsar",
+			"SaldırganSincap",
 			"Suvarioglu"
 		]
 	},
@@ -76,7 +77,7 @@
 	"action-social-deleteothers": "diğer girişleri sil",
 	"action-social-editothers": "diğer girişleri sil",
 	"action-social-source": "kaynak sayfayı görüntüle",
-	"right-social-deleteothers": "Diğer girişleri sil",
+	"right-social-deleteothers": "Başkalarının girişlerini sil",
 	"right-social-editothers": "Diğer girdileri düzenle",
 	"right-social-source": "Kaynak sayfayı görüntüle",
 	"prefs-social": "Zaman çizelgesi",
