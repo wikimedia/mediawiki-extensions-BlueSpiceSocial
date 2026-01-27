@@ -91,12 +91,13 @@ class Messages extends ResourceLoaderModule {
 	 * @return array
 	 */
 	private function getLegacyMessageKeys() {
-		if ( empty( $GLOBALS['wgHooks']['BSSocialModuleDepths'] ) ) {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		if ( !$hookContainer->isRegistered( 'BSSocialModuleDepths' ) ) {
 			return [];
 		}
 		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
 		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialModuleDepths', [
+		$hookContainer->run( 'BSSocialModuleDepths', [
 			// deprecated
 			null,
 			// deprecated

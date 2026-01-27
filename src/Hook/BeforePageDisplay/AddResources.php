@@ -50,12 +50,13 @@ class AddResources extends BeforePageDisplay {
 	 * @deprecated since version 3.2
 	 */
 	private function addLegacyResources() {
-		if ( empty( $GLOBALS['wgHooks']['BSSocialModuleDepths'] ) ) {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		if ( !$hookContainer->isRegistered( 'BSSocialModuleDepths' ) ) {
 			return;
 		}
 		wfDebugLog( 'bluespice-deprecations', __METHOD__, 'private' );
 		$aConfig = $aScripts = $aStyles = $aVarMsgKeys = [];
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'BSSocialModuleDepths', [
+		$hookContainer->run( 'BSSocialModuleDepths', [
 			// deprecated
 			$this->getContext()->getOutput(),
 			// deprecated
