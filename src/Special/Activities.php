@@ -14,7 +14,7 @@ use BlueSpice\Social\EntityListContext\SpecialActivities;
 class Activities extends \BlueSpice\SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'Activities', 'read', true );
+		parent::__construct( 'Activities', 'read' );
 	}
 
 	/**
