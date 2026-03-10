@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Renessaince",
-			"W"
+			"W",
+			"Ucukor"
 		]
 	},
 	"activities": "Дзейнасьць",
-	"bs-social-pref-datedisplaymode-mode-age": "Паказаць як узрост",
+	"bs-social-pref-datedisplaymode-mode-age": "Паказаць як век",
 	"bs-social-pref-datedisplaymode-mode-mw": "Паказаць як дату",
 	"bs-social-var-ownerid": "Уласьнік(-ца)",
 	"bs-social-var-type": "Від",
