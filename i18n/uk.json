@@ -90,5 +90,6 @@
 	"bs-social-specialpagelisting-socialentities-show": "Показати",
 	"bs-social-specialpagelisting-socialentities-hide": "Сховати",
 	"bs-socialactionsmw-autoeditsummary": "(Без опису змін)",
-	"bs-social-config-mainlinks-timeline-label": "Показати точку входу «Часова шкала»"
+	"bs-social-config-mainlinks-timeline-label": "Показати точку входу «Часова шкала»",
+	"bs-social-notification-primary-link-label": "Переглянути сутність"
 }

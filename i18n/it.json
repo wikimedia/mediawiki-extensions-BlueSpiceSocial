@@ -59,5 +59,8 @@
 	"action-social-source": "vedere la pagina di origine",
 	"right-social-deleteothers": "Cancella le voci altrui",
 	"right-social-editothers": "Modifica le altre voci",
-	"bs-social-pref-warnonleave": "Avvisami quando lascio una modifica di una voce con modifiche non salvate."
+	"bs-social-pref-warnonleave": "Avvisami quando lascio una modifica di una voce con modifiche non salvate.",
+	"bs-social-notification-primary-link-label": "Visualizza entità",
+	"bs-social-notification-user-page-generic": "la {{GENDER:|tua}} pagina utente",
+	"bs-social-editor-settings": "Mostra pagine correlate"
 }

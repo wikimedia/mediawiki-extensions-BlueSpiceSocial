@@ -88,5 +88,6 @@
 	"bs-socialactionsmw-autoeditsummary": "(sem resumo)",
 	"bs-social-config-mainlinks-timeline-label": "Mostrar ponto de entrada \"Linha cronológica\"",
 	"bs-social-config-mainlinks-timeline-help": "Mostrar ponto de entrada \"Linha cronológica\" na navegação à esquerda",
-	"bs-social-wikipage-attachments-section-heading": "Anexos"
+	"bs-social-wikipage-attachments-section-heading": "Anexos",
+	"bs-social-notification-primary-link-label": "Ver entidade"
 }

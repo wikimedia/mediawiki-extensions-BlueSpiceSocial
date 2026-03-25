@@ -1,8 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
-			"Dejan Savuljesku"
+			"Amire80"
 		]
 	},
 	"echo-category-title-bs-social-entity-cat": "Checkbox label for mail and wiki notification subscription for actions on entities on page user watches",

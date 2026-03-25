@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"GilPe",
+			"Robby",
+			"Volvox"
 		]
 	},
 	"activities": "Aktivitéiten",
@@ -14,7 +16,7 @@
 	"bs-social-var-archived": "Archivéiert",
 	"bs-social-var-text": "Inhalt",
 	"bs-social-var-timestamptouched": "Datum vun der Ännerung",
-	"bs-social-option-orderby-label": "Zortéieren",
+	"bs-social-option-orderby-label": "Sortéierung",
 	"bs-social-option-direction-label": "Richtung",
 	"bs-social-editor-advanced": "Erweidert",
 	"bs-social-editor-cancel": "Ofbriechen",
@@ -37,5 +39,6 @@
 	"prefs-social": "Chronologie",
 	"bs-social-specialpagelisting-socialentities-show": "Weisen",
 	"bs-social-specialpagelisting-socialentities-hide": "Verstoppen",
-	"bs-socialactionsmw-autoeditsummary": "(Kee Resumé)"
+	"bs-socialactionsmw-autoeditsummary": "(Kee Resümmee)",
+	"bs-social-notification-user-page-generic": "Är Benotzersäit"
 }
