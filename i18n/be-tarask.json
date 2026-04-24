@@ -19,17 +19,22 @@
 	"bs-social-entityaction-edit": "Правіць",
 	"bs-social-entityaction-delete": "Выдаліць",
 	"bs-social-entityaction-undelete": "Аднавіць",
+	"bs-social-entity-fatalstatus-save-notype": "Тып існасьці пусты",
 	"bs-social-entity-fatalstatus-save-emptyfield": "Поле «$1» пустое",
 	"bs-social-entity-fatalstatus-permission-unknownaction": "Невядомае дзеяньне «$1»",
 	"bs-social-select2-overwrites-noresults": "Няма выніку",
+	"bs-extendedsearch-source-label-socialentity": "Timeline-існасьць",
 	"bs-extendedsearch-search-center-result-owner-label": "Уласьнік(-ца):",
+	"bs-extendedsearch-search-center-result-entity_type-label": "Тып існасьці:",
 	"bs-social-special-activities-heading": "Дзейнасьць",
 	"bs-social-entitylistmenufilter-quickfilter-addall": "Дадаць усё",
 	"bs-social-entitylistmenufilter-quickfilter-removeall": "Прыбраць усё",
 	"bs-social-entitylistmenufilter-quickfilter-removeall-date": "Сёньня",
 	"bs-social-filter-owner-val-all": "Усё",
+	"bs-extendedsearch-source-type-socialentity-label": "Сацыяльная існасьць",
 	"bs-social-specialpagelisting-socialentities-show": "Паказаць",
 	"bs-social-specialpagelisting-socialentities-hide": "Схаваць",
 	"bs-socialactionsmw-autoeditsummary": "(Няма падсумоўваньня)",
-	"bs-social-config-mainlinks-timeline-label": "Паказаць пункт уваходу „Храналёгія“"
+	"bs-social-config-mainlinks-timeline-label": "Паказаць пункт уваходу „Храналёгія“",
+	"bs-social-notification-primary-link-label": "Глядзець існасьць"
 }
