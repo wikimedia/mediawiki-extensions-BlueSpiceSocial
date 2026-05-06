@@ -14,6 +14,8 @@
 	"bs-social-var-text": "Зьмест",
 	"bs-social-var-timestampcreated": "Дата стварэньня",
 	"bs-social-var-timestamptouched": "Правіць дату",
+	"bs-social-option-direction-val-asc": "Водле ўзросту",
+	"bs-social-option-direction-val-desc": "Водле спаду",
 	"bs-social-editor-cancel": "Скасаваць",
 	"bs-social-entityactions-label": "Дзеяньні",
 	"bs-social-entityaction-edit": "Правіць",
