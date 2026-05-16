@@ -14,7 +14,12 @@ use BlueSpice\Social\EntityListContext\SpecialActivities;
 class Activities extends \BlueSpice\SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'Activities', 'read' );
+		parent::__construct( 'Activities' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'read';
 	}
 
 	/**

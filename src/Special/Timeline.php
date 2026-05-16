@@ -16,7 +16,12 @@ use FormatJson;
 class Timeline extends \BlueSpice\SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'Timeline', 'read' );
+		parent::__construct( 'Timeline' );
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'read';
 	}
 
 	/**
