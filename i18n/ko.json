@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong",
 			"Yunbj"
 		]
@@ -50,5 +51,23 @@
 	"bs-social-specialpagelisting-socialentities-hide": "숨기기",
 	"bs-socialactionsmw-autoeditsummary": "(요약 없음)",
 	"bs-social-wikipage-attachments-section-heading": "첨부",
-	"bs-social-editor-settings": "관련 문서 보기"
+	"bs-social-editor-settings": "관련 문서 보기",
+	"bs-social-desc": "소셜 확장 기능을 위한 기본 확장 기능",
+	"bs-social-prof-datedisplaymode": "날짜 표시 방식",
+	"bs-social-pref-datedisplaymode-mode-age": "나이로 표시",
+	"bs-social-entitytext-header-create": "새 항목",
+	"bs-social-var-archived": "보존됨",
+	"bs-social-entityaction-delete-confirmtext": "항목을 삭제합니까?",
+	"bs-social-entityaction-undelete": "복구",
+	"bs-social-entityaction-undelete-confirmtext": "항목을 복구합니까?",
+	"bs-extendedsearch-search-center-result-entity_type-label": "개체 유형:",
+	"bs-extendedsearch-search-center-filter-entitydata-type-label": "소셜에서 검색",
+	"bs-extendedsearch-search-center-filter-entitydata-type-with-values-label": "소셜에서 검색:",
+	"bs-social-filter-archived-val-archived": "보존됨만",
+	"bs-social-filter-archived-val-notarchived": "보존되지 않음만",
+	"bs-extendedsearch-source-type-socialentity-label": "소셜 개체",
+	"action-social-deleteothers": "다른 사람의 개체를 삭제",
+	"action-social-editothers": "다른 사람의 개체를 편집",
+	"right-social-deleteothers": "다른 사람의 개체를 삭제",
+	"right-social-editothers": "다른 사람의 개체를 편집"
 }
