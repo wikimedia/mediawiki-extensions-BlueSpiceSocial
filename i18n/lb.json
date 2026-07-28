@@ -28,6 +28,7 @@
 	"bs-social-entityaction-undelete": "Restauréieren",
 	"bs-social-entityaction-undelete-confirmtext": "Antrag restauréieren?",
 	"bs-social-entity-fatalstatus-save-emptyfield": "Feld '$1' ass eidel",
+	"bs-social-entity-fatalstatus-save-invalidfieldvalue": "Ongültege Wäert fir d'Feld „$1“",
 	"bs-social-select2-overwrites-noresults": "Kee Resultat",
 	"bs-social-select2-overwrites-searching": "Sichen...",
 	"bs-extendedsearch-search-center-result-owner-label": "Besëtzer:",
