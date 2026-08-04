@@ -3,7 +3,8 @@
 		"authors": [
 			"Amir1arch",
 			"FarsiNevis",
-			"Jeeputer"
+			"Jeeputer",
+			"LordProfo"
 		]
 	},
 	"activities": "فعالیت​ها",
@@ -44,7 +45,7 @@
 	"bs-social-filter-date-label-from": "$1 از",
 	"bs-social-filter-date-label-to": "$1 به",
 	"bs-social-renderer-timestampprefix-created": "ایجاد شده",
-	"bs-social-renderer-timestampprefix-touched": "ویرایش شده",
+	"bs-social-renderer-timestampprefix-touched": "ویرایش‌شده",
 	"bs-social-filter-button-tooltip": "نمایش گزینه‌های پالایش",
 	"bs-social-sort-button-tooltip": "نمایش گزینه‌های مرتب‌سازی",
 	"bs-social-entityspawner-button-tooltip": "ایجاد جدید",
